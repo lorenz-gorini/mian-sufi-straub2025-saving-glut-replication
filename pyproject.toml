@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=72"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mss-saving-glut-replication"
+version = "0.1.0"
+description = "Independent replication code for Mian, Straub, and Sufi's saving-glut project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.10",
+    "numpy>=2.1",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.4",
+]
+
+[tool.setuptools]
+package-dir = {"" = "Code"}
+
+[tool.setuptools.packages.find]
+where = ["Code"]
+include = ["unveiling*"]
+
+[tool.pytest.ini_options]
+testpaths = ["Code/tests"]

@@ -1,0 +1,60 @@
+# macOS and editor-local state
+.DS_Store
+.vscode/
+~$*
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Scratch work and render-inspection output
+/tmp/
+
+# External source material kept locally, not redistributed through Git
+/MSS2021Febreplicationkit/
+/MSS_SGR_Feb2021.pdf
+/MSS_SGR_July242025.pdf
+/MianSufi2007-Indebted Demand.pdf
+/MianSufi2007-Indebted Demand-Slides.pdf
+/NotebookLM-Present-Unveiling_the_Rich_Saving_Glut.pdf
+
+# Large or rebuildable data. Keep provenance README files tracked.
+/Data/raw/fwtw/
+/Data/raw/paper_originals/*
+!/Data/raw/paper_originals/README.md
+/Data/interim/
+/Data/processed/
+
+# Rebuildable empirical outputs
+/Results_Proposal/figures/
+/Presentation/generated/
+/Presentation/*/generated/
+/Presentation/1_replication_package_validation/assets/
+/Presentation/1_replication_package_validation/logs/
+
+# LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+/Presentation/**/*.pdf
+/Report/report.pdf
+
+# Presentation inspection output
+*.pptx.inspect.ndjson
