@@ -527,7 +527,7 @@ reconstruction of the stock behind the veil from these boundary files:
 | --- | --- | --- |
 | `data/fof/LQpanel_2019Q1.dta` | 297 x 1,111; unique quarter, 1945Q4--2019Q4 | Authors' prepared wide balance-sheet panel; supplies Q4 household holdings across named intermediary instruments and the household financial-asset total. |
 | `data/fof/LQpanel_2019Q1withgov.dta` | 294 x 1,049; unique quarter, 1945Q4--2019Q1 | Wide raw Financial Accounts panel used upstream by the older allocation code; not a completed issuer-holder matrix. |
-| `data/finalfiles/Yunveilhhd.dta` | 75 x 2,117; unique year, 1945--2019 | Household-debt-specific output through seven named rounds; four financial-intermediary bond allocations are reused in the Figure 1 aggregate. |
+| `data/finalfiles/Yunveilhhd.dta` | 75 x 2,117; unique year, 1945--2019 | Household-debt-specific output through seven named rounds; its preserved project copy validates four Python-reconstructed bond cells and supplies three nonfinancial exclusions only for the approximate share denominator. |
 | `data/crsp/msf.dta` | 4,346,059 x 8; security-month, 1945--2018 | Raw monthly security observations used to rebuild listed financial-intermediary equity with explicit December, share-code, and SIC rules. |
 | `data/finalfiles/YinequalityNIPAanalysis.dta` | annual, unique year, 1913--2016 | Supplies national income and sets the common authors-data endpoint at 2016. |
 | `data/finalfiles/Yunveil.dta` | 75 x 2,170; unique year, 1945--2019 | Merge of household, government, and mortgage debt allocations; closest old unveiling output but not Figure 1. |
@@ -537,12 +537,15 @@ reconstruction of the stock behind the veil from these boundary files:
 
 Starting from `LQpanel_2019Q1.dta` skips only upstream imports, cleaning, and
 wide merges. `Code/unveiling/figure1_authors.py` still combines the economically
-central intermediary instruments, adjusts funded pensions, adds the authors'
-bond allocations, and reconstructs listed financial equity. The target paper
+central intermediary instruments, adjusts funded pensions, reconstructs the
+four bond cells and household equity share from the Q4 panel, and reconstructs
+listed financial equity from raw CRSP records. The target paper
 uses 23 intermediary sectors and 34 instruments; 23 is not an instrument
 count. The resulting 1963--2016 stock-to-national-income curve has correlation
-0.995 with the digitized paper curve. Its ownership-share match is weaker
-because the kit omits the revised denominator crosswalk and completed matrix.
+0.995 with the digitized paper curve. Every reconstructed bond cell matches the
+supplied Stata intermediate within \$0.05 million. The ownership-share match is
+weaker because the kit omits the revised denominator crosswalk and completed
+matrix.
 
 Detailed used-column meanings, representative `Yunveil.dta` variables, current
 public FWTW inputs, and source-file checksums are maintained in

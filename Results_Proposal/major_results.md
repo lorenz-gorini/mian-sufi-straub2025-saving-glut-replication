@@ -116,10 +116,12 @@ These explanations are the source material for the visual teaching presentation.
 - Teaching-output generator:
   `Code/scripts/build_unveiling_teaching_assets.py`.
 - Explanation: `docs/methods/leontief-unveiling.md`.
-- Presentation: `Presentation/presentation.tex` and
-  `Presentation/presentation.pdf`.
+- Method presentation:
+  `Presentation/3_theoretical_methodology/presentation.pptx` and
+  `Presentation/3_theoretical_methodology/presentation_short.pptx`.
 - Report discussion: `Report/report.tex`, Sections 2--3.
 - Authors-data outputs: `Data/processed/figure1_authors_data.csv`,
+  `Data/processed/figure1_bond_validation.csv`,
   `Data/processed/figure1_paper_digitized.csv`, and
   `Data/processed/figure1_authors_comparison.csv`.
 - Authors-data comparison figure:
@@ -140,8 +142,14 @@ These explanations are the source material for the visual teaching presentation.
 - Equation (2) satisfies aggregate net worth equal to zero.
 - A closed intermediary cycle fails with a clear convergence error.
 - The authors-data tests verify the named-component aggregation, funded-pension
-  adjustment, CRSP December/SIC construction, merge contract, and failure on
+  adjustment, raw-panel bond reconstruction, household equity-share
+  construction, CRSP December/SIC construction, merge contract, and failure on
   duplicate annual keys.
+
+The raw-panel Python reconstruction of household bond claims on ABS issuers,
+finance companies, mortgage REITs, and private depository institutions matches
+the supplied Stata intermediates in every year within the declared \$0.05
+million tolerance. The maximum absolute cell error is \$0.03615 million.
 
 The worked example provides an edge-level verification. Its fixed
 point satisfies $\Omega=B+Q\Omega$, and the bank's 72.093% ultimate household
@@ -149,8 +157,9 @@ share is reconciled as 20% direct plus 52.093% through the fund. The report
 separates this proved common-matrix equivalence from the untested empirical
 comparison with the actual 2021 Stata pipeline.
 
-The old-vintage authors-data reconstruction has 54 annual Q4 observations from 1963 through
-2016. Relative to the digitized paper curve, its national-income-normalized
+The old-vintage authors-data reconstruction has 54 annual Q4 observations from
+1963 through 2016. Relative to the digitized paper curve, its
+national-income-normalized
 level has correlation 0.995 and mean absolute error 5.3 percentage points of
 national income. It begins at 144.4% rather than 148.5% and ends at 263.9%
 rather than 269.0%. The broad-denominator ownership share has mean absolute
@@ -175,10 +184,11 @@ is 157.2% of national income initially, 277.6% in 2007, and 325.6% in 2019.
 **Interpretation and limitation**
 
 The method removes the intermediation veil by allocating every intermediary to
-its ultimate owners under the proportionality assumption. Our equation-level
-implementation matches the target algebra; the authors-data reconstruction
-closely matches Figure 1's normalized stock; and the newer public data provide
-a separate robustness check. The remaining share discrepancy is not evidence
+its ultimate owners under the proportionality assumption. Figure 1 itself is
+the direct intermediary-claim stock measured before that solve. Our
+equation-level implementation matches the target algebra; the authors-data
+reconstruction closely matches Figure 1's normalized stock; and the newer
+public data provide a separate robustness check. The remaining share discrepancy is not evidence
 that the paper is wrong because the February 2021 package lacks the revised
 matrix, denominator crosswalk, and complete equity extension needed for that
 claim.

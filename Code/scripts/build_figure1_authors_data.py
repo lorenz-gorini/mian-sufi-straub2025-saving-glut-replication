@@ -1,4 +1,9 @@
-"""Build the authors-data Figure 1 reconstruction and comparison artifacts."""
+"""Build the primary authors-kit Figure 1 reconstruction and comparison.
+
+This entry point uses the February 2021 authors' inputs and preserved final
+files under the documented boundary.  It never reads the newer public FWTW or
+BEA/FRED files used by ``build_figure1.py``.
+"""
 
 from __future__ import annotations
 
@@ -13,15 +18,20 @@ import pandas as pd
 
 from unveiling.figure1_authors import (
     aggregate_crsp_financial_equity,
+    construct_author_bond_allocations,
     construct_authors_figure1,
-    load_author_allocations,
     load_author_balance_sheet,
+    load_author_bond_benchmark,
+    load_author_bond_inputs,
+    load_author_denominator_allocations,
+    load_author_equity_shares,
     load_author_national_income,
 )
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 AUTHOR_DATA = PROJECT_ROOT / "MSS2021Febreplicationkit" / "data"
+SUPPLIED_FINAL_FILES = PROJECT_ROOT / "Data" / "processed" / "finalfiles"
 PAPER_PDF = PROJECT_ROOT / "MSS_SGR_July242025.pdf"
 
 AUTHORS_OUTPUT = (
@@ -32,6 +42,9 @@ PAPER_OUTPUT = (
 )
 COMPARISON_OUTPUT = (
     PROJECT_ROOT / "Data" / "processed" / "figure1_authors_comparison.csv"
+)
+BOND_VALIDATION_OUTPUT = (
+    PROJECT_ROOT / "Data" / "processed" / "figure1_bond_validation.csv"
 )
 FIGURE_OUTPUT = (
     PROJECT_ROOT
@@ -148,6 +161,55 @@ def build_comparison(
         - comparison["paper_indirect_share"]
     )
     return comparison
+
+
+def build_bond_validation(
+    reconstructed: pd.DataFrame,
+    benchmark: pd.DataFrame,
+    *,
+    tolerance_millions: float = 0.05,
+) -> pd.DataFrame:
+    """Compare raw-input Python allocations with supplied Stata intermediates.
+
+    The tolerance is $50,000 for stocks recorded in millions of dollars.  It
+    permits single-precision Stata rounding but is economically negligible.
+    """
+
+    merged = reconstructed.merge(
+        benchmark,
+        on="year",
+        how="inner",
+        validate="one_to_one",
+        suffixes=("_python", "_stata"),
+    )
+    if len(merged) != len(reconstructed) or len(merged) != len(benchmark):
+        raise ValueError("bond validation: annual merge lost observations")
+
+    records: list[pd.DataFrame] = []
+    components = [column for column in reconstructed if column != "year"]
+    for component in components:
+        validation = merged[
+            ["year", f"{component}_python", f"{component}_stata"]
+        ].copy()
+        validation = validation.rename(
+            columns={
+                f"{component}_python": "python_millions",
+                f"{component}_stata": "stata_millions",
+            }
+        )
+        validation.insert(1, "component", component)
+        validation["error_millions"] = (
+            validation["python_millions"] - validation["stata_millions"]
+        )
+        records.append(validation)
+    output = pd.concat(records, ignore_index=True)
+    max_error = output["error_millions"].abs().max()
+    if max_error > tolerance_millions:
+        raise ValueError(
+            "bond validation: Python/Stata discrepancy exceeds "
+            f"{tolerance_millions} million (found {max_error:.6f})"
+        )
+    return output
 
 
 def plot_comparison(comparison: pd.DataFrame, output_path: Path) -> None:
@@ -271,17 +333,35 @@ def main() -> None:
     balance_sheet = load_author_balance_sheet(
         AUTHOR_DATA / "fof" / "LQpanel_2019Q1.dta"
     )
-    allocations = load_author_allocations(
-        AUTHOR_DATA / "finalfiles" / "Yunveilhhd.dta"
+    bond_inputs = load_author_bond_inputs(
+        AUTHOR_DATA / "fof" / "LQpanel_2019Q1.dta"
+    )
+    bond_allocations = construct_author_bond_allocations(bond_inputs)
+    bond_benchmark = load_author_bond_benchmark(
+        SUPPLIED_FINAL_FILES / "Yunveilhhd.dta"
+    )
+    bond_validation = build_bond_validation(
+        bond_allocations, bond_benchmark
+    )
+    equity_shares = load_author_equity_shares(
+        AUTHOR_DATA / "fof" / "LQpanel_2019Q1.dta"
+    )
+    denominator_allocations = load_author_denominator_allocations(
+        SUPPLIED_FINAL_FILES / "Yunveilhhd.dta"
     )
     crsp_equity = aggregate_crsp_financial_equity(
         AUTHOR_DATA / "crsp" / "msf.dta"
     )
     national_income = load_author_national_income(
-        AUTHOR_DATA / "finalfiles" / "YinequalityNIPAanalysis.dta"
+        SUPPLIED_FINAL_FILES / "YinequalityNIPAanalysis.dta"
     )
     authors = construct_authors_figure1(
-        balance_sheet, allocations, crsp_equity, national_income
+        balance_sheet,
+        bond_allocations,
+        equity_shares,
+        denominator_allocations,
+        crsp_equity,
+        national_income,
     )
 
     with tempfile.TemporaryDirectory(prefix="mss-figure1-") as directory:
@@ -293,12 +373,15 @@ def main() -> None:
     authors.to_csv(AUTHORS_OUTPUT, index=False)
     paper.to_csv(PAPER_OUTPUT, index=False)
     comparison.to_csv(COMPARISON_OUTPUT, index=False)
+    bond_validation.to_csv(BOND_VALIDATION_OUTPUT, index=False)
     plot_comparison(comparison, FIGURE_OUTPUT)
     write_macros(comparison, MACRO_OUTPUT)
 
+    print("Approach: primary authors-kit reconstruction")
     print(f"Wrote {AUTHORS_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {PAPER_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {COMPARISON_OUTPUT.relative_to(PROJECT_ROOT)}")
+    print(f"Wrote {BOND_VALIDATION_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {FIGURE_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {MACRO_OUTPUT.relative_to(PROJECT_ROOT)}")
 

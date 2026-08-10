@@ -179,11 +179,13 @@ near the beginning of `Presentation/presentation.tex`.
 
 The downloaded tree permits a meaningful intermediate benchmark without
 rebuilding every source table. `Code/scripts/build_figure1_authors_data.py`
-starts from the authors' prepared `LQpanel_2019Q1.dta`, adds four bond
-allocations from `Yunveilhhd.dta`, rebuilds listed financial equity from their
-raw CRSP monthly file, and normalizes by their national-income series. The code
-therefore skips mechanical import/cleaning but explicitly retains the central
-instrument aggregation.
+starts from the authors' prepared `LQpanel_2019Q1.dta`, reconstructs four bond
+issuer-holder cells and the household equity share from its Q4 columns,
+rebuilds listed financial equity from the raw CRSP monthly file, and normalizes
+by the preserved national-income series. `Yunveilhhd.dta` is now a validation
+target and approximate-denominator input, not a Figure 1 numerator input. The
+code therefore skips mechanical imports and wide merges but explicitly retains
+the central missing-cell allocation and instrument aggregation.
 
 For 1963--2016, the reconstructed stock behind the veil divided by national
 income has correlation 0.995 and mean absolute error 5.3 percentage points of
@@ -191,6 +193,12 @@ national income relative to the digitized 2025 Figure 1 curve. The ownership
 share is less exact: the broad-denominator version has mean absolute error 3.2
 percentage points. The missing completed 2025 matrices and revised denominator
 crosswalk prevent an exact reproduction label.
+
+Every reconstructed household bond cell matches the preserved Stata
+intermediate within \$0.05 million; the maximum absolute discrepancy is
+\$0.03615 million. This verifies the Python transcription of the old
+proportional allocation rules without importing their downstream output into
+the numerator.
 
 The user ran parts of the Stata package in the vendor tree before this audit,
 so some vendor final-file hashes differ from the preserved downloaded copies.
@@ -241,6 +249,7 @@ the selected inputs but does not replace an isolated full historical run.
 | 2026-08-09 | Treat the national-income-normalized result as a close old-vintage authors-data reconstruction, not an exact 2025 replication. | Its curve matches tightly, but the older kit lacks the revised completed matrices and exact ownership-share denominator. |
 | 2026-08-09 | Honor the user's explicit request to run the full authors' master in place and replace generated outputs. | The purpose was to test the authors' actual upstream pipeline; the user accepted loss of the pristine generated files and can re-download the kit. The exception, package environment, code portability changes, and resulting artifacts are recorded above. |
 | 2026-08-10 | Close T-007 and route all remaining July 2025 questions to the selected-result tasks. | The master run, exact 2021-paper output crosswalk, manual figure checks, Table 7 numerical match, and verified validation deck satisfy the historical benchmark definition of done. |
+| 2026-08-10 | Replace the Figure 1 bond numerator input with a Python reconstruction from the Q4 panel. | The supplied Stata cells should validate the reconstruction, not predetermine it; all four categories now match within \$0.05 million. |
 
 ## Session record: 2026-08-10 closure review
 

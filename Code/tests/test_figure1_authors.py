@@ -2,11 +2,24 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
 
-from unveiling.figure1_authors import COMPONENT_COLUMNS, construct_authors_figure1
+from unveiling.figure1_authors import (
+    BOND_BENCHMARK_COLUMNS,
+    COMPONENT_COLUMNS,
+    construct_author_bond_allocations,
+    construct_authors_figure1,
+    load_author_bond_benchmark,
+    load_author_bond_inputs,
+    load_author_equity_shares,
+)
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _inputs() -> tuple[pd.DataFrame, ...]:
@@ -26,15 +39,25 @@ def _inputs() -> tuple[pd.DataFrame, ...]:
             "fl153090005q": [15.0],
         }
     )
-    allocations = pd.DataFrame(
+    bonds = pd.DataFrame(
         {
             "year": [2000],
             "a_hh_absbnd": [1.0],
             "a_hh_fincbnd": [2.0],
             "a_hh_mreitbnd": [3.0],
             "a_hh_pdibnd": [4.0],
+        }
+    )
+    equity_shares = pd.DataFrame(
+        {
+            "year": [2000],
             "a_hh_equity": [200.0],
             "a_tot_equity": [500.0],
+        }
+    )
+    denominator_allocations = pd.DataFrame(
+        {
+            "year": [2000],
             "a_hh_nfcbnd": [20.0],
             "a_hh_nfcequity": [100.0],
             "a_hh_nfcothl": [5.0],
@@ -46,7 +69,14 @@ def _inputs() -> tuple[pd.DataFrame, ...]:
     national_income = pd.DataFrame(
         {"year": [2000], "national_income_millions": [500.0]}
     )
-    return balance_sheet, allocations, crsp_equity, national_income
+    return (
+        balance_sheet,
+        bonds,
+        equity_shares,
+        denominator_allocations,
+        crsp_equity,
+        national_income,
+    )
 
 
 def test_component_sum_and_units_are_explicit() -> None:
@@ -75,20 +105,111 @@ def test_proxy_denominator_applies_documented_exclusions_once() -> None:
 
 
 def test_merge_fails_when_an_annual_input_is_missing() -> None:
-    balance_sheet, allocations, crsp_equity, national_income = _inputs()
+    (
+        balance_sheet,
+        bonds,
+        equity_shares,
+        denominator_allocations,
+        crsp_equity,
+        national_income,
+    ) = _inputs()
     with pytest.raises(ValueError, match="annual merges lost observations"):
         construct_authors_figure1(
             balance_sheet,
-            allocations.iloc[0:0],
+            bonds.iloc[0:0],
+            equity_shares,
+            denominator_allocations,
             crsp_equity,
             national_income,
         )
 
 
 def test_nonfinite_equity_share_fails_loudly() -> None:
-    balance_sheet, allocations, crsp_equity, national_income = _inputs()
-    allocations.loc[0, "a_tot_equity"] = np.nan
+    (
+        balance_sheet,
+        bonds,
+        equity_shares,
+        denominator_allocations,
+        crsp_equity,
+        national_income,
+    ) = _inputs()
+    equity_shares.loc[0, "a_tot_equity"] = np.nan
     with pytest.raises(ValueError, match="invalid household equity share"):
         construct_authors_figure1(
-            balance_sheet, allocations, crsp_equity, national_income
+            balance_sheet,
+            bonds,
+            equity_shares,
+            denominator_allocations,
+            crsp_equity,
+            national_income,
+        )
+
+
+def test_raw_bond_reconstruction_matches_supplied_stata_cells() -> None:
+    """The Python missing-cell allocation reproduces the supplied benchmark."""
+
+    panel = (
+        PROJECT_ROOT
+        / "MSS2021Febreplicationkit"
+        / "data"
+        / "fof"
+        / "LQpanel_2019Q1.dta"
+    )
+    benchmark_path = (
+        PROJECT_ROOT
+        / "Data"
+        / "processed"
+        / "finalfiles"
+        / "Yunveilhhd.dta"
+    )
+    reconstructed = construct_author_bond_allocations(
+        load_author_bond_inputs(panel)
+    )
+    benchmark = load_author_bond_benchmark(benchmark_path)
+    merged = reconstructed.merge(
+        benchmark,
+        on="year",
+        validate="one_to_one",
+        suffixes=("_python", "_stata"),
+    )
+    for column in BOND_BENCHMARK_COLUMNS[1:]:
+        error = (
+            merged[f"{column}_python"] - merged[f"{column}_stata"]
+        ).abs()
+        assert error.max() < 0.05
+
+
+def test_raw_equity_shares_match_supplied_stata_intermediates() -> None:
+    """The raw equity aggregation reproduces the old prepared variables."""
+
+    panel = (
+        PROJECT_ROOT
+        / "MSS2021Febreplicationkit"
+        / "data"
+        / "fof"
+        / "LQpanel_2019Q1.dta"
+    )
+    benchmark_path = (
+        PROJECT_ROOT
+        / "Data"
+        / "processed"
+        / "finalfiles"
+        / "Yunveilhhd.dta"
+    )
+    reconstructed = load_author_equity_shares(panel)
+    benchmark = pd.read_stata(
+        benchmark_path,
+        columns=["year", "a_hh_equity", "a_tot_equity"],
+        convert_categoricals=False,
+    )
+    benchmark = benchmark.loc[benchmark["year"].between(1963, 2016)].copy()
+    merged = reconstructed.merge(
+        benchmark,
+        on="year",
+        validate="one_to_one",
+        suffixes=("_python", "_stata"),
+    )
+    for column in ("a_hh_equity", "a_tot_equity"):
+        np.testing.assert_array_equal(
+            merged[f"{column}_python"], merged[f"{column}_stata"]
         )

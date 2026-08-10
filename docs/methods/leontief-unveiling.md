@@ -432,12 +432,15 @@ Completed here:
 - accounting, ownership, and convergence invariants;
 - a code-level crosswalk to the old authors' procedure;
 - a 1963--2016 authors-data Figure 1 reconstruction from the authors' prepared
-  balance-sheet panel, bond allocations, raw CRSP file, and national income;
+  balance-sheet panel, raw CRSP file, and national income, with the four bond
+  cells and household equity share rebuilt in Python from Q4 panel inputs;
+- validation of every reconstructed bond cell against the supplied Stata
+  intermediate within \$0.05 million; the maximum error is \$0.03615 million;
 - a comparison with a digitized paper benchmark: correlation 0.995 and mean
   absolute error 5.3 percentage points of national income for the level series;
 - an independent 1963--2019 robustness series from pinned June 2026 FWTW and
   BEA/FRED national-income inputs; and
-- data-boundary tests for the authors-data aggregation and network algebra.
+- data-boundary, raw-cell reconstruction, and network-algebra tests.
 
 Still required for an exact-vintage Figure 1 replication:
 

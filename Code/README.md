@@ -77,8 +77,28 @@ Regenerate the presentation's numerical example values:
 python Code/scripts/build_unveiling_teaching_assets.py
 ```
 
-Build the independent Figure 1 reconstruction from the pinned Federal Reserve
-FWTW and BEA/FRED national-income inputs:
+## Figure 1 pipelines: keep these separate
+
+The two Figure 1 builds estimate the same economic object but answer different
+empirical questions. They share no input files and write no common output.
+
+| Role | Primary authors-kit reconstruction | Secondary public-data robustness |
+| --- | --- | --- |
+| Question | How closely can the July 2025 Figure 1 definition be reconstructed from the authors' supplied older inputs? | Does the same aggregate pattern remain visible in a later, easily obtainable public vintage? |
+| Entry point | `Code/scripts/build_figure1_authors_data.py` | `Code/scripts/build_figure1.py` |
+| Reusable module | `Code/unveiling/figure1_authors.py` | `Code/unveiling/figure1.py` |
+| Inputs | February 2021 kit Q4 panel and CRSP; preserved final files only under the documented validation/denominator boundary | Pinned June 2026 Federal Reserve FWTW CSV and BEA/FRED national income |
+| Sample | 1963--2016 | 1963--2019 |
+| Processed result | `Data/processed/figure1_authors_data.csv` plus comparison and bond-validation files | `Data/processed/figure1_indirect_household_ownership.csv` |
+| Figure | `Results_Proposal/figures/figure1_authors_data_comparison.png` | `Results_Proposal/figures/figure1_indirect_household_ownership.png` |
+| Correct label | Primary old-input reconstruction of the 2025 definition | Secondary newer-public-data robustness exercise |
+
+Do not merge the annual series or substitute one pipeline's inputs into the
+other. Compare their generated outputs only after preserving their vintage,
+sector, denominator, and equity-extension labels.
+
+Build the secondary newer-public-data robustness result from the pinned
+Federal Reserve FWTW and BEA/FRED national-income inputs:
 
 ```bash
 python Code/scripts/build_figure1.py
@@ -88,30 +108,37 @@ This writes the analysis-ready annual series to
 `Data/processed/figure1_indirect_household_ownership.csv` and the generated
 chart to `Results_Proposal/figures/figure1_indirect_household_ownership.png`.
 The result uses year-end balance sheets for 1963--2019. It is an independent
-reconstruction using the June 2026 FWTW vintage, not an exact output from the
-authors' unavailable 2025 code.
+robustness reconstruction using the June 2026 FWTW vintage, not an exact output
+from the authors' unavailable 2025 code and not a replacement for the
+authors-kit build below.
 
-Build the authors-data Figure 1 reconstruction from the authors' February 2021
-data snapshot:
+Build the primary Figure 1 reconstruction from the authors' February 2021 data
+snapshot:
 
 ```bash
 python Code/scripts/build_figure1_authors_data.py
 ```
 
 This reads selected Q4 Financial Accounts columns from
-`LQpanel_2019Q1.dta`, the authors' prepared financial-bond allocations from
-`Yunveilhhd.dta`, their supplied CRSP monthly file for the listed-financial-
-equity extension, and their national-income series. It explicitly combines
-nine household-intermediary claim groups and writes compact annual component,
-digitized-benchmark, and comparison CSVs under `Data/processed/`, plus the
-comparison chart under `Results_Proposal/figures/`. The common-input sample is
-1963--2016 because the authors' national-income analysis file ends in 2016.
+`LQpanel_2019Q1.dta` and reimplements in Python the authors' proportional
+missing-cell allocations for four financial-intermediary bond categories. It
+also rebuilds the household equity share from that panel and combines it with
+the supplied raw CRSP monthly file. The preserved `Data/processed/finalfiles/`
+copy of `Yunveilhhd.dta` is used only to validate those reconstructed cells and
+to supply three nonfinancial exclusions for an explicitly approximate share
+denominator; its old unveiling output never enters the Figure 1 numerator.
+`YinequalityNIPAanalysis.dta` supplies national income. The script writes the
+annual components, bond-cell validation, digitized benchmark, and aligned
+comparison under `Data/processed/`, plus the chart under
+`Results_Proposal/figures/`. The common-input sample is 1963--2016 because the
+authors' national-income analysis file ends in 2016.
 
 The 2025 paper has 23 intermediary sectors and 34 instruments. The old kit
 does not include those completed bilateral matrices, so the level comparison
-is a close old-vintage authors-data reconstruction while the share denominator remains an
-explicit proxy. See `docs/data/figure1-data.md` for the exact component and
-denominator contracts.
+is a close old-vintage authors-data reconstruction while the share denominator
+remains an explicit proxy. See `docs/data/figure1-data.md` and
+`docs/project/tasks/figure1-replication.md` for the exact component,
+validation, and denominator contracts.
 
 ## Leontief unveiling
 

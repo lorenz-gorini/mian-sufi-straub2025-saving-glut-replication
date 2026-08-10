@@ -14,6 +14,7 @@ generated numerical results belong in generated artifacts.
 | [`project/tasks/pedagogical-presentation.md`](project/tasks/pedagogical-presentation.md) | Learning-first explanation and presentation contract. |
 | [`project/tasks/final-report.md`](project/tasks/final-report.md) | Evidence standard, progress, and completion criteria for the LaTeX report. |
 | [`project/tasks/author-data-benchmark.md`](project/tasks/author-data-benchmark.md) | Historical benchmark, authors-data reconstruction, storage, and new-data robustness boundary. |
+| [`project/tasks/figure1-replication.md`](project/tasks/figure1-replication.md) | T-004 Figure 1 definition, data boundary, reconstruction equations, validation, and remaining exact-vintage gap. |
 | [`data/data-guide.md`](data/data-guide.md) | Data zones, schema contract, merge documentation, and descriptives checklist. |
 | [`data/author-kit-data-map.md`](data/author-kit-data-map.md) | Selective folder dictionary and storage/access policy for the downloaded authors' tree. |
 | [`data/figure1-data.md`](data/figure1-data.md) | Selective Figure 1 source inventory, schemas, transformations, provenance, and vintage boundary. |

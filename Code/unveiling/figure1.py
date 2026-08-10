@@ -1,10 +1,16 @@
-"""Independent construction of the two series in the 2025 paper's Figure 1.
+"""Newer-public-data robustness construction for the 2025 Figure 1 object.
 
 The figure measures the household financial claims that sit behind the
 intermediation veil.  In FWTW data these are claims held by households and
 issued by financial intermediaries.  They are observed direct claims on an
 intermediary, but indirect claims on the primary assets that the intermediary
 finances.  This object is therefore not ``Omega - M_bar``.
+
+This module deliberately does not read the authors' replication kit.  It uses
+the pinned June 2026 public FWTW release and BEA national income distributed by
+FRED.  Its output is secondary, newer-vintage robustness evidence.  The
+primary old-input reconstruction is implemented separately in
+``unveiling.figure1_authors``.
 """
 
 from __future__ import annotations
@@ -284,7 +290,7 @@ def build_figure1_series(
 
 
 def plot_figure1(series: pd.DataFrame, output_path: str | Path) -> None:
-    """Plot the independent Figure 1 reconstruction and save it to disk."""
+    """Plot the newer-public-data robustness series and save it to disk."""
 
     output = Path(output_path)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -308,7 +314,10 @@ def plot_figure1(series: pd.DataFrame, output_path: str | Path) -> None:
     level_axis.set(
         xlabel="Year",
         ylabel="Indirect household ownership\n(as ratio to national income)",
-        title="Indirect Household Ownership of U.S. Financial Assets",
+        title=(
+            "Public-data robustness: indirect household ownership "
+            "of U.S. financial assets"
+        ),
     )
     share_axis.set_ylabel("Share of U.S. financial assets owned indirectly")
     level_axis.grid(axis="both", color="#DCE3E8", linewidth=0.8, alpha=0.8)

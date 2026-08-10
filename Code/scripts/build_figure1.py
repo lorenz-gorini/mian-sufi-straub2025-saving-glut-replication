@@ -1,4 +1,9 @@
-"""Build the independent reconstruction of the 2025 paper's Figure 1."""
+"""Build the secondary Figure 1 robustness result from newer public data.
+
+This entry point never reads the authors' replication kit.  The primary
+authors-kit reconstruction has a separate entry point in
+``build_figure1_authors_data.py`` and writes to different output paths.
+"""
 
 from pathlib import Path
 
@@ -42,6 +47,7 @@ def main() -> None:
     _write_latex_values(series, VALUES_PATH)
 
     peak = series.loc[series["indirect_share"].idxmax()]
+    print("Approach: secondary newer-public-data robustness")
     print(f"Wrote {SERIES_PATH.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {FIGURE_PATH.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {VALUES_PATH.relative_to(PROJECT_ROOT)}")
