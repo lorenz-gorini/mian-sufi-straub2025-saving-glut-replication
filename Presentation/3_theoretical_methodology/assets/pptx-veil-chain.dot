@@ -1,0 +1,16 @@
+digraph veil {
+  graph [rankdir=LR, bgcolor="transparent", margin=0.08, pad=0.08,
+         nodesep=0.42, ranksep=0.62, fontname="Helvetica"];
+  node [shape=box, style="rounded,filled", fillcolor="#F7FAFC",
+        color="#102A43", penwidth=2, fontname="Helvetica",
+        fontsize=17, margin="0.16,0.10"];
+  edge [color="#102A43", penwidth=2.2, arrowsize=0.8,
+        fontname="Helvetica", fontsize=13];
+  asset [label="Primary\nasset"];
+  bank [label="Bank"];
+  fund [label="Fund"];
+  owner [label="Ultimate\nowner", color="#C65D16"];
+  asset -> bank;
+  bank -> fund;
+  fund -> owner;
+}

@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{xcolor}
+\definecolor{mssnavy}{HTML}{102A43}
+\setlength\PreviewBorder{2pt}
+
+\newenvironment{slidemath}
+  {\begin{preview}\color{mssnavy}\(\displaystyle}
+  {\)\end{preview}}
+
+\begin{document}
+
+% 01 direct-share
+\begin{slidemath}
+s_t(i,j)=
+\frac{\text{liabilities issued by }i\text{ and held directly by }j}
+     {\text{total liabilities issued by }i}
+\end{slidemath}
+
+% 02 paper-eq4
+\begin{slidemath}
+\overline{\mathbf M}_t
+=
+\left(\frac{\mathbf 1}{\mathbf L_t}\right)^{\!\top}
+\odot
+\left(\sum_{h=1}^{\ell}\mathbf M_{h,t}\right),
+\qquad \ell=34
+\end{slidemath}
+
+% 03 direct-row-sum
+\begin{slidemath}
+\overline{\mathbf M}_t\mathbf 1_{m+k}=\mathbf 1_{m+k}
+\end{slidemath}
+
+% 04 terminal-blocks
+\begin{slidemath}
+\mathbf M_t=
+\begin{bmatrix}
+\mathbf 0 & \mathbf 0\\
+\mathbf B_t & \mathbf Q_t
+\end{bmatrix}
+\end{slidemath}
+
+% 05 direct-exit
+\begin{slidemath}
+\mathbf B_t
+\end{slidemath}
+
+% 06 one-hidden-layer
+\begin{slidemath}
+\mathbf Q_t\mathbf B_t
+\end{slidemath}
+
+% 07 two-hidden-layers
+\begin{slidemath}
+\mathbf Q_t^2\mathbf B_t
+\end{slidemath}
+
+% 08 block-series
+\begin{slidemath}
+\boldsymbol\Omega_t
+=\mathbf B_t+\mathbf Q_t\mathbf B_t+\mathbf Q_t^2\mathbf B_t+\cdots
+\end{slidemath}
+
+% 09 block-series-sum
+\begin{slidemath}
+\boldsymbol\Omega_t
+=\sum_{r=0}^{\infty}\mathbf Q_t^r\mathbf B_t
+\end{slidemath}
+
+% 10 block-leontief
+\begin{slidemath}
+\boldsymbol\Omega_t
+=(\mathbf I_k-\mathbf Q_t)^{-1}\mathbf B_t
+\end{slidemath}
+
+% 11 fixed-point
+\begin{slidemath}
+\boldsymbol\Omega_t
+=\mathbf B_t+\mathbf Q_t\boldsymbol\Omega_t
+\end{slidemath}
+
+% 12 linear-system
+\begin{slidemath}
+(\mathbf I_k-\mathbf Q_t)\boldsymbol\Omega_t=\mathbf B_t
+\end{slidemath}
+
+% 13 spectral-radius
+\begin{slidemath}
+\rho(\mathbf Q_t)<1
+\end{slidemath}
+
+% 14 unveiled-row-sum
+\begin{slidemath}
+\boldsymbol\Omega_t\mathbf 1_m=\mathbf 1_k
+\end{slidemath}
+
+% 15 worked-bank-fixed-point
+\begin{slidemath}
+\omega_{BH}=0.20+0.70\,\omega_{FH}
+\end{slidemath}
+
+% 16 worked-fund-fixed-point
+\begin{slidemath}
+\omega_{FH}=0.60+0.20\,\omega_{BH}
+\end{slidemath}
+
+% 17 worked-substitution
+\begin{slidemath}
+\omega_{BH}=0.20+0.70\bigl(0.60+0.20\,\omega_{BH}\bigr)
+\end{slidemath}
+
+% 18 worked-collection
+\begin{slidemath}
+0.86\,\omega_{BH}=0.62
+\end{slidemath}
+
+% 19 worked-result
+\begin{slidemath}
+\omega_{BH}=0.720930\ldots
+\end{slidemath}
+
+% 20 worked-total-percent
+\begin{slidemath}
+\omega_{BH}=72.093\%
+\end{slidemath}
+
+% 21 worked-path-sum
+\begin{slidemath}
+20+42+2.8+5.88+0.392+0.823+\cdots=72.093
+\end{slidemath}
+
+% 22 paper-eq2
+\begin{slidemath}
+\mathbf W_t=\mathbf L_t\overline{\mathbf M}_t-\mathbf L_t
+\end{slidemath}
+
+% 23 zero-sum-net-worth
+\begin{slidemath}
+\sum_{i=1}^{m+k}W_{i,t}=0
+\end{slidemath}
+
+% 24 paper-eq3
+\begin{slidemath}
+\mathbf A_t=\mathbf P_t\times\boldsymbol\Omega_t+\boldsymbol\Lambda_t
+\end{slidemath}
+
+% 25 omega-dimensions
+\begin{slidemath}
+\boldsymbol\Omega_t\in\mathbb R^{k\times m}
+\end{slidemath}
+
+% 26 seven-stage precursor
+\begin{slidemath}
+x_t^{(r+1)}=\mathcal T_{r,t}\!\left(x_t^{(r)}\right),
+\quad r=1,\ldots,7;
+\qquad \mathcal T_{r,t}\text{ varies by stage}
+\end{slidemath}
+
+% 27 dollar-instrument-cell
+\begin{slidemath}
+M_{h,t}(i,j)
+=\text{dollars of instrument }h\text{ issued by }i\text{ and held by }j
+\end{slidemath}
+
+% 28 instrument-matrix-dimensions
+\begin{slidemath}
+\mathbf M_{h,t}\in\mathbb R_{+}^{(m+k)\times(m+k)}
+\end{slidemath}
+
+% 29 exact-residual
+\begin{slidemath}
+x_{i,\mathrm{missing}}
+=r_i-\sum_{j\in\mathcal K_i}x_{ij}
+\end{slidemath}
+
+% 30 dina-share
+\begin{slidemath}
+\omega_{g,t}^{a}
+=
+\frac{\text{weighted holdings of asset }a\text{ by group }g}
+     {\text{weighted household holdings of asset }a}
+\end{slidemath}
+
+% 31 dina-allocation
+\begin{slidemath}
+W_{g,t}^{a}=\omega_{g,t}^{a}W_t^{a}
+\end{slidemath}
+
+% 32 augmented-household-column
+\begin{slidemath}
+M_t^{\mathrm{aug}}(i,g)
+=M_t(i,H)\,\omega_{g,t}^{a(h)}
+\end{slidemath}
+
+% 33 augmented-column-conservation
+\begin{slidemath}
+\sum_g M_t^{\mathrm{aug}}(i,g)=M_t(i,H)
+\end{slidemath}
+
+% 34 distributional-saving
+\begin{slidemath}
+\Theta_{g,t}
+=\sum_a\left[
+W_{g,t}^{a}-W_{g,t-1}^{a}-\pi_t^{a}W_{g,t-1}^{a}
+\right]
+\end{slidemath}
+
+% 35 exact-paper-leontief-series
+\begin{slidemath}
+\overline{\boldsymbol\Omega}_t
+=\mathbf M_t+\mathbf M_t^2+\mathbf M_t^3+\cdots
+=\mathbf M_t(\mathbf I-\mathbf M_t)^{-1}
+\end{slidemath}
+
+\end{document}

@@ -1,0 +1,18 @@
+digraph network {
+  graph [layout=neato, bgcolor="transparent", margin=0.05, pad=0.08,
+         overlap=false, splines=curved, outputorder=edgesfirst];
+  node [shape=circle, fixedsize=true, width=0.74, style=filled,
+        fillcolor="#FFFFFF", color="#102A43", penwidth=2,
+        fontname="Helvetica-Bold", fontsize=22];
+  edge [penwidth=2.4, arrowsize=0.82, fontname="Helvetica-Bold", fontsize=20];
+  B [pos="50,250!"];
+  H [pos="450,250!", color="#C65D16"];
+  F [pos="450,50!"];
+  G [pos="50,50!", color="#C65D16"];
+  B -> H [label="20%", color="#C65D16", fontcolor="#C65D16"];
+  B -> G [label="10%", color="#C65D16", fontcolor="#C65D16"];
+  F -> H [label="60%", color="#C65D16", fontcolor="#C65D16"];
+  F -> G [label="20%", color="#C65D16", fontcolor="#C65D16"];
+  B -> F [label="70%", color="#102A43", fontcolor="#102A43"];
+  F -> B [label="20%", color="#2E5B88", fontcolor="#2E5B88"];
+}
