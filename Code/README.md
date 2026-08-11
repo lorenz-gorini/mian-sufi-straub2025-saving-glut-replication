@@ -157,6 +157,20 @@ NIPA personal plus business saving, and then applies the paper's trailing
 ten-year mean and 1982 normalization. The annual sample is 1963--2016 and the
 display sample is 1972--2016. See `docs/data/figure5-data.md`.
 
+Build the exploratory saving-rate profile against cohort mean real wealth:
+
+```bash
+python Code/scripts/build_figure6_wealth_level_diagnostic.py
+```
+
+This reuses the verified Figure 5 active-saving numerator, retains the 21 fine
+wealth cohorts, and divides period saving by supplied cohort pretax income. It
+is a repeated-cross-section diagnostic with cohort means, not an exact Figure
+6 replication or a fixed-dollar-bin estimate. Its interpretation and proposed
+follow-up tests are in
+`docs/project/personal-considerations-saving-inequality.md`; its input and
+output contract is in `docs/data/figure6-wealth-level-diagnostic.md`.
+
 Build the best-feasible Figure 8 debt proxy:
 
 ```bash

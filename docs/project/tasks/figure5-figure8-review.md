@@ -14,6 +14,13 @@ The maintained review output is a short interpretation and correction record
 for `Presentation/4_figure_comparison/presentation.pptx`. It must preserve the
 distinction between a reconstruction and a proxy.
 
+The personal interpretation and hypotheses prompted by Figures 5--6 are
+maintained separately in
+[`personal-considerations-saving-inequality.md`](../personal-considerations-saving-inequality.md).
+That note includes a generated wealth-level diagnostic and a prioritized
+sequence for testing income growth, fixed-dollar wealth bins, portfolio
+composition, and collateralized borrowing.
+
 ## Economic questions
 
 ### Figure 5: who actively saves?
@@ -101,6 +108,7 @@ borrowing.
 | Date | Decision | Rationale |
 | --- | --- | --- |
 | 2026-08-11 | Create a human-review task separate from completed empirical implementation T-004. | The code and comparison deck are verified artifacts, but the learning-first project contract also requires Lorenzo to understand and approve the economics, construction, and evidentiary boundary before final synthesis. |
+| 2026-08-11 | Treat the saving-rate discussion as Figure 6 interpretation and the new wealth-level plot as an exploratory diagnostic. | Figure 5 reports aggregate saving flows by broad group, while Figure 6 reports saving rates by percentile. The new plot retains fine percentile cohorts but changes their horizontal coordinate and uses a pretax-income proxy, so it must not inherit the Figure 6 replication label. |
 
 ## Session record: 2026-08-11 task creation
 
@@ -114,3 +122,25 @@ borrowing.
   the Figure 5 reconstruction and Figure 8 proxy.
 - Next action: read the two target-paper passages, then walk through Figure 5's
   saving identity before reviewing the generated comparison panel.
+
+## Session record: 2026-08-11 personal hypotheses and wealth levels
+
+- Economic question: can the post-1982 divergence be explained only by a
+  rightward shift in wealth, or did saving behavior also change conditional on
+  wealth?
+- Implementation: retained the 21 supplied fine cohorts, reconstructed their
+  active saving with the verified Figure 5 valuation identity, located each at
+  mean net wealth per adult in 2018 dollars, and pooled saving relative to
+  supplied pretax income over pre/post and endpoint-decade windows.
+- Invariants: fine-cohort wealth and income aggregate to their supplied totals,
+  and active saving retains the annual NIPA private-saving closure.
+- Finding: a pure composition explanation is insufficient descriptively. The
+  post-1982 saving profile lies substantially below the earlier profile at
+  middle and upper-middle wealth levels, then rises above it only in the far
+  upper tail.
+- Boundary: repeated cross-sections, percentile-cohort means, and a pretax-
+  income denominator do not identify a household-level fixed-wealth schedule
+  or reproduce the paper's disposable-income Figure 6 rate.
+- Next action: reconstruct the Figure 6 disposable-income denominator as far as
+  the kit permits, then create fixed-2018-dollar wealth bins from the raw DINA
+  extract before testing portfolio-composition and collateral hypotheses.
