@@ -185,6 +185,11 @@ Read [`docs/data/data-guide.md`](docs/data/data-guide.md) before touching data.
 The primary implementation language is Python unless the task explicitly
 requires a Stata benchmark.
 
+Repository Markdown is previewed with VS Code's built-in KaTeX renderer. Use
+`$...$` for inline math and `$$...$$` on separate lines for display math; do
+not use `\(...\)` or `\[...\]` as math delimiters because VS Code does not
+document them as supported delimiters. Escape literal currency signs as `\$`.
+
 - Use readable, Pythonic, non-redundant code with PEP 8 naming.
 - Prefer `pathlib.Path`, explicit configuration, type hints, and small
   single-purpose functions.
