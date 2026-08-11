@@ -18,13 +18,14 @@ estimands change together. Not every role exists for every figure.
 
 ## Current sequence
 
-The 16 slides establish the taxonomy and then compare the paper with our
+The 17 slides establish the taxonomy and then compare the paper with our
 authors-data results for Figures 1, 5, 6, and 8. Figure 1 retains the older
 Stata and public-data outputs as supporting diagnostics. Figures 5 and 6 are
 classified as reconstructions because the supplied wealth, income, fine-share,
 valuation, and NIPA inputs identify the revised saving objects through 2016.
-The Figure 6 section adds two mechanism diagnostics: the same saving rates
-indexed by mean real wealth, and trailing-five-year rates across percentiles.
+The Figure 6 section adds a paper-raster digitization audit and two mechanism
+diagnostics: the same saving rates indexed by mean real wealth, and
+trailing-five-year rates across percentiles.
 Figure 8 is classified as a bounded proxy because its unveiled asset stocks
 come from the older seven-round procedure rather than the unavailable 2025
 completed matrices.
@@ -39,8 +40,8 @@ The principal comparison statistics are:
   points over the common 1963--2016 sample;
 - Figure 5 top 1% / bottom 99%: correlations 0.992 / 0.997 and mean absolute
   errors 0.40 / 0.42 percentage points;
-- Figure 6 pre/post curves: correlations 0.991 / 0.972 and mean absolute errors
-  1.46 / 1.20 percentage points; and
+- Figure 6 pre/post curves: correlations 0.991 / 0.969 and mean absolute errors
+  1.46 / 1.22 percentage points; and
 - Figure 8 proxy top 1% / bottom 99%: correlations 0.993 / 0.995, with the
   2007 top-1 lending position understated by about 6 percentage points.
 
@@ -52,6 +53,7 @@ The principal comparison statistics are:
 - `Results_Proposal/figures/figure5_authors_data_reconstruction.png`
 - `Results_Proposal/figures/figure6_authors_data_percentiles.png`
 - `Results_Proposal/figures/figure6_authors_data_wealth_levels.png`
+- `Results_Proposal/figures/figure6_digitization_overlay_slide.png`
 - `Results_Proposal/figures/figure6_rolling5_heatmap.png`
 - `Results_Proposal/figures/figure6_rolling5_selected_percentiles.png`
 - `Results_Proposal/figures/figure8_authors_proxy.png`
@@ -68,7 +70,18 @@ kit remain read-only.
 
 ## Validation
 
-All 16 slides were rendered and inspected individually on 2026-08-11. The deck
+All 17 slides were rendered and inspected individually on 2026-08-11. The deck
 passes the template-fidelity, overflow, unresolved-placeholder, source-note,
 and PowerPoint-archive checks. Future extensions must retain the role labels
 and may not silently promote the Figure 8 proxy to a reconstruction.
+
+## Editable source
+
+Durable authoring files are stored in `source/`, alongside the presentation.
+Run `source/rebuild_presentation.zsh` to reconstruct the deck with Artifact
+Tool. The folder retains the editable build module, the template-following
+starter deck and frame map, and the authoring audit. Reusable cropped paper
+material is stored in `assets/`.
+
+Temporary render folders, layout exports, dependency installations, and QA
+caches are deliberately excluded because the rebuild command regenerates them.
