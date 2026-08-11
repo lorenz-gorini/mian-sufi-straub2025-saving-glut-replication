@@ -122,6 +122,7 @@ Generated outputs are:
 | `Data/processed/figure1_bond_validation.csv` | Year/component audit of Python raw-panel bond allocations against the supplied Stata intermediates. |
 | `Data/processed/figure1_paper_digitized.csv` | Approximate benchmark digitized from the paper's embedded Figure 1 raster. |
 | `Data/processed/figure1_authors_comparison.csv` | Year-aligned reconstructed and digitized series. |
+| `Results_Proposal/figures/figure1_authors_data_reconstruction.png` | Standalone ours-authors series for clean side-by-side comparison with the paper. |
 | `Results_Proposal/figures/figure1_authors_data_comparison.png` | Authors-data comparison used in the report and presentation. |
 
 All four reconstructed bond cells match the supplied Stata intermediates

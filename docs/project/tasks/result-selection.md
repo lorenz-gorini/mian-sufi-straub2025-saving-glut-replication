@@ -8,9 +8,9 @@ overlapping sample. For every gap, distinguish a code/transformation change, a
 changed economic definition or group, a pure 2017--2019 vintage extension, and
 an input that is absent from the supplied package.
 
-The exhibit selection itself is complete. This task remains active only for
-the old/new code and data lineage required to make a defensible feasibility
-judgment for each core figure.
+The exhibit selection and the old/new feasibility crosswalk are complete for
+all three core figures. This record now preserves the classification evidence
+and the exact boundary between reconstruction and proxy.
 
 ## Source status
 
@@ -174,6 +174,21 @@ row sums and aggregation; Figure 5 must reconcile wealth change into active
 saving plus valuation effects; Figure 8 must reconcile unveiled household-debt
 assets minus group liabilities with the plotted net position.
 
+## Completed Figure 5 and 8 feasibility classification
+
+The 2026-08-10 implementation audit resolves the remaining two core figures:
+
+| Figure | Classification | Earliest feasible supplied input | Verified boundary |
+| --- | --- | --- | --- |
+| Figure 5 | Old-input reconstruction of the July 2025 definition | `YwealthFOF.dta`, fine DINA shares, `Ywealthreturns.dta`, and NIPA saving | Annual saving closes to NIPA; 10-year/1982 display implemented through 2016; top-1 and bottom-99 correlations with the digitized target are 0.992 and 0.997 |
+| Figure 8 | Close old-unveiling proxy | Fine debt assets/liabilities in `YinequalityFAanalysis.dta` | Fine cells aggregate to old coarse cells, but the revised completed matrices needed for the augmented Leontief solve are absent |
+
+Figure 5 can therefore be called our reconstruction of the revised method on
+the older authors' data. Figure 8 cannot: its output name, documentation, and
+presentation label retain `proxy`. In both cases the absent 2017--2019 data are
+a sample-vintage limit, whereas Figure 8's absent completed matrices are a
+method-identification limit.
+
 ## Definition of done
 
 - [x] The exact full article version is present and identified.
@@ -183,16 +198,16 @@ assets minus group liabilities with the plotted net position.
       result, and a debt-financing/unveiling result.
 - [x] Figure 9 is explicitly a time-permitting extension rather than a core
       commitment.
-- [ ] Each selected result has a complete initial lineage to authors' code and
+- [x] Each selected result has a complete initial lineage to authors' code and
       files.
 - [x] The old/new version boundary, missing newer code or data, and any private
       inputs are explicit.
 - [x] The user has approved the final scope.
-- [x] `docs/project/progress.md` marks T-002 in progress. T-001 remains active
-      until the Figure 5 and 8 lineages are complete.
-- [ ] Figure 5 has a required-versus-available input table, an exact old/new
+- [x] `docs/project/progress.md` marks T-001 through T-004 complete and links
+      the three figure-specific data and replication records.
+- [x] Figure 5 has a required-versus-available input table, an exact old/new
       transformation crosswalk, and a feasibility classification.
-- [ ] Figure 8 has a required-versus-available input table, an exact old/new
+- [x] Figure 8 has a required-versus-available input table, an exact old/new
       transformation crosswalk, and a feasibility classification.
 
 ## Decision log
@@ -209,6 +224,7 @@ assets minus group liabilities with the plotted net position.
 | 2026-08-05 | Treat the current Figure 1 output as an independent trend reconstruction, not an exact authors' benchmark. | A later public FWTW vintage recovers the central rise but has 21 rather than 23 intermediary sectors, later revisions, and no authors' corporate-equity extension. | Pinned inputs, processed annual series, generated figure, data note, and report comparison. |
 | 2026-08-09 | Add an authors-data reconstruction between the historical package benchmark and the new-data robustness result. | Prepared author files let us skip mechanical cleaning while explicitly reconstructing the economically central instrument aggregate and testing it against the paper curve. | `figure1_authors.py`, generated comparison files, tests, report, and deck. |
 | 2026-08-10 | Recast the remaining task as a 2021-input feasibility audit for the fixed 2025 scope. | The full Stata run establishes that the old package works for the 2021 paper; the unresolved question is whether its data can identify the revised Figure 5 and 8 definitions over the common sample. | Completed T-007 benchmark, author-output crosswalk, and user direction. |
+| 2026-08-10 | Classify Figure 5 as a reconstruction and Figure 8 as a proxy. | Figure 5's wealth, valuation, fine-share, and NIPA inputs identify the revised saving/display procedure through 2016. Figure 8's downstream fine debt positions are usable, but its revised completed matrices are absent. | Generated pipelines, tests, data contracts, and digitized-paper comparisons. |
 
 ## Session record: 2026-08-10 task refresh
 

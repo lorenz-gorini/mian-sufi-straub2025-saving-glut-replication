@@ -52,6 +52,12 @@ FIGURE_OUTPUT = (
     / "figures"
     / "figure1_authors_data_comparison.png"
 )
+RECONSTRUCTION_FIGURE_OUTPUT = (
+    PROJECT_ROOT
+    / "Results_Proposal"
+    / "figures"
+    / "figure1_authors_data_reconstruction.png"
+)
 MACRO_OUTPUT = (
     PROJECT_ROOT / "Presentation" / "generated" / "figure1_authors_values.tex"
 )
@@ -232,7 +238,7 @@ def plot_comparison(comparison: pd.DataFrame, output_path: Path) -> None:
         comparison["indirect_assets_to_national_income"],
         color=orange,
         linewidth=2.2,
-        label="Authors' 2021 data + our equity extension",
+        label="Our authors-data reconstruction",
     )
     axes[0].set_title("Level behind the veil")
     axes[0].set_ylabel("Ratio to national income")
@@ -291,6 +297,63 @@ def plot_comparison(comparison: pd.DataFrame, output_path: Path) -> None:
     )
     figure.tight_layout(rect=(0, 0.15, 1, 0.94))
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output_path, dpi=220, bbox_inches="tight")
+    plt.close(figure)
+
+
+def plot_reconstruction(authors: pd.DataFrame, output_path: Path) -> None:
+    """Plot the two Figure 1 series reconstructed from authors-kit inputs.
+
+    The level is the reconstructed intermediary-claim stock divided by annual
+    national income.  The share uses the documented paper-scope denominator
+    proxy available from the older package and is labelled as such.
+    """
+
+    blue = "#4B9BD3"
+    gray = "#8A96A3"
+    navy = "#12304A"
+    figure, level_axis = plt.subplots(figsize=(8.0, 4.5))
+    share_axis = level_axis.twinx()
+
+    level_line = level_axis.plot(
+        authors["year"],
+        authors["indirect_assets_to_national_income"],
+        color=blue,
+        linewidth=2.5,
+        label="Level owned indirectly",
+    )[0]
+    share_line = share_axis.plot(
+        authors["year"],
+        authors["indirect_share_proxy"],
+        color=gray,
+        linewidth=2.5,
+        label="Share owned indirectly (old-kit proxy)",
+    )[0]
+
+    level_axis.set(
+        xlabel="Year",
+        ylabel="Indirect household ownership\n(as ratio to national income)",
+        title="Authors-kit inputs + 2025-definition reconstruction",
+    )
+    share_axis.set_ylabel(
+        "Share of household financial assets owned indirectly\n"
+        "(old-kit denominator proxy)"
+    )
+    level_axis.grid(color="#DCE3E8", linewidth=0.8, alpha=0.8)
+    level_axis.spines[["top"]].set_visible(False)
+    share_axis.spines[["top"]].set_visible(False)
+    level_axis.tick_params(colors=navy)
+    share_axis.tick_params(colors=navy)
+    level_axis.title.set_color(navy)
+    level_axis.legend(
+        handles=[level_line, share_line],
+        loc="upper left",
+        frameon=True,
+        framealpha=0.9,
+    )
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    figure.tight_layout()
     figure.savefig(output_path, dpi=220, bbox_inches="tight")
     plt.close(figure)
 
@@ -374,6 +437,7 @@ def main() -> None:
     paper.to_csv(PAPER_OUTPUT, index=False)
     comparison.to_csv(COMPARISON_OUTPUT, index=False)
     bond_validation.to_csv(BOND_VALIDATION_OUTPUT, index=False)
+    plot_reconstruction(authors, RECONSTRUCTION_FIGURE_OUTPUT)
     plot_comparison(comparison, FIGURE_OUTPUT)
     write_macros(comparison, MACRO_OUTPUT)
 
@@ -382,6 +446,9 @@ def main() -> None:
     print(f"Wrote {PAPER_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {COMPARISON_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {BOND_VALIDATION_OUTPUT.relative_to(PROJECT_ROOT)}")
+    print(
+        f"Wrote {RECONSTRUCTION_FIGURE_OUTPUT.relative_to(PROJECT_ROOT)}"
+    )
     print(f"Wrote {FIGURE_OUTPUT.relative_to(PROJECT_ROOT)}")
     print(f"Wrote {MACRO_OUTPUT.relative_to(PROJECT_ROOT)}")
 

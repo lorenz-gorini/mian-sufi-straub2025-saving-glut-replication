@@ -166,9 +166,9 @@ sectors, show when a missing cell is a residual versus a multi-cell balancing
 problem, make the DINA cohort split explicit, and crosswalk the inputs and
 equations for Figures 1, 5, and 8. The rebuilt 24-slide deck compiles without
 layout warnings; the new slides were visually inspected at full resolution,
-and the unchanged slides retain the earlier full-deck inspection. The overall
-task remains in progress because the verified Figure 5 and 8 result modules do
-not yet exist.
+and the unchanged slides retain the earlier full-deck inspection. The legacy
+combined artifact remains useful only for provenance; the verified Figure 5
+and 8 results now live in the empirical-comparison PowerPoint.
 
 The 24-slide root deck is now classified as a legacy combined artifact. The
 current topic modules are the 12-slide
@@ -184,6 +184,17 @@ the Python implementation, and the older seven-round comparison. Its network
 slide reconciles 20% direct plus 52.093% through the fund to 72.093% ultimate
 household ownership. All three current PowerPoints have passed full visual and
 template-fidelity checks.
+
+The 12-slide `Presentation/4_figure_comparison/presentation.pptx` is now the
+maintained empirical-comparison module. It distinguishes the 2025 target, the
+authors-old Stata precursor, ours-public robustness, and ours-authors result,
+then applies that hierarchy to Figures 1, 5, and 8. Figures 1 and 5 are labeled
+reconstructions; Figure 8 is labeled a bounded proxy because the completed
+2025 matrices are absent from the old package. Its main comparisons place each
+paper graph beside our generated output and report common-sample fit. All 12
+slides were rendered and inspected, contain source blocks in speaker notes,
+and pass template-fidelity, overflow, unresolved-placeholder, and archive
+checks.
 
 ## Decision log
 
@@ -210,6 +221,8 @@ template-fidelity checks.
 | 2026-08-10 | Keep topic Beamer files as historical references and maintain the revised topic decks in PowerPoint. | The editable PowerPoint template produces the more professional hierarchy requested by the user without deleting earlier work. |
 | 2026-08-10 | Render substantive PowerPoint equations from one shared LaTeX source. | Unicode approximations distorted sums, fractions, matrices, and subscripts; vector SVGs preserve the paper's notation and LaTeX geometry while remaining sharp at any slide size. |
 | 2026-08-10 | Keep a separate seven-slide theory module instead of shortening the full teaching deck in place. | The full derivation remains available for study, while the condensed sequence can be combined with data and result modules without creating an excessively long final presentation. |
+| 2026-08-10 | Put the four Figure 1 roles in a separate empirical-comparison deck. | The main replication test is ours-authors versus the 2025 target; separating the Stata precursor and public-data robustness prevents provenance, method, and vintage from being conflated. |
+| 2026-08-10 | Extend the empirical-comparison deck with Figure 5 as a reconstruction and Figure 8 as a bounded proxy. | The old kit identifies the revised saving decomposition through 2016, but its seven-round unveiled debt assets are not the missing 2025 matrix inputs. The slide labels must preserve that difference in evidentiary strength. |
 
 ## Session record: 2026-08-10 topic-deck visual redesign
 
@@ -267,6 +280,44 @@ template-fidelity checks.
   rule for using the NotebookLM presentation only as visual inspiration.
 - Next action: complete the Figure 5 and 8 feasibility classifications before
   fixing the comparison-panel layouts and assembling the final narrative.
+
+## Session record: 2026-08-10 Figures 5 and 8 comparison module
+
+- Goal: implement the two remaining core exhibits with the 2025 definitions
+  wherever the February 2021 inputs permit, then add defensible paper-versus-
+  ours comparisons to the empirical deck.
+- Figure 5: reconstruct fine wealth by group, remove valuation changes using
+  the paper's saving identity and NIPA equity closure, aggregate to the revised
+  wealth groups, apply the trailing ten-year mean, and subtract the 1982
+  value. The top-1/bottom-99 correlations with the digitized paper curves are
+  0.992/0.997, with mean absolute errors 0.40/0.42 percentage points.
+- Figure 8: aggregate the package's fine seven-round debt-asset positions and
+  liabilities, apply $ND=A^D-D$, divide by national income, and subtract
+  1982. This is a proxy rather than a reconstruction because the completed
+  revised instrument-by-sector matrices are unavailable.
+- Output: the comparison PowerPoint now has 12 slides and includes the paper
+  graphs without their printed captions, two method-boundary slides, two
+  primary comparison slides, and a cross-figure synthesis.
+- Validation: all slides were rendered and inspected at full size. The deck
+  passes template-fidelity, overflow, unresolved-placeholder, source-note, and
+  archive-integrity checks.
+- Next action: assemble the final short course presentation from the verified
+  topic modules and carry the same reconstruction/proxy distinction into the
+  compact report.
+
+## Session record: 2026-08-11 substantive-review handoff
+
+- Starting branch/commit: `main` at `880b14b`; the worktree already contained
+  the verified 12-slide comparison module and other presentation changes.
+- Goal: make Lorenzo's substantive review of the new Figure 5 and Figure 8
+  results a prerequisite for their use in the final short presentation.
+- Changed files: this task record, `docs/project/progress.md`, and the new
+  T-009 review record.
+- Result: T-009 now owns paper reading, economic interpretation, code tracing,
+  metric review, and slide corrections. T-005 will integrate only the approved
+  comparison panels and explanations.
+- Next action: complete the Figure 5/8 review checklist, then assemble the final
+  synthesis without duplicating the full empirical-comparison deck.
 
 ## Session record: 2026-08-10 focused package-validation sequence
 

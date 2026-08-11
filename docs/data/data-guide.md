@@ -3,10 +3,10 @@
 This document defines how data must be organized and documented. It will become
 the canonical inventory during T-002.
 
-The first selective inventory is
-[`figure1-data.md`](figure1-data.md). It is deliberately updated as relevant
-files are discovered rather than populated by reading every file in the old
-package.
+The selected-result inventories are [`figure1-data.md`](figure1-data.md),
+[`figure5-data.md`](figure5-data.md), and [`figure8-data.md`](figure8-data.md).
+They document only the files and columns used by the selected exhibits rather
+than reproducing the entire old-package schema.
 
 ## Data zones
 

@@ -18,6 +18,21 @@ release and BEA/FRED national income, covers 1963--2019, and writes only
 `figure1_indirect_household_ownership.csv` and its matching figure. It is not
 called by the primary authors-kit pipeline and is not superseded by it.
 
+## Four-version comparison taxonomy
+
+| Label | Object | Evidence role |
+| --- | --- | --- |
+| Target | July 2025 paper Figure 1 | Authoritative benchmark for the revised definition and 2019 endpoint |
+| Authors-old | February 2021 Stata old Figure 6 | Related ownership-detail precursor; different dependent variable, so not an older exact Figure 1 |
+| Ours-public | Public FWTW and BEA/FRED build | Secondary later-vintage robustness result through 2019 |
+| Ours-authors | Python reconstruction from February 2021 kit inputs | Primary old-input reconstruction of the 2025 Figure 1 definition through 2016 |
+
+The project's main Figure 1 comparison is **ours-authors versus target**. The
+authors-old and ours-public outputs explain method lineage and vintage
+robustness, respectively. Neither is a substitute benchmark, and the
+ours-authors versus authors-old comparison is not a controlled methodology
+experiment because the estimands and input treatment differ.
+
 ## Economic question and equation
 
 Let
@@ -126,7 +141,10 @@ liabilities within relative tolerance $10^{-6}$.
   `Data/processed/figure1_paper_digitized.csv` and
   `Data/processed/figure1_authors_comparison.csv`.
 - Generated exhibit:
+  `Results_Proposal/figures/figure1_authors_data_reconstruction.png`.
+- Generated quantitative comparison:
   `Results_Proposal/figures/figure1_authors_data_comparison.png`.
+- Comparison deck: `Presentation/4_figure_comparison/presentation.pptx`.
 
 The four reconstructed household bond cells match the supplied Stata
 intermediates in every year within the declared \$0.05 million tolerance. The
@@ -179,3 +197,4 @@ the maintained delivery target.
 | 2026-08-10 | Use preserved final files only for validation and unavailable denominator objects. | This prevents the old seven-round output from entering the numerator while retaining reproducible checks and the authors' supplied national-income series. |
 | 2026-08-10 | Label the result an old-input reconstruction of the 2025 definition. | Missing revised matrices and crosswalks rule out an exact 2025-vintage claim even though the level curve matches closely. |
 | 2026-08-10 | Retain the newer-public-data result as a separate secondary pipeline. | Its later endpoint and easy reproducibility are valuable robustness evidence, but mixing it with the authors-kit build would obscure changes in vintage, sectors, equity treatment, and denominators. |
+| 2026-08-10 | Use a four-role taxonomy in empirical comparisons. | Only ours-authors versus the 2025 target is the central replication test; the old Stata Figure 6 and public-data build remain explicitly supporting evidence. |

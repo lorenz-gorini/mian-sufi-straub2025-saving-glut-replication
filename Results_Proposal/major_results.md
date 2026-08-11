@@ -193,6 +193,120 @@ that the paper is wrong because the February 2021 package lacks the revised
 matrix, denominator crosswalk, and complete equity extension needed for that
 claim.
 
+## R-002: Saving by the top 1% and bottom 99%
+
+**Paper reference**
+
+- Exact version: July 25, 2025 draft, Section 3.4, Figure 5, physical PDF
+  page 22.
+- Claim: after 1982, top-1 saving rises sharply while bottom-99 saving falls.
+  The figure reports trailing ten-year average saving contributions as shares
+  of aggregate national income, relative to 1982.
+
+**Authors' implementation and input lineage**
+
+- The old construction is in
+  `MSS2021Febreplicationkit/code/build_wealth_saving_data.do`.
+- `YwealthFOF.dta` supplies aggregate balance-sheet levels;
+  `Yszshares_fine.dta` supplies fine DINA shares;
+  `Ywealthreturns.dta` supplies valuation factors; and
+  `YinequalityNIPAanalysis.dta` supplies the private-saving closure.
+- `Ysavingwealth.dta` is validation evidence only; it is not an input to our
+  reconstructed annual saving.
+
+**Empirical definition**
+
+$$
+\Theta_{gjt}=W_{gjt}-(1+\pi_{gjt})W_{gj,t-1},\qquad
+\Theta_{gt}=\sum_j\Theta_{gjt}.
+$$
+
+Liabilities have a negative balance-sheet sign. Housing uses the supplied
+capital gain, fixed income uses zero inflation, debt uses group-specific
+write-downs, and the common residual equity factor makes total reconstructed
+saving equal NIPA personal plus business saving. The paper display is a
+trailing ten-year mean of $\Theta_{gt}/NI_t$ with the 1982 mean subtracted.
+
+**Our implementation and outputs**
+
+- Module: `Code/unveiling/figure5_authors.py`.
+- Entry point: `Code/scripts/build_figure5_authors_data.py`.
+- Tests: `Code/tests/test_figure5_authors.py` and
+  `Code/tests/test_wealth_groups.py`.
+- Data contract: `docs/data/figure5-data.md`.
+- Task record: `docs/project/tasks/figure5-replication.md`.
+- Processed series: `Data/processed/figure5_authors_data.csv` and
+  `Data/processed/figure5_authors_comparison.csv`.
+- Comparison chart:
+  `Results_Proposal/figures/figure5_authors_data_comparison.png`.
+
+**Verification and interpretation**
+
+The NIPA closure residual is below $10^{-10}$ of national income. The
+fine-share reconstruction stays within the predeclared 0.3-point tolerance of
+the old coarse Stata series; the observed maximum difference is 0.289
+percentage points. Over 1972--2016, correlation with the digitized 2025 target
+is 0.992 for top 1% and 0.997 for bottom 99%; mean absolute errors are 0.40 and
+0.42 percentage points. In 2016 the reconstructed shifts are +3.25 and -7.11
+points versus +4.35 and -8.46 in the digitized paper.
+
+This is a strong old-input reconstruction of the revised saving and display
+method. The missing 2017--2019 vintage and revised inputs preclude exact
+equality but do not alter the central saving-divergence conclusion.
+
+## R-003: Net household debt across wealth groups
+
+**Paper reference**
+
+- Exact version: July 25, 2025 draft, Sections 4.1--4.2, Figure 8, physical
+  PDF page 29.
+- Claim: the top 1% accumulates net claims on household debt while the bottom
+  99%, particularly the middle class, becomes a net borrower.
+
+**Definition and feasibility boundary**
+
+$$
+ND_{gt}=A^D_{gt}-D_{gt}.
+$$
+
+$A^D_{gt}$ is household debt held as an unveiled asset and $D_{gt}$ is the
+group's positive debt liability. The chart reports $ND_{gt}/NI_t$ relative to
+1982. Positive values mean net lending; negative values mean net borrowing.
+
+The February 2021 kit lacks the completed instrument-level matrices and
+augmented household columns required to rerun the revised Leontief solve. It
+does supply fine-cohort household-debt assets after its old seven-round
+unveiling in `YinequalityFAanalysis.dta`. The result is therefore an explicitly
+labelled **old-unveiling proxy**, not a 2025-method reconstruction.
+
+**Our implementation and outputs**
+
+- Module: `Code/unveiling/figure8_authors.py`.
+- Entry point: `Code/scripts/build_figure8_authors_data.py`.
+- Tests: `Code/tests/test_figure8_authors.py` and
+  `Code/tests/test_wealth_groups.py`.
+- Data contract: `docs/data/figure8-data.md`.
+- Task record: `docs/project/tasks/figure8-replication.md`.
+- Processed series: `Data/processed/figure8_authors_proxy.csv` and
+  `Data/processed/figure8_authors_proxy_comparison.csv`.
+- Comparison chart:
+  `Results_Proposal/figures/figure8_authors_proxy_comparison.png`.
+
+**Verification and interpretation**
+
+Fine-cohort assets and liabilities aggregate to the supplied coarse cells with
+a maximum $1 million absolute error and $3.18\times10^{-7}$ relative error.
+Over 1963--2016, proxy/paper correlations are 0.993 for top 1% and 0.995 for
+bottom 99%; mean absolute errors are 2.41 and 1.38 percentage points. In 2007
+the bottom-99 proxy nearly matches the digitized paper (-38.88 versus -38.76
+points), while the top-1 asset position is lower (+12.03 versus +18.02).
+
+The old inputs reproduce the direction, timing, and most of the bottom-99
+magnitude. The top-1 gap is economically informative because its debt assets
+are precisely the object most exposed to the revised network completion and
+unveiling. It cannot be attributed to code alone without the missing 2025
+matrices.
+
 ## Replication record template
 
 Copy this section once for each selected result.

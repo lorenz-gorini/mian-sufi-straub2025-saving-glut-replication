@@ -36,6 +36,9 @@ logic rather than decorate the slide.
 - `3_theoretical_methodology/` contains the separate theoretical methodology
   deck, including the Leontief derivation, exact worked network, and the
   paper's key conceptual innovation.
+- `4_figure_comparison/` contains the empirical comparison deck. It keeps the
+  2025 target, authors-old Stata precursor, ours-public robustness build, and
+  ours-authors reconstruction visibly separate.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
   the editable PowerPoint decks.
 - The root `presentation.tex` and `presentation.pdf` are a legacy combined
@@ -209,6 +212,22 @@ The PowerPoint now uses the same shared LaTeX vector equations as the theory
 deck. It was rendered and every slide was visually inspected on 2026-08-10;
 the template-fidelity check passed without issues. See
 `2_data-map/README.md` for the scope contract.
+
+### Empirical figure comparison
+
+The editable 12-slide PowerPoint
+`4_figure_comparison/presentation.pptx` establishes a four-role naming and
+evidence hierarchy and applies it to Figures 1, 5, and 8. Its central tests use
+February 2021 authors-kit inputs with the July 2025 definitions wherever those
+inputs identify the revised object. Figure 1 and Figure 5 are labeled
+reconstructions; Figure 8 remains a bounded proxy because the old kit does not
+contain the completed revised matrices. The regenerated old Figure 6 from
+Stata is a related authors-old precursor, while the later public-data Figure 1
+build is a robustness result. Paper graphs are shown without their printed
+captions, and their descriptions are restated in editable slide text. All 12
+slides were rendered and inspected on 2026-08-10. The deck passes template
+fidelity, overflow, unresolved-placeholder, source-note, and archive-integrity
+checks. See `4_figure_comparison/README.md` for its evidence contract.
 
 ### Legacy combined deck
 

@@ -24,6 +24,8 @@ code and failure rules in [`../AGENTS.md`](../AGENTS.md).
 - Python: 3.13.2
 - Core dependencies used so far: NumPy 2.1.3, pandas 2.2.3,
   Matplotlib 3.10.3, and pytest 8.4.2
+- System dependency: Poppler's `pdfimages`, used only to regenerate the
+  digitized paper-figure benchmark series
 - Local distribution: `mss-saving-glut-replication`, installed in editable mode
 
 Install the project once from the project root after activating the recorded
@@ -90,7 +92,7 @@ empirical questions. They share no input files and write no common output.
 | Inputs | February 2021 kit Q4 panel and CRSP; preserved final files only under the documented validation/denominator boundary | Pinned June 2026 Federal Reserve FWTW CSV and BEA/FRED national income |
 | Sample | 1963--2016 | 1963--2019 |
 | Processed result | `Data/processed/figure1_authors_data.csv` plus comparison and bond-validation files | `Data/processed/figure1_indirect_household_ownership.csv` |
-| Figure | `Results_Proposal/figures/figure1_authors_data_comparison.png` | `Results_Proposal/figures/figure1_indirect_household_ownership.png` |
+| Figure | `Results_Proposal/figures/figure1_authors_data_reconstruction.png` (standalone) and `figure1_authors_data_comparison.png` (benchmark comparison) | `Results_Proposal/figures/figure1_indirect_household_ownership.png` |
 | Correct label | Primary old-input reconstruction of the 2025 definition | Secondary newer-public-data robustness exercise |
 
 Do not merge the annual series or substitute one pipeline's inputs into the
@@ -139,6 +141,39 @@ is a close old-vintage authors-data reconstruction while the share denominator
 remains an explicit proxy. See `docs/data/figure1-data.md` and
 `docs/project/tasks/figure1-replication.md` for the exact component,
 validation, and denominator contracts.
+
+## Figures 5 and 8 from authors-kit inputs
+
+Build the July 2025 Figure 5 saving procedure on the February 2021 inputs:
+
+```bash
+python Code/scripts/build_figure5_authors_data.py
+```
+
+This starts upstream of the final saving series. It allocates 29 aggregate
+balance-sheet categories using the supplied fine DINA shares, applies housing
+and debt valuation factors, solves the residual equity return that closes to
+NIPA personal plus business saving, and then applies the paper's trailing
+ten-year mean and 1982 normalization. The annual sample is 1963--2016 and the
+display sample is 1972--2016. See `docs/data/figure5-data.md`.
+
+Build the best-feasible Figure 8 debt proxy:
+
+```bash
+python Code/scripts/build_figure8_authors_data.py
+```
+
+This aggregates the package's fine-cohort household-debt assets after the old
+seven-round unveiling, subtracts positive debt liabilities, divides by
+national income, and subtracts the 1982 level. It is intentionally named and
+labelled a proxy because the package lacks the completed annual matrices
+required to rerun the revised 2025 augmented Leontief solve. See
+`docs/data/figure8-data.md`.
+
+Both scripts digitize their 2025 paper figures only to create external
+comparison series. Digitized values never enter the empirical calculations.
+The complete test suite covers wealth-group partitions, NIPA closure, moving
+window/base-year construction, debt signs, and fine-to-coarse aggregation.
 
 ## Leontief unveiling
 
