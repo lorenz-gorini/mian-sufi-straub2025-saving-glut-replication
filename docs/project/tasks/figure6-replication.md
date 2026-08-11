@@ -51,7 +51,7 @@ The reconstructed curves closely match the digitized paper shape:
 | Window | Correlation | MAE |
 | --- | ---: | ---: |
 | 1963--1982 | 0.991 | 1.46 percentage points |
-| 1983--2016 versus paper 1983--2019 | 0.972 | 1.20 percentage points |
+| 1983--2016 versus paper 1983--2019 | 0.969 | 1.22 percentage points |
 
 The middle and upper-middle wealth distribution saves substantially less after
 1982 in both the paper and reconstruction. For example, the 80th-percentile
@@ -85,7 +85,11 @@ not a smooth monotone change at every percentile.
 - Active saving and the income-weighted rates close to NIPA personal plus
   business saving, including the paper's equation (9c).
 - Targeted tests cover raw bin construction and the saving/income closure.
-- All seven generated static plots were visually inspected after regeneration.
+- The digitization audit recovers exact-color pixels for all 61 percentile
+  samples on both paper curves; zero Figure 6 points require interpolation.
+- The paper-raster overlay confirms that the recovered solid centerlines sit on
+  the original dashed curves. One vertical pixel is 0.129 percentage points.
+- All eight generated static plots were visually inspected after regeneration.
 
 ## Definition of done
 
@@ -98,6 +102,8 @@ not a smooth monotone change at every percentile.
 - [x] Percentile, matched wealth-level, and paper-comparison figures generated.
 - [x] Trailing-five-year percentile evolution generated without changing the
       paper's annual rate definition.
+- [x] Digitized paper coordinates overlaid on the original embedded raster and
+      direct pixel-match counts recorded.
 - [x] Remaining data-vintage and identification boundaries documented.
 
 ## Reproducibility
@@ -125,6 +131,7 @@ The stable schema and complete output list are in
 | 2026-08-11 | Use personal plus attributable corporate disposable income in both new panels. | Holding the numerator and denominator fixed isolates the effect of changing the horizontal coordinate from percentile rank to mean wealth. |
 | 2026-08-11 | Recompute residual equity valuation on the exact percentile allocation. | Reusing the broad Figure 5 allocation left a small NIPA closure residual; solving on the Figure 6 bins restores the required invariant exactly. |
 | 2026-08-11 | Add trailing-five-year means as a diagnostic, not a new target definition. | The paper's two-window comparison cannot distinguish a gradual shift from oscillation. Holding the annual rate fixed shows a persistent upper-middle decline but strong top-1 volatility. |
+| 2026-08-11 | Audit digitization against the original embedded paper raster. | The overlay makes the approximate benchmark construction inspectable and confirms that no Figure 6 percentile sample depends on interpolation. |
 
 ## Session record: 2026-08-11 implementation
 

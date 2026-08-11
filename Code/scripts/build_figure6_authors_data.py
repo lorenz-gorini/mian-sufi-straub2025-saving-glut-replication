@@ -36,6 +36,7 @@ from unveiling.figure6_authors import (
 )
 from unveiling.paper_benchmarks import (
     digitize_figure6,
+    digitize_figure6_coordinates,
     extract_embedded_figure,
 )
 
@@ -51,12 +52,17 @@ PERCENTILE_SHARES = INTERIM / "figure6_percentile_shares.csv"
 ANNUAL_OUTPUT = PROCESSED / "figure6_authors_annual.csv"
 PERIOD_OUTPUT = PROCESSED / "figure6_authors_data.csv"
 PAPER_OUTPUT = PROCESSED / "figure6_paper_digitized.csv"
+DIGITIZATION_AUDIT_OUTPUT = PROCESSED / "figure6_digitization_audit.csv"
 COMPARISON_OUTPUT = PROCESSED / "figure6_authors_comparison.csv"
 ROLLING_OUTPUT = PROCESSED / "figure6_authors_rolling5.csv"
 PERCENTILE_FIGURE = FIGURES / "figure6_authors_data_percentiles.png"
 WEALTH_FIGURE = FIGURES / "figure6_authors_data_wealth_levels.png"
 DUAL_FIGURE = FIGURES / "figure6_percentile_vs_wealth_level.png"
 COMPARISON_FIGURE = FIGURES / "figure6_authors_data_comparison.png"
+DIGITIZATION_OVERLAY_FIGURE = FIGURES / "figure6_digitization_overlay.png"
+DIGITIZATION_OVERLAY_SLIDE_FIGURE = (
+    FIGURES / "figure6_digitization_overlay_slide.png"
+)
 EVOLUTION_FIGURE = FIGURES / "figure6_rolling5_evolution.png"
 ROLLING_HEATMAP_FIGURE = FIGURES / "figure6_rolling5_heatmap.png"
 ROLLING_SELECTED_FIGURE = FIGURES / "figure6_rolling5_selected_percentiles.png"
@@ -263,6 +269,98 @@ def plot_paper_comparison(
     plt.close(figure)
 
 
+def plot_figure6_digitization_overlay(
+    paper_image: Path,
+    coordinates: pd.DataFrame,
+    output_path: Path,
+    *,
+    compact: bool = False,
+) -> None:
+    """Overlay recovered centerlines on the original Figure 6 raster."""
+
+    overlay_colors = {
+        "pre_1982": "#6A3D9A",
+        "post_1982": "#1B7837",
+    }
+    overlay_labels = {
+        "pre_1982": "Digitized 1963–1982 centerline",
+        "post_1982": "Digitized 1983–2019 centerline",
+    }
+    figure, axis = plt.subplots(figsize=(11.4, 6.1 if compact else 7.4))
+    axis.imshow(plt.imread(paper_image))
+    for period in ("pre_1982", "post_1982"):
+        selected = coordinates.loc[coordinates["period"] == period]
+        axis.plot(
+            selected["x_pixel"],
+            selected["y_pixel"],
+            color=overlay_colors[period],
+            linewidth=1.5,
+            marker="o",
+            markevery=5,
+            markersize=5.0,
+            markerfacecolor="white",
+            markeredgecolor=overlay_colors[period],
+            markeredgewidth=1.2,
+            label=overlay_labels[period],
+        )
+    axis.set_xlim(72, 1033)
+    axis.set_ylim(625, 10)
+    axis.axis("off")
+    axis.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.55, -0.005 if compact else -0.015),
+        ncol=2,
+        frameon=False,
+        fontsize=9,
+    )
+    if not compact:
+        figure.suptitle(
+            "Figure 6 digitization audit: recovered coordinates over paper pixels",
+            color="#12304A",
+            fontsize=14,
+            fontweight="bold",
+        )
+        figure.text(
+            0.5,
+            0.012,
+            "Original dashed curves remain visible beneath the solid overlays · "
+            "circles mark every fifth integer-percentile sample · "
+            "1 pixel ≈ 0.129 percentage points",
+            ha="center",
+            fontsize=8,
+            color="#53616E",
+        )
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    if compact:
+        figure.tight_layout(rect=(0, 0.04, 1, 1), pad=0.2)
+    else:
+        figure.tight_layout(rect=(0, 0.06, 1, 0.95))
+    figure.savefig(output_path, dpi=220, bbox_inches="tight")
+    plt.close(figure)
+
+
+def summarize_digitization_audit(
+    coordinates: pd.DataFrame,
+) -> pd.DataFrame:
+    """Summarize direct pixel recovery and interpolation by paper period."""
+
+    audit = (
+        coordinates.groupby("period", as_index=False, sort=False)
+        .agg(
+            sampled_percentiles=("wealth_percentile", "size"),
+            directly_matched_percentiles=(
+                "was_interpolated",
+                lambda values: int((~values).sum()),
+            ),
+            interpolated_percentiles=("was_interpolated", "sum"),
+            median_exact_pixels_per_strip=("matched_exact_pixels", "median"),
+            minimum_exact_pixels_per_strip=("matched_exact_pixels", "min"),
+        )
+    )
+    audit["percentage_points_per_pixel"] = 100.0 / 775.0
+    return audit
+
+
 def _rolling_rate_grid(
     rolling_profiles: pd.DataFrame,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -434,13 +532,27 @@ def main() -> None:
             physical_page=24,
             prefix_name="figure6",
         )
+        digitized_coordinates = digitize_figure6_coordinates(paper_image)
         paper = digitize_figure6(paper_image)
+        plot_figure6_digitization_overlay(
+            paper_image,
+            digitized_coordinates,
+            DIGITIZATION_OVERLAY_FIGURE,
+        )
+        plot_figure6_digitization_overlay(
+            paper_image,
+            digitized_coordinates,
+            DIGITIZATION_OVERLAY_SLIDE_FIGURE,
+            compact=True,
+        )
+    digitization_audit = summarize_digitization_audit(digitized_coordinates)
     comparison = build_paper_comparison(periods, paper)
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
     annual.to_csv(ANNUAL_OUTPUT, index=False)
     periods.to_csv(PERIOD_OUTPUT, index=False)
     paper.to_csv(PAPER_OUTPUT, index=False)
+    digitization_audit.to_csv(DIGITIZATION_AUDIT_OUTPUT, index=False)
     comparison.to_csv(COMPARISON_OUTPUT, index=False)
     rolling.to_csv(ROLLING_OUTPUT, index=False)
     _save_single_panel(periods, PERCENTILE_FIGURE, view="percentile")
@@ -474,12 +586,15 @@ def main() -> None:
         ANNUAL_OUTPUT,
         PERIOD_OUTPUT,
         PAPER_OUTPUT,
+        DIGITIZATION_AUDIT_OUTPUT,
         COMPARISON_OUTPUT,
         ROLLING_OUTPUT,
         PERCENTILE_FIGURE,
         WEALTH_FIGURE,
         DUAL_FIGURE,
         COMPARISON_FIGURE,
+        DIGITIZATION_OVERLAY_FIGURE,
+        DIGITIZATION_OVERLAY_SLIDE_FIGURE,
         EVOLUTION_FIGURE,
         ROLLING_HEATMAP_FIGURE,
         ROLLING_SELECTED_FIGURE,

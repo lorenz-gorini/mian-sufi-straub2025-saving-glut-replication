@@ -161,7 +161,7 @@ The 2025 rate definition, percentile bins, valuation logic, and period
 averaging are now reconstructed. The main numerical boundary is the older
 input vintage. The reconstructed top-1 rates are also materially below the
 paper's approximately 43% and 54%, even though the rest of the curves are
-close: the paper-versus-ours correlations are 0.991 before 1982 and 0.972
+close: the paper-versus-ours correlations are 0.991 before 1982 and 0.969
 after 1982.
 
 The wealth-level panel still cannot establish a household-level $s(w)$

@@ -1,0 +1,5 @@
+Slide 11: update post-period digitization comparison from correlation/MAE 0.972/1.20 to 0.969/1.22 after correcting the top-1 endpoint marker extraction.
+
+Slide 12: duplicate source slide 7, rewrite its inherited table and assessment-band copy, and replace its inherited image with the generated Figure 6 paper-raster overlay. The visible table uses “0 filled” for zero interpolated samples. No new slide primitives are added.
+
+Slides 13-17: increment inherited slide-number text only because of the inserted audit slide.

@@ -1,0 +1,37 @@
+{
+  "outputSlides": [
+    {"outputSlide": 1, "sourceSlide": 1, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 2, "sourceSlide": 2, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 3, "sourceSlide": 3, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 4, "sourceSlide": 4, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 5, "sourceSlide": 5, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 6, "sourceSlide": 6, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 7, "sourceSlide": 7, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 8, "sourceSlide": 8, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 9, "sourceSlide": 9, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {"outputSlide": 10, "sourceSlide": 10, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {
+      "outputSlide": 11,
+      "sourceSlide": 11,
+      "narrativeRole": "update audited Figure 6 comparison statistics",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [{"action": "rewrite", "shapeId": "sh/0b6tc3yx"}]
+    },
+    {
+      "outputSlide": 12,
+      "sourceSlide": 7,
+      "narrativeRole": "show Figure 6 paper-raster digitization audit",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {"action": "rewrite", "shapeIds": ["sh/b2h4nupk", "sh/cb2tkvap", "sh/ydkbm5sv", "sh/zedcfa9g", "sh/kzmdova1", "sh/eh0ba1sr", "sh/fi9c369c", "sh/baxkjqlk", "sh/a9ojq5kz", "sh/cbq1sv25", "sh/n6x0fqlo", "sh/25ojml43", "sh/o761ov2t", "sh/f2d0b6lc", "sh/eh4jil4r", "sh/jedkn654", "sh/4fm1wb6p", "sh/50v2pgna", "sh/r2dkrq5g", "sh/s3ml0v61", "sh/d4f2t0nm", "sh/2x8nqp83", "sh/x4j6p47q", "sh/c3a5wzq5"]},
+        {"action": "replace", "shapeId": "im/lgr2xk36"}
+      ]
+    },
+    {"outputSlide": 13, "sourceSlide": 12, "narrativeRole": "shift preserved mechanism slide number", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/ra943il8"}]},
+    {"outputSlide": 14, "sourceSlide": 13, "narrativeRole": "shift preserved time-evolution slide number", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/o3i5w3ad"}]},
+    {"outputSlide": 15, "sourceSlide": 14, "narrativeRole": "shift preserved Figure 8 feasibility slide number", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/jepwf2pc"}]},
+    {"outputSlide": 16, "sourceSlide": 15, "narrativeRole": "shift preserved Figure 8 comparison slide number", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/76p4jqls"}]},
+    {"outputSlide": 17, "sourceSlide": 16, "narrativeRole": "shift preserved synthesis slide number", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/ytkf2h8j"}]}
+  ],
+  "omittedSourceSlides": []
+}

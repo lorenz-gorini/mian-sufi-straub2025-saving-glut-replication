@@ -182,7 +182,7 @@ borrowing.
   averaged annual rates over the paper-aligned periods available through 2016.
 - Validation: raw shares match the authors' prepared aggregates within
   $7.24\times10^{-8}$; equation (9c) closes; paper correlations are 0.991 and
-  0.972 with MAEs of 1.46 and 1.20 percentage points.
+  0.969 with MAEs of 1.46 and 1.22 percentage points.
 - Finding: the post-1982 profile is lower through most of the middle and upper
   middle but higher at the top 1%; the old-input top-1 levels remain below the
   2025 curve.

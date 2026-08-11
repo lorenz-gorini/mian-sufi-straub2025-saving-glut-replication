@@ -59,6 +59,44 @@ All source inputs are immutable files from the February 2021 authors' package.
 | `data/PSZusdina/parameters_mss.csv` | year; unique; usable 1962--2016 | `totadults20`, `nideflator` | Adults aged 20 or older, in thousands, and current-to-2018-dollar deflator |
 | `MSS_SGR_July242025.pdf` | target paper | embedded Figure 6 image on physical page 24 | External digitized benchmark only |
 
+## Paper-curve digitization
+
+The paper benchmark is not read from a screenshot. Poppler's `pdfimages`
+extracts the original 1047-by-698 RGB raster embedded on physical PDF page 24.
+The script then:
+
+1. calibrates percentile 40 to raster column 125 and percentile 100 to column
+   1006;
+2. calibrates a zero saving rate to row 504 and a one-unit rate change to 775
+   vertical pixels;
+3. selects the exact orange `(200, 82, 0)` and blue `(95, 162, 206)` curve
+   colors, avoiding black axes and gray grid lines;
+4. samples an eleven-pixel-wide strip around every integer percentile and uses
+   the median matching row as the curve center; at percentile 100, where the
+   steep final segment enters a large endpoint marker, it instead uses the
+   marker's widest horizontal rows to avoid pulling the estimate down the
+   connecting segment; and
+5. applies the affine pixel-to-data transformation
+
+$$
+s^N_i=\frac{504-y_i}{775}.
+$$
+
+The implementation retains an interpolation fallback for a percentile falling
+inside a rasterized dash gap. The Figure 6 audit finds exact-color pixels in
+all 61 sampling strips for both curves, so none of the published Figure 6
+coordinates actually require that fallback. One vertical pixel is about 0.129
+percentage points. The overlay diagnostic draws the recovered solid
+centerlines over the original dashed paper curves; it is a visual audit of the
+digitization, not independent evidence about the empirical reconstruction.
+
+Digitization remains approximate because the paper provides pixels rather than
+the underlying numerical series. Axis calibration, line thickness, and raster
+rounding imply uncertainty of a few tenths of a percentage point in ordinary
+parts of the curve, potentially more near the large top-1 endpoint marker. The
+comparison statistics should therefore be read at the reported precision, not
+as exact equality tests.
+
 ## Raw-data reconstruction
 
 `Code/scripts/build_figure6_percentile_shares.py` reads the 16 GB DINA file in
@@ -148,7 +186,7 @@ Against the digitized 2025 Figure 6 curves:
 | Window | Common-bin correlation | Mean absolute error |
 | --- | ---: | ---: |
 | 1963--1982 | 0.991 | 1.46 percentage points |
-| 1983--2016 versus paper 1983--2019 | 0.972 | 1.20 percentage points |
+| 1983--2016 versus paper 1983--2019 | 0.969 | 1.22 percentage points |
 
 Most of the shape is reproduced. The largest gap is the top 1%: the
 older-input reconstruction rises from 28.8% to 36.2%, while the paper reports
@@ -165,12 +203,15 @@ approximate.
 | `Data/processed/figure6_authors_annual.csv` | year-percentile; wealth, active saving, personal/corporate disposable income, net saving rate, mean real wealth; 1963--2016 | `Code/scripts/build_figure6_authors_data.py` |
 | `Data/processed/figure6_authors_data.csv` | window-percentile; mean annual rate, pooled diagnostic, mean real wealth | same |
 | `Data/processed/figure6_paper_digitized.csv` | percentile; two approximate paper curves | same |
+| `Data/processed/figure6_digitization_audit.csv` | period; direct-match and interpolation counts plus pixel scale | same |
 | `Data/processed/figure6_authors_comparison.csv` | percentile; aligned paper/ours rates and errors | same |
 | `Data/processed/figure6_authors_rolling5.csv` | window-end-percentile; trailing five-year simple mean of the exact annual net-saving rate; 1967--2016 | same |
 | `Results_Proposal/figures/figure6_authors_data_percentiles.png` | paper-definition percentile view | same |
 | `Results_Proposal/figures/figure6_authors_data_wealth_levels.png` | identical cohort rates indexed by mean real wealth | same |
 | `Results_Proposal/figures/figure6_percentile_vs_wealth_level.png` | two-panel comparison holding numerator and denominator fixed | same |
 | `Results_Proposal/figures/figure6_authors_data_comparison.png` | reconstructed versus digitized paper curves | same |
+| `Results_Proposal/figures/figure6_digitization_overlay.png` | recovered centerlines over the original embedded paper raster | same |
+| `Results_Proposal/figures/figure6_digitization_overlay_slide.png` | compact version of the same audit for the comparison deck | same |
 | `Results_Proposal/figures/figure6_rolling5_evolution.png` | two-panel five-year evolution diagnostic | same |
 | `Results_Proposal/figures/figure6_rolling5_heatmap.png` | all percentile bins over five-year window ends | same |
 | `Results_Proposal/figures/figure6_rolling5_selected_percentiles.png` | 80th, 90th, 99th, and top-1 five-year rates | same |

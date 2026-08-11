@@ -291,8 +291,8 @@ cohort $i$. The period curve is the simple mean of annual cohort rates.
 
 The raw DINA reconstruction matches the authors' prepared coarse shares within
 $7.24\times10^{-8}$ and satisfies the paper's income-weighted saving closure.
-Correlations with the digitized paper curves are 0.991 and 0.972, with mean
-absolute errors of 1.46 and 1.20 percentage points. The reconstructed top 1%
+Correlations with the digitized paper curves are 0.991 and 0.969, with mean
+absolute errors of 1.46 and 1.22 percentage points. The reconstructed top 1%
 rises from 28.8% to 36.2%, below the paper's approximately 43% to 54%; that gap
 remains an input-vintage discrepancy rather than a failed accounting identity.
 

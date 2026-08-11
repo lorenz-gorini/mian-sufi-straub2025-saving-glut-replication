@@ -28,6 +28,12 @@ FIGURE6_COLORS = {
     "post_1982": np.array([95, 162, 206], dtype=np.uint8),
 }
 
+FIGURE6_PERCENTILES = np.arange(40, 101, dtype=np.int16)
+FIGURE6_X_PIXEL_LEFT = 125
+FIGURE6_X_PIXEL_RIGHT = 1006
+FIGURE6_Y_PIXEL_AT_ZERO = 504.0
+FIGURE6_Y_PIXELS_PER_RATE_UNIT = 775.0
+
 
 def extract_embedded_figure(
     pdf_path: Path,
@@ -169,17 +175,32 @@ def digitize_figure8(image_path: Path) -> pd.DataFrame:
     return output
 
 
-def digitize_figure6(image_path: Path) -> pd.DataFrame:
-    """Digitize the two saving-rate curves in the paper's Figure 6 raster."""
+def digitize_figure6_coordinates(image_path: Path) -> pd.DataFrame:
+    """Recover Figure 6 curve centerlines in the embedded raster.
+
+    Parameters
+    ----------
+    image_path
+        PNG extracted directly from physical page 24 of the July 2025 paper.
+
+    Returns
+    -------
+    pandas.DataFrame
+        One row per period and integer wealth percentile. ``x_pixel`` and
+        ``y_pixel`` are coordinates in the 1047-by-698 embedded raster;
+        ``matched_exact_pixels`` counts curve-color pixels in the eleven-pixel
+        horizontal sampling strip; and ``was_interpolated`` records whether a
+        dashed-line gap required interpolation between neighboring samples.
+    """
 
     image = _load_rgb(image_path)
-    percentiles = np.arange(40, 101, dtype=np.int16)
-    output = pd.DataFrame({"wealth_percentile": percentiles})
+    records: list[dict[str, float | int | bool | str]] = []
     for period, color in FIGURE6_COLORS.items():
         mask = np.all(image == color, axis=2)
-        rows_by_percentile: list[float] = []
-        for percentile in percentiles:
-            x = 125 + (int(percentile) - 40) * (1006 - 125) / 60
+        for percentile in FIGURE6_PERCENTILES:
+            x = FIGURE6_X_PIXEL_LEFT + (int(percentile) - 40) * (
+                FIGURE6_X_PIXEL_RIGHT - FIGURE6_X_PIXEL_LEFT
+            ) / 60
             center = round(float(x))
             rows, _ = np.where(mask[:, center - 5 : center + 6])
             if percentile <= 45:
@@ -191,14 +212,68 @@ def digitize_figure6(image_path: Path) -> pd.DataFrame:
             else:
                 minimum_row = 30
             rows = rows[(rows > minimum_row) & (rows < 590)]
-            rows_by_percentile.append(
-                float(np.median(rows)) if len(rows) else np.nan
+            y_pixel = float(np.median(rows)) if len(rows) else np.nan
+            sampling_rule = "median_exact_color_strip"
+            if percentile == 100 and len(rows):
+                endpoint_block = mask[:, center - 10 : center + 11]
+                row_widths = endpoint_block.sum(axis=1)
+                row_widths[: minimum_row + 1] = 0
+                row_widths[590:] = 0
+                maximum_width = row_widths.max()
+                widest_rows = np.flatnonzero(row_widths == maximum_width)
+                y_pixel = float(np.median(widest_rows))
+                sampling_rule = "endpoint_marker_center"
+            records.append(
+                {
+                    "period": period,
+                    "wealth_percentile": int(percentile),
+                    "x_pixel": float(x),
+                    "sample_column": center,
+                    "y_pixel": y_pixel,
+                    "matched_exact_pixels": int(len(rows)),
+                    "was_interpolated": len(rows) == 0,
+                    "sampling_rule": sampling_rule,
+                }
             )
-        traced = pd.Series(rows_by_percentile, index=percentiles)
-        traced = traced.interpolate(limit_direction="both")
-        if traced.isna().any():
+
+    coordinates = pd.DataFrame.from_records(records)
+    coordinates["y_pixel"] = coordinates.groupby(
+        "period", sort=False
+    )["y_pixel"].transform(
+        lambda series: series.interpolate(limit_direction="both")
+    )
+    if coordinates["y_pixel"].isna().any():
+        missing_periods = coordinates.loc[
+            coordinates["y_pixel"].isna(), "period"
+        ].unique()
+        raise ValueError(
+            "Figure 6 digitization left unresolved gaps for "
+            f"{missing_periods.tolist()}"
+        )
+    coordinates["saving_rate"] = (
+        FIGURE6_Y_PIXEL_AT_ZERO - coordinates["y_pixel"]
+    ) / FIGURE6_Y_PIXELS_PER_RATE_UNIT
+    return coordinates
+
+
+def digitize_figure6(image_path: Path) -> pd.DataFrame:
+    """Digitize the two saving-rate curves in the paper's Figure 6 raster."""
+
+    coordinates = digitize_figure6_coordinates(image_path)
+    output = pd.DataFrame({"wealth_percentile": FIGURE6_PERCENTILES})
+    for period in FIGURE6_COLORS:
+        traced = coordinates.loc[
+            coordinates["period"] == period,
+            ["wealth_percentile", "saving_rate"],
+        ]
+        if len(traced) != len(FIGURE6_PERCENTILES):
             raise ValueError(
-                f"Figure 6 digitization left unresolved {period} gaps"
+                f"Figure 6 digitization has incomplete {period} coordinates"
             )
-        output[f"paper_{period}_rate"] = (504.0 - traced.to_numpy()) / 775.0
+        output = output.merge(
+            traced.rename(columns={"saving_rate": f"paper_{period}_rate"}),
+            on="wealth_percentile",
+            how="left",
+            validate="one_to_one",
+        )
     return output

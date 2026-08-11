@@ -1,0 +1,5 @@
+Figure 6 target: MSS_SGR_July242025.pdf, Figure 6, physical page 24.
+Exact-method reconstruction: docs/project/tasks/figure6-replication.md and docs/data/figure6-data.md.
+Generated evidence: Data/processed/figure6_authors_comparison.csv, Data/processed/figure6_digitization_audit.csv, Data/processed/figure6_authors_rolling5.csv, and Results_Proposal/figures/figure6_*.png.
+Digitization audit: the embedded 1047-by-698 raster is sampled at 61 integer percentiles per curve; all 122 samples have exact-color matches and the endpoint-marker correction changes the post-period comparison to correlation 0.969 and MAE 1.22 percentage points.
+Interpretive boundary: docs/project/personal-considerations-saving-inequality.md.
