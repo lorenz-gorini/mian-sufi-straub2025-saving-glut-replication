@@ -1,12 +1,12 @@
-# T-009: Review and Integrate the Figure 5 and Figure 8 Comparisons
+# T-009: Review and Integrate the Figure 5, Figure 6, and Figure 8 Comparisons
 
 ## Objective and status
 
 Status: **In progress**.
 
-Understand the economics and measurement behind the newly generated Figure 5
-and Figure 8 results before treating them as presentation evidence. The task is
-complete only when the paper definitions, supplied inputs, Python
+Understand the economics and measurement behind the generated Figure 5,
+Figure 6, and Figure 8 results before treating them as presentation evidence.
+The task is complete only when the paper definitions, supplied inputs, Python
 transformations, comparison metrics, and evidentiary labels can be explained
 without relying on the code as a black box.
 
@@ -17,8 +17,9 @@ distinction between a reconstruction and a proxy.
 The personal interpretation and hypotheses prompted by Figures 5--6 are
 maintained separately in
 [`personal-considerations-saving-inequality.md`](../personal-considerations-saving-inequality.md).
-That note includes a generated wealth-level diagnostic and a prioritized
-sequence for testing income growth, fixed-dollar wealth bins, portfolio
+That note includes an exact-method Figure 6 reconstruction, a matched
+wealth-level view, a trailing-five-year evolution diagnostic, and a prioritized
+sequence for testing fixed-dollar wealth bins, income growth, portfolio
 composition, and collateralized borrowing.
 
 ## Economic questions
@@ -39,6 +40,20 @@ its 1982 value, in percentage points of aggregate national income. The review
 must explain why an increase in wealth is not necessarily saving: capital
 gains are removed before attributing the residual flow to active saving.
 
+### Figure 6: how much of disposable income does each cohort save?
+
+For wealth-percentile cohort $i$,
+
+$$
+s^N_{it}=\frac{\Theta_{it}}{Z^{d,p}_{it}+Z^{d,\pi}_{it}}.
+$$
+
+The numerator is active saving. The denominator combines personal disposable
+income with corporate disposable income attributable through equity ownership.
+The comparison averages annual rates over 1963--1982 and 1983--2016, while the
+paper's later-data curve continues through 2019. The matched wealth-level panel
+uses exactly the same rate and changes only the horizontal coordinate.
+
 ### Figure 8: who ultimately finances household debt?
 
 For wealth group $g$,
@@ -55,21 +70,27 @@ borrowing.
 
 ## Required review sequence
 
-1. Read the July 25, 2025 paper around Section 3.4 and Figure 5 (physical PDF
-   page 22), then Sections 4.1--4.2 and Figure 8 (physical PDF page 29).
+1. Read the July 25, 2025 paper around Section 3.4 and Figures 5--6 (physical
+   PDF pages 22 and 24), then Sections 4.1--4.2 and Figure 8 (physical PDF page
+   29).
 2. Compare those definitions with
    `docs/project/tasks/figure5-replication.md` and
+   `docs/project/tasks/figure6-replication.md` and
    `docs/project/tasks/figure8-replication.md`.
 3. Trace Figure 5 through `build_figure5_authors_data.py`,
    `figure5_authors.py`, the fine wealth-group shares, valuation adjustments,
    NIPA closure, ten-year trailing mean, and 1982 normalization.
-4. Trace Figure 8 through `build_figure8_authors_data.py`,
+4. Trace Figure 6 through `build_figure6_percentile_shares.py`,
+   `build_figure6_authors_data.py`, raw DINA bin construction, personal and
+   corporate disposable-income allocation, valuation closure, and period
+   averaging.
+5. Trace Figure 8 through `build_figure8_authors_data.py`,
    `figure8_authors.py`, fine-group aggregation, the old seven-round unveiled
    asset positions, $ND=A^D-D$, national-income scaling, and the 1982 base.
-5. Inspect the paper-versus-ours panels and their common-sample metrics. Explain
+6. Inspect the paper-versus-ours panels and their common-sample metrics. Explain
    the remaining discrepancies using documented evidence rather than assigning
    them mechanically to either data or methodology.
-6. Review the comparison deck slide titles, role labels, legends, source notes,
+7. Review the comparison deck slide titles, role labels, legends, source notes,
    and implication bands. Record any changes required before the panels enter
    the final synthesis presentation.
 
@@ -79,6 +100,10 @@ borrowing.
   valuation, and NIPA inputs identify the revised transformation through 2016.
   The accounting check is
   $\sum_g\Theta_{gt}=S_t^p+S_t^\pi$.
+- **Figure 6 is an exact-method, old-input reconstruction.** The supplied raw
+  DINA, disposable-income, valuation, and NIPA inputs identify the revised rate
+  through 2016. It verifies
+  $\sum_i s^N_{it}Z^d_{it}=S_t^p+S_t^\pi$.
 - **Figure 8 is a bounded proxy.** Its fine-group debt assets come from the
   older seven-round unveiling because the completed 2025 direct matrices are
   absent. Every series must equal zero in 1982, and the group assets and
@@ -91,11 +116,11 @@ borrowing.
 
 - [ ] The relevant paper passages have been read and summarized in economic
       language.
-- [ ] Every symbol, unit, group, sign, window, and normalization in Figures 5
-      and 8 can be explained.
-- [ ] The input-to-output lineage of both Python builds has been reviewed.
-- [ ] The Figure 5 saving closure and Figure 8 aggregation/base-year checks have
-      been inspected.
+- [ ] Every symbol, unit, group, sign, window, and normalization in Figures 5,
+      6, and 8 can be explained.
+- [ ] The input-to-output lineage of all three Python builds has been reviewed.
+- [ ] The Figure 5 saving closure, Figure 6 income-weighted closure, and Figure
+      8 aggregation/base-year checks have been inspected.
 - [ ] The reconstruction-versus-proxy distinction and remaining discrepancies
       are understood.
 - [ ] The comparison slides have been reviewed and required corrections have
@@ -109,6 +134,8 @@ borrowing.
 | --- | --- | --- |
 | 2026-08-11 | Create a human-review task separate from completed empirical implementation T-004. | The code and comparison deck are verified artifacts, but the learning-first project contract also requires Lorenzo to understand and approve the economics, construction, and evidentiary boundary before final synthesis. |
 | 2026-08-11 | Treat the saving-rate discussion as Figure 6 interpretation and the new wealth-level plot as an exploratory diagnostic. | Figure 5 reports aggregate saving flows by broad group, while Figure 6 reports saving rates by percentile. The new plot retains fine percentile cohorts but changes their horizontal coordinate and uses a pretax-income proxy, so it must not inherit the Figure 6 replication label. |
+| 2026-08-11 | Supersede the pretax-income diagnostic with an exact-method Figure 6 reconstruction and a matched wealth-level view. | Both new panels use personal plus attributable corporate disposable income; only the horizontal coordinate changes, so their comparison is interpretable. |
+| 2026-08-11 | Treat the five-year evolution as a diagnostic rather than a new replication target. | It holds the 2025 annual saving-rate definition fixed and reveals timing, but overlapping windows do not constitute a formal structural-break test. |
 
 ## Session record: 2026-08-11 task creation
 
@@ -144,3 +171,29 @@ borrowing.
 - Next action: reconstruct the Figure 6 disposable-income denominator as far as
   the kit permits, then create fixed-2018-dollar wealth bins from the raw DINA
   extract before testing portfolio-composition and collateral hypotheses.
+
+## Session record: 2026-08-11 exact-method Figure 6
+
+- Economic object: annual active saving divided by personal plus attributable
+  corporate disposable income for the bottom 40% and each later wealth
+  percentile.
+- Implementation: rebuilt the bins from raw DINA data, allocated the two
+  denominator components, solved valuation closure on the exact bins, and
+  averaged annual rates over the paper-aligned periods available through 2016.
+- Validation: raw shares match the authors' prepared aggregates within
+  $7.24\times10^{-8}$; equation (9c) closes; paper correlations are 0.991 and
+  0.972 with MAEs of 1.46 and 1.20 percentage points.
+- Finding: the post-1982 profile is lower through most of the middle and upper
+  middle but higher at the top 1%; the old-input top-1 levels remain below the
+  2025 curve.
+- Next action: decide whether fixed-real-dollar bins are worth the additional
+  raw-data transformation.
+
+## Session record: 2026-08-11 Figure 6 evolution and presentation
+
+- Added trailing-five-year means for every wealth-percentile bin while keeping
+  the exact Figure 6 numerator and denominator unchanged.
+- Result: the 80th--90th percentile decline is persistent but nonmonotone; the
+  top 1% oscillates sharply and peaks in the five-year window ending in 2008.
+- Integrated Figure 5 and Figure 6 method, paper-comparison, wealth-level, and
+  evolution evidence into the verified fourth presentation.

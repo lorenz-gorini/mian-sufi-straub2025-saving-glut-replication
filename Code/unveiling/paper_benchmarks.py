@@ -1,4 +1,4 @@
-"""Digitized benchmarks for Figures 5 and 8 of the July 2025 paper.
+"""Digitized benchmarks for Figures 5, 6, and 8 of the July 2025 paper.
 
 The values produced here are approximate visual benchmarks. They are never
 used as inputs to the empirical reconstruction. Fixed pixel calibrations apply
@@ -21,6 +21,11 @@ PAPER_COLORS = {
     "next_40": np.array([200, 208, 217], dtype=np.uint8),
     "bottom_50": np.array([163, 204, 233], dtype=np.uint8),
     "bottom_99": np.array([17, 112, 170], dtype=np.uint8),
+}
+
+FIGURE6_COLORS = {
+    "pre_1982": np.array([200, 82, 0], dtype=np.uint8),
+    "post_1982": np.array([95, 162, 206], dtype=np.uint8),
 }
 
 
@@ -161,4 +166,39 @@ def digitize_figure8(image_path: Path) -> pd.DataFrame:
         column = f"paper_{group}_relative_to_1982"
         output[column] = (227.0 - pixels) / 885.0
         output[column] -= output.loc[output["year"] == 1982, column].iloc[0]
+    return output
+
+
+def digitize_figure6(image_path: Path) -> pd.DataFrame:
+    """Digitize the two saving-rate curves in the paper's Figure 6 raster."""
+
+    image = _load_rgb(image_path)
+    percentiles = np.arange(40, 101, dtype=np.int16)
+    output = pd.DataFrame({"wealth_percentile": percentiles})
+    for period, color in FIGURE6_COLORS.items():
+        mask = np.all(image == color, axis=2)
+        rows_by_percentile: list[float] = []
+        for percentile in percentiles:
+            x = 125 + (int(percentile) - 40) * (1006 - 125) / 60
+            center = round(float(x))
+            rows, _ = np.where(mask[:, center - 5 : center + 6])
+            if percentile <= 45:
+                minimum_row = 400
+            elif percentile <= 70:
+                minimum_row = 300
+            elif percentile <= 90:
+                minimum_row = 175
+            else:
+                minimum_row = 30
+            rows = rows[(rows > minimum_row) & (rows < 590)]
+            rows_by_percentile.append(
+                float(np.median(rows)) if len(rows) else np.nan
+            )
+        traced = pd.Series(rows_by_percentile, index=percentiles)
+        traced = traced.interpolate(limit_direction="both")
+        if traced.isna().any():
+            raise ValueError(
+                f"Figure 6 digitization left unresolved {period} gaps"
+            )
+        output[f"paper_{period}_rate"] = (504.0 - traced.to_numpy()) / 775.0
     return output

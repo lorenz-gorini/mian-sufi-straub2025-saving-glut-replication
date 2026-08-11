@@ -142,7 +142,7 @@ remains an explicit proxy. See `docs/data/figure1-data.md` and
 `docs/project/tasks/figure1-replication.md` for the exact component,
 validation, and denominator contracts.
 
-## Figures 5 and 8 from authors-kit inputs
+## Figures 5, 6, and 8 from authors-kit inputs
 
 Build the July 2025 Figure 5 saving procedure on the February 2021 inputs:
 
@@ -157,7 +157,31 @@ NIPA personal plus business saving, and then applies the paper's trailing
 ten-year mean and 1982 normalization. The annual sample is 1963--2016 and the
 display sample is 1972--2016. See `docs/data/figure5-data.md`.
 
-Build the exploratory saving-rate profile against cohort mean real wealth:
+Build the exact-method Figure 6 reconstruction. The first command is the heavy
+one-time preprocessing step over the 16 GB raw DINA file; the second command
+rebuilds the analysis tables, comparisons, and figures from that intermediate:
+
+```bash
+PYTHONPATH=Code python Code/scripts/build_figure6_percentile_shares.py
+PYTHONPATH=Code python Code/scripts/build_figure6_authors_data.py
+```
+
+This applies the 2025 net-saving-rate definition to the paper's bottom-40 and
+one-percentile bins. Its denominator is personal plus attributable corporate
+disposable income. It writes a paper-style percentile view and a matched view
+against cohort mean real wealth; every point has the same numerator and
+denominator in both panels. It also writes trailing-five-year rates, a
+distribution heatmap, and selected-percentile paths without changing the
+annual rate definition. The authors-kit sample ends in 2016, so the result is
+an exact-method, older-input reconstruction rather than an exact numerical
+reproduction of the paper's 1983--2019 curve. See
+`docs/data/figure6-data.md` and
+`docs/project/tasks/figure6-replication.md`.
+The build reuses validated source-data loaders and asset definitions from the
+Figure 5 module, but it never reads a Figure 5 processed series or changes the
+Figure 5 output definition.
+
+The earlier pretax-income diagnostic is retained for audit history:
 
 ```bash
 python Code/scripts/build_figure6_wealth_level_diagnostic.py
@@ -165,11 +189,10 @@ python Code/scripts/build_figure6_wealth_level_diagnostic.py
 
 This reuses the verified Figure 5 active-saving numerator, retains the 21 fine
 wealth cohorts, and divides period saving by supplied cohort pretax income. It
-is a repeated-cross-section diagnostic with cohort means, not an exact Figure
-6 replication or a fixed-dollar-bin estimate. Its interpretation and proposed
-follow-up tests are in
-`docs/project/personal-considerations-saving-inequality.md`; its input and
-output contract is in `docs/data/figure6-wealth-level-diagnostic.md`.
+is superseded for substantive Figure 6 interpretation. It remains useful for
+showing why the denominator had to be reconstructed, but it is neither the
+official Figure 6 output nor a fixed-dollar-bin estimate. Its historical
+contract is in `docs/data/figure6-wealth-level-diagnostic.md`.
 
 Build the best-feasible Figure 8 debt proxy:
 
@@ -184,10 +207,12 @@ labelled a proxy because the package lacks the completed annual matrices
 required to rerun the revised 2025 augmented Leontief solve. See
 `docs/data/figure8-data.md`.
 
-Both scripts digitize their 2025 paper figures only to create external
+The Figure 5, exact-method Figure 6, and Figure 8 scripts digitize their 2025
+paper figures only to create external
 comparison series. Digitized values never enter the empirical calculations.
-The complete test suite covers wealth-group partitions, NIPA closure, moving
-window/base-year construction, debt signs, and fine-to-coarse aggregation.
+The complete test suite covers wealth-group partitions, raw Figure 6 binning,
+NIPA and disposable-income closure, five- and ten-year moving windows,
+base-year construction, debt signs, and fine-to-coarse aggregation.
 
 ## Leontief unveiling
 

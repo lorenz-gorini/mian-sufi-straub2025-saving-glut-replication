@@ -66,72 +66,116 @@ where $s_t(w)$ is the saving rate at real wealth level $w$ in period $t$. A
 pure composition story would imply a relatively stable $s(w)$ schedule and a
 large change in the distribution of $w$.
 
-## Exploratory wealth-level diagnostic
+## Exact-method Figure 6 and the matched wealth-level view
 
-![Exploratory active-saving profiles by wealth level](../../Results_Proposal/figures/figure6_wealth_level_diagnostic.png)
+![Figure 6 percentile and matched wealth-level views](../../Results_Proposal/figures/figure6_percentile_vs_wealth_level.png)
 
-The diagnostic keeps the 21 fine wealth-percentile cohorts supplied in the
-2021 authors' kit but places each cohort at its **mean real net wealth per
-adult**, rather than at its percentile rank. For cohort $c$ and period $P$,
-the plotted rate is
+The new reconstruction uses the 2025 Figure 6 rate in both panels:
 
 $$
-\widehat{s}_{cP}
+s^N_{it}
 =
-\frac{\sum_{t\in P}\Theta_{ct}}
-     {\sum_{t\in P}Y^{\mathrm{pretax}}_{ct}},
+\frac{\Theta_{it}}
+     {Z^{d,p}_{it}+Z^{d,\pi}_{it}},
 $$
 
-where $\Theta_{ct}$ is active saving reconstructed with the 2025 valuation
-identity and $Y^{\mathrm{pretax}}_{ct}$ is cohort pretax income from the
-supplied DINA shares. The horizontal coordinate is mean cohort net wealth in
-2018 dollars per adult. The ratio of period sums is used instead of averaging
-annual ratios, which prevents a noisy year with small top-tail income from
-dominating the result.
+where $\Theta_{it}$ is active saving, $Z^{d,p}_{it}$ is personal disposable
+income, and $Z^{d,\pi}_{it}$ is corporate disposable income attributable to
+the cohort through its corporate-equity ownership. The paper-style point for
+period $P$ is the simple mean of the annual rates:
 
-The accounting invariants still hold: the 21 cohorts sum to aggregate net
-wealth, national income, and NIPA private saving in every year.
+$$
+\bar s^N_{iP}=\frac{1}{|P|}\sum_{t\in P}s^N_{it}.
+$$
 
-### What this diagnostic suggests
+The left panel places the bottom 40% and each subsequent one-percentile cohort
+at its wealth rank. The right panel places the **same observations with the
+same numerator and denominator** at the cohort's mean real net wealth per adult
+in 2018 dollars. This makes the two panels comparable. The authors-kit input
+vintage limits the second period to 1983--2016 rather than the paper's
+1983--2019.
 
-The result does **not** support the strongest, pure-composition version of my
-hypothesis.
+The implementation reconstructs the percentile shares from the 16 GB raw DINA
+file. Personal disposable income is allocated with the supplied `ponog`
+concept, and NIPA business saving is attributed with corporate-equity shares.
+The resulting rates satisfy the paper's accounting identity
 
-- In 1963--1982, the supplied 75--80% cohort has mean wealth of about
-  \$124,000 and an estimated saving-to-pretax-income ratio of 14.5%. In
-  1983--2016, the same rank has roughly \$256,000 of mean wealth but a rate of
-  only 3.6%.
-- Comparing nearby wealth levels rather than identical ranks gives the same
-  message. The pre-1982 90--95% cohort averages about \$415,000 and saves
-  29.0%; the post-1982 85--90% cohort averages about \$468,000 and saves
-  10.4%.
-- The post-1982 curve eventually crosses and exceeds the earlier curve, but
-  only far into the upper tail. For the top 0.001%, the full-period proxy rises
-  from about 19.3% to 53.0%, alongside a very large increase in mean wealth.
-  Estimates for such tiny cohorts should be treated as especially sensitive.
+$$
+\sum_i s^N_{it}Z^d_{it}=S^p_t+S^\pi_t.
+$$
 
-Thus the data are more consistent with **both** a rightward expansion of the
-wealth distribution and a change in the saving schedule: saving falls through
-much of the middle and upper-middle distribution while it rises at the extreme
-top. This is descriptive evidence, not a causal decomposition.
+### What the comparable views suggest
 
-### Why this is not a Figure 6 replication
+The exact-method result again rejects the strongest pure-composition version
+of my hypothesis descriptively.
 
-This plot cannot yet establish a stable or changing household-level $s(w)$
-schedule.
+- At the 80th-percentile bin, the mean saving rate falls from 18.1% in
+  1963--1982 to 7.4% in 1983--2016, while mean real wealth rises from about
+  \$141,000 to \$286,000.
+- Comparing nearby wealth levels rather than identical ranks strengthens the
+  point. The pre-1982 90th-percentile bin has mean wealth near \$303,000 and a
+  31.5% rate; the post-1982 80th-percentile bin has mean wealth near \$286,000
+  but only a 7.4% rate.
+- The reconstructed top 1% moves in the opposite direction: mean wealth rises
+  from about \$3.0 million to \$6.9 million and its saving rate rises from
+  28.8% to 36.2%.
 
-- The DINA source is a repeated cross-section. A cohort in one year need not
-  contain the same people in the next year, so entry, exit, and rank mobility
-  remain mixed with saving.
-- Each marker is a percentile cohort located at its mean wealth, not a fixed
-  real-dollar wealth bin. Especially in the top tail, the mean represents a
-  wide and skewed range.
-- The denominator is supplied cohort **pretax income**. The 2025 Figure 6 rate
-  uses disposable income and includes corporate disposable income attributable
-  to shareholders. The plotted level is therefore a proxy.
-- Wealth-based saving is not simply income minus personal consumption. It also
-  includes retained corporate earnings attributed to equity owners, and it
-  separates active saving from valuation gains.
+Thus the available old-vintage data show both a rightward expansion of wealth
+and a change in the cross-sectional saving-rate profile: rates decline through
+much of the middle and upper-middle distribution but increase at the top 1%.
+This is descriptive evidence, not a causal decomposition.
+
+### Did the change occur once or evolve gradually?
+
+![Trailing five-year Figure 6 evolution](../../Results_Proposal/figures/figure6_rolling5_evolution.png)
+
+To avoid imposing the paper's pre/post split on the interpretation, I also
+compute the trailing five-year mean of the same annual rate:
+
+$$
+\bar s^N_{i,t;5}=\frac{1}{5}\sum_{\tau=t-4}^{t}s^N_{i\tau}.
+$$
+
+This does not change the numerator or denominator; it only exposes when the
+cross-sectional profile moved.
+
+- The upper-middle decline is persistent but not perfectly monotone. At the
+  80th percentile, the five-year rate is 20.1% in 1982, 21.8% in 1987, 4.1%
+  in 2002, and 6.1% in 2016. At the 90th percentile, the corresponding values
+  are 24.5%, 21.5%, 11.4%, and 17.8%.
+- The top 1% does not follow a smooth rising trend. Its rate oscillates strongly
+  and reaches 68.5% in the five-year window ending in 2008 before falling to
+  24.1% in 2016.
+- Therefore the data are inconsistent with both extreme stories: neither a
+  one-time common break in 1982 nor a uniform monotone trend describes the
+  whole distribution. A more defensible reading is a persistent downward
+  shift through the upper middle combined with much stronger top-tail
+  volatility.
+
+The smoothing is descriptive. Overlapping five-year windows induce serial
+dependence, and the exercise is not a formal break or trend test.
+
+### What is replicated and what remains limited
+
+The 2025 rate definition, percentile bins, valuation logic, and period
+averaging are now reconstructed. The main numerical boundary is the older
+input vintage. The reconstructed top-1 rates are also materially below the
+paper's approximately 43% and 54%, even though the rest of the curves are
+close: the paper-versus-ours correlations are 0.991 before 1982 and 0.972
+after 1982.
+
+The wealth-level panel still cannot establish a household-level $s(w)$
+schedule:
+
+- the DINA source is a repeated cross-section, so entry, exit, and rank
+  mobility remain mixed with saving;
+- each point is a percentile cohort located at its mean wealth, not a fixed
+  real-dollar wealth bin; and
+- especially in the top tail, a cohort mean represents a wide, skewed range.
+
+The earlier pretax-income diagnostic is retained for audit history, but it is
+superseded because it changed both the denominator and the horizontal
+representation at once.
 
 ## Who owns the debt?
 
@@ -204,13 +248,13 @@ returns, and credit access.
 
 ## Proposed empirical sequence
 
-The immediate follow-up work should proceed in this order:
+The follow-up work should proceed in this order:
 
-1. **Reconstruct Figure 6's denominator as closely as the kit permits.** Add
-   personal and attributable corporate disposable income, reproduce the
-   paper's pre/post percentile profile through 2016, and quantify the remaining
-   mismatch with the 2025 definition.
-2. **Build fixed-real-wealth-bin profiles from the raw DINA extract.** Hold
+1. **Completed: reconstruct Figure 6's denominator and percentile profile.**
+   Personal and attributable corporate disposable income now enter both the
+   percentile and matched wealth-level views, and the remaining paper mismatch
+   is quantified.
+2. **Next: build fixed-real-wealth-bin profiles from the raw DINA extract.** Hold
    2018-dollar bin thresholds fixed across periods, document reweighting and
    sparse top-bin rules, and distinguish a shift in $s(w)$ from a change in the
    wealth distribution. Repeated-cross-section composition will remain a
@@ -237,12 +281,22 @@ balance-sheet pattern with causal evidence about motives.
 
 ## Reproducibility links
 
-- Producer: `Code/scripts/build_figure6_wealth_level_diagnostic.py`
-- Reusable transformations:
-  `Code/unveiling/figure6_wealth_level_diagnostic.py`
-- Annual cohort data: `Data/processed/figure6_wealth_level_profiles.csv`
-- Period summaries: `Data/processed/figure6_wealth_level_windows.csv`
-- Figure: `Results_Proposal/figures/figure6_wealth_level_diagnostic.png`
-- Tests: `Code/tests/test_figure6_wealth_level_diagnostic.py`
-- Data and identification contract:
-  [`figure6-wealth-level-diagnostic.md`](../data/figure6-wealth-level-diagnostic.md)
+- Raw percentile producer:
+  `Code/scripts/build_figure6_percentile_shares.py`
+- Figure producer: `Code/scripts/build_figure6_authors_data.py`
+- Reusable transformations: `Code/unveiling/figure6_authors.py`
+- Annual data: `Data/processed/figure6_authors_annual.csv`
+- Period summaries: `Data/processed/figure6_authors_data.csv`
+- Matched figure:
+  `Results_Proposal/figures/figure6_percentile_vs_wealth_level.png`
+- Paper comparison:
+  `Results_Proposal/figures/figure6_authors_data_comparison.png`
+- Five-year evolution:
+  `Results_Proposal/figures/figure6_rolling5_evolution.png`
+- Rolling data: `Data/processed/figure6_authors_rolling5.csv`
+- Tests: `Code/tests/test_figure6_authors.py`
+- Task record: [`figure6-replication.md`](tasks/figure6-replication.md)
+- Data and identification contract: [`figure6-data.md`](../data/figure6-data.md)
+
+The superseded pretax-income files and producer remain documented in
+[`figure6-wealth-level-diagnostic.md`](../data/figure6-wealth-level-diagnostic.md).

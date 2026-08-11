@@ -1,10 +1,12 @@
-"""Build an exploratory saving-rate-by-wealth-level diagnostic.
+"""Build the superseded exploratory saving-rate-by-wealth-level diagnostic.
 
 The diagnostic reuses the active-saving reconstruction behind Figure 5 but
 keeps all 21 fine wealth cohorts. It is not labelled as Figure 6 because the
 available denominator is pretax income rather than the paper's disposable-
 income concept, and the horizontal coordinate is a cohort mean rather than a
 fixed household-level wealth bin.
+
+Use ``build_figure6_authors_data.py`` for the preferred exact-method output.
 """
 
 from __future__ import annotations

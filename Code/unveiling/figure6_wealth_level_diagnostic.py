@@ -1,4 +1,4 @@
-"""Exploratory Figure 6 diagnostic indexed by cohort mean wealth.
+"""Superseded exploratory Figure 6 diagnostic indexed by cohort mean wealth.
 
 This module deliberately does not claim to reproduce Figure 6 of the July
 2025 paper. It keeps the active-saving numerator reconstructed for Figure 5,
@@ -6,6 +6,9 @@ divides it by supplied fine-cohort pretax-income shares, and replaces the
 percentile rank on the horizontal axis with mean real net wealth per adult.
 The resulting repeated-cross-section diagnostic is useful for hypothesis
 formation but cannot track the same households through time.
+
+The preferred Figure 6 implementation is :mod:`unveiling.figure6_authors`,
+which uses the paper's personal-plus-corporate disposable-income denominator.
 """
 
 from __future__ import annotations
@@ -16,6 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from .figure6_authors import load_demographics
 from .figure5_authors import (
     ASSETS,
     ASSET_SHARE_CLASS,
@@ -36,54 +40,6 @@ DEFAULT_WINDOWS = {
     "baseline_decade": (1973, 1982),
     "late_decade": (2007, 2016),
 }
-
-
-def load_demographics(path: Path) -> pd.DataFrame:
-    """Load adult population and the national-income deflator.
-
-    Parameters
-    ----------
-    path
-        Authors-kit ``parameters_mss.csv`` file.
-
-    Returns
-    -------
-    pandas.DataFrame
-        One row per year for 1962--2016. ``totadults20`` is thousands of
-        adults aged 20 or older and ``nideflator`` converts current dollars to
-        2018 dollars.
-
-    Raises
-    ------
-    ValueError
-        If required columns, years, uniqueness, positivity, or finite-value
-        assumptions fail.
-    """
-
-    required = {"yr", "totadults20", "nideflator"}
-    frame = pd.read_csv(path, usecols=lambda column: column in required)
-    missing = sorted(required - set(frame.columns))
-    if missing:
-        raise ValueError(f"demographics: missing required columns {missing}")
-    frame = frame.rename(columns={"yr": "year"})
-    frame["year"] = pd.to_numeric(frame["year"], errors="raise")
-    if not np.allclose(frame["year"], np.rint(frame["year"])):
-        raise ValueError("demographics: year must contain integers")
-    frame["year"] = np.rint(frame["year"]).astype(np.int16)
-    frame = frame.loc[frame["year"].between(1962, 2016)].copy()
-    if frame["year"].duplicated().any():
-        raise ValueError("demographics: duplicate annual keys")
-    numeric = ["totadults20", "nideflator"]
-    frame[numeric] = frame[numeric].astype(np.float64)
-    if not np.isfinite(frame[numeric].to_numpy()).all():
-        raise ValueError("demographics: required values must be finite")
-    if (frame[numeric] <= 0).any().any():
-        raise ValueError("demographics: population and deflator must be positive")
-    frame = frame.sort_values("year").reset_index(drop=True)
-    expected_years = list(range(1962, 2017))
-    if frame["year"].tolist() != expected_years:
-        raise ValueError("demographics: expected complete 1962-2016 sample")
-    return frame
 
 
 def construct_fine_wealth_profiles(

@@ -9,27 +9,24 @@ methodological decisions and evidence; stable data contracts live in
 
 | ID | Task | Status | Priority | Category | Estimate | Objective | Progress and next action | Task record |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-009 | Review and integrate the Figure 5 and Figure 8 comparisons | In progress | 1 | paper-review |  | Understand what the two figures measure, read the relevant 2025 paper sections, trace how our outputs were generated, evaluate the paper-versus-ours comparisons, and approve their presentation use. | The personal interpretation now distinguishes Figure 5 flows from Figure 6 rates and adds a verified wealth-level diagnostic. Next reconstruct the disposable-income denominator, then build fixed-real-wealth bins before evaluating portfolio and collateral mechanisms. | [Review task](tasks/figure5-figure8-review.md); [personal considerations](personal-considerations-saving-inequality.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
-| T-005 | Build the final pedagogical presentation | In progress | 2 | presentation |  | Distill the methodology novelty, version audit, reconstructed results, and limitations into one visually coherent course presentation while retaining the topic decks as source modules. | The verified 12-slide empirical-comparison module covers Figures 1, 5, and 8. After the T-009 substantive review, carry the approved Figure 5 reconstruction and Figure 8 proxy panels into the short final synthesis rather than concatenating the source decks. | [Presentation task](tasks/pedagogical-presentation.md); [comparison deck](../../Presentation/4_figure_comparison/README.md) |
+| T-009 | Review and integrate the Figure 5, Figure 6, and Figure 8 comparisons | In progress | 1 | paper-review |  | Understand what the three figures measure, trace how our outputs were generated, evaluate the paper-versus-ours comparisons, and approve their presentation use. | Figure 6 now has the exact denominator, matched wealth-level view, and five-year evolution diagnostic. The upper-middle decline is persistent but nonmonotone, while the top 1% is volatile. Next review the residual top-1 gap and decide whether fixed-real-wealth bins are worth the remaining cost. | [Review task](tasks/figure5-figure8-review.md); [personal considerations](personal-considerations-saving-inequality.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 6 replication](tasks/figure6-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
+| T-005 | Build the final pedagogical presentation | In progress | 2 | presentation |  | Distill the methodology novelty, version audit, reconstructed results, and limitations into one visually coherent course presentation while retaining the topic decks as source modules. | The verified 16-slide empirical-comparison module covers Figures 1, 5, 6, and 8, including the Figure 6 wealth-level and five-year mechanism diagnostics. Next carry only the approved panels into the short final synthesis rather than concatenating source decks. | [Presentation task](tasks/pedagogical-presentation.md); [comparison deck](../../Presentation/4_figure_comparison/README.md) |
 | T-006 | Produce the compact final replication report | In progress | 2 | writing |  | Convert the technical evidence into an approximately two-page course-facing report: methodology novelty first, replication evidence and limitations second, with a concise extension proposal. | The empirical boundary is now settled for all three core figures. Next replace the older Figure 1-only discussion with the Figure 5 reconstruction and Figure 8 proxy evidence, then compress the technical report into the requested course-facing length. | [Report task](tasks/final-report.md) |
 
 ## Immediate sequence: 2026-08-11
 
-1. Review the new personal-considerations note and its distinction between
-   Figure 5 saving flows, Figure 6 saving rates, and the exploratory
-   wealth-level diagnostic.
-2. Reconstruct the Figure 6 personal-plus-corporate disposable-income
-   denominator as far as the 2021 kit permits, then compare its pre/post
-   percentile profile with the current pretax-income proxy.
-3. Build fixed-2018-dollar wealth bins from the raw DINA extract to separate a
+1. Review the exact-method Figure 6 paper comparison, especially the lower
+   top-1 level, the matched wealth-level interpretation, and the contrast
+   between persistent upper-middle decline and top-1 volatility.
+2. Build fixed-2018-dollar wealth bins from the raw DINA extract to separate a
    change in the saving schedule from a change in the wealth distribution,
    while retaining the repeated-cross-section limitation.
-4. Inspect the paper-versus-ours panels in the comparison deck. Preserve the
+3. Inspect the paper-versus-ours panels in the comparison deck. Preserve the
    evidence labels: Figure 5 is an old-input reconstruction, while Figure 8 is
    a bounded proxy because the completed 2025 matrices are unavailable.
-5. Record any corrections, then move only the approved comparison panels into
+4. Record any corrections, then move only the approved comparison panels into
    the final short presentation and compact report.
-6. Finish the compact report and choose a feasible extension proposal. The AI
+5. Finish the compact report and choose a feasible extension proposal. The AI
    circular-financing application is the leading candidate, not yet an
    approved or implemented extension.
 
@@ -42,6 +39,7 @@ methodological decisions and evidence; stable data contracts live in
 | T-003 | Reconstruct cleaning and merges | Complete | 2 | data-engineering |  | Reimplement the minimum required preparation with explicit transformations and merge contracts. | Python rebuilds the Figure 1 intermediary claims, Figure 5 fine wealth allocation and valuation closure, and Figure 8 fine-group aggregation with explicit contracts and aggregation/accounting checks. Authors' files remain read-only. | [Figure 1 replication](tasks/figure1-replication.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
 | T-004 | Reproduce selected computations and exhibits | Complete | 1 | replication | 120m | Generate Figures 1, 5, and 8 as closely as the supplied inputs permit and compare each with declared benchmark evidence. | Figure 1 and Figure 5 are reconstructed from authors-kit inputs through 2016 and track the digitized 2025 targets closely. Figure 8 applies the revised group/sign/scale/base definition to the kit's seven-round positions and is explicitly delivered as a proxy because the revised matrices are unavailable. Code, generated data, figures, tests, and comparison metrics are linked in the three task records. | [Figure 1 replication](tasks/figure1-replication.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 8 replication](tasks/figure8-replication.md); [major results](../../Results_Proposal/major_results.md) |
 | T-007 | Validate the complete February 2021 replication package | Complete |  | replication-validation |  | Establish that the supplied Stata package can reproduce the paper version it accompanies and preserve a version-aware audit trail. | On 2026-08-09 the user-authorized StataNow 19.5 master run completed; all major outputs are mapped to the exact February 2021 revision, seven figures pass visual comparison, and Table 7 matches to three decimals. The verified nine-slide deck in `Presentation/1_replication_package_validation/` shows why this is a successful 2021 benchmark but not an exact 2025 replication. | [Benchmark and hydration](tasks/author-data-benchmark.md); [output crosswalk](../reference/author-output-crosswalk.md) |
+| T-010 | Reconstruct Figure 6 with the 2025 method | Complete | 1 | replication |  | Apply the paper's percentile bins, active-saving numerator, and personal-plus-corporate disposable-income denominator to the 2021 authors-kit data, then construct directly comparable wealth-level and time-evolution views. | The raw DINA bins reaggregate to prepared author shares within $7.24\times10^{-8}$; annual wealth, saving, income, and equation (9c) close; paper correlations are 0.991 and 0.972. Percentile, wealth-level, comparison, and five-year evolution figures cover the available 1963--2016 inputs. | [Figure 6 replication](tasks/figure6-replication.md); [Figure 6 data](../data/figure6-data.md); [personal considerations](personal-considerations-saving-inequality.md) |
 
 ## Planned tasks
 

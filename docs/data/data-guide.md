@@ -4,9 +4,10 @@ This document defines how data must be organized and documented. It will become
 the canonical inventory during T-002.
 
 The selected-result inventories are [`figure1-data.md`](figure1-data.md),
-[`figure5-data.md`](figure5-data.md), and [`figure8-data.md`](figure8-data.md).
-They document only the files and columns used by the selected exhibits rather
-than reproducing the entire old-package schema.
+[`figure5-data.md`](figure5-data.md), [`figure6-data.md`](figure6-data.md), and
+[`figure8-data.md`](figure8-data.md). They document only the files and columns
+used by the selected exhibits rather than reproducing the entire old-package
+schema.
 
 ## Data zones
 

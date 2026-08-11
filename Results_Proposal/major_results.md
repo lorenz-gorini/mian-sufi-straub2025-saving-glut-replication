@@ -24,6 +24,7 @@ crosswalk.
 | --- | --- | --- | --- | --- |
 | R-001 | Selected - core | Indirect household ownership rose materially, so aggregate direct holdings conceal the final use of saving. | Figure 1 | No exact equivalent; old Figure 6 is related. |
 | R-002 | Selected - core | Top-1-percent saving diverged sharply from bottom-99-percent saving after 1982. | Figure 5 | Old Figures 1, 3, and 4. |
+| R-008 | Selected - diagnostic adjunct | Saving rates fell across much of the wealth distribution after 1982 but rose for the top 1 percent. | Figure 6 | Old Figure 5 uses a related pretax-income rate. |
 | R-003 | Selected - core | After unveiling intermediated ownership, the top group accumulates household-debt claims while the bottom 99 percent becomes a net debtor. | Figure 8 | Old Figure 7 and Table 7. |
 | R-004 | Selected - extension if time permits | The bottom 99 percent increasingly finances expenditure with debt, much of it funded by the top 1 percent. | Figure 9 | Old Table 7 contains related flow components. |
 | R-005 | Deferred | Top-1-percent demand for household and government debt is comparable to rest-of-world safe-asset accumulation. | Figure 10 | Old Figure 9. |
@@ -40,6 +41,7 @@ for selection criteria and feasibility notes.
 | 2026-07-24 | R-001 | Select as core. | Covers the central unveiling methodology and motivates all later allocation results. | User |
 | 2026-07-24 | R-002 | Select as core. | Captures the paper's main saving-glut fact and its measurement. | User |
 | 2026-07-24 | R-003 | Select as core. | Captures the main "who finances whom" application of unveiling. | User |
+| 2026-08-11 | R-008 | Select as a diagnostic adjunct to Figure 5. | The user requested the exact 2025 saving-rate method and a comparable wealth-level representation to interpret the saving-flow divergence. | User |
 | 2026-07-24 | R-004 | Select only if time permits. | Reuses Figure 8 concepts and data while translating stocks into flows. | User |
 | 2026-07-24 | R-005 to R-007 | Defer. | Methodological understanding and completion of the three core figures take priority over breadth. | User |
 
@@ -253,6 +255,56 @@ points versus +4.35 and -8.46 in the digitized paper.
 This is a strong old-input reconstruction of the revised saving and display
 method. The missing 2017--2019 vintage and revised inputs preclude exact
 equality but do not alter the central saving-divergence conclusion.
+
+## R-008: Net saving rates across the wealth distribution
+
+**Paper reference and definition**
+
+- Exact version: July 25, 2025 draft, Section 3.4, Figure 6, physical PDF
+  page 24.
+- The paper compares 1963--1982 with 1983--2019 for the bottom 40% and every
+  later wealth percentile.
+- The available old-input reconstruction ends in 2016.
+
+$$
+s^N_{it}
+=\frac{\Theta_{it}}{Z^{d,p}_{it}+Z^{d,\pi}_{it}}.
+$$
+
+The denominator is personal plus corporate disposable income attributable to
+cohort $i$. The period curve is the simple mean of annual cohort rates.
+
+**Our implementation and evidence**
+
+- Raw-share producer: `Code/scripts/build_figure6_percentile_shares.py`.
+- Analysis producer: `Code/scripts/build_figure6_authors_data.py`.
+- Module and tests: `Code/unveiling/figure6_authors.py` and
+  `Code/tests/test_figure6_authors.py`.
+- Data contract and task record: `docs/data/figure6-data.md` and
+  `docs/project/tasks/figure6-replication.md`.
+- Main comparison:
+  `Results_Proposal/figures/figure6_authors_data_comparison.png`.
+- Percentile-versus-wealth-level view:
+  `Results_Proposal/figures/figure6_percentile_vs_wealth_level.png`.
+- Five-year evolution diagnostic:
+  `Results_Proposal/figures/figure6_rolling5_evolution.png`.
+
+The raw DINA reconstruction matches the authors' prepared coarse shares within
+$7.24\times10^{-8}$ and satisfies the paper's income-weighted saving closure.
+Correlations with the digitized paper curves are 0.991 and 0.972, with mean
+absolute errors of 1.46 and 1.20 percentage points. The reconstructed top 1%
+rises from 28.8% to 36.2%, below the paper's approximately 43% to 54%; that gap
+remains an input-vintage discrepancy rather than a failed accounting identity.
+
+The matched wealth-level panel holds every rate fixed and changes only its
+horizontal coordinate to mean real cohort wealth. It remains a repeated-cross-
+section cohort-mean comparison, not a fixed-dollar-bin estimate of $s(w)$.
+
+Trailing-five-year rates sharpen the interpretation. The 80th--90th
+percentiles exhibit a persistent, nonmonotone decline after the late 1980s,
+whereas the top 1% oscillates strongly and peaks in the window ending in 2008.
+The evidence therefore supports heterogeneous evolution rather than one common
+permanent break or one smooth monotone trend.
 
 ## R-003: Net household debt across wealth groups
 

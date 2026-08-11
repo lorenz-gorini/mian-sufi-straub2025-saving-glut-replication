@@ -16,13 +16,15 @@ generated numerical results belong in generated artifacts.
 | [`project/tasks/author-data-benchmark.md`](project/tasks/author-data-benchmark.md) | Historical benchmark, authors-data reconstruction, storage, and new-data robustness boundary. |
 | [`project/tasks/figure1-replication.md`](project/tasks/figure1-replication.md) | T-004 Figure 1 definition, data boundary, reconstruction equations, validation, and remaining exact-vintage gap. |
 | [`project/tasks/figure5-replication.md`](project/tasks/figure5-replication.md) | T-004 Figure 5 saving identity, fine-share reconstruction, NIPA closure, and paper comparison. |
+| [`project/tasks/figure6-replication.md`](project/tasks/figure6-replication.md) | T-010 exact-method Figure 6 reconstruction with older inputs, matched wealth-level and five-year evolution views, validation, and paper comparison. |
 | [`project/tasks/figure8-replication.md`](project/tasks/figure8-replication.md) | T-004 Figure 8 net-debt proxy, missing-matrix boundary, validation, and paper comparison. |
-| [`project/personal-considerations-saving-inequality.md`](project/personal-considerations-saving-inequality.md) | Personal interpretation of Figures 5--6, exploratory wealth-level diagnostic, testable hypotheses, limitations, and proposed empirical sequence. |
+| [`project/personal-considerations-saving-inequality.md`](project/personal-considerations-saving-inequality.md) | Personal interpretation of Figures 5--6, exact-method, wealth-level, and time-evolution evidence, testable hypotheses, limitations, and proposed empirical sequence. |
 | [`data/data-guide.md`](data/data-guide.md) | Data zones, schema contract, merge documentation, and descriptives checklist. |
 | [`data/author-kit-data-map.md`](data/author-kit-data-map.md) | Selective folder dictionary and storage/access policy for the downloaded authors' tree. |
 | [`data/figure1-data.md`](data/figure1-data.md) | Selective Figure 1 source inventory, schemas, transformations, provenance, and vintage boundary. |
 | [`data/figure5-data.md`](data/figure5-data.md) | Figure 5 input fields, wealth groups, valuation rules, merge contracts, closure, and outputs. |
-| [`data/figure6-wealth-level-diagnostic.md`](data/figure6-wealth-level-diagnostic.md) | Separate Figure 6-motivated wealth-level diagnostic: cohort means, pretax-income proxy, invariants, and identification limits. |
+| [`data/figure6-data.md`](data/figure6-data.md) | Exact-method Figure 6 raw percentile construction, disposable-income denominator, valuation closure, five-year diagnostic, outputs, and comparison evidence. |
+| [`data/figure6-wealth-level-diagnostic.md`](data/figure6-wealth-level-diagnostic.md) | Superseded Figure 6-motivated pretax-income diagnostic, retained for audit history. |
 | [`data/figure8-data.md`](data/figure8-data.md) | Figure 8 fine debt-position fields, sign convention, proxy boundary, aggregation checks, and outputs. |
 | [`methods/leontief-unveiling.md`](methods/leontief-unveiling.md) | Equations, orientation, worked example, code contract, invariants, and comparison with the 2021 unveiling procedure. |
 | [`reference/author-kit-quickstart.md`](reference/author-kit-quickstart.md) | Compact 2021 pipeline, preprocessing summary, prepared-file contracts, and 2025 reuse decisions for future agents. |

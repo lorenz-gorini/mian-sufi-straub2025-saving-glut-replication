@@ -1,5 +1,12 @@
 # Exploratory Figure 6 Wealth-Level Diagnostic: Data Contract
 
+> **Superseded historical diagnostic.** The exact-method Figure 6
+> reconstruction now uses personal plus attributable corporate disposable
+> income in both the percentile and mean-wealth views. See
+> [`figure6-data.md`](figure6-data.md). The files below are retained to explain
+> what the earlier pretax-income experiment did; they are not the preferred
+> Figure 6 evidence.
+
 ## Role and economic object
 
 This is a **separate exploratory diagnostic**, not an exact replication of the
