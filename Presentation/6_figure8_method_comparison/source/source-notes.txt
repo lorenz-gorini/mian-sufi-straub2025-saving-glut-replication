@@ -1,0 +1,9 @@
+Target method and Figure 8: MSS_SGR_July242025.pdf, Sections 2.1-2.2, 4.1-4.2, Table A1, physical page 29.
+Public completed FWTW data and technical note: https://www.federalreserve.gov/releases/efa/fwtw.htm.
+FWTW completion algorithm: https://www.federalreserve.gov/econres/notes/feds-notes/from-whom-to-whom-relationships-in-the-financial-accounts-of-the-united-states-20230324.html.
+Public taxonomy announcements: https://www.federalreserve.gov/releases/efa/fwtw_announcements.htm.
+Pinned public input: Data/raw/fwtw/fwtw_data_2026-06-18.csv.
+Distributional inputs: MSS2021Febreplicationkit/data/PSZusdina/Yszshares_fine.dta and MSS2021Febreplicationkit/data/finalfiles/YwealthFOF.dta.
+Retained proxy: Code/scripts/build_figure8_authors_data.py and Data/processed/figure8_authors_proxy.csv.
+Preferred reconstruction: Code/scripts/build_figure8_public_fwtw.py, Data/processed/figure8_public_fwtw_full_leontief.csv, and Data/interim/figure8_public_fwtw_network_diagnostics.csv.
+Generated figures: Results_Proposal/figures/figure8_method_comparison_top1.png, figure8_method_comparison_bottom99.png, figure8_public_fwtw_full_leontief.png, and figure8_public_fwtw_sensitivity.png.

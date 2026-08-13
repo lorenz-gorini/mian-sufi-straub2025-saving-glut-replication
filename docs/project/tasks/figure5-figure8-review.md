@@ -104,12 +104,12 @@ borrowing.
   DINA, disposable-income, valuation, and NIPA inputs identify the revised rate
   through 2016. It verifies
   $\sum_i s^N_{it}Z^d_{it}=S_t^p+S_t^\pi$.
-- **The plotted Figure 8 is a bounded proxy.** Its fine-group debt assets come
-  from the older seven-round unveiling. The exact authors-vintage matrices are
-  absent, but current public completed FWTW plus the 2021 DINA/NIPA inputs make
-  a separate full-Leontief mixed-vintage reconstruction feasible. Every proxy
-  series must equal zero in 1982, and group assets and liabilities must
-  aggregate back to the supplied totals.
+- **Figure 8 now has two explicitly separated builds.** The retained proxy's
+  fine-group debt assets come from the older seven-round unveiling. The
+  preferred mixed-vintage reconstruction starts from current public completed
+  FWTW, combines it with 2021 DINA/NIPA, and applies the full Leontief operator.
+  Both must equal zero in 1982; direct/unveiled ownership rows and group debt
+  assets and liabilities must satisfy their documented closures.
 - High correlation with a digitized paper curve supports similarity in timing
   and shape; it does not identify whether a residual gap comes from data
   vintage, classifications, or the unveiling method.
@@ -139,6 +139,18 @@ borrowing.
 | 2026-08-11 | Supersede the pretax-income diagnostic with an exact-method Figure 6 reconstruction and a matched wealth-level view. | Both new panels use personal plus attributable corporate disposable income; only the horizontal coordinate changes, so their comparison is interpretable. |
 | 2026-08-11 | Treat the five-year evolution as a diagnostic rather than a new replication target. | It holds the 2025 annual saving-rate definition fixed and reveals timing, but overlapping windows do not constitute a formal structural-break test. |
 | 2026-08-12 | Separate the exact 2025 data-vintage gap from methodological feasibility. | The 2021 kit alone lacks the Batty-completed target matrices, but the current public FWTW release supplies completed bilateral estimates that can be combined with 2021 DINA/NIPA for a labelled mixed-vintage full-Leontief rerun. |
+| 2026-08-13 | Use the public-FWTW full-Leontief build as the preferred Figure 8 result and retain the old proxy as lineage. | The full operator is now implemented and closes exactly; it improves top-1 fit but not every level, while the public vintage and taxonomy remain different from the authors' unavailable target matrices. |
+
+## Session record: 2026-08-13 preferred Figure 8 reconstruction
+
+- Implemented the public-FWTW direct-network build in a separate module and
+  entry point; the old seven-round proxy is unchanged.
+- Added the explicit public-instrument-to-DINA crosswalk, annual full inverse,
+  household-debt allocation, negative-position sensitivity, tests, processed
+  outputs, and diagnostics.
+- Added a separate eight-slide comparison deck that teaches the shared
+  estimand, the two upstream routes, the exact-vintage boundary, accounting
+  checks, paper comparison, and submission recommendation.
 
 ## Session record: 2026-08-11 task creation
 
@@ -149,7 +161,7 @@ borrowing.
   implementation T-004.
 - Changed files: this task record and `docs/project/progress.md`.
 - Result: T-009 owns the substantive review and final-presentation approval of
-  the Figure 5 reconstruction and Figure 8 proxy.
+  the Figure 5 reconstruction and both explicitly separated Figure 8 routes.
 - Next action: read the two target-paper passages, then walk through Figure 5's
   saving identity before reviewing the generated comparison panel.
 

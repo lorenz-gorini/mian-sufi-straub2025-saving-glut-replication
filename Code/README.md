@@ -194,7 +194,7 @@ showing why the denominator had to be reconstructed, but it is neither the
 official Figure 6 output nor a fixed-dollar-bin estimate. Its historical
 contract is in `docs/data/figure6-wealth-level-diagnostic.md`.
 
-Build the best-feasible Figure 8 debt proxy:
+Build the retained Figure 8 debt proxy:
 
 ```bash
 python Code/scripts/build_figure8_authors_data.py
@@ -207,12 +207,33 @@ labelled a proxy because the package lacks the completed annual matrices
 required to rerun the revised 2025 augmented Leontief solve. See
 `docs/data/figure8-data.md`.
 
+Build the preferred public-FWTW full-Leontief Figure 8 reconstruction:
+
+```bash
+python Code/scripts/build_figure8_public_fwtw.py
+```
+
+This separate entry point reads the pinned June 2026 Federal Reserve FWTW
+release, splits the direct household-holder cells using the supplied fine DINA
+asset shares, applies the paper's full $\Omega_t=(I-Q_t)^{-1}B_t$ operator,
+maps unveiled household-debt assets against group mortgage and nonmortgage
+liabilities, divides by authors-kit national income, and subtracts 1982. It
+writes a reoriented-negative-position baseline, a zero-clipped sensitivity,
+annual matrix diagnostics, and a three-way comparison against the paper and
+the retained seven-round proxy. See
+`docs/data/figure8-public-fwtw-data.md`.
+
+The correct labels are **public-FWTW full-Leontief reconstruction** and
+**2021-kit seven-round proxy**. Neither is an exact numerical reproduction of
+the unavailable 2025 authors-vintage 34-instrument, 27-sector matrix.
+
 The Figure 5, exact-method Figure 6, and Figure 8 scripts digitize their 2025
 paper figures only to create external
 comparison series. Digitized values never enter the empirical calculations.
 The complete test suite covers wealth-group partitions, raw Figure 6 binning,
 NIPA and disposable-income closure, five- and ten-year moving windows,
-base-year construction, debt signs, and fine-to-coarse aggregation.
+base-year construction, debt signs, fine-to-coarse aggregation, full-Leontief
+convergence, and direct/unveiled/primary-asset closure.
 
 ## Leontief unveiling
 

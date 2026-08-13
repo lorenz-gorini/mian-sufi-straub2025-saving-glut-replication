@@ -1,0 +1,8 @@
+Slide 1: rewrite inherited title content for the Figure 8 two-method comparison.
+Slide 2: reuse the evidence-role frame to define the shared estimand and the two deliberately separate routes.
+Slide 3: reuse the six-row crosswalk to compare target, old proxy, new reconstruction, and comparison roles.
+Slide 4: reuse the three-step method frame to state the public-FWTW full-Leontief pipeline.
+Slide 5: reuse the Figure 8 feasibility frame for exact-vintage and public-taxonomy boundaries.
+Slide 6: replace both inherited chart images with generated top-1 and bottom-99 three-way comparisons.
+Slide 7: replace both inherited chart images with the preferred public-FWTW result and negative-position sensitivity.
+Slide 8: rewrite the synthesis frame to state the submission recommendation and remaining limitation.

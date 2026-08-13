@@ -26,12 +26,14 @@ valuation, and NIPA inputs identify the revised saving objects through 2016.
 The Figure 6 section adds a paper-raster digitization audit and two mechanism
 diagnostics: the same saving rates indexed by mean real wealth, and
 trailing-five-year rates across percentiles.
-The plotted Figure 8 remains a bounded proxy because its unveiled asset stocks
-come from the older seven-round procedure. The deck now separately records a
-feasible full-method next step: combine the current completed public FWTW
-release with the 2021 DINA/NIPA inputs and apply the 2025 Leontief operator.
-That mixed-vintage output would be a method reconstruction, not an exact
-reproduction of the authors' 34-instrument, 27-sector, through-2019 vintage.
+The plotted Figure 8 remains the retained bounded proxy because its unveiled
+asset stocks come from the older seven-round procedure. The formerly planned
+full-method step is now implemented and compared in the separate focused deck
+[`../6_figure8_method_comparison/presentation.pptx`](../6_figure8_method_comparison/presentation.pptx).
+It combines the current completed public FWTW release with 2021 DINA/NIPA and
+applies the 2025 full-Leontief operator. That mixed-vintage output is a method
+reconstruction, not an exact reproduction of the authors' 34-instrument,
+27-sector, through-2019 vintage.
 
 The paper graphs on the primary comparison slides are cropped to remove their
 printed captions. Their meaning, sample, and units are restated in editable
@@ -76,8 +78,8 @@ kit remain read-only.
 All 18 slides were rendered and inspected individually on 2026-08-12. The deck
 passes the template-fidelity, overflow, unresolved-placeholder, source-note,
 and PowerPoint-archive checks. Future extensions must retain the role labels
-and may not silently promote the current Figure 8 proxy—or the planned
-mixed-vintage rerun—to an exact authors-vintage reproduction.
+and may not silently promote either the current Figure 8 proxy or the
+implemented mixed-vintage rerun to an exact authors-vintage reproduction.
 
 ## Editable source
 

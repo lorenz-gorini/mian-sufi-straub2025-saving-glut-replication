@@ -23,11 +23,9 @@ normalization to the older unveiled stocks. It is not a rerun of the 2025
 matrix methodology.
 
 This is an exact-vintage boundary, not a methodological impossibility. The
-pinned current public FWTW release contains completed bilateral estimates for
-31 instruments and 25 substantive sectors. Combined with the 2021 DINA/NIPA
-inputs, it can support a separate full-Leontief mixed-vintage reconstruction
-after an explicit instrument/sector-to-DINA crosswalk. That pipeline is not yet
-part of the outputs documented below.
+separate public-FWTW full-Leontief reconstruction is now implemented and
+documented in [`figure8-public-fwtw-data.md`](figure8-public-fwtw-data.md).
+Nothing in that build changes or silently relabels the proxy documented here.
 
 ## Input inventory
 

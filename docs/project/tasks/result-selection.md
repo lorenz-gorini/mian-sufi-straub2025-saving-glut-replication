@@ -181,13 +181,14 @@ The 2026-08-10 implementation audit resolves the remaining two core figures:
 | Figure | Classification | Earliest feasible supplied input | Verified boundary |
 | --- | --- | --- | --- |
 | Figure 5 | Old-input reconstruction of the July 2025 definition | `YwealthFOF.dta`, fine DINA shares, `Ywealthreturns.dta`, and NIPA saving | Annual saving closes to NIPA; 10-year/1982 display implemented through 2016; top-1 and bottom-99 correlations with the digitized target are 0.992 and 0.997 |
-| Figure 8 | Close old-unveiling proxy | Fine debt assets/liabilities in `YinequalityFAanalysis.dta` | Fine cells aggregate to old coarse cells, but the revised completed matrices needed for the augmented Leontief solve are absent |
+| Figure 8 | Preferred public-FWTW full-Leontief reconstruction; retained old-unveiling proxy | Public completed FWTW plus supplied DINA/NIPA; downstream fine debt assets/liabilities in `YinequalityFAanalysis.dta` for the proxy | The preferred build implements the revised operator with a different public vintage/taxonomy; the exact authors-vintage 34-instrument, 27-sector matrices remain unavailable |
 
 Figure 5 can therefore be called our reconstruction of the revised method on
-the older authors' data. Figure 8 cannot: its output name, documentation, and
-presentation label retain `proxy`. In both cases the absent 2017--2019 data are
-a sample-vintage limit, whereas Figure 8's absent completed matrices are a
-method-identification limit.
+the older authors' data. Figure 8 has two labels: the old-kit downstream output
+retains `proxy`, while the separate public-FWTW build is a full-Leontief
+mixed-vintage method reconstruction. The absent exact 2017--2019 extension,
+authors' instrument/sector vintage, and equity crosswalk prevent an exact
+numerical reproduction, not implementation of the operator itself.
 
 ## Definition of done
 

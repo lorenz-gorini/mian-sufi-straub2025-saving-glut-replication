@@ -39,6 +39,9 @@ logic rather than decorate the slide.
 - `4_figure_comparison/` contains the empirical comparison deck. It keeps the
   2025 target, authors-old Stata precursor, ours-public robustness build, and
   ours-authors reconstruction visibly separate.
+- `6_figure8_method_comparison/` contains the focused Figure 8 comparison of
+  the preferred public-FWTW full-Leontief reconstruction and the retained
+  2021-kit seven-round proxy against the same 2025 target.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
   the editable PowerPoint decks.
 - The root `presentation.tex` and `presentation.pdf` are a legacy combined
@@ -221,17 +224,29 @@ The editable 18-slide PowerPoint
 evidence hierarchy and applies it to Figures 1, 5, 6, and 8. Its central tests use
 February 2021 authors-kit inputs with the July 2025 definitions wherever those
 inputs identify the revised object. Figure 1 and Figure 5 are labeled
-reconstructions; the plotted Figure 8 remains a bounded proxy because it uses
-the old kit's seven-round positions. A separate boundary slide explains that
-current public completed FWTW plus 2021 DINA/NIPA make a full-Leontief
-mixed-vintage method reconstruction feasible, although not an exact target-
-vintage reproduction. The regenerated old Figure 6 from
+reconstructions; the plotted Figure 8 remains the retained bounded proxy
+because it uses the old kit's seven-round positions. The previously proposed
+public-FWTW full-Leontief rerun is now implemented and audited in the separate
+focused deck described below. The regenerated old Figure 6 from
 Stata is a related authors-old precursor, while the later public-data Figure 1
 build is a robustness result. Paper graphs are shown without their printed
 captions, and their descriptions are restated in editable slide text. All 18
 slides were rendered and inspected on 2026-08-12. The deck passes template
 fidelity, overflow, unresolved-placeholder, source-note, and archive-integrity
 checks. See `4_figure_comparison/README.md` for its evidence contract.
+
+### Figure 8 method comparison
+
+The editable eight-slide PowerPoint
+`6_figure8_method_comparison/presentation.pptx` compares the preferred
+public-FWTW full-Leontief reconstruction with the retained 2021-kit
+seven-round proxy and the same digitized July 2025 target. It explains the
+shared net-debt estimand, upstream data and operator differences, explicit
+instrument-to-DINA crosswalk, signed-level treatment, accounting invariants,
+mixed empirical fit, and submission recommendation. All slides were rendered
+and inspected on 2026-08-13 and pass the template-fidelity, overflow,
+placeholder, source-note, and archive checks. See
+`6_figure8_method_comparison/README.md` for the scope and rebuild contract.
 
 ### Legacy combined deck
 

@@ -325,39 +325,48 @@ $A^D_{gt}$ is household debt held as an unveiled asset and $D_{gt}$ is the
 group's positive debt liability. The chart reports $ND_{gt}/NI_t$ relative to
 1982. Positive values mean net lending; negative values mean net borrowing.
 
-The February 2021 kit lacks the completed instrument-level matrices and
-augmented household columns required to rerun the revised Leontief solve. It
-does supply fine-cohort household-debt assets after its old seven-round
-unveiling in `YinequalityFAanalysis.dta`. The result is therefore an explicitly
-labelled **old-unveiling proxy**, not a 2025-method reconstruction.
+Two deliberately separate implementations are retained. The February 2021
+kit supplies fine-cohort household-debt assets only after its old seven-round
+unveiling; the downstream build is therefore an **old-unveiling proxy**. The
+preferred build starts instead from the Federal Reserve's pinned completed
+public FWTW bilateral positions, splits the household holder with the supplied
+DINA shares, and applies the paper's full inverse. It is a **public-FWTW
+full-Leontief reconstruction**, not an exact reproduction of the unavailable
+authors' 34-instrument, 27-sector, through-2019 vintage.
 
 **Our implementation and outputs**
 
-- Module: `Code/unveiling/figure8_authors.py`.
-- Entry point: `Code/scripts/build_figure8_authors_data.py`.
-- Tests: `Code/tests/test_figure8_authors.py` and
-  `Code/tests/test_wealth_groups.py`.
-- Data contract: `docs/data/figure8-data.md`.
+- Preferred module and entry point:
+  `Code/unveiling/figure8_public_fwtw.py` and
+  `Code/scripts/build_figure8_public_fwtw.py`.
+- Retained proxy module and entry point: `Code/unveiling/figure8_authors.py`
+  and `Code/scripts/build_figure8_authors_data.py`.
+- Tests: `Code/tests/test_figure8_public_fwtw.py`,
+  `Code/tests/test_figure8_authors.py`, and `Code/tests/test_wealth_groups.py`.
+- Data contracts: `docs/data/figure8-public-fwtw-data.md` and
+  `docs/data/figure8-data.md`.
 - Task record: `docs/project/tasks/figure8-replication.md`.
-- Processed series: `Data/processed/figure8_authors_proxy.csv` and
-  `Data/processed/figure8_authors_proxy_comparison.csv`.
-- Comparison chart:
-  `Results_Proposal/figures/figure8_authors_proxy_comparison.png`.
+- Preferred processed series:
+  `Data/processed/figure8_public_fwtw_full_leontief.csv`.
+- Three-way comparison:
+  `Data/processed/figure8_method_comparison.csv` and
+  `Results_Proposal/figures/figure8_method_comparison.png`.
+- Retained proxy series: `Data/processed/figure8_authors_proxy.csv`.
 
 **Verification and interpretation**
 
-Fine-cohort assets and liabilities aggregate to the supplied coarse cells with
-a maximum $1 million absolute error and $3.18\times10^{-7}$ relative error.
-Over 1963--2016, proxy/paper correlations are 0.993 for top 1% and 0.995 for
-bottom 99%; mean absolute errors are 2.41 and 1.38 percentage points. In 2007
-the bottom-99 proxy nearly matches the digitized paper (-38.88 versus -38.76
-points), while the top-1 asset position is lower (+12.03 versus +18.02).
+The preferred network has maximum spectral radius 0.504, and direct,
+full-unveiling, primary-asset, and debt-allocation closure errors are below
+$9\times10^{-16}$. Over 1963--2016 its top-1 correlation/MAE against the
+digitized paper are 0.998/2.12 percentage points, improving on the proxy's
+0.993/2.41. The retained proxy remains closer for the bottom 99% in levels:
+its MAE is 1.38 points versus 1.98 for the preferred build.
 
-The old inputs reproduce the direction, timing, and most of the bottom-99
-magnitude. The top-1 gap is economically informative because its debt assets
-are precisely the object most exposed to the revised network completion and
-unveiling. It cannot be attributed to code alone without the missing 2025
-matrices.
+Both routes reproduce the central divergence after 1982. The mixed comparison
+does not isolate a pure code effect because the operator, public FWTW vintage,
+sector taxonomy, and instrument crosswalk change together. The full-Leontief
+result is the submission result; the seven-round proxy is an auditable lineage
+benchmark.
 
 ## Replication record template
 

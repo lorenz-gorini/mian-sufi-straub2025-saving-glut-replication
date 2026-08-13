@@ -44,16 +44,26 @@ instrument/sector taxonomy and a 2016 distributional endpoint.
 
 ## Follow-on full-method reconstruction
 
-The next Figure 8 implementation should pivot the pinned public FWTW long file
-into instrument-by-issuer-by-holder dollar matrices, map its public taxonomy to
-the supplied DINA asset classes, augment the household-holder column by wealth
-group, row-normalize, and apply the full Leontief inverse. Its required
-invariants are issuer/holder margin preservation before normalization, unit row
-sums after normalization, and conservation of ownership after unveiling.
+The follow-on is now implemented separately in
+`Code/scripts/build_figure8_public_fwtw.py`. It pivots the pinned public FWTW
+long file into instrument-by-issuer-by-holder positions, maps the public
+taxonomy to supplied DINA asset classes, augments the household-holder column
+by wealth group, normalizes the direct matrix, and applies the full Leontief
+inverse. It is labelled **public-FWTW full-Leontief reconstruction**, never
+“exact 2025 replication.”
 
-This follow-on is feasible but not yet implemented. It must be labelled
-**public-FWTW + authors-kit method reconstruction**, never “exact 2025
-replication.”
+The public file's negative levels are reoriented in the primary build, as the
+Federal Reserve technical note recommends; zero clipping is retained as a
+sensitivity. The public discrepancy pseudo-sector is excluded from the
+economic network. Direct rows, unveiled ownership, primary-asset allocation,
+and household-debt liability allocation all satisfy their accounting
+invariants.
+
+The new result improves the common-period top-1 fit against the digitized paper
+(correlation 0.998, MAE 2.12 percentage points versus 0.993 and 2.41 for the
+old proxy). The old proxy remains closer for bottom 99 in levels (MAE 1.38
+versus 1.98). This mixed result is consistent with simultaneous changes in the
+operator, public input vintage, sector taxonomy, and instrument crosswalk.
 
 ## Data and code lineage
 
@@ -104,6 +114,11 @@ called a causal code-only effect.
 - `Results_Proposal/figures/figure8_authors_proxy.png`
 - `Results_Proposal/figures/figure8_authors_proxy_comparison.png`
 
+The separate full-method outputs are documented in
+[`../../data/figure8-public-fwtw-data.md`](../../data/figure8-public-fwtw-data.md),
+including `figure8_public_fwtw_full_leontief.csv`, annual network diagnostics,
+the negative-cell sensitivity, and `figure8_method_comparison.png`.
+
 ## Definition of done
 
 - [x] Target equation, units, sign, groups, and base year documented.
@@ -115,3 +130,22 @@ called a causal code-only effect.
 - [x] Remaining limitation documented: the exact authors-vintage result is
       unavailable, while a mixed-vintage public-FWTW method reconstruction is
       feasible as a separate follow-on.
+- [x] Separate public-FWTW full-Leontief pipeline implemented and tested.
+- [x] Instrument-to-DINA and household-liability mappings documented.
+- [x] Negative public levels and the discrepancy pseudo-sector treated
+      explicitly, with a generated sensitivity.
+- [x] New and retained approaches compared against the same digitized target.
+
+## Session note: 2026-08-13 public-FWTW implementation
+
+- Goal: implement the paper's full augmented Leontief method without changing
+  the retained seven-round proxy.
+- Changed: new reusable module, entry point, tests, data contract, processed
+  outputs, diagnostics, figures, and a method-comparison presentation.
+- Validation: all source keys and share partitions pass; the maximum spectral
+  radius is 0.504; matrix and ownership closure errors are below
+  $9\times10^{-16}$; reorientation versus clipping changes a headline series
+  by at most 0.17 percentage points.
+- Limitation: the result uses a June 2026 public FWTW vintage with 31
+  instruments and 25 substantive sectors plus 2021 DINA/NIPA through 2016,
+  rather than the authors' unavailable 34-instrument, 27-sector 2025 vintage.
