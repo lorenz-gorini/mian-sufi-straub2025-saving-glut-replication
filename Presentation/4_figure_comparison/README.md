@@ -18,7 +18,7 @@ estimands change together. Not every role exists for every figure.
 
 ## Current sequence
 
-The 17 slides establish the taxonomy and then compare the paper with our
+The 18 slides establish the taxonomy and then compare the paper with our
 authors-data results for Figures 1, 5, 6, and 8. Figure 1 retains the older
 Stata and public-data outputs as supporting diagnostics. Figures 5 and 6 are
 classified as reconstructions because the supplied wealth, income, fine-share,
@@ -26,9 +26,12 @@ valuation, and NIPA inputs identify the revised saving objects through 2016.
 The Figure 6 section adds a paper-raster digitization audit and two mechanism
 diagnostics: the same saving rates indexed by mean real wealth, and
 trailing-five-year rates across percentiles.
-Figure 8 is classified as a bounded proxy because its unveiled asset stocks
-come from the older seven-round procedure rather than the unavailable 2025
-completed matrices.
+The plotted Figure 8 remains a bounded proxy because its unveiled asset stocks
+come from the older seven-round procedure. The deck now separately records a
+feasible full-method next step: combine the current completed public FWTW
+release with the 2021 DINA/NIPA inputs and apply the 2025 Leontief operator.
+That mixed-vintage output would be a method reconstruction, not an exact
+reproduction of the authors' 34-instrument, 27-sector, through-2019 vintage.
 
 The paper graphs on the primary comparison slides are cropped to remove their
 printed captions. Their meaning, sample, and units are restated in editable
@@ -70,10 +73,11 @@ kit remain read-only.
 
 ## Validation
 
-All 17 slides were rendered and inspected individually on 2026-08-11. The deck
+All 18 slides were rendered and inspected individually on 2026-08-12. The deck
 passes the template-fidelity, overflow, unresolved-placeholder, source-note,
 and PowerPoint-archive checks. Future extensions must retain the role labels
-and may not silently promote the Figure 8 proxy to a reconstruction.
+and may not silently promote the current Figure 8 proxy—or the planned
+mixed-vintage rerun—to an exact authors-vintage reproduction.
 
 ## Editable source
 

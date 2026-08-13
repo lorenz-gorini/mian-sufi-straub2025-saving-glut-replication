@@ -171,7 +171,7 @@ combined artifact remains useful only for provenance; the verified Figure 5
 and 8 results now live in the empirical-comparison PowerPoint.
 
 The 24-slide root deck is now classified as a legacy combined artifact. The
-current topic modules are the 12-slide
+current topic modules are the 13-slide
 `Presentation/2_data-map/presentation.pptx` and the 16-slide
 `Presentation/3_theoretical_methodology/presentation.pptx`, with the separate
 seven-slide synthesis module
@@ -185,13 +185,16 @@ slide reconciles 20% direct plus 52.093% through the fund to 72.093% ultimate
 household ownership. All three current PowerPoints have passed full visual and
 template-fidelity checks.
 
-The 12-slide `Presentation/4_figure_comparison/presentation.pptx` is now the
+The 18-slide `Presentation/4_figure_comparison/presentation.pptx` is now the
 maintained empirical-comparison module. It distinguishes the 2025 target, the
 authors-old Stata precursor, ours-public robustness, and ours-authors result,
-then applies that hierarchy to Figures 1, 5, and 8. Figures 1 and 5 are labeled
-reconstructions; Figure 8 is labeled a bounded proxy because the completed
-2025 matrices are absent from the old package. Its main comparisons place each
-paper graph beside our generated output and report common-sample fit. All 12
+then applies that hierarchy to Figures 1, 5, 6, and 8. Figures 1, 5, and 6 are
+labelled reconstructions; the plotted Figure 8 is a bounded proxy because it
+uses downstream seven-round positions. A separate slide records that current
+public completed FWTW plus 2021 DINA/NIPA make a full-Leontief mixed-vintage
+method reconstruction feasible, although the authors' exact 2025 vintage is
+unavailable. Its main comparisons place each paper graph beside our generated
+output and report common-sample fit. All 18
 slides were rendered and inspected, contain source blocks in speaker notes,
 and pass template-fidelity, overflow, unresolved-placeholder, and archive
 checks.
@@ -223,6 +226,26 @@ checks.
 | 2026-08-10 | Keep a separate seven-slide theory module instead of shortening the full teaching deck in place. | The full derivation remains available for study, while the condensed sequence can be combined with data and result modules without creating an excessively long final presentation. |
 | 2026-08-10 | Put the four Figure 1 roles in a separate empirical-comparison deck. | The main replication test is ours-authors versus the 2025 target; separating the Stata precursor and public-data robustness prevents provenance, method, and vintage from being conflated. |
 | 2026-08-10 | Extend the empirical-comparison deck with Figure 5 as a reconstruction and Figure 8 as a bounded proxy. | The old kit identifies the revised saving decomposition through 2016, but its seven-round unveiled debt assets are not the missing 2025 matrix inputs. The slide labels must preserve that difference in evidentiary strength. |
+| 2026-08-12 | Distinguish an exact authors-vintage gap from feasibility of the 2025 operation. | The public FWTW release contains completed bilateral estimates, so it can support a mixed-vintage full-Leontief rerun with 2021 DINA/NIPA even though the paper's exact 34-instrument, 27-sector matrices and equity crosswalk remain unavailable. |
+
+## Session record: 2026-08-12 FWTW boundary correction
+
+- Goal: correct the data-map explanation of FWTW completion and prevent the
+  comparison deck from treating unavailable exact-vintage matrices as a
+  methodological impossibility.
+- Data-map result: the 13-slide deck now states that the released public FWTW
+  CSV already contains completed estimates; DINA enters later to split the
+  household-holder column. A new slide compares the 2021 package, exact 2025
+  target, and feasible public-FWTW rerun.
+- Comparison result: the 18-slide deck adds a concise reconstruction-boundary
+  slide, preserves the currently plotted Figure 8 proxy, and identifies the
+  public-FWTW plus 2021 DINA/NIPA full-Leontief rerun as the next method
+  reconstruction.
+- Boundary: neither deck calls the mixed-vintage rerun an exact replication of
+  the authors' 34-instrument, 27-sector, through-2019 vintage.
+- Validation: both PowerPoints were rebuilt from inherited slide structures,
+  rendered slide by slide, and checked for template fidelity, overflow,
+  unresolved placeholders, source notes, and archive integrity.
 
 ## Session record: 2026-08-10 topic-deck visual redesign
 

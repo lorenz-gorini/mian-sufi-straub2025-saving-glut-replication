@@ -13,13 +13,21 @@ $D_{gt}$ is debt owed by the group. Positive values identify a net lender;
 negative values identify a net borrower. Figure 8 plots $ND_{gt}/NI_t$ less
 its 1982 level.
 
-The February 2021 package does **not** contain the completed annual
-instrument-level bilateral matrices used by the revised 2025 augmented
-Leontief solve. It does contain fine-cohort debt assets produced by the older
-seven-round unveiling. Consequently this pipeline is a close, explicitly
-labelled proxy: it applies the 2025 net-debt equation, groups, sign convention,
-national-income scaling, and 1982 normalization to the older unveiled stocks.
-It is not a rerun of the 2025 matrix methodology.
+The February 2021 package does **not** contain the exact Batty-completed annual
+instrument-level bilateral matrices, authors' equity treatment, or crosswalk
+used by the revised 2025 augmented Leontief solve. It does contain fine-cohort
+debt assets produced by the older seven-round unveiling. Consequently the
+current pipeline is a close, explicitly labelled proxy: it applies the 2025
+net-debt equation, groups, sign convention, national-income scaling, and 1982
+normalization to the older unveiled stocks. It is not a rerun of the 2025
+matrix methodology.
+
+This is an exact-vintage boundary, not a methodological impossibility. The
+pinned current public FWTW release contains completed bilateral estimates for
+31 instruments and 25 substantive sectors. Combined with the 2021 DINA/NIPA
+inputs, it can support a separate full-Leontief mixed-vintage reconstruction
+after an explicit instrument/sector-to-DINA crosswalk. That pipeline is not yet
+part of the outputs documented below.
 
 ## Input inventory
 

@@ -11,17 +11,26 @@ The deck explains:
 
 - what Financial Accounts/FWTW, DINA/DFA/SCF, NIPA, and valuation sources each
   identify;
-- how the instrument-level dollar matrices are constructed and balanced;
+- how the underlying instrument-level bilateral relationships are completed
+  and balanced before the public FWTW estimates are released;
 - why DINA splits the household sector only after the direct network exists;
 - which data branches feed target-paper Figures 1, 5, and 8;
 - how the February 2021 builders map into the July 2025 methodology; and
+- the exact 2025 target, February 2021 kit, and feasible mixed-vintage
+  public-FWTW reconstruction boundary; and
 - the benchmark, reconstruction, robustness, and storage workflow.
 
-The canonical editable deliverable is `presentation.pptx`. Its 12 slides use
+The canonical editable deliverable is `presentation.pptx`. Its 13 slides use
 the project-wide PowerPoint hierarchy: a one-line takeaway title, two bounded
 content zones, one `WHY IT MATTERS` band, and a separate source rail.
 `presentation.pptx.inspect.ndjson` is the generated structural inspection
 record.
+
+The FWTW wording is deliberately precise: the released public CSV already
+contains completed bilateral estimates. “Unidentified cells” refers to the
+underlying relationships that the Federal Reserve construction completes from
+known cells, exclusions, margins, proportionality assumptions, and iterative
+balancing. DINA enters later to split the aggregate household-holder column.
 
 `presentation.tex` and `presentation.pdf` are retained as historical Beamer
 artifacts and are not visually synchronized with the PowerPoint.

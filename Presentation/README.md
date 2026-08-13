@@ -187,18 +187,19 @@ contract.
 
 ### Data architecture
 
-The canonical data-map deliverable is the editable 12-slide PowerPoint
+The canonical data-map deliverable is the editable 13-slide PowerPoint
 `2_data-map/presentation.pptx`. The earlier Beamer source and PDF remain as
 historical references. The current deck explains:
 
 - what FWTW/Financial Accounts, DINA/DFA/SCF, NIPA, and valuation data each
   identify;
-- the 34 instrument-level issuer-by-holder dollar matrices and their missing
-  cell completion;
+- the 34 target instrument-level issuer-by-holder dollar matrices and the
+  upstream completion of otherwise unidentified bilateral relationships;
 - the conversion from dollar positions to direct ownership shares;
 - the DINA household-column split and its aggregation-preserving invariant;
 - the separate data routes into target-paper Figures 1, 5, and 8;
-- the old-kit builder architecture and 2021--2025 version boundary; and
+- the old-kit builder architecture, exact 2025 target, current public FWTW
+  taxonomy, and mixed-vintage reconstruction boundary; and
 - the benchmark, reconstruction, robustness, and storage workflow.
 
 To rebuild the historical Beamer artifact only, run from
@@ -209,23 +210,26 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error presentation.tex
 ```
 
 The PowerPoint now uses the same shared LaTeX vector equations as the theory
-deck. It was rendered and every slide was visually inspected on 2026-08-10;
+deck. It was rendered and every slide was visually inspected on 2026-08-12;
 the template-fidelity check passed without issues. See
 `2_data-map/README.md` for the scope contract.
 
 ### Empirical figure comparison
 
-The editable 12-slide PowerPoint
+The editable 18-slide PowerPoint
 `4_figure_comparison/presentation.pptx` establishes a four-role naming and
-evidence hierarchy and applies it to Figures 1, 5, and 8. Its central tests use
+evidence hierarchy and applies it to Figures 1, 5, 6, and 8. Its central tests use
 February 2021 authors-kit inputs with the July 2025 definitions wherever those
 inputs identify the revised object. Figure 1 and Figure 5 are labeled
-reconstructions; Figure 8 remains a bounded proxy because the old kit does not
-contain the completed revised matrices. The regenerated old Figure 6 from
+reconstructions; the plotted Figure 8 remains a bounded proxy because it uses
+the old kit's seven-round positions. A separate boundary slide explains that
+current public completed FWTW plus 2021 DINA/NIPA make a full-Leontief
+mixed-vintage method reconstruction feasible, although not an exact target-
+vintage reproduction. The regenerated old Figure 6 from
 Stata is a related authors-old precursor, while the later public-data Figure 1
 build is a robustness result. Paper graphs are shown without their printed
-captions, and their descriptions are restated in editable slide text. All 12
-slides were rendered and inspected on 2026-08-10. The deck passes template
+captions, and their descriptions are restated in editable slide text. All 18
+slides were rendered and inspected on 2026-08-12. The deck passes template
 fidelity, overflow, unresolved-placeholder, source-note, and archive-integrity
 checks. See `4_figure_comparison/README.md` for its evidence contract.
 

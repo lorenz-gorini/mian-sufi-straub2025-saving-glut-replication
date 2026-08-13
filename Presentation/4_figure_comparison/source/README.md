@@ -5,9 +5,10 @@ deck. The final deliverable remains `../presentation.pptx`.
 
 ## Contents
 
-- `build_presentation.mjs`: editable Artifact Tool source for the current
-  Figure 6 additions and the associated deck-wide labels and numbering;
-- `template-starter.pptx`: the 17-slide template-following base from which the
+- `build_presentation.mjs`: editable Artifact Tool source for the FWTW
+  reconstruction boundary, Figure 8 feasibility correction, and deck-wide
+  labels and numbering;
+- `template-starter.pptx`: the 18-slide template-following base from which the
   build script produces the maintained deck;
 - `template-frame-map.json`: maps every output slide to its inherited source
   slide and records permitted edits;

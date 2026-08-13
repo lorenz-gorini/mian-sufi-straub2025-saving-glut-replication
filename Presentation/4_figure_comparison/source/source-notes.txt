@@ -3,3 +3,9 @@ Exact-method reconstruction: docs/project/tasks/figure6-replication.md and docs/
 Generated evidence: Data/processed/figure6_authors_comparison.csv, Data/processed/figure6_digitization_audit.csv, Data/processed/figure6_authors_rolling5.csv, and Results_Proposal/figures/figure6_*.png.
 Digitization audit: the embedded 1047-by-698 raster is sampled at 61 integer percentiles per curve; all 122 samples have exact-color matches and the endpoint-marker correction changes the post-period comparison to correlation 0.969 and MAE 1.22 percentage points.
 Interpretive boundary: docs/project/personal-considerations-saving-inequality.md.
+
+FWTW data and completed-estimate construction: https://www.federalreserve.gov/releases/efa/fwtw.htm and https://www.federalreserve.gov/econres/notes/feds-notes/from-whom-to-whom-relationships-in-the-financial-accounts-of-the-united-states-20230324.html.
+FWTW taxonomy changes and corporate-equity addition: https://www.federalreserve.gov/releases/efa/fwtw_announcements.htm.
+Pinned public input: Data/raw/fwtw/fwtw_data_2026-06-18.csv; 31 instruments, 25 substantive sectors after excluding aggregate/discrepancy fields.
+Exact-vintage boundary: the July 2025 paper reports 34 instruments and 23 intermediaries plus four owners, incorporates Batty et al. (2023), and adds an authors-specific equity treatment; the exact completed matrices, code, and crosswalk were not recovered from the February 2021 replication kit.
+Figure 8 status: the plotted output remains the seven-round proxy; the public-FWTW plus 2021 DINA/NIPA full-Leontief reconstruction is a feasible next implementation, not a completed result.

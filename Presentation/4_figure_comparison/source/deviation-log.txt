@@ -1,5 +1,7 @@
-Slide 11: update post-period digitization comparison from correlation/MAE 0.972/1.20 to 0.969/1.22 after correcting the top-1 endpoint marker extraction.
+Slide 3: clarify that the current public FWTW release contains 31 instruments and 25 substantive sectors, whereas the target paper reports 34 instruments and 23 intermediaries plus four owners.
 
-Slide 12: duplicate source slide 7, rewrite its inherited table and assessment-band copy, and replace its inherited image with the generated Figure 6 paper-raster overlay. The visible table uses “0 filled” for zero interpolated samples. No new slide primitives are added.
+Slide 4: duplicate source slide 2 and use only inherited shapes to state that a full-Leontief mixed-vintage rerun is feasible, while an exact authors-vintage reproduction remains unavailable.
 
-Slides 13-17: increment inherited slide-number text only because of the inserted audit slide.
+Slide 16: replace the old “missing upstream matrices” wording with the narrower exact-vintage gap and distinguish the existing proxy from the planned public-FWTW method reconstruction.
+
+Slide 18: update the synthesis to preserve the proxy label for the plotted Figure 8 while naming the feasible full-method next step.

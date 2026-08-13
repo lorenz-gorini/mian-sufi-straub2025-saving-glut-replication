@@ -4,9 +4,12 @@
 
 Apply the July 2025 Figure 8 net-debt definition to the finest debt positions
 available in the February 2021 package and compare the result with the target.
-The completed 2025 matrices are absent, so the result is classified as a
-**close old-unveiling proxy**, not an independent rerun of the 2025 augmented
-Leontief methodology.
+The delivered result is a **close old-unveiling proxy** because it starts from
+the kit's downstream seven-round positions, not because the 2025 operation is
+impossible to reconstruct in principle. The exact authors' 2025 matrices,
+custom equity treatment, and crosswalk are unavailable; the current public
+completed FWTW release plus 2021 DINA/NIPA inputs provide a feasible separate
+mixed-vintage full-Leontief reconstruction.
 
 ## Target definition
 
@@ -26,15 +29,31 @@ mean net borrowing.
 
 | 2025 requirement | February 2021 availability | Decision |
 | --- | --- | --- |
-| Completed annual instrument-by-sector direct matrices | Not supplied | Cannot rerun the revised matrix construction |
-| Augmented household wealth-group columns | No upstream matrices | Cannot perform the revised Leontief solve |
+| Exact authors-vintage completed annual instrument-by-sector matrices | Not supplied | Cannot reproduce the authors' exact 34-instrument, 27-sector network |
+| Current public completed FWTW matrices | Available separately: 31 instruments and 25 substantive sectors | Can support a mixed-vintage reconstruction after a documented crosswalk |
+| Augmented household wealth-group columns | DINA asset-class shares are supplied; exact 2025 mapping is not | Rebuild with an explicit public-FWTW-to-DINA mapping |
 | Fine-cohort unveiled household-debt assets | Supplied downstream in `YinequalityFAanalysis.dta` | Reuse with an explicit old-seven-round label |
 | Fine-cohort debt liabilities | Supplied in the same file | Subtract as positive liability stocks |
 | National income and 1982 base | Supplied in the same file | Apply the 2025 scale and display rule |
 
-The precise stopping boundary is therefore before construction of the revised
-augmented matrix. Reprocessing raw 2021 files cannot recover cells that the
-package does not contain.
+The precise stopping boundary of the **current proxy pipeline** is before
+construction of the revised augmented matrix. Reprocessing the 2021 kit alone
+cannot recover the Batty-completed target-vintage network, but adding the
+current public FWTW release can reproduce the operation with a different
+instrument/sector taxonomy and a 2016 distributional endpoint.
+
+## Follow-on full-method reconstruction
+
+The next Figure 8 implementation should pivot the pinned public FWTW long file
+into instrument-by-issuer-by-holder dollar matrices, map its public taxonomy to
+the supplied DINA asset classes, augment the household-holder column by wealth
+group, row-normalize, and apply the full Leontief inverse. Its required
+invariants are issuer/holder margin preservation before normalization, unit row
+sums after normalization, and conservation of ownership after unveiling.
+
+This follow-on is feasible but not yet implemented. It must be labelled
+**public-FWTW + authors-kit method reconstruction**, never “exact 2025
+replication.”
 
 ## Data and code lineage
 
@@ -93,6 +112,6 @@ called a causal code-only effect.
 - [x] Fine-to-coarse aggregation and accounting signs tested.
 - [x] Paper curve digitized only as an external benchmark.
 - [x] Common-sample comparison generated with declared metrics.
-- [x] Remaining limitation documented: exact 2025-method replication is
-      infeasible without the revised completed matrices or an equivalent
-      raw-data completion procedure.
+- [x] Remaining limitation documented: the exact authors-vintage result is
+      unavailable, while a mixed-vintage public-FWTW method reconstruction is
+      feasible as a separate follow-on.

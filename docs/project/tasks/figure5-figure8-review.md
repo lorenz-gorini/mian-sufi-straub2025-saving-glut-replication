@@ -104,10 +104,12 @@ borrowing.
   DINA, disposable-income, valuation, and NIPA inputs identify the revised rate
   through 2016. It verifies
   $\sum_i s^N_{it}Z^d_{it}=S_t^p+S_t^\pi$.
-- **Figure 8 is a bounded proxy.** Its fine-group debt assets come from the
-  older seven-round unveiling because the completed 2025 direct matrices are
-  absent. Every series must equal zero in 1982, and the group assets and
-  liabilities must aggregate back to the supplied totals.
+- **The plotted Figure 8 is a bounded proxy.** Its fine-group debt assets come
+  from the older seven-round unveiling. The exact authors-vintage matrices are
+  absent, but current public completed FWTW plus the 2021 DINA/NIPA inputs make
+  a separate full-Leontief mixed-vintage reconstruction feasible. Every proxy
+  series must equal zero in 1982, and group assets and liabilities must
+  aggregate back to the supplied totals.
 - High correlation with a digitized paper curve supports similarity in timing
   and shape; it does not identify whether a residual gap comes from data
   vintage, classifications, or the unveiling method.
@@ -136,6 +138,7 @@ borrowing.
 | 2026-08-11 | Treat the saving-rate discussion as Figure 6 interpretation and the new wealth-level plot as an exploratory diagnostic. | Figure 5 reports aggregate saving flows by broad group, while Figure 6 reports saving rates by percentile. The new plot retains fine percentile cohorts but changes their horizontal coordinate and uses a pretax-income proxy, so it must not inherit the Figure 6 replication label. |
 | 2026-08-11 | Supersede the pretax-income diagnostic with an exact-method Figure 6 reconstruction and a matched wealth-level view. | Both new panels use personal plus attributable corporate disposable income; only the horizontal coordinate changes, so their comparison is interpretable. |
 | 2026-08-11 | Treat the five-year evolution as a diagnostic rather than a new replication target. | It holds the 2025 annual saving-rate definition fixed and reveals timing, but overlapping windows do not constitute a formal structural-break test. |
+| 2026-08-12 | Separate the exact 2025 data-vintage gap from methodological feasibility. | The 2021 kit alone lacks the Batty-completed target matrices, but the current public FWTW release supplies completed bilateral estimates that can be combined with 2021 DINA/NIPA for a labelled mixed-vintage full-Leontief rerun. |
 
 ## Session record: 2026-08-11 task creation
 
