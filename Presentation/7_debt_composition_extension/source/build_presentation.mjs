@@ -192,6 +192,7 @@ function addClusteredColumn(slide, values, position, yAxis) {
       textStyle: { fontSize: 18, fill: NAVY },
     },
     xAxis: {
+      tickLabelPosition: "low",
       textStyle: { fontSize: 18, fill: NAVY },
       line: { style: "solid", fill: LIGHT_GRAY, width: 1 },
       majorGridlines: null,
