@@ -1,0 +1,162 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.62in,top=0.52in,bottom=0.55in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,tabularx}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{MSSNavy}{HTML}{12304A}
+\definecolor{MSSOrange}{HTML}{C65D16}
+\definecolor{MSSGreen}{HTML}{2F855A}
+\definecolor{MSSGray}{HTML}{627D98}
+
+\input{generated/replication_summary_values.tex}
+
+\newcommand{\compactheading}[1]{%
+  \vspace{0.32em}\noindent{\color{MSSOrange}\bfseries\large #1}\par\vspace{0.16em}}
+\newcommand{\resulttag}[1]{\textcolor{MSSGreen}{\textbf{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.32em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+
+\begin{document}
+
+{\color{MSSOrange}\bfseries\small REPLICATION PACKAGE}\hfill
+{\color{MSSGray}\small 14 August 2026}\par
+{\color{MSSNavy}\bfseries\LARGE Replicating the Saving Glut of the Rich}\par
+{\color{MSSGray}\small Independent reconstruction of selected results in Mian, Straub, and Sufi (July 2025)}
+\vspace{0.25em}\hrule height 1.1pt\vspace{0.35em}
+
+\compactheading{Method and data}
+
+The empirical problem is to move from observed holders to \emph{ultimate}
+owners. For direct ownership matrix $\bar M_t$---rows are issuers and columns
+are holders---the revised paper sums every intermediary path. With $Q_t$ the
+intermediary block and $B_t$ the direct exits to terminal owners, our Python
+implementation solves
+\[
+  \Omega_t=(I-Q_t)^{-1}B_t, \qquad \rho(Q_t)<1.
+\]
+Financial Accounts/FWTW matrices identify bilateral stocks; DINA allocates the
+household sector across wealth groups; NIPA closes aggregate income and saving;
+and asset returns separate active saving from valuation changes,
+$\Theta_{g,t}=\sum_a(W^a_{g,t}-W^a_{g,t-1}-\pi^a_tW^a_{g,t-1})$.
+
+We first ran the complete February 2021 Stata master under StataNow SE 19.5.
+After portability-only path changes, dependency bootstrapping, and suppressing
+one interactive browser call, it completed and regenerated the major outputs
+for the paper version it accompanies. That package generally ends in 2016 and
+uses seven stage-specific unveiling rounds. The 2025 paper instead reports 34
+instruments, 23 intermediaries plus four ultimate owners, a revised completion,
+a full matrix/Leontief solve, and data through 2019. We therefore reimplemented
+the 2025 definitions in Python from the earliest usable supplied inputs and
+label every remaining version boundary.
+
+\compactheading{Replication results}
+
+\begin{tabularx}{\textwidth}{@{}L{0.70in}L{1.25in}X L{1.56in}@{}}
+\toprule
+\textbf{Exhibit} & \textbf{Evidence layer} & \textbf{Result} & \textbf{Binding limitation} \\
+\midrule
+Figure 1 & Old-input reconstruction &
+\resulttag{Close level match:} $r=\SummaryFigureOneCorrelation$ and MAE
+$=\SummaryFigureOneMAE$ pp over \SummaryFigureOneStartYear--\SummaryFigureOneEndYear. &
+Exact 2025 completed matrices and indirect-share denominator are unavailable. \\
+Figure 5 & Old-input reconstruction &
+\resulttag{High fidelity:} top 1\% / bottom 99\% correlations
+$\SummaryFigureFiveTopCorrelation$ / $\SummaryFigureFiveBottomCorrelation$;
+MAE $\SummaryFigureFiveTopMAE$ / $\SummaryFigureFiveBottomMAE$ pp. &
+Same saving transformation, but the authors' supplied inputs stop in 2016. \\
+Figure 8 & Same-vintage method reconstruction &
+\resulttag{Trend and borrowing match:}
+$r=\SummaryFigureEightPrimaryTopCorrelation/
+\SummaryFigureEightPrimaryBottomCorrelation$ and MAE
+$=\SummaryFigureEightPrimaryTopMAE/
+\SummaryFigureEightPrimaryBottomMAE$ pp
+for top 1\% / bottom 99\%. &
+The kit saves 351 direct fields, not the full 34-instrument by 27-sector cube;
+coarsening,
+signed-cell clipping, and an unassigned owner remain. \\
+\bottomrule
+\end{tabularx}
+
+\compactheading{Interpretation and reproducibility boundary}
+
+These are version-bounded reconstructions, not exact numerical reproductions.
+Figures 1 and 5 recover the main 2025 patterns from older author-supplied
+inputs. For Figure 8, restarting from saved direct cells and applying the full
+inverse yields 2007 top-1 lending of
+$\SummaryFigureEightPrimaryTopTwoThousandSeven$ pp, versus
+$\SummaryFigureEightPaperTopTwoThousandSeven$ pp in the paper, while bottom-99
+debt is $\SummaryFigureEightPrimaryBottomTwoThousandSeven$ pp versus
+$\SummaryFigureEightPaperBottomTwoThousandSeven$ pp. Holding the 2021 vintage
+as fixed as the saved fields permit, replacing seven rounds with the full
+inverse changes the two series by only
+$\SummaryFigureEightOperatorTopMeanAbsDiff$ and
+$\SummaryFigureEightOperatorBottomMeanAbsDiff$ pp on average. The remaining
+gap is therefore mainly a data-vintage, completion, taxonomy, and allocation
+boundary rather than finite-round truncation. A current-public-FWTW rerun is a
+separate robustness exercise, not an exact recovery of the authors' values.
+
+All empirical series, comparisons, and displayed metrics are generated by
+code. The principal entry points are
+\path{build_figure1_authors_data.py},
+\path{build_figure5_authors_data.py}, and
+\path{build_figure8_2021_direct.py}; tests cover matrix conservation,
+group partitions, valuation/saving closure, normalization, and debt signs.
+
+\vfill
+{\color{MSSGray}\scriptsize
+Target: Mian, Straub, and Sufi, ``The Saving Glut of the Rich,'' draft dated
+25 July 2025. Available authors' package: February 2021 replication kit.
+Digitized paper curves are used only as external benchmarks and never enter
+the reconstructed series.}
+
+\clearpage
+{\color{MSSNavy}\bfseries\Large Figure 1 --- Indirect household ownership}\par
+\vspace{0.4em}
+\includegraphics[width=\textwidth]{../Results_Proposal/figures/figure1_authors_data_comparison.png}
+\vspace{0.3em}
+{\small\textbf{Finding.} The old-input stock reconstruction follows the revised
+Figure 1 level closely. The plotted share remains an explicitly labelled
+old-kit denominator proxy.}\par
+{\color{MSSGray}\scriptsize Source: generated by
+\texttt{Code/scripts/build\_figure1\_authors\_data.py}; paper panel digitized
+from the July 2025 PDF.}
+
+\vfill
+{\color{MSSNavy}\bfseries\Large Figure 5 --- Saving by wealth group}\par
+\vspace{0.4em}
+\includegraphics[width=\textwidth]{../Results_Proposal/figures/figure5_authors_data_comparison.png}
+\vspace{0.3em}
+{\small\textbf{Finding.} The 2025 saving transformation applied to 2021-kit
+inputs reproduces the divergence between top-1 and bottom-99 saving through
+2016.}\par
+{\color{MSSGray}\scriptsize Source: generated by
+\texttt{Code/scripts/build\_figure5\_authors\_data.py}; paper curves digitized
+from the July 2025 PDF.}
+
+\clearpage
+{\color{MSSNavy}\bfseries\Large Figure 8 --- Net household debt by wealth group}\par
+\vspace{0.6em}
+\includegraphics[width=\textwidth]{../Results_Proposal/figures/figure8_method_comparison.png}
+\vspace{0.5em}
+{\small\textbf{Finding.} All three routes reproduce the post-1982 split.
+The primary same-vintage route restarts before unveiling and applies the full
+inverse; the seven-round result is its lineage benchmark and the public-FWTW
+route is a mixed-vintage robustness check. The small same-vintage operator gap
+shows that missing 2025 matrix coverage, rather than truncation alone, drives
+the remaining top-1 level difference.}\par
+{\color{MSSGray}\scriptsize Source: generated by
+\texttt{Code/scripts/build\_figure8\_method\_comparison.py}; paper curves
+digitized from the July 2025 PDF.}
+
+\end{document}

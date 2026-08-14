@@ -1,34 +1,23 @@
-# Replication Report
+# Reports
 
-`report.tex` is the single LaTeX entry point for the course report. It is a
-living artifact: add a section only after the corresponding method or result is
-documented and verified elsewhere in the repository.
+- `report.tex` is the longer, detailed methodological report.
+- `replication_summary.tex` and `replication_summary.pdf` are the separate
+  compact submission version: one page of replication text followed by three
+  generated comparison figures. Its Figure 8 panel uses the primary
+  same-vintage reconstruction from saved 2021 direct/pre-round fields with
+  the full inverse; it retains the old seven-round output as a lineage
+  benchmark and the current-public-FWTW rerun as robustness.
 
-The report records the Leontief operator, the complete four-sector worked
-example, the carefully bounded comparison between the 2025 matrix method and
-the February 2021 Stata procedure, an authors-data reconstruction of Figure 1,
-and a separate newer-data robustness exercise. Generated values are imported from
-`Presentation/generated/unveiling_values.tex` and
-`Presentation/generated/figure1_values.tex` and
-`Presentation/generated/figure1_authors_values.tex`; do not copy or hand-edit
-them in the report.
-
-From the project root, regenerate the numerical inputs:
-
-After the editable installation documented in `Code/README.md`, run:
+Regenerate the compact report metrics from the processed comparison tables:
 
 ```bash
-python Code/scripts/build_unveiling_teaching_assets.py
-python Code/scripts/build_figure1.py
-python Code/scripts/build_figure1_authors_data.py
+python Code/scripts/build_replication_summary_assets.py
 ```
 
-Compile from `Report/`:
+Then compile from this directory:
 
 ```bash
-latexmk -pdf -interaction=nonstopmode -halt-on-error report.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error replication_summary.tex
 ```
 
-The rendered output is `Report/report.pdf`. The final report must distinguish
-proved algebraic equivalence, conceptual consistency, and empirical equality;
-these are not interchangeable claims.
+The report does not overwrite or replace the detailed version.
