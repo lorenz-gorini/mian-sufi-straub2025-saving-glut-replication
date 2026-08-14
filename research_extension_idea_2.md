@@ -224,25 +224,29 @@ $$
 and category contributions must sum to the existing total debt contribution
 before any economic interpretation is attempted.
 
-## Testable hypotheses
+## Hypotheses and current evidence
 
 The hypotheses should be stated before inspecting the category-specific
 results.
 
-### H1: mortgage debt explains most of the upper-middle decline
+### H1: mortgage debt explains most of the upper-middle debt-related saving drag
 
-For the 51st–90th wealth percentiles, the leading hypothesis is
+For the next 40% during the housing boom, the first implemented test is
 
 $$
-|\Delta s^{L,\mathrm{mortgage}}_g|
+\left|
+\overline{\frac{\Theta^{L,\mathrm{mortgage}}_{gt}}{NI_t}}
+\right|_{1998\text{--}2007}
 >
-|\Delta s^{L,\mathrm{nonmortgage}}_g|.
+\left|
+\overline{\frac{\Theta^{L,\mathrm{consumer}}_{gt}}{NI_t}}
+\right|_{1998\text{--}2007}.
 $$
 
-This would support a housing-collateral channel consistent with the paper's
-finding that households borrowed against rising asset valuations. It would
-not yet establish whether house prices caused credit growth or credit growth
-raised house prices.
+The broad-group evidence supports this inequality. The corresponding Figure 6
+test must replace $NI_t$ with group disposable income $Z^d_{gt}$ and use the
+exact percentile bins. Neither result by itself establishes whether house
+prices caused credit growth or credit growth raised house prices.
 
 ### H2: the bottom group has a larger nonmortgage share, not necessarily more debt
 
@@ -291,6 +295,82 @@ ultimately finance a larger share of some private-credit categories, while the
 federal government may be especially important for student debt. This is the
 part of the project for which the unveiling methodology creates the clearest
 increment beyond a standard SCF debt-composition exercise.
+
+## Verified Stage 1 evidence and interpretation
+
+The implemented evidence uses the February 2021 authors-kit inputs through
+2016, preserves home mortgages and aggregate consumer credit, allocates them to
+four broad wealth groups, and applies the current full-Leontief operator to the
+saved direct cells. It reads no seven-round output field. The result is a
+same-vintage accounting extension, not the unavailable July 2025 annual matrix
+cube and not a causal estimate.
+
+### Borrower-side composition
+
+From 1982 to 2007, mortgage liabilities increased by 23.63 percentage points
+of national income for the next 40% and 13.85 points for the bottom 50%, versus
+consumer-credit increases of 2.92 and 4.04 points. The top 1%'s mortgage
+liabilities increased by only 4.50 points and its consumer-credit liabilities
+were essentially unchanged. The pre-crisis debt build-up below the top 10% was
+therefore principally a mortgage phenomenon.
+
+### Contribution to active saving
+
+During 1998--2007, mortgage borrowing contributed -3.09 percentage points of
+national income per year to active saving for the next 40% and -2.28 points for
+the bottom 50%. The corresponding consumer-credit contributions were -0.73 and
+-0.88 points. Mortgages therefore explain most of the **debt-related** saving
+drag during the housing boom. This is not yet a decomposition of the complete
+Figure 6 saving rate, whose denominator is group disposable income and whose
+numerator also includes financial-asset and real-estate saving.
+
+### Ultimate financing after unveiling
+
+Between 1982 and 2007, the top 1%'s unveiled mortgage net position increases
+by 8.69 percentage points of national income, while the next 40% and bottom 50%
+move by -19.02 and -13.73 points. Consumer-credit changes have the same lender-
+borrower direction but smaller magnitudes: +2.78, -3.46, and -4.29 points. The
+top 1% was already a net mortgage lender in 1982; the evidence shows a widening
+of its net lending position, not a transition from borrower to lender.
+
+### The post-2008 regime is different
+
+The mortgage channel does not describe the whole 1963--2016 period. For the
+bottom 99%, the average mortgage contribution to active saving falls from
+-6.36 points per year in 1998--2007 to -0.16 in 2008--2016, while the consumer-
+credit contribution remains negative at -1.44 points. The bottom 50%'s
+mortgage contribution turns positive after 2008, and its mortgage-liability
+increase relative to 1982 falls from 13.85 points in 2007 to 1.81 points in
+2016. The appropriate interpretation is therefore two-regime: a pre-2008
+mortgage boom and a post-2008 period in which the remaining lower-group
+borrowing is relatively more consumer-credit intensive.
+
+### What is established and what remains open
+
+The analysis establishes an accounting fact: mortgage borrowing dominates the
+pre-2008 debt build-up, the associated debt contribution to active saving, and
+the widening unveiled lender--borrower split. It does not establish that top-
+wealth saving caused mortgage origination, that credit supply caused house
+prices, that mortgage borrowing caused the full saving-rate decline, or that
+the borrowing reduced welfare. Those claims require, respectively, a causal
+credit-supply design, the exact Figure 6 income denominator, and data on the
+use and terms of borrowing.
+
+The result changes the extension's priority order:
+
+1. complete the exact Figure 6 percentile and group-income decomposition as a
+   measurement closure exercise;
+2. treat 1982--2007 as the primary mortgage-credit causal branch, combining
+   borrower detail with a defensible policy or credit-supply shock;
+3. analyze 2008 onward separately by splitting consumer credit into student,
+   vehicle, revolving, and other debt; and
+4. use current-public FWTW data as a lender-side robustness exercise without
+   silently mixing vintages into the same-vintage result.
+
+The generated evidence, schemas, and validation results are documented in
+[`docs/data/debt-composition-extension-data.md`](docs/data/debt-composition-extension-data.md),
+and the five-slide evidence deck is documented in
+[`Presentation/7_debt_composition_extension/README.md`](Presentation/7_debt_composition_extension/README.md).
 
 ## What our existing project data can identify
 
@@ -441,32 +521,10 @@ one stacked Figure 8 decomposition, one period table extending Table A2, and
 one accounting-diagnostics file. This is the minimum credible course extension
 and has the lowest data cost.
 
-#### Preliminary broad-group findings
-
-From 1982 to 2007, home-mortgage liabilities increased by 23.63 percentage
-points of national income for the next 40% and 13.85 points for the bottom
-50%, compared with 4.50 points for the top 1%. Consumer-credit increases were
-2.92, 4.04, and 0.00 points, respectively. During 1998--2007, mortgage
-borrowing contributed -3.09 percentage points per year to active saving for
-the next 40% and -2.28 points for the bottom 50%, compared with -0.43 points
-for the top 1%.
-
-After intermediaries are unveiled, the 1982--2007 mortgage net-position change
-is +8.69 points for the top 1%, -19.02 points for the next 40%, and -13.73
-points for the bottom 50%. Mortgage plus consumer-credit assets, liabilities,
-and net positions reproduce the existing aggregate route with a maximum
-additivity error of $9.31\times10^{-10}$ million.
-
-These findings support H1 and motivate the mortgage branch of Stage 4. They do
-not show that rich saving caused mortgage origination, that credit caused house
-prices, or that the borrowing was welfare-reducing. The remaining Stage 1 task
-is the exact Figure 6 percentile saving-rate decomposition and time-evolution
-panel.
-
-Generated evidence and its schema are documented in
-[`docs/data/debt-composition-extension-data.md`](docs/data/debt-composition-extension-data.md).
-The compact editable deck is documented in
-[`Presentation/7_debt_composition_extension/README.md`](Presentation/7_debt_composition_extension/README.md).
+The four-group stock, flow, unveiling, and accounting-diagnostics deliverables
+are complete and summarized in **Verified Stage 1 evidence and interpretation**
+above. The remaining Stage 1 task is the exact Figure 6 percentile saving-rate
+decomposition and time-evolution panel.
 
 ### Stage 2: detailed borrower-side composition with the SCF
 
@@ -500,22 +558,25 @@ The resulting output would answer not only who owes each debt, but who
 ultimately owns it through deposits, funds, pensions, insurers, banks, and
 government entities.
 
-### Stage 4: choose one causal mechanism
+### Stage 4: identify the pre-2008 mortgage mechanism
 
-The descriptive result should determine the causal branch:
+The implemented decomposition selects mortgages as the primary causal branch
+for 1982--2007. The post-2008 consumer-credit pattern remains a separate
+descriptive branch rather than being forced into the same mechanism:
 
-- If mortgages dominate, study collateral and credit supply using a credible
-  geographic or policy shock. Candidate designs include banking-deregulation
-  timing, exposure to securitization, or mortgage-market eligibility rules,
-  but each requires data and exclusion assumptions not available in the
-  current public SCF files.
+- For the pre-2008 mortgage branch, study collateral and credit supply using a
+  credible geographic or policy shock. Candidate designs include banking-
+  deregulation timing, exposure to securitization, or mortgage-market
+  eligibility rules, but each requires data and exclusion assumptions not
+  available in the current public SCF files.
 - If student debt dominates a relevant cohort, use policy-induced changes in
   federal loan eligibility or limits and follow education, debt, and saving by
   cohort.
 - If medical debt matters, use insurance-coverage or medical-billing reforms
   in SIPP-style data; this would explain a recent low-wealth channel rather
   than the full post-1980 break.
-- If revolving credit matters, investigate credit-card supply or usury/banking
+- For the post-2008 branch, first split the broad consumer-credit residual. If
+  revolving credit matters, investigate credit-card supply or usury/banking
   reforms with administrative balances and delinquency outcomes.
 
 Do not impose a universal mechanism in which financialization raises credit
@@ -595,24 +656,24 @@ effects in inelastic-supply markets, and the counterfactual without credit.
 
 | Claim | Feasibility | Honest label |
 | --- | --- | --- |
-| Mortgage versus nonmortgage liabilities by wealth group, 1963–2016 | High with current files | Implementable long-run accounting extension |
-| Mortgage versus broad consumer-debt ultimate ownership by wealth group | High with a modest extension of the validated network code | Implementable category-specific unveiling |
+| Mortgage versus nonmortgage liabilities and active-saving contributions by four wealth groups, 1963–2016 | Implemented and verified | Same-vintage descriptive accounting extension |
+| Mortgage versus broad consumer-debt ultimate ownership by four wealth groups | Implemented and verified | Same-vintage category-specific unveiling |
+| Exact Figure 6 percentile saving-rate decomposition | High with current files | Remaining measurement-closure step |
 | Credit-card, vehicle, and student debt by wealth group, 1989–2022 | High after adding public SCF | Descriptive microdata extension |
 | Medical debt by wealth group | Moderate using recent SIPP | Recent-period auxiliary analysis |
 | Category-specific ultimate owners for every detailed loan purpose | Partial | Identified, calibrated, or bounded category by category |
 | Financial innovation caused rich saving or middle-class borrowing | Low with current files | Requires a separate causal design |
 
-The recommended first proposal is therefore:
+The evidence-based extension is therefore:
 
-> Decompose the debt contribution to Figure 6 and Table A2 into mortgages and
-> nonmortgage credit, showing which category accounts for the change in saving
-> rates across the wealth distribution and how its importance evolves over
-> time. Extend Figure 8 by tracing the ultimate owners of each broad claim class
-> through the financial network. Then use the SCF to determine whether the
-> nonmortgage component reflects credit-card, vehicle, student, or other debt
-> and to separate age and education composition. Treat medical debt as a recent
-> SIPP extension and reserve causal claims for a second stage tailored to the
-> dominant debt category.
+> The same-vintage accounting extension shows that mortgages dominate the
+> pre-2008 debt build-up and debt-related saving drag below the top 10%, while
+> unveiling reveals a widening top-lender/middle-borrower mortgage split. The
+> next measurement step is to express these components in the exact Figure 6
+> percentile saving-rate denominator. The primary causal extension should then
+> test the pre-2008 mortgage-credit channel using borrower detail and exogenous
+> credit-supply variation. Post-2008 consumer credit should be split into
+> revolving, vehicle, student, and other debt and analyzed as a distinct regime.
 
 ## Source and implementation map
 
@@ -629,9 +690,14 @@ The recommended first proposal is therefore:
   [`docs/data/figure8-2021-direct-data.md`](docs/data/figure8-2021-direct-data.md).
 - Public-FWTW contract:
   [`docs/data/figure8-public-fwtw-data.md`](docs/data/figure8-public-fwtw-data.md).
+- Implemented extension contract:
+  [`docs/data/debt-composition-extension-data.md`](docs/data/debt-composition-extension-data.md).
 - Existing baselines: `Code/unveiling/figure6_authors.py`,
   `Code/unveiling/figure8_2021_direct.py`, and
   `Code/unveiling/figure8_public_fwtw.py`.
+- Extension producer and reusable logic:
+  `Code/scripts/build_debt_composition_extension.py` and
+  `Code/unveiling/debt_composition_extension.py`.
 
 ### External data and literature
 

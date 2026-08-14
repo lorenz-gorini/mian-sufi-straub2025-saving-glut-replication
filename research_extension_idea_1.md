@@ -13,10 +13,10 @@ This creates a natural extension:
 The detailed, implementation-oriented expansion of the household-credit branch
 is in [`research_extension_idea_2.md`](research_extension_idea_2.md). It
 separates mortgage, consumer, student, vehicle, and medical-debt questions;
-maps what the current replication files can and cannot identify; and proposes a
-category-specific extension of Figure 8 and Table A2. It complements rather
-than replaces the top-tail entrepreneurship and corporate-saving directions
-developed below.
+maps what the current replication files can and cannot identify; and reports a
+verified preliminary mortgage-versus-consumer-credit extension of Figure 8 and
+Table A2. It complements rather than replaces the top-tail entrepreneurship
+and corporate-saving directions developed below.
 
 ---
 
@@ -206,9 +206,11 @@ This is especially consistent with the paper because much of the additional savi
 
 ---
 
-# 6. Proposed empirical extension 1: debt decomposition by wealth group
+# 6. Empirical extension 1: debt decomposition by wealth group
 
-The first direct empirical test should decompose the decline in saving into debt categories.
+The first direct empirical test decomposes the decline in saving into debt
+categories. Its four-group mortgage-versus-consumer-credit layer is now
+implemented; the exact Figure 6 percentile saving-rate layer remains open.
 
 For wealth group (g),
 
@@ -247,13 +249,42 @@ The key question becomes:
 
 > **Which liabilities account for the post-1982 downward shift in saving among households at comparable wealth levels?**
 
-If mortgages dominate, the collateral/housing-credit channel becomes particularly compelling.
+The preliminary evidence shows that mortgages dominate during the housing
+boom, making the collateral/housing-credit channel the primary pre-2008 branch.
 
-If consumer debt dominates, the mechanism is more directly related to consumption smoothing and credit access.
+Consumer credit does not dominate the pre-2008 build-up, but it becomes
+relatively more important after 2008 as mortgage borrowing contracts. That
+post-crisis pattern should be treated as a separate regime related to
+consumption smoothing, education, vehicles, or other credit access.
 
 If student or business borrowing is important, part of measured dissaving may instead represent investment in human or entrepreneurial capital.
 
 This distinction matters greatly for welfare and policy.
+
+## Implemented broad-group evidence
+
+From 1982 to 2007, mortgage liabilities rise by 23.63 percentage points of
+national income for the next 40% and 13.85 points for the bottom 50%, compared
+with consumer-credit increases of 2.92 and 4.04 points. In 1998--2007,
+mortgage borrowing contributes -3.09 and -2.28 points per year to active saving
+for these two groups, much more than consumer credit.
+
+After the current full-Leontief unveiling is applied to the same-vintage direct
+cells, the top 1%'s mortgage net position increases by 8.69 points between 1982
+and 2007, while the next 40% and bottom 50% move by -19.02 and -13.73 points.
+This is a widening lender--borrower split: the top 1% was already a net mortgage
+lender in 1982.
+
+The time path rejects a single post-1980 debt mechanism. For the bottom 99%,
+the mortgage contribution to active saving changes from -6.36 points per year
+in 1998--2007 to -0.16 in 2008--2016, while consumer credit remains negative.
+Thus the causal research should prioritize the mortgage-credit/housing channel
+for the pre-2008 boom and separately disaggregate consumer credit after 2008.
+
+These are accounting results scaled by national income. They show which debt
+category accounts for the debt-related saving drag, but they do not yet explain
+the complete Figure 6 saving rate or identify whether credit supply, house
+prices, or borrower demand caused the pattern.
 
 ---
 
@@ -549,7 +580,9 @@ It is strongly motivated by:
 * the new wealth-level reconstruction, which shows that the decline cannot be explained by rising wealth alone;
 * the paper's documented increase in financial intermediation;
 * the paper's finding that increased household debt is the most important component of declining saving below the top; and
-* the paper's finding that the 51st–90th percentiles exhibit particularly persistent increased borrowing.
+* the paper's finding that the 51st–90th percentiles exhibit particularly persistent increased borrowing; and
+* our same-vintage result that mortgages dominate the 1982--2007 debt build-up,
+  debt-related saving drag, and unveiled lender--borrower divergence.
 
 It therefore begins precisely where the original paper ends.
 
@@ -609,11 +642,18 @@ The project should proceed sequentially.
 
 **First**, complete fixed-real-wealth-bin estimates rather than relying solely on cohorts located at mean wealth. The current matched-wealth figure strongly rejects the pure-composition hypothesis, but fixed real-dollar bins would provide a cleaner descriptive test. The existing note already identifies this as the next measurement step.
 
-**Second**, decompose the post-1982 decline in saving by asset and liability class.
+**Second**, complete the exact Figure 6 percentile denominator for the debt
+decomposition. The four-group mortgage-versus-consumer-credit stock and active-
+saving components are already implemented and validated.
 
-**Third**, identify which forms of household credit—especially mortgage versus consumer credit—produce the upper-middle decline.
+**Third**, use the established mortgage dominance to design a pre-2008 causal
+test of collateral and mortgage credit supply. Do not treat the 2008--2016
+consumer-credit pattern as the same mechanism.
 
-**Fourth**, examine whether changes in credit access or leverage remain after conditioning on real wealth, income, housing wealth, and demographic characteristics.
+**Fourth**, use SCF/DFA borrower detail to examine whether changes in credit
+access or leverage remain after conditioning on real wealth, income, housing
+wealth, homeownership, age, and demographic characteristics, and split the
+post-2008 consumer-credit residual.
 
 **Fifth**, measure the evolution of business/corporate-equity exposure at the top 10%, 1%, 0.1%, and 0.01%.
 
@@ -675,6 +715,15 @@ That is potentially the most important policy question generated by the extensio
 The strongest version of the project is now:
 
 > **This project extends Mian, Straub, and Sufi by investigating why saving rates fell sharply among middle and upper-middle wealth households after the early 1980s despite substantial increases in their real wealth. A matched wealth-level reconstruction of Figure 6 suggests that rising wealth inequality alone cannot explain the change. The project therefore studies whether the expansion of financial intermediation, risk pooling, securitization, collateral values, and household credit changed borrowing opportunities conditional on wealth, producing the decline in middle-class saving documented by the paper. A complementary analysis investigates whether increasing business ownership and corporate saving explain the simultaneous rise in saving at the very top.**
+
+The first debt decomposition now sharpens that proposal. Mortgages dominate
+the pre-2008 debt build-up and debt-related active-saving drag for the next 40%
+and bottom 50%, while the full unveiling shows a widening top-1% lender versus
+middle-wealth borrower position. After 2008 the mortgage drag largely recedes
+and consumer credit becomes relatively more important. The empirical extension
+should therefore test a **pre-2008 mortgage-credit mechanism** and treat the
+post-2008 consumer-credit composition as a distinct follow-up, rather than
+searching for one mechanism for the entire post-1980 period.
 
 In compact form, the main proposed mechanism is
 

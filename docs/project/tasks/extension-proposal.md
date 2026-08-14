@@ -95,12 +95,13 @@ saving-rate evolution and Table A2 debt contribution below the top 1%, then who
 ultimately finances each category after intermediaries are unveiled in the
 Figure 8 framework.
 
-The current authors-kit and public-FWTW pipelines can support a
-mortgage-versus-nonmortgage decomposition through 2016. Detailed credit-card,
-vehicle, student, and medical-debt splits require SCF or SIPP microdata and
-cannot be recovered from the current DINA nonmortgage share. This makes the
-two-category accounting extension feasible within the course project, while a
-causal claim about financial innovation remains outside the current evidence.
+The current authors-kit pipeline now implements a mortgage-versus-consumer-
+credit decomposition through 2016 for the four broad wealth groups. It covers
+liability stocks, write-down-adjusted active-saving contributions, and
+category-specific ultimate ownership. Detailed credit-card, vehicle, student,
+and medical-debt splits still require SCF or SIPP microdata and cannot be
+recovered from the current DINA nonmortgage share. A causal claim about
+financial innovation remains outside the current evidence.
 
 Pure debt composition is not sufficient novelty: CBO tabulations and Bartscher
 et al. (2025) already document debt composition and long-run household debt
@@ -151,6 +152,32 @@ project if contract-level data become available.
 | 2026-08-14 | Add debt composition and ultimate financing as the lower-data-cost candidate. | Existing DINA and direct-cell inputs distinguish mortgages from broad nonmortgage debt; SCF can add detailed borrower categories. This begins directly from Figures 5, 6, and 8, but causal and novelty claims require narrower wording. |
 | 2026-08-14 | Use debt composition, saving, and ultimate financing as the current working extension and consolidate its two drafts. | The user is actively using the replication package to study debt composition and saving-rate evolution. The consolidated design links Figure 6, Table A2, and Figure 8 while deferring both the causal mechanism and final-submission approval until the evidence is known. |
 | 2026-08-14 | Implement the broad-group mortgage-versus-consumer-credit evidence and use it as the selected extension. | The same-vintage direct-cell network and Figure 5 write-down inputs identify group stocks, active-saving contributions, and ultimate ownership without importing another vintage. The observed mortgage magnitudes justify prioritizing the housing-credit branch while retaining a causal boundary. |
+| 2026-08-14 | Separate the extension into pre-2008 mortgage and post-2008 consumer-credit regimes. | Mortgage borrowing dominates the boom-era debt-related saving drag but largely disappears after 2008, while consumer credit remains negative. One common post-1980 credit mechanism would conceal this break. |
+
+## Session record: 2026-08-14 evidence integration and research redirection
+
+- Starting branch/commit: `main` at `2af9442`; staged and unstaged work from
+  the replication and presentation tasks remains in the worktree.
+- Goal: embed the verified Stage 1 analysis in the two research-extension
+  notes and convert its time pattern into an explicit next research direction.
+- Changed files: `research_extension_idea_1.md`,
+  `research_extension_idea_2.md`,
+  `docs/data/debt-composition-extension-data.md`, this task record, and the
+  T-008 row and immediate sequence in `docs/project/progress.md`.
+- Evidence: all five slides of
+  `Presentation/7_debt_composition_extension/presentation.pptx`; the generated
+  stock, flow, period-summary, headline-metric, and diagnostics CSVs; and the
+  producing code and tests.
+- Validation: the current deck source matches its retained full-resolution QA
+  renders; all five slides were inspected; CSV values reconcile with the slide
+  claims; and the six focused debt-composition and 2021-direct tests pass.
+- Result: the durable notes now distinguish the established accounting result
+  from the untested causal mechanism. Mortgages dominate the pre-2008 debt
+  build-up and saving drag; after 2008 mortgage borrowing contracts while
+  consumer credit remains a negative contribution.
+- Next action: complete the exact Figure 6 percentile/group-income
+  decomposition, then design a pre-2008 mortgage-credit identification strategy
+  and a separate post-2008 consumer-credit disaggregation.
 
 ## Session record: 2026-08-14 preliminary implementation
 

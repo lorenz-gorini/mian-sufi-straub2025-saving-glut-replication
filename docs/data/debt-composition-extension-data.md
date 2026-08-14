@@ -110,7 +110,7 @@ Observed validation on 2026-08-14:
 - mortgage unassigned ultimate-owner share: 1.65%--9.63%; and
 - consumer-credit unassigned share: 5.41%--11.36%.
 
-## Preliminary findings and limits
+## Verified descriptive findings and limits
 
 From 1982 to 2007, mortgage liabilities rose by 23.63 percentage points of
 national income for the next 40% and 13.85 points for the bottom 50%, compared
@@ -123,6 +123,31 @@ After unveiling, the 1982--2007 mortgage net-position change is +8.69 points
 for the top 1%, -19.02 points for the next 40%, and -13.73 points for the
 bottom 50%. These are descriptive accounting results. They do not identify a
 credit-supply effect, a house-price response, or household welfare.
+
+The period evidence also reveals a break after the housing boom. For the
+bottom 99%, the average mortgage contribution to active saving changes from
+-6.36 percentage points of national income per year in 1998--2007 to -0.16 in
+2008--2016, while the consumer-credit contribution remains negative at -1.44
+points. For the bottom 50%, the mortgage contribution turns positive at +0.42
+points after 2008, consistent with net active mortgage repayment after the
+crisis. Correspondingly, the bottom 50%'s mortgage-liability increase relative
+to 1982 falls from 13.85 points in 2007 to 1.81 points in 2016, while its
+consumer-credit increase rises from 4.04 to 4.82 points.
+
+The unveiled positions evolve differently across groups. By 2016, the top
+1%'s mortgage net position is 9.33 points above its 1982 value and the next
+40% remains 15.99 points below, whereas the bottom 50% has recovered from
+-13.73 points in 2007 to -2.32 points in 2016. Consumer-credit net positions
+continue to widen through 2016: +3.61 points for the top 1%, -5.45 for the
+next 40%, and -5.19 for the bottom 50%.
+
+This time pattern supports a two-regime interpretation: mortgage expansion is
+the main debt-related saving drag during the pre-2008 boom, while the residual
+post-2008 borrowing of the lower wealth groups is relatively more
+consumer-credit intensive. It does not establish that either debt category
+caused the total Figure 6 saving-rate movement, because the present flow metric
+is scaled by aggregate national income rather than each group's disposable
+income and the analysis contains no exogenous credit-supply variation.
 
 `consumer_credit` does not distinguish credit cards, vehicles, student loans,
 or medical debt. The network remains the same eight-row coarsening described
