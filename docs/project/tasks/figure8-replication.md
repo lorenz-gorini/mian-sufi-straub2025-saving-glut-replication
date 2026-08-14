@@ -2,14 +2,19 @@
 
 ## Objective and classification
 
-Apply the July 2025 Figure 8 net-debt definition to the finest debt positions
-available in the February 2021 package and compare the result with the target.
-The delivered result is a **close old-unveiling proxy** because it starts from
-the kit's downstream seven-round positions, not because the 2025 operation is
-impossible to reconstruct in principle. The exact authors' 2025 matrices,
-custom equity treatment, and crosswalk are unavailable; the current public
-completed FWTW release plus 2021 DINA/NIPA inputs provide a feasible separate
-mixed-vintage full-Leontief reconstruction.
+Apply the July 2025 Figure 8 definition and keep three empirical routes
+separate:
+
+1. **2021-kit seven-round proxy:** downstream authors-kit debt positions;
+2. **2021 direct cells + full Leontief:** closest-feasible old-vintage operator
+   comparison; and
+3. **public FWTW + full Leontief:** newer-public-data robustness route.
+
+The main methodological comparison is now route 2 versus route 1 because the
+data vintage is held fixed as far upstream as the saved old-kit cells permit.
+Route 3 shows what the full method produces from a later public matrix. The
+exact authors' 2025 matrices, custom equity treatment, and crosswalk remain
+unavailable, so none is labelled an exact numerical reproduction.
 
 ## Target definition
 
@@ -30,19 +35,53 @@ mean net borrowing.
 | 2025 requirement | February 2021 availability | Decision |
 | --- | --- | --- |
 | Exact authors-vintage completed annual instrument-by-sector matrices | Not supplied | Cannot reproduce the authors' exact 34-instrument, 27-sector network |
+| Old-kit completed direct cells and issuer margins | Preserved in `Yunveilhhd.dta`, alongside the later round outputs | Reconstruct eight coarsened intermediary rows while explicitly excluding every round output |
 | Current public completed FWTW matrices | Available separately: 31 instruments and 25 substantive sectors | Can support a mixed-vintage reconstruction after a documented crosswalk |
 | Augmented household wealth-group columns | DINA asset-class shares are supplied; exact 2025 mapping is not | Rebuild with an explicit public-FWTW-to-DINA mapping |
 | Fine-cohort unveiled household-debt assets | Supplied downstream in `YinequalityFAanalysis.dta` | Reuse with an explicit old-seven-round label |
 | Fine-cohort debt liabilities | Supplied in the same file | Subtract as positive liability stocks |
 | National income and 1982 base | Supplied in the same file | Apply the 2025 scale and display rule |
 
-The precise stopping boundary of the **current proxy pipeline** is before
-construction of the revised augmented matrix. Reprocessing the 2021 kit alone
-cannot recover the Batty-completed target-vintage network, but adding the
-current public FWTW release can reproduce the operation with a different
+The proxy stops after the old seven-round procedure. The new old-vintage route
+moves upstream to the saved direct-cell blocks, but those blocks are not the
+paper's general 34-by-27 matrix. Reprocessing the 2021 kit therefore supports
+a coarsened full solve, not recovery of the unavailable Batty-completed target
+vintage. The public release supports a second full solve with a different
 instrument/sector taxonomy and a 2016 distributional endpoint.
 
-## Follow-on full-method reconstruction
+## 2021-direct-cell full-Leontief reconstruction
+
+`Code/scripts/build_figure8_2021_direct.py` reads 351 pre-unveiling direct
+positions, liability margins, household-debt cells, and raw mutual-fund
+portfolio fields from `Yunveilhhd.dta`. Its explicit source contract excludes
+all `*_hhd1`--`*_hhd7`, final owner allocations, and wealth-group unveiled
+outputs. The saved purpose-built Stata blocks are aggregated into eight
+intermediary rows, household-holder positions are split with supplied DINA
+shares, and the infinite solve
+
+$$
+\Omega_t=(I-Q_t)^{-1}B_t
+$$
+
+replaces the seven-round sequence.
+
+The old saved blocks include signed cells but not enough counterparty rows to
+reorient them after coarsening. The baseline therefore clips negative direct
+weights and rescales the remaining positions to each authors-kit issuer
+margin. Brokers, holding/funding companies, nonprofits, and unidentified
+residual claims are kept in an explicit `unassigned` ultimate-owner column.
+The clipped mass and unassigned ownership share are material and generated as
+diagnostics; this is consequently a same-vintage, closest-feasible operator
+comparison, not a causal code-only experiment.
+
+The full solve closes to machine precision; the maximum spectral radius is
+0.180. Against the paper, the top-1 correlation/MAE are 0.994/2.33 percentage
+points and the bottom-99 values are 0.995/1.31. Relative to the seven-round
+proxy, mean absolute differences are only 0.26 and 0.75 points. This suggests
+that finite-round truncation is not the main source of the remaining paper
+gap in the coarsened 2021 network.
+
+## Public-FWTW full-method reconstruction
 
 The follow-on is now implemented separately in
 `Code/scripts/build_figure8_public_fwtw.py`. It pivots the pinned public FWTW
@@ -59,13 +98,13 @@ economic network. Direct rows, unveiled ownership, primary-asset allocation,
 and household-debt liability allocation all satisfy their accounting
 invariants.
 
-The new result improves the common-period top-1 fit against the digitized paper
+The public result improves the common-period top-1 fit against the digitized paper
 (correlation 0.998, MAE 2.12 percentage points versus 0.993 and 2.41 for the
 old proxy). The old proxy remains closer for bottom 99 in levels (MAE 1.38
 versus 1.98). This mixed result is consistent with simultaneous changes in the
 operator, public input vintage, sector taxonomy, and instrument crosswalk.
 
-## Data and code lineage
+## Seven-round proxy lineage
 
 - Input:
   `MSS2021Febreplicationkit/data/finalfiles/YinequalityFAanalysis.dta`.
@@ -114,10 +153,14 @@ called a causal code-only effect.
 - `Results_Proposal/figures/figure8_authors_proxy.png`
 - `Results_Proposal/figures/figure8_authors_proxy_comparison.png`
 
-The separate full-method outputs are documented in
-[`../../data/figure8-public-fwtw-data.md`](../../data/figure8-public-fwtw-data.md),
-including `figure8_public_fwtw_full_leontief.csv`, annual network diagnostics,
-the negative-cell sensitivity, and `figure8_method_comparison.png`.
+The two full-Leontief routes are documented separately in
+[`../../data/figure8-2021-direct-data.md`](../../data/figure8-2021-direct-data.md)
+and
+[`../../data/figure8-public-fwtw-data.md`](../../data/figure8-public-fwtw-data.md).
+Their route-specific producers write no shared outputs. The separate
+`Code/scripts/build_figure8_method_comparison.py` entry point reads all three
+processed series and writes the aligned comparison, fit metrics,
+same-vintage operator metrics, and presentation figures.
 
 ## Definition of done
 
@@ -134,7 +177,12 @@ the negative-cell sensitivity, and `figure8_method_comparison.png`.
 - [x] Instrument-to-DINA and household-liability mappings documented.
 - [x] Negative public levels and the discrepancy pseudo-sector treated
       explicitly, with a generated sensitivity.
-- [x] New and retained approaches compared against the same digitized target.
+- [x] Old-kit completed direct cells reconstructed without reading a
+      seven-round or final unveiled household-debt field.
+- [x] Coarsened old-vintage full-Leontief matrix, signed-cell treatment,
+      residual owner, DINA augmentation, and accounting invariants documented.
+- [x] Three routes compared against the same digitized target through a
+      comparison-only entry point.
 
 ## Session note: 2026-08-13 public-FWTW implementation
 
@@ -149,3 +197,20 @@ the negative-cell sensitivity, and `figure8_method_comparison.png`.
 - Limitation: the result uses a June 2026 public FWTW vintage with 31
   instruments and 25 substantive sectors plus 2021 DINA/NIPA through 2016,
   rather than the authors' unavailable 34-instrument, 27-sector 2025 vintage.
+
+## Session note: 2026-08-14 old-vintage full-Leontief implementation
+
+- Goal: move upstream of the seven-round output and test the full operator on
+  the 2021 direct-cell vintage while preserving the public-FWTW route.
+- Changed: new direct-cell module, route-only entry point, comparison module
+  and entry point, tests, data contract, annual/component diagnostics,
+  processed output, generated charts, and three-route presentation update.
+- Validation: 54 annual observations; zero round-output fields read; eight
+  coarsened intermediary rows; maximum spectral radius 0.180; direct,
+  unveiled, primary-asset, and debt-liability closure at or below
+  $4.44\times10^{-16}$ apart from the documented $2$ million source-margin
+  rounding difference.
+- Limitation: signed positions are clipped and component-balanced because the
+  saved coarsened blocks cannot be direction-reversed into absent counterparty
+  rows; an explicit residual owner retains 3.17%--9.97% of ultimate household
+  debt.

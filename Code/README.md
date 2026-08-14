@@ -236,13 +236,24 @@ asset shares, applies the paper's full $\Omega_t=(I-Q_t)^{-1}B_t$ operator,
 maps unveiled household-debt assets against group mortgage and nonmortgage
 liabilities, divides by authors-kit national income, and subtracts 1982. It
 writes a reoriented-negative-position baseline, a zero-clipped sensitivity,
-annual matrix diagnostics, and a three-way comparison against the paper and
-the retained seven-round proxy. See
+and annual matrix diagnostics. See
 `docs/data/figure8-public-fwtw-data.md`.
 
-The correct labels are **public-FWTW full-Leontief reconstruction** and
-**2021-kit seven-round proxy**. Neither is an exact numerical reproduction of
-the unavailable 2025 authors-vintage 34-instrument, 27-sector matrix.
+After all three route-specific builds have run, create the comparison layer:
+
+```bash
+python Code/scripts/build_figure8_method_comparison.py
+```
+
+The comparison script reads the three stable processed series and the
+digitized paper benchmark. It writes the aligned four-line data, fit metrics,
+the same-vintage operator-difference metrics, and presentation charts; it
+does not rebuild or overwrite a route-specific empirical result.
+
+The correct labels are **2021-kit seven-round proxy**, **2021 direct cells +
+full Leontief**, and **public FWTW + full Leontief**. None is an exact
+numerical reproduction of the unavailable 2025 authors-vintage
+34-instrument, 27-sector matrix.
 
 Build the selected debt-composition research extension:
 

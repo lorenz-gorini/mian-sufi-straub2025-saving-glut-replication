@@ -181,14 +181,16 @@ The 2026-08-10 implementation audit resolves the remaining two core figures:
 | Figure | Classification | Earliest feasible supplied input | Verified boundary |
 | --- | --- | --- | --- |
 | Figure 5 | Old-input reconstruction of the July 2025 definition | `YwealthFOF.dta`, fine DINA shares, `Ywealthreturns.dta`, and NIPA saving | Annual saving closes to NIPA; 10-year/1982 display implemented through 2016; top-1 and bottom-99 correlations with the digitized target are 0.992 and 0.997 |
-| Figure 8 | Preferred public-FWTW full-Leontief reconstruction; retained old-unveiling proxy | Public completed FWTW plus supplied DINA/NIPA; downstream fine debt assets/liabilities in `YinequalityFAanalysis.dta` for the proxy | The preferred build implements the revised operator with a different public vintage/taxonomy; the exact authors-vintage 34-instrument, 27-sector matrices remain unavailable |
+| Figure 8 | Primary 2021-direct/full-inverse reconstruction; retained old-unveiling benchmark; public-FWTW robustness | 351 direct/pre-unveiling fields in `Yunveilhhd.dta`; downstream fine debt positions for the benchmark; public completed FWTW for robustness; supplied DINA/NIPA for all routes | The primary route is the closest same-vintage operator test but reconstructs only eight coarsened intermediary rows; the exact authors-vintage 34-instrument, 27-sector matrices remain unavailable |
 
 Figure 5 can therefore be called our reconstruction of the revised method on
-the older authors' data. Figure 8 has two labels: the old-kit downstream output
-retains `proxy`, while the separate public-FWTW build is a full-Leontief
-mixed-vintage method reconstruction. The absent exact 2017--2019 extension,
-authors' instrument/sector vintage, and equity crosswalk prevent an exact
-numerical reproduction, not implementation of the operator itself.
+the older authors' data. Figure 8 has three labels: the old-kit downstream
+output is the seven-round benchmark; the 2021 direct-cell/full-inverse route
+is the primary closest-feasible operator test; and the public-FWTW build is a
+mixed-vintage robustness reconstruction. The absent exact 2017--2019
+extension, full saved old direct cube, authors' instrument/sector vintage, and
+equity crosswalk prevent an exact numerical reproduction, not implementation
+of the operator itself.
 
 ## Definition of done
 
@@ -226,6 +228,7 @@ numerical reproduction, not implementation of the operator itself.
 | 2026-08-09 | Add an authors-data reconstruction between the historical package benchmark and the new-data robustness result. | Prepared author files let us skip mechanical cleaning while explicitly reconstructing the economically central instrument aggregate and testing it against the paper curve. | `figure1_authors.py`, generated comparison files, tests, report, and deck. |
 | 2026-08-10 | Recast the remaining task as a 2021-input feasibility audit for the fixed 2025 scope. | The full Stata run establishes that the old package works for the 2021 paper; the unresolved question is whether its data can identify the revised Figure 5 and 8 definitions over the common sample. | Completed T-007 benchmark, author-output crosswalk, and user direction. |
 | 2026-08-10 | Classify Figure 5 as a reconstruction and Figure 8 as a proxy. | Figure 5's wealth, valuation, fine-share, and NIPA inputs identify the revised saving/display procedure through 2016. Figure 8's downstream fine debt positions are usable, but its revised completed matrices are absent. | Generated pipelines, tests, data contracts, and digitized-paper comparisons. |
+| 2026-08-14 | Refine Figure 8 to three routes and make the 2021-direct/full-inverse route primary. | `Yunveilhhd.dta` preserves enough pre-round direct fields to reconstruct a coarsened old-vintage network without reading any round outputs. This is closer to the requested operator comparison than changing to the public FWTW vintage. | Direct-cell module and tests, component/network diagnostics, comparison-only build, and focused three-route deck. |
 
 ## Session record: 2026-08-10 task refresh
 

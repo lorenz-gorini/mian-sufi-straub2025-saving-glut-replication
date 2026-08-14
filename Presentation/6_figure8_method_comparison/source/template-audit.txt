@@ -1,4 +1,4 @@
-Communication job: by the end, an economics replication audience should distinguish the retained 2021-kit seven-round proxy from the new public-FWTW full-Leontief reconstruction, understand what each input and operator does, and interpret their comparison with July 2025 Figure 8.
+Communication job: by the end, an economics replication audience should distinguish (A) the 2021-kit final-file seven-round benchmark, (B) the new 2021 direct-cell full-Leontief primary test, and (C) the current public-FWTW full-Leontief robustness route; understand which data and operator change in each comparison; and interpret all three against July 2025 Figure 8.
 
 Source deck: Presentation/4_figure_comparison/presentation.pptx; 18 slides; 16:9; 1280 x 720; white background, navy titles and rules, orange kickers, green assessment bands, Calibri/Calibri Light. All 18 slides were rendered and inspected.
 
@@ -6,6 +6,6 @@ Source structure: slide 1 provides the minimal title pattern; slide 2 the two-zo
 
 Inherited structure: the imported deck has no visible master or layout chrome and no empty structural placeholders in the source inspection. The output duplicates source slides and edits only mapped inherited elements.
 
-Insertion contract: create eight slides by duplicating source slides 1, 2, 3, 9, 16, 17, 5, and 18. Replace only the four inherited image objects on output slides 6-7 with generated Figure 8 empirical charts. Preserve all shapes, colors, typography, spacing, and assessment bands.
+Insertion contract: create eight slides by duplicating source slides 1, 2, 3, 9, 16, 17, 5, and 18. Replace only the four inherited image objects on output slides 6-7 with generated Figure 8 empirical charts. Preserve all shapes, colors, typography, spacing, and assessment bands. The third route is expressed by editing the inherited legend, evidence-card, and table cells; no new geometry is introduced.
 
 Sources: July 2025 target paper; February 2021 replication kit; Federal Reserve public FWTW release and technical documentation; generated Python output and diagnostics.

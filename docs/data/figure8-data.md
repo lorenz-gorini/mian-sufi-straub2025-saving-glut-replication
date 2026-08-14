@@ -22,10 +22,13 @@ net-debt equation, groups, sign convention, national-income scaling, and 1982
 normalization to the older unveiled stocks. It is not a rerun of the 2025
 matrix methodology.
 
-This is an exact-vintage boundary, not a methodological impossibility. The
-separate public-FWTW full-Leontief reconstruction is now implemented and
-documented in [`figure8-public-fwtw-data.md`](figure8-public-fwtw-data.md).
-Nothing in that build changes or silently relabels the proxy documented here.
+This is an exact-vintage boundary, not a methodological impossibility. Two
+separate full-Leontief routes are now implemented: the primary reconstruction
+from saved 2021 direct/pre-round fields, documented in
+[`figure8-2021-direct-data.md`](figure8-2021-direct-data.md), and the
+current-public-FWTW robustness route documented in
+[`figure8-public-fwtw-data.md`](figure8-public-fwtw-data.md). Neither changes
+or silently relabels the downstream benchmark documented here.
 
 ## Input inventory
 

@@ -40,8 +40,9 @@ logic rather than decorate the slide.
   2025 target, authors-old Stata precursor, ours-public robustness build, and
   ours-authors reconstruction visibly separate.
 - `6_figure8_method_comparison/` contains the focused Figure 8 comparison of
-  the preferred public-FWTW full-Leontief reconstruction and the retained
-  2021-kit seven-round proxy against the same 2025 target.
+  the 2021-kit final-file/seven-round benchmark, the primary 2021-direct/full-
+  Leontief reconstruction, and the current-public-FWTW/full-Leontief
+  robustness route against the same 2025 target.
 - `7_debt_composition_extension/` contains the five-slide preliminary-evidence
   deck for the selected mortgage-versus-consumer-credit research extension.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
@@ -240,13 +241,14 @@ checks. See `4_figure_comparison/README.md` for its evidence contract.
 ### Figure 8 method comparison
 
 The editable eight-slide PowerPoint
-`6_figure8_method_comparison/presentation.pptx` compares the preferred
-public-FWTW full-Leontief reconstruction with the retained 2021-kit
-seven-round proxy and the same digitized July 2025 target. It explains the
-shared net-debt estimand, upstream data and operator differences, explicit
-instrument-to-DINA crosswalk, signed-level treatment, accounting invariants,
-mixed empirical fit, and submission recommendation. All slides were rendered
-and inspected on 2026-08-13 and pass the template-fidelity, overflow,
+`6_figure8_method_comparison/presentation.pptx` compares three routes with the
+same digitized July 2025 target: the old final-file/seven-round benchmark, the
+primary reconstruction from 351 saved direct fields with the full inverse,
+and the current-public-FWTW/full-inverse robustness route. It explains the
+shared net-debt estimand, which data and operator change in each comparison,
+the coarsened old-network boundary, accounting diagnostics, empirical fit,
+and submission hierarchy. All slides were rendered and inspected on
+2026-08-14 and pass the template-fidelity, overflow,
 placeholder, source-note, and archive checks. See
 `6_figure8_method_comparison/README.md` for the scope and rebuild contract.
 

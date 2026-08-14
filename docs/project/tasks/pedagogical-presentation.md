@@ -189,12 +189,12 @@ The 18-slide `Presentation/4_figure_comparison/presentation.pptx` is now the
 maintained empirical-comparison module. It distinguishes the 2025 target, the
 authors-old Stata precursor, ours-public robustness, and ours-authors result,
 then applies that hierarchy to Figures 1, 5, 6, and 8. Figures 1, 5, and 6 are
-labelled reconstructions; the plotted Figure 8 is a bounded proxy because it
-uses downstream seven-round positions. A separate slide records that current
-public completed FWTW plus 2021 DINA/NIPA make a full-Leontief mixed-vintage
-method reconstruction feasible, although the authors' exact 2025 vintage is
-unavailable. Its main comparisons place each paper graph beside our generated
-output and report common-sample fit. All 18
+labelled reconstructions; the plotted Figure 8 is the retained bounded proxy
+because it uses downstream seven-round positions. The separate focused Figure
+8 deck now teaches three routes: the plotted old seven-round benchmark, a
+primary full-inverse reconstruction from saved 2021 direct/pre-round fields,
+and a current-public-FWTW robustness route. Its main comparisons place each
+paper graph beside our generated outputs and report common-sample fit. All 18
 slides were rendered and inspected, contain source blocks in speaker notes,
 and pass template-fidelity, overflow, unresolved-placeholder, and archive
 checks.
@@ -227,6 +227,18 @@ checks.
 | 2026-08-10 | Put the four Figure 1 roles in a separate empirical-comparison deck. | The main replication test is ours-authors versus the 2025 target; separating the Stata precursor and public-data robustness prevents provenance, method, and vintage from being conflated. |
 | 2026-08-10 | Extend the empirical-comparison deck with Figure 5 as a reconstruction and Figure 8 as a bounded proxy. | The old kit identifies the revised saving decomposition through 2016, but its seven-round unveiled debt assets are not the missing 2025 matrix inputs. The slide labels must preserve that difference in evidentiary strength. |
 | 2026-08-12 | Distinguish an exact authors-vintage gap from feasibility of the 2025 operation. | The public FWTW release contains completed bilateral estimates, so it can support a mixed-vintage full-Leontief rerun with 2021 DINA/NIPA even though the paper's exact 34-instrument, 27-sector matrices and equity crosswalk remain unavailable. |
+| 2026-08-14 | Lead the focused Figure 8 module with the 2021-direct/full-inverse route and retain public FWTW as robustness. | Reconstructing upstream saved old-kit cells separates the operator from vintage more cleanly than changing to the current public matrix, while the old final-file route remains the lineage benchmark. |
+
+## Session record: 2026-08-14 three-route Figure 8 deck
+
+- Revised the eight-slide focused module to distinguish A: old final-file plus
+  seven rounds, B: 2021 direct cells plus the full inverse, and C: current
+  public FWTW plus the full inverse.
+- Added the same-vintage operator comparison and reconstruction boundary: zero
+  round fields are read, but the saved blocks coarsen to eight intermediary
+  rows and require explicit signed-cell clipping and an unassigned owner.
+- The public-FWTW pipeline remains unchanged and is now labelled robustness;
+  the final 17-slide submission deck has not yet been refreshed.
 
 ## Session record: 2026-08-12 FWTW boundary correction
 

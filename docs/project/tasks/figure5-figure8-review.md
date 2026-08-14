@@ -11,8 +11,10 @@ transformations, comparison metrics, and evidentiary labels can be explained
 without relying on the code as a black box.
 
 The maintained review output is a short interpretation and correction record
-for `Presentation/4_figure_comparison/presentation.pptx`. It must preserve the
-distinction between a reconstruction and a proxy.
+for `Presentation/4_figure_comparison/presentation.pptx` and the focused
+`Presentation/6_figure8_method_comparison/presentation.pptx`. It must preserve
+the distinction among an old-pipeline benchmark, an old-vintage
+reconstruction, and a public-data robustness route.
 
 The personal interpretation and hypotheses prompted by Figures 5--6 are
 maintained separately in
@@ -84,9 +86,11 @@ borrowing.
    `build_figure6_authors_data.py`, raw DINA bin construction, personal and
    corporate disposable-income allocation, valuation closure, and period
    averaging.
-5. Trace Figure 8 through `build_figure8_authors_data.py`,
-   `figure8_authors.py`, fine-group aggregation, the old seven-round unveiled
-   asset positions, $ND=A^D-D$, national-income scaling, and the 1982 base.
+5. Trace all three Figure 8 routes: the downstream seven-round benchmark,
+   `build_figure8_2021_direct.py` and its 351-field/coarsened full-inverse
+   reconstruction, and `build_figure8_public_fwtw.py` with the current public
+   completed matrix. Then inspect the comparison-only build, $ND=A^D-D$,
+   national-income scaling, and the 1982 base.
 6. Inspect the paper-versus-ours panels and their common-sample metrics. Explain
    the remaining discrepancies using documented evidence rather than assigning
    them mechanically to either data or methodology.
@@ -104,12 +108,13 @@ borrowing.
   DINA, disposable-income, valuation, and NIPA inputs identify the revised rate
   through 2016. It verifies
   $\sum_i s^N_{it}Z^d_{it}=S_t^p+S_t^\pi$.
-- **Figure 8 now has two explicitly separated builds.** The retained proxy's
-  fine-group debt assets come from the older seven-round unveiling. The
-  preferred mixed-vintage reconstruction starts from current public completed
-  FWTW, combines it with 2021 DINA/NIPA, and applies the full Leontief operator.
-  Both must equal zero in 1982; direct/unveiled ownership rows and group debt
-  assets and liabilities must satisfy their documented closures.
+- **Figure 8 has three explicitly separated routes.** Route A reads
+  fine-group debt assets after the older seven-round unveiling. Route B reads
+  no round outputs, reconstructs eight coarsened intermediary rows from 351
+  saved direct fields, and applies the full inverse; it is the primary
+  same-vintage operator test. Route C applies the full inverse to current
+  public completed FWTW and is a robustness route. All must equal zero in 1982
+  and satisfy their documented matrix and allocation closures.
 - High correlation with a digitized paper curve supports similarity in timing
   and shape; it does not identify whether a residual gap comes from data
   vintage, classifications, or the unveiling method.
@@ -140,6 +145,19 @@ borrowing.
 | 2026-08-11 | Treat the five-year evolution as a diagnostic rather than a new replication target. | It holds the 2025 annual saving-rate definition fixed and reveals timing, but overlapping windows do not constitute a formal structural-break test. |
 | 2026-08-12 | Separate the exact 2025 data-vintage gap from methodological feasibility. | The 2021 kit alone lacks the Batty-completed target matrices, but the current public FWTW release supplies completed bilateral estimates that can be combined with 2021 DINA/NIPA for a labelled mixed-vintage full-Leontief rerun. |
 | 2026-08-13 | Use the public-FWTW full-Leontief build as the preferred Figure 8 result and retain the old proxy as lineage. | The full operator is now implemented and closes exactly; it improves top-1 fit but not every level, while the public vintage and taxonomy remain different from the authors' unavailable target matrices. |
+| 2026-08-14 | Supersede the public route as the primary test: lead with 2021 direct cells plus the full inverse, retain the old proxy as the same-vintage benchmark, and relabel public FWTW as robustness. | Moving upstream within the old kit separates the operator from data vintage as far as the saved fields permit. The comparison remains closest-feasible rather than exact because the old general matrix cube was not saved. |
+
+## Session record: 2026-08-14 same-vintage Figure 8 reconstruction
+
+- Added the 2021-direct/full-inverse route without changing either existing
+  route. It reads 351 direct/pre-unveiling fields and zero round-output fields.
+- Added route-specific network and component diagnostics, a comparison-only
+  build, same-vintage operator metrics, and a revised eight-slide three-route
+  deck.
+- The full inverse changes the old seven-round series modestly: mean absolute
+  differences are 0.26 percentage points for the top 1% and 0.75 for the
+  bottom 99%. Signed-cell clipping and the explicit unassigned owner remain
+  material limitations, so this is not an exact code-only experiment.
 
 ## Session record: 2026-08-13 preferred Figure 8 reconstruction
 
@@ -148,9 +166,9 @@ borrowing.
 - Added the explicit public-instrument-to-DINA crosswalk, annual full inverse,
   household-debt allocation, negative-position sensitivity, tests, processed
   outputs, and diagnostics.
-- Added a separate eight-slide comparison deck that teaches the shared
-  estimand, the two upstream routes, the exact-vintage boundary, accounting
-  checks, paper comparison, and submission recommendation.
+- Added the first version of the separate eight-slide comparison deck. The
+  2026-08-14 revision supersedes its two-route hierarchy while retaining the
+  public-FWTW implementation as Route C.
 
 ## Session record: 2026-08-11 task creation
 
@@ -161,7 +179,8 @@ borrowing.
   implementation T-004.
 - Changed files: this task record and `docs/project/progress.md`.
 - Result: T-009 owns the substantive review and final-presentation approval of
-  the Figure 5 reconstruction and both explicitly separated Figure 8 routes.
+  the Figure 5 reconstruction and all three explicitly separated Figure 8
+  routes.
 - Next action: read the two target-paper passages, then walk through Figure 5's
   saving identity before reviewing the generated comparison panel.
 

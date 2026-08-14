@@ -2,10 +2,12 @@
 
 ## Classification and estimand
 
-This pipeline is the preferred **public-FWTW full-Leontief reconstruction** of
+This pipeline is the **newer-public-data full-Leontief robustness route** for
 the July 2025 Figure 8 method. It is intentionally separate from the retained
 **2021-kit seven-round proxy** documented in
-[`figure8-data.md`](figure8-data.md).
+[`figure8-data.md`](figure8-data.md) and the closest-feasible
+**2021-direct-cell full-Leontief** route documented in
+[`figure8-2021-direct-data.md`](figure8-2021-direct-data.md).
 
 For wealth group $g$ and year $t$,
 
@@ -161,7 +163,7 @@ estimand.
   household-group liabilities sum to aggregate household debt.
 - Every displayed series is exactly zero in 1982.
 
-Against the digitized paper series through 2016, the new reconstruction has
+Against the digitized paper series through 2016, the public reconstruction has
 top-1 correlation 0.998 and mean absolute error 2.12 percentage points. The
 old proxy has 0.993 and 2.41 points. For the bottom 99%, the new reconstruction
 has correlation 0.995 and mean absolute error 1.98 points, while the old proxy
@@ -176,13 +178,15 @@ and vintage do not uniformly reduce numerical error.
 | `Data/processed/figure8_public_fwtw_full_leontief.csv` | Preferred annual four-group and bottom-99 asset, liability, net-debt, ratio, and 1982-relative series |
 | `Data/processed/figure8_public_fwtw_clipped_sensitivity.csv` | Same schema under zero clipping of negative FWTW levels |
 | `Data/interim/figure8_public_fwtw_network_diagnostics.csv` | Annual matrix dimensions, negative-level mass, spectral radius, closure errors, and mutual-fund split |
-| `Data/processed/figure8_method_comparison.csv` | Aligned digitized paper, public-FWTW full-Leontief, and seven-round proxy series |
-| `Data/processed/figure8_method_comparison_metrics.csv` | Correlation, MAE, and RMSE by approach and group |
-| `Results_Proposal/figures/figure8_public_fwtw_full_leontief.png` | Standalone preferred reconstruction |
+| `Data/processed/figure8_method_comparison.csv` | Aligned digitized paper and all three separately generated routes |
+| `Data/processed/figure8_method_comparison_metrics.csv` | Correlation, MAE, and RMSE by route and group |
+| `Results_Proposal/figures/figure8_public_fwtw_full_leontief.png` | Standalone newer-public-data robustness result |
 | `Results_Proposal/figures/figure8_public_fwtw_sensitivity.png` | Negative-position treatment sensitivity |
-| `Results_Proposal/figures/figure8_method_comparison.png` | Headline two-approach comparison against the paper |
-| `Results_Proposal/figures/figure8_method_comparison_top1.png` | Top-1 paper-versus-both comparison used in the focused deck |
-| `Results_Proposal/figures/figure8_method_comparison_bottom99.png` | Bottom-99 paper-versus-both comparison used in the focused deck |
+| `Results_Proposal/figures/figure8_method_comparison.png` | Headline paper-versus-three-routes comparison |
+| `Results_Proposal/figures/figure8_method_comparison_top1.png` | Top-1 paper-versus-three-routes comparison used in the focused deck |
+| `Results_Proposal/figures/figure8_method_comparison_bottom99.png` | Bottom-99 paper-versus-three-routes comparison used in the focused deck |
 
-Producer: `Code/scripts/build_figure8_public_fwtw.py`. Reusable implementation:
-`Code/unveiling/figure8_public_fwtw.py`.
+Route producer: `Code/scripts/build_figure8_public_fwtw.py`. Reusable
+implementation: `Code/unveiling/figure8_public_fwtw.py`. The comparison
+outputs are produced separately by
+`Code/scripts/build_figure8_method_comparison.py`.

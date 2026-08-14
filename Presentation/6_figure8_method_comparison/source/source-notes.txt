@@ -4,6 +4,8 @@ FWTW completion algorithm: https://www.federalreserve.gov/econres/notes/feds-not
 Public taxonomy announcements: https://www.federalreserve.gov/releases/efa/fwtw_announcements.htm.
 Pinned public input: Data/raw/fwtw/fwtw_data_2026-06-18.csv.
 Distributional inputs: MSS2021Febreplicationkit/data/PSZusdina/Yszshares_fine.dta and MSS2021Febreplicationkit/data/finalfiles/YwealthFOF.dta.
-Retained proxy: Code/scripts/build_figure8_authors_data.py and Data/processed/figure8_authors_proxy.csv.
-Preferred reconstruction: Code/scripts/build_figure8_public_fwtw.py, Data/processed/figure8_public_fwtw_full_leontief.csv, and Data/interim/figure8_public_fwtw_network_diagnostics.csv.
-Generated figures: Results_Proposal/figures/figure8_method_comparison_top1.png, figure8_method_comparison_bottom99.png, figure8_public_fwtw_full_leontief.png, and figure8_public_fwtw_sensitivity.png.
+Old-pipeline benchmark: Code/scripts/build_figure8_authors_data.py and Data/processed/figure8_authors_proxy.csv.
+Primary same-vintage reconstruction: Code/scripts/build_figure8_2021_direct.py, Data/processed/figure8_2021_direct_full_leontief.csv, Data/interim/figure8_2021_direct_network_diagnostics.csv, and Data/interim/figure8_2021_direct_component_diagnostics.csv.
+Public-data robustness: Code/scripts/build_figure8_public_fwtw.py, Data/processed/figure8_public_fwtw_full_leontief.csv, and Data/interim/figure8_public_fwtw_network_diagnostics.csv.
+Comparison build: Code/scripts/build_figure8_method_comparison.py, Data/processed/figure8_method_comparison_metrics.csv, and Data/processed/figure8_2021_operator_comparison_metrics.csv.
+Generated figures: Results_Proposal/figures/figure8_method_comparison_top1.png, figure8_method_comparison_bottom99.png, figure8_2021_operator_comparison.png, and figure8_2021_direct_full_leontief.png.

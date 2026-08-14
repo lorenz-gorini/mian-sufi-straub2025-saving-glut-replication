@@ -325,48 +325,60 @@ $A^D_{gt}$ is household debt held as an unveiled asset and $D_{gt}$ is the
 group's positive debt liability. The chart reports $ND_{gt}/NI_t$ relative to
 1982. Positive values mean net lending; negative values mean net borrowing.
 
-Two deliberately separate implementations are retained. The February 2021
-kit supplies fine-cohort household-debt assets only after its old seven-round
-unveiling; the downstream build is therefore an **old-unveiling proxy**. The
-preferred build starts instead from the Federal Reserve's pinned completed
-public FWTW bilateral positions, splits the household holder with the supplied
-DINA shares, and applies the paper's full inverse. It is a **public-FWTW
-full-Leontief reconstruction**, not an exact reproduction of the unavailable
-authors' 34-instrument, 27-sector, through-2019 vintage.
+Three deliberately separate implementations are retained. Route A uses the
+February 2021 kit's fine-cohort debt assets after its old seven-round
+unveiling and is an **old-pipeline benchmark**. Route B reads 351 saved
+direct/pre-unveiling fields, reconstructs eight coarsened intermediary rows,
+and applies the full inverse; it is the **primary same-vintage test**. Route C
+starts from the Federal Reserve's pinned current completed FWTW bilateral
+positions and is a **public-data robustness reconstruction**. None is an exact
+reproduction of the unavailable authors' 34-instrument, 27-sector,
+through-2019 vintage.
 
 **Our implementation and outputs**
 
-- Preferred module and entry point:
+- Primary module and entry point: `Code/unveiling/figure8_2021_direct.py` and
+  `Code/scripts/build_figure8_2021_direct.py`.
+- Old benchmark module and entry point: `Code/unveiling/figure8_authors.py`
+  and `Code/scripts/build_figure8_authors_data.py`.
+- Public robustness module and entry point:
   `Code/unveiling/figure8_public_fwtw.py` and
   `Code/scripts/build_figure8_public_fwtw.py`.
-- Retained proxy module and entry point: `Code/unveiling/figure8_authors.py`
-  and `Code/scripts/build_figure8_authors_data.py`.
-- Tests: `Code/tests/test_figure8_public_fwtw.py`,
+- Tests: `Code/tests/test_figure8_2021_direct.py`,
+  `Code/tests/test_figure8_comparison.py`,
+  `Code/tests/test_figure8_public_fwtw.py`,
   `Code/tests/test_figure8_authors.py`, and `Code/tests/test_wealth_groups.py`.
-- Data contracts: `docs/data/figure8-public-fwtw-data.md` and
-  `docs/data/figure8-data.md`.
+- Data contracts: `docs/data/figure8-2021-direct-data.md`,
+  `docs/data/figure8-public-fwtw-data.md`, and `docs/data/figure8-data.md`.
 - Task record: `docs/project/tasks/figure8-replication.md`.
-- Preferred processed series:
-  `Data/processed/figure8_public_fwtw_full_leontief.csv`.
-- Three-way comparison:
+- Primary processed series:
+  `Data/processed/figure8_2021_direct_full_leontief.csv`.
+- Paper plus three-route comparison:
   `Data/processed/figure8_method_comparison.csv` and
   `Results_Proposal/figures/figure8_method_comparison.png`.
-- Retained proxy series: `Data/processed/figure8_authors_proxy.csv`.
+- Same-vintage operator comparison:
+  `Data/processed/figure8_2021_operator_comparison_metrics.csv` and
+  `Results_Proposal/figures/figure8_2021_operator_comparison.png`.
+- Other route series: `Data/processed/figure8_authors_proxy.csv` and
+  `Data/processed/figure8_public_fwtw_full_leontief.csv`.
 
 **Verification and interpretation**
 
-The preferred network has maximum spectral radius 0.504, and direct,
-full-unveiling, primary-asset, and debt-allocation closure errors are below
-$9\times10^{-16}$. Over 1963--2016 its top-1 correlation/MAE against the
-digitized paper are 0.998/2.12 percentage points, improving on the proxy's
-0.993/2.41. The retained proxy remains closer for the bottom 99% in levels:
-its MAE is 1.38 points versus 1.98 for the preferred build.
+The primary old-vintage network reads zero round-output fields, has maximum
+spectral radius 0.180, and closes its direct and unveiled rows to
+$4.44\times10^{-16}$. Over 1963--2016 its top-1 correlation/MAE against the
+digitized paper are 0.994/2.33 percentage points; bottom-99 values are
+0.995/1.31. Relative to Route A, its mean absolute differences are only 0.26
+and 0.75 points. The public robustness route has top-1/bottom-99 MAEs of 2.12
+and 1.98 points.
 
-Both routes reproduce the central divergence after 1982. The mixed comparison
-does not isolate a pure code effect because the operator, public FWTW vintage,
-sector taxonomy, and instrument crosswalk change together. The full-Leontief
-result is the submission result; the seven-round proxy is an auditable lineage
-benchmark.
+All three routes reproduce the central divergence after 1982. Route A versus
+B is the closest feasible operator comparison, but it is not exact because
+the kit saved purpose-built blocks rather than the complete direct cube;
+signed-cell clipping and an explicit unassigned owner are material. The small
+A-to-B difference suggests finite-round truncation is not the main remaining
+paper gap. Route B is the primary result, Route A is its lineage benchmark,
+and Route C is a public-data robustness exercise.
 
 ## Replication record template
 

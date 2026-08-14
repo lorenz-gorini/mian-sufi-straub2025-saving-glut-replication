@@ -1,11 +1,15 @@
 """Reconstruct 2025 Figure 8 with public FWTW and a full Leontief solve.
 
-This module is deliberately separate from :mod:`unveiling.figure8_authors`.
-The older module applies the 2025 net-debt display rule to the February 2021
-replication kit's downstream seven-round positions.  This module instead
-starts from the Federal Reserve's published instrument-by-issuer-by-holder
-levels, expands the household holder into wealth groups with the supplied
-DINA shares, and solves the infinite intermediation network.
+This public-data robustness module is deliberately separate from both
+:mod:`unveiling.figure8_authors` and
+:mod:`unveiling.figure8_2021_direct`.  The former applies the 2025 net-debt
+display rule to the February 2021 replication kit's downstream seven-round
+positions.  The latter reconstructs the earliest feasible 2021 direct-cell
+network and is the primary same-vintage operator test.  This module instead
+starts from the Federal Reserve's current published
+instrument-by-issuer-by-holder levels, expands the household holder into
+wealth groups with the supplied DINA shares, and solves the infinite
+intermediation network.
 
 The reconstruction is mixed-vintage rather than an exact reproduction: the
 pinned June 2026 FWTW release has 31 instruments and 25 substantive sectors,
