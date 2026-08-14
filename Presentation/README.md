@@ -42,6 +42,8 @@ logic rather than decorate the slide.
 - `6_figure8_method_comparison/` contains the focused Figure 8 comparison of
   the preferred public-FWTW full-Leontief reconstruction and the retained
   2021-kit seven-round proxy against the same 2025 target.
+- `7_debt_composition_extension/` contains the five-slide preliminary-evidence
+  deck for the selected mortgage-versus-consumer-credit research extension.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
   the editable PowerPoint decks.
 - The root `presentation.tex` and `presentation.pdf` are a legacy combined
@@ -247,6 +249,18 @@ mixed empirical fit, and submission recommendation. All slides were rendered
 and inspected on 2026-08-13 and pass the template-fidelity, overflow,
 placeholder, source-note, and archive checks. See
 `6_figure8_method_comparison/README.md` for the scope and rebuild contract.
+
+### Debt-composition research extension
+
+The editable five-slide PowerPoint
+`7_debt_composition_extension/presentation.pptx` presents the implemented
+Stage 1 extension. It separates mortgage and consumer-credit liabilities,
+their write-down-adjusted active-saving contributions, and their net positions
+after the same-vintage full-Leontief solve. The deck is deliberately short and
+labels the evidence as descriptive rather than causal. All values come from
+generated CSVs, every slide contains source notes, and the deck passed full-
+resolution inspection plus the automated overflow test on 2026-08-14. See
+`7_debt_composition_extension/README.md` for the rebuild and evidence boundary.
 
 ### Legacy combined deck
 

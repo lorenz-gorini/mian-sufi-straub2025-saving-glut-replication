@@ -7,22 +7,27 @@ methodological contribution. The course deliverable needs a defensible idea,
 data plan, and identifying logic; implementation is optional and must not be
 claimed unless it is actually completed and verified.
 
-## Leading candidate: unveil AI circular financing
+Status: **In progress.** The user selected debt composition, saving, and
+ultimate financing. Its four-group stock, active-saving, and category-specific
+unveiling evidence is implemented and verified; the exact Figure 6 percentile
+decomposition and causal design remain.
 
-The leading idea is to adapt the paper's ownership-unveiling operator to the
+## Deferred alternative: unveil AI circular financing
+
+The idea is to adapt the paper's ownership-unveiling operator to the
 AI financing network. Direct contracts among hyperscalers, chip and server
 vendors, AI firms, special-purpose vehicles, private-credit funds, banks, and
 ultimate investors can conceal who ultimately finances whom and who bears
 exposure to rapidly depreciating GPU collateral.
 
 For a liability or contractual-claim network with ultimate-owner block
-\(B_t\) and intermediary block \(Q_t\), the same proportional allocation
+$B_t$ and intermediary block $Q_t$, the same proportional allocation
 would imply
 
-\[
+$$
 \Omega_t = B_t + Q_t\Omega_t
           = (I-Q_t)^{-1}B_t.
-\]
+$$
 
 The proposed outcome would be an ultimate-financier or ultimate-exposure
 matrix, not a replication of the paper's household saving series. A useful
@@ -43,12 +48,38 @@ auditable public dataset can support at least a small illustrative network.
 It should not imply that broad Financial Accounts or DINA data identify
 firm-level AI circular financing.
 
-## Alternative required before selection
+## 2026-08-11 scoping questions
 
-Develop at least one lower-data-cost alternative that reuses the supplied
-macro-financial inputs—for example, testing the sensitivity of unveiled
-household-debt ownership to alternative proportional-allocation or sector-
-aggregation assumptions. Score the alternatives on:
+The first design step is to separate **ultimate ownership of financial
+claims** from **ultimate incidence of credit losses**. The paper's
+proportional ownership operator can trace a loan, lease, bond, fund claim, or
+special-purpose-vehicle security through intermediaries to ultimate investors.
+It does not by itself model default waterfalls, collateral liquidation,
+guarantees, seniority, or correlated losses after GPU prices fall.
+
+Today's scoping output should answer:
+
+1. Which single claim type is the first empirical object: secured loans, GPU
+   leases, asset-backed securities, vendor finance, or another clearly defined
+   liability?
+2. Which entities are issuers, financial intermediaries, and ultimate owners?
+   Candidate nodes include AI labs, hyperscalers, chip/server vendors, leasing
+   SPVs, private-credit funds, banks, insurers, pensions, and fund investors.
+3. Which direct-dollar matrix is observable from public filings, credit
+   agreements, fund disclosures, regulatory data, or commercial deal data?
+4. Which row-sum or balance-sheet identity validates the direct matrix, and
+   what assumption allocates claims when multiple cells are unobserved?
+5. Does the contribution stop at unveiled claim ownership, or is a separate
+   loss-propagation model needed to allocate collateral and default risk?
+
+The minimum credible output is a one-page node/claim map plus a
+required-versus-observable data table. A toy network may illustrate the idea,
+but it must be labelled illustrative rather than empirical.
+
+## Selection criteria
+
+Before selecting the working extension, compare it with at least one lower-
+data-cost or higher-novelty alternative. Score the alternatives on:
 
 1. economic relevance;
 2. novelty relative to the paper;
@@ -56,16 +87,59 @@ aggregation assumptions. Score the alternatives on:
 4. identification and accounting invariants; and
 5. feasibility within the course deadline.
 
+## Working extension: debt composition by wealth group
+
+[`research_extension_idea_2.md`](../../../research_extension_idea_2.md) is the
+canonical extension note. It asks which debt categories explain the Figure 6
+saving-rate evolution and Table A2 debt contribution below the top 1%, then who
+ultimately finances each category after intermediaries are unveiled in the
+Figure 8 framework.
+
+The current authors-kit and public-FWTW pipelines can support a
+mortgage-versus-nonmortgage decomposition through 2016. Detailed credit-card,
+vehicle, student, and medical-debt splits require SCF or SIPP microdata and
+cannot be recovered from the current DINA nonmortgage share. This makes the
+two-category accounting extension feasible within the course project, while a
+causal claim about financial innovation remains outside the current evidence.
+
+Pure debt composition is not sufficient novelty: CBO tabulations and Bartscher
+et al. (2025) already document debt composition and long-run household debt
+heterogeneity. The distinctive proposed contribution is to connect debt-
+instrument-specific borrower incidence to Figure 6 saving-rate changes,
+category-specific ultimate ownership, and active-saving contributions.
+
+### Provisional comparison
+
+Scores use 1 (weak) to 5 (strong) and are design judgments, not empirical
+results.
+
+| Dimension | Debt composition and ultimate financing | AI circular financing |
+| --- | ---: | ---: |
+| Economic relevance to the target paper | 5 | 3 |
+| Potential novelty | 3 | 5 |
+| Public/supplied data availability | 5 | 1 |
+| Accounting identification | 5 | 2 |
+| Causal identification with current data | 2 | 1 |
+| Feasibility for the course deadline | 5 | 1 |
+
+The debt extension is the stronger course-deliverable candidate. The AI
+network remains the more speculative, high-novelty direction for a future
+project if contract-level data become available.
+
 ## Definition of done
 
-- [ ] Two or more candidate extensions are stated as testable economic
+- [x] Two or more candidate extensions are stated as testable economic
       questions.
-- [ ] Each candidate has a required-data map, empirical or accounting design,
+- [x] Each candidate has a required-data map, empirical or accounting design,
       expected contribution, and binding limitation.
-- [ ] The selected proposal is approved by the user.
-- [ ] The report clearly labels it as proposed, partially illustrated, or
+- [x] The selected proposal is approved by the user for the extension deck.
+- [x] The short extension deck labels it as preliminary, descriptive, and
+      partially implemented.
+- [ ] The combined report clearly labels it as proposed, partially illustrated, or
       implemented.
-- [ ] The final presentation uses at most one slide for the extension unless
+- [x] The separate extension deck uses more than one slide only because
+      verified empirical evidence has been produced.
+- [ ] The final combined presentation uses at most one slide for the extension unless
       an empirical result is actually produced.
 
 ## Decision log
@@ -73,6 +147,99 @@ aggregation assumptions. Score the alternatives on:
 | Date | Decision | Rationale |
 | --- | --- | --- |
 | 2026-08-10 | Treat AI circular financing as the leading candidate rather than an approved extension. | The unveiling logic transfers naturally, but the necessary contract-level data are not supplied by the authors' package and feasibility has not yet been established. |
+| 2026-08-11 | Begin by distinguishing ultimate claim ownership from ultimate loss incidence. | The Leontief-style ownership operator traces proportional financial claims; collateral depreciation, seniority, guarantees, and defaults require additional state-contingent assumptions. |
+| 2026-08-14 | Add debt composition and ultimate financing as the lower-data-cost candidate. | Existing DINA and direct-cell inputs distinguish mortgages from broad nonmortgage debt; SCF can add detailed borrower categories. This begins directly from Figures 5, 6, and 8, but causal and novelty claims require narrower wording. |
+| 2026-08-14 | Use debt composition, saving, and ultimate financing as the current working extension and consolidate its two drafts. | The user is actively using the replication package to study debt composition and saving-rate evolution. The consolidated design links Figure 6, Table A2, and Figure 8 while deferring both the causal mechanism and final-submission approval until the evidence is known. |
+| 2026-08-14 | Implement the broad-group mortgage-versus-consumer-credit evidence and use it as the selected extension. | The same-vintage direct-cell network and Figure 5 write-down inputs identify group stocks, active-saving contributions, and ultimate ownership without importing another vintage. The observed mortgage magnitudes justify prioritizing the housing-credit branch while retaining a causal boundary. |
+
+## Session record: 2026-08-14 preliminary implementation
+
+- Starting branch/commit: `main` at `0a927e3`; substantial unrelated and
+  earlier project changes remain in the worktree.
+- Goal: implement the selected mortgage-versus-consumer-credit extension and
+  build a very short preliminary-evidence presentation.
+- Changed: category-preserving Figure 8 logic, a debt-saving module, a bounded
+  entry point, focused tests, generated stock/flow/period/diagnostic outputs, a
+  data contract, the canonical research-design note, and a five-slide
+  PowerPoint.
+- Inputs: the 2021 authors-kit completed direct cells, fine DINA shares,
+  Financial Accounts balance sheets/national income, and supplied mortgage and
+  consumer-debt write-down factors. No seven-round output field enters the new
+  ownership calculation.
+- Validation: 54 annual observations; spectral radius at most 0.180; category
+  asset closure below $4.17\times10^{-16}$; liability closure below
+  $1.86\times10^{-9}$ million; category-to-total additivity below
+  $9.31\times10^{-10}$ million; six focused tests pass. The five-slide deck was
+  rendered from the exported PPTX, inspected at full size, and passed the
+  automated overflow test.
+- Result: from 1982 to 2007, mortgage liabilities increased by 23.63 points of
+  national income for the next 40% and 13.85 points for the bottom 50%, versus
+  4.50 points for the top 1%. During 1998--2007 the mortgage contribution to
+  active saving averaged -3.09, -2.28, and -0.43 points per year for those
+  groups. After unveiling, their mortgage net-position changes were -19.02,
+  -13.73, and +8.69 points, respectively.
+- Limitation: these are four-group descriptive accounts. Consumer credit is
+  not split by expenditure purpose; the exact Figure 6 percentile saving-rate
+  decomposition and a causal credit-supply design remain open.
+- Next action: decide whether to add the exact Figure 6 percentile
+  decomposition before integrating one extension slide into the combined
+  submission.
+
+## Session record: 2026-08-14 extension-note consolidation
+
+- Starting branch/commit: `main` at `0a927e3`; substantial unrelated and
+  earlier project changes remain in the worktree.
+- Goal: merge the parallel debt-composition drafts into one canonical note
+  ready to receive verified evidence from the coding session.
+- Changed files: `research_extension_idea_2.md`; removed the superseded
+  `research_extension_idea_2B.md`; updated this task record and
+  `docs/project/progress.md`.
+- Reasoning: retain the rigorous data, notation, invariants, and staged design
+  from the main note; incorporate the sharper distinction between explaining
+  why debt rose and measuring which debt reduced saving; and sequence the work
+  as fact, accounting decomposition, ultimate financing, then mechanism.
+- Validation: checked the framing against the target paper's Sections 3.4–3.5,
+  Figures 6 and 8, Table A1, Table A2, Appendix C.4, and the existing Figure 6
+  and Figure 8 project contracts.
+- Result: one canonical proposal now connects category-specific debt flows to
+  the Figure 6 saving-rate denominator and the Figure 8 unveiling operator,
+  with instrument-versus-purpose and causal-identification boundaries explicit.
+- Next action: add only coding results that pass category-to-total stock, flow,
+  saving-rate, income-weighting, and unveiling closure checks.
+
+## Session record: 2026-08-14 debt-composition scoping
+
+- Starting branch/commit: `main` at `0a927e3`; substantial unrelated and
+  earlier project changes remain in the worktree.
+- Goal: formalize the user's proposed debt-composition extension, determine
+  what the current files identify, and relate it to the other extension
+  directions without claiming implementation.
+- Changed files: `research_extension_idea_2.md`,
+  `research_extension_idea_1.md`, this task record, and
+  `docs/project/progress.md`.
+- Evidence: the target paper's Sections 3.1, 3.5, and 4.1–4.2; Table A1; Table
+  A2; Appendix C.4; the two Figure 8 data contracts; the existing Python
+  instrument mappings; and official SCF, DFA, FWTW, SIPP, PSID, and Financial
+  Accounts documentation.
+- Result: a two-stage boundary is explicit. Mortgage versus nonmortgage
+  ownership and saving contributions are feasible with current inputs;
+  category-rich borrower incidence requires SCF/SIPP, and causal claims require
+  a separate shock-based design.
+- Next action: select the course extension. If debt composition is selected,
+  implement Stage 1 before acquiring additional microdata.
+
+## Session record: 2026-08-11 activation
+
+- Starting branch/commit: `main` at `880b14b`; unrelated and earlier project
+  changes remain in the worktree.
+- Goal: activate the AI circular-financing idea as today's bounded research-
+  design task without claiming an implementation.
+- Changed files: this task record and `docs/project/progress.md`.
+- Result: T-008 now has a first deliverable, candidate network nodes, a public-
+  data question, and an explicit boundary between ownership unveiling and loss
+  propagation.
+- Next action: choose one claim type and draw its direct issuer--holder map
+  before searching for data.
 
 ## Session record: 2026-08-10 task refresh
 

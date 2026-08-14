@@ -1,0 +1,33 @@
+Communication job
+By the end, the course audience should view the mortgage channel as the most
+promising research extension because same-vintage preliminary evidence shows
+that mortgage borrowing dominated the pre-2008 debt and saving changes below
+the top, while the unveiling assigns increasing net mortgage claims to the top
+1 percent.
+
+Narrative
+1. State the extension thesis and evidence boundary.
+2. Show borrower-side mortgage versus consumer-credit stock changes.
+3. Connect those stocks to write-down-adjusted active-saving contributions.
+4. Use the full Leontief result to separate ultimate lenders from borrowers.
+5. Convert the descriptive pattern into a bounded causal research agenda.
+
+Primary generated evidence
+- Data/processed/debt_composition_2021_direct.csv
+- Data/processed/debt_composition_saving_contributions.csv
+- Data/processed/debt_composition_period_summary.csv
+- Data/processed/debt_composition_presentation_metrics.csv
+- Data/interim/debt_composition_accounting_diagnostics.csv
+
+Authoritative inputs
+- MSS_SGR_July242025.pdf, especially Sections 3.1, 3.5, and 4.1--4.2.
+- MSS2021Febreplicationkit/data/finalfiles/Yunveilhhd.dta
+- MSS2021Febreplicationkit/data/PSZusdina/Yszshares_fine.dta
+- MSS2021Febreplicationkit/data/finalfiles/YwealthFOF.dta
+- MSS2021Febreplicationkit/data/finalfiles/Ywealthreturns.dta
+
+Interpretation boundary
+The evidence is descriptive accounting, not a causal estimate. Consumer credit
+is the old-kit aggregate and does not separately identify credit cards,
+student loans, vehicles, or medical debt. The same-vintage matrix is coarsened
+to eight intermediary rows and retains an explicit unassigned owner.

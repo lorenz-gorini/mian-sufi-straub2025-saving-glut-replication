@@ -203,11 +203,28 @@ python Code/scripts/build_figure8_authors_data.py
 This aggregates the package's fine-cohort household-debt assets after the old
 seven-round unveiling, subtracts positive debt liabilities, divides by
 national income, and subtracts the 1982 level. It is intentionally named and
-labelled a proxy because the package lacks the completed annual matrices
-required to rerun the revised 2025 augmented Leontief solve. See
+labelled a proxy because it begins after the old seven-round procedure. The
+kit preserves many completed direct cells, but not the paper's general annual
+34-instrument-by-27-sector matrix object. See
 `docs/data/figure8-data.md`.
 
-Build the preferred public-FWTW full-Leontief Figure 8 reconstruction:
+Build the closest-feasible old-vintage full-Leontief reconstruction:
+
+```bash
+python Code/scripts/build_figure8_2021_direct.py
+```
+
+This reads only completed direct cells and issuer margins preserved in
+`Yunveilhhd.dta`; it explicitly excludes the package's round-one through
+round-seven and final unveiled household-debt fields. It coarsens the saved
+blocks to eight intermediary rows, expands household holders with DINA, and
+applies the full $\Omega_t=(I-Q_t)^{-1}B_t$ solve. Signed cells that cannot be
+reoriented after coarsening are clipped and rebalanced to the authors-kit
+issuer margins, and non-unveiled residual holders remain in an explicit
+`unassigned` owner column. See
+`docs/data/figure8-2021-direct-data.md`.
+
+Build the separate newer-public-data full-Leontief robustness route:
 
 ```bash
 python Code/scripts/build_figure8_public_fwtw.py
@@ -226,6 +243,21 @@ the retained seven-round proxy. See
 The correct labels are **public-FWTW full-Leontief reconstruction** and
 **2021-kit seven-round proxy**. Neither is an exact numerical reproduction of
 the unavailable 2025 authors-vintage 34-instrument, 27-sector matrix.
+
+Build the selected debt-composition research extension:
+
+```bash
+python Code/scripts/build_debt_composition_extension.py
+```
+
+This holds the validated 2021-direct/full-Leontief route fixed, returns home
+mortgages and consumer credit separately, and constructs matching
+write-down-adjusted borrower-side active-saving contributions from the Figure
+5 balance sheets. It writes long stock and saving panels, a period summary,
+presentation metrics, category-additivity diagnostics, and three figures. The
+two categories exactly reconstruct the existing Figure 8 total in every year;
+the result is descriptive and does not identify a causal mortgage-credit
+channel. See `docs/data/debt-composition-extension-data.md`.
 
 The Figure 5, exact-method Figure 6, and Figure 8 scripts digitize their 2025
 paper figures only to create external

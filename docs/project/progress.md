@@ -12,21 +12,21 @@ methodological decisions and evidence; stable data contracts live in
 | T-009 | Review and integrate the Figure 5, Figure 6, and Figure 8 comparisons | In progress | 1 | paper-review |  | Understand what the three figures measure, trace how our outputs were generated, evaluate the paper-versus-ours comparisons, and approve their presentation use. | Figure 8 now has two deliberately separate pipelines: the retained 2021-kit seven-round proxy and a tested public-FWTW full-Leontief reconstruction. The new build improves top-1 fit, while the proxy remains closer for bottom 99; next integrate the verified method-comparison deck into the final submission only after review. | [Review task](tasks/figure5-figure8-review.md); [personal considerations](personal-considerations-saving-inequality.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 6 replication](tasks/figure6-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
 | T-005 | Build the final pedagogical presentation | In progress | 2 | presentation |  | Distill the methodology novelty, version audit, reconstructed results, and limitations into one visually coherent course presentation while retaining the topic decks as source modules. | The verified 18-slide empirical-comparison module covers Figures 1, 5, 6, and 8 and now separates the exact Figure 8 vintage gap from the feasible public-FWTW method rerun. Next carry only the approved panels into the short final synthesis rather than concatenating source decks. | [Presentation task](tasks/pedagogical-presentation.md); [comparison deck](../../Presentation/4_figure_comparison/README.md) |
 | T-006 | Produce the compact final replication report | In progress | 2 | writing |  | Convert the technical evidence into an approximately two-page course-facing report: methodology novelty first, replication evidence and limitations second, with a concise extension proposal. | The report boundary now distinguishes the completed Figure 8 proxy from the feasible public-FWTW full-method reconstruction. Next add that distinction beside the Figure 5 evidence and avoid calling either mixed-vintage output an exact authors-vintage reproduction. | [Report task](tasks/final-report.md) |
+| T-008 | Design a feasible extension proposal | In progress | 3 | research-design |  | Determine which debt categories account for saving-rate changes across wealth groups and who ultimately financed them, without overstating an accounting decomposition as causal. | The selected debt extension now has verified four-group mortgage/consumer-credit stocks, active-saving contributions, category-specific unveiling, diagnostics, and a five-slide deck. Next decide whether the exact Figure 6 percentile decomposition is needed before integrating one extension slide into the combined submission. | [Extension proposal](tasks/extension-proposal.md); [canonical debt-composition design](../../research_extension_idea_2.md); [extension data](../data/debt-composition-extension-data.md) |
 
-## Immediate sequence: 2026-08-12
+## Immediate sequence: 2026-08-14
 
-1. Build the public-FWTW Figure 8 reconstruction: 31 instruments and 25
-   substantive sectors, mapped to 2021 DINA/NIPA through 2016, then augmented
-   and unveiled with the full Leontief operator.
-2. Validate issuer/holder margins, row normalization, ownership conservation,
-   and the Figure 8 group/sign/scale/base transformation.
-3. Compare that mixed-vintage method reconstruction with both the target-paper
-   Figure 8 and the existing seven-round proxy; keep all three labels explicit.
-4. Carry only the approved comparison panels into the final short presentation
-   and compact report.
-5. Finish the compact report and choose a feasible extension proposal. The AI
-   circular-financing application is the leading candidate, not yet an
-   approved or implemented extension.
+1. Use the verified 17-slide replication presentation and three-page compact
+   replication brief as the fixed replication component of the submission.
+2. Review the verified five-slide debt-composition extension deck. Treat the
+   four-group evidence as implemented and descriptive; do not infer a causal
+   mortgage-credit effect.
+3. Decide whether to add the exact Figure 6 percentile saving-rate
+   decomposition, then integrate one concise extension slide with the completed
+   referee report and replication brief.
+4. Review the three-route Figure 8 deck. Treat the 2021-direct/full-inverse
+   route as the primary same-vintage test, the old seven-round result as its
+   lineage benchmark, and the public-FWTW rerun as a robustness exercise.
 
 ## Completed tasks
 
@@ -41,9 +41,8 @@ methodological decisions and evidence; stable data contracts live in
 
 ## Planned tasks
 
-| ID | Task | Status | Priority | Category | Estimate | Objective | Next action | Task record |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-008 | Design a feasible extension proposal | Planned | 3 | research-design |  | Propose one economically meaningful extension without implying that it has been implemented; assess novelty, required data, identification, and feasibility. | Compare an AI circular-financing ownership/exposure network with one lower-data-cost extension using the supplied macro-financial data, then select the report proposal with the user. | [Extension proposal](tasks/extension-proposal.md) |
+No task is merely planned: T-008 has begun as a research-design exercise, and
+the core empirical implementation tasks are complete.
 
 ## Completed milestones
 

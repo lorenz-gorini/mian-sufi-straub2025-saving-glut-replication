@@ -5,9 +5,14 @@ the canonical inventory during T-002.
 
 The selected-result inventories are [`figure1-data.md`](figure1-data.md),
 [`figure5-data.md`](figure5-data.md), [`figure6-data.md`](figure6-data.md), and
-[`figure8-data.md`](figure8-data.md). They document only the files and columns
-used by the selected exhibits rather than reproducing the entire old-package
-schema.
+the three Figure 8 contracts: [`figure8-data.md`](figure8-data.md),
+[`figure8-2021-direct-data.md`](figure8-2021-direct-data.md), and
+[`figure8-public-fwtw-data.md`](figure8-public-fwtw-data.md). The implemented
+research extension has a separate
+[`debt-composition-extension-data.md`](debt-composition-extension-data.md)
+contract. They document only
+the files and columns used by the selected exhibits rather than reproducing the
+entire old-package schema.
 
 ## Data zones
 
