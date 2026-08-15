@@ -56,6 +56,7 @@ the code is developed.
 | `Results_Proposal/` | Candidate and selected replication targets, acceptance criteria, and result-level notes. |
 | `Presentation/` | A concise, reproducible progress presentation for discussion and feedback. |
 | `Report/` | The living LaTeX course report; include only documented and verified methods or results. |
+| `Referee_Report/` | Editable referee-report source, reproducible build scripts, and local submission files. |
 | `docs/` | Canonical project, data, and reference documentation. |
 
 ## Repository boundary

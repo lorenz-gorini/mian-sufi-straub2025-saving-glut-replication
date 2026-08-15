@@ -153,6 +153,45 @@ project if contract-level data become available.
 | 2026-08-14 | Use debt composition, saving, and ultimate financing as the current working extension and consolidate its two drafts. | The user is actively using the replication package to study debt composition and saving-rate evolution. The consolidated design links Figure 6, Table A2, and Figure 8 while deferring both the causal mechanism and final-submission approval until the evidence is known. |
 | 2026-08-14 | Implement the broad-group mortgage-versus-consumer-credit evidence and use it as the selected extension. | The same-vintage direct-cell network and Figure 5 write-down inputs identify group stocks, active-saving contributions, and ultimate ownership without importing another vintage. The observed mortgage magnitudes justify prioritizing the housing-credit branch while retaining a causal boundary. |
 | 2026-08-14 | Separate the extension into pre-2008 mortgage and post-2008 consumer-credit regimes. | Mortgage borrowing dominates the boom-era debt-related saving drag but largely disappears after 2008, while consumer credit remains negative. One common post-1980 credit mechanism would conceal this break. |
+| 2026-08-15 | Use the debt-composition design as the written submission extension. | It is the most direct and best-supported continuation of Figure 6: verified same-vintage evidence selects a mortgage mechanism before 2008, while the report can state the remaining measurement and causal work without overstating it as completed. |
+
+## Session record: 2026-08-15 compact submission brief
+
+- Starting branch/commit: `main`; mixed tracked and untracked work from the
+  report and presentation tasks remains in the worktree.
+- Goal: convert the selected extension and its verified preliminary evidence
+  into a concise one-to-two-page LaTeX component matching the compact
+  replication-summary style.
+- Changed files: `Extension_Proposal/extension_proposal.tex`, its generated value macros
+  and generator, report/code build documentation, this task record, and the
+  T-008 dashboard row.
+- Reasoning: begin with the paper's two-period Figure 6 profile and the
+  project's time-resolved heatmap, then use the category decomposition to
+  select a pre-2008 mortgage branch and a distinct post-2008 consumer-credit
+  branch. Preserve the distinction between national-income-scaled preliminary
+  evidence, the remaining exact group-income decomposition, and causal
+  identification.
+- Result: the submission brief states the research question, measurement
+  equation, generated borrower/saving/ultimate-financing evidence, novelty
+  relative to the paper and `Indebted Demand`, proposed empirical sequence,
+  and evidentiary boundary in two pages.
+- Next action: review the course-facing wording, then complete the exact Figure
+  6 category-by-group-income closure and select one defensible mortgage-credit
+  shock for the causal stage.
+
+## Session record: 2026-08-15 artifact relocation
+
+- Goal: keep the extension deliverable separate from the replication and
+  referee-report sources under `Report/`.
+- Changed: moved the LaTeX entry point, compiled PDF, generated value macros,
+  and build documentation to `Extension_Proposal/`; updated the numerical
+  producer and all live project links to the new paths.
+- Validation: regenerated the macros at their new destination, rebuilt the
+  two-page PDF from the relocated entry point, and visually checked both
+  rendered pages.
+- Result: `Extension_Proposal/` is now the self-contained submission folder;
+  empirical transformation code remains under `Code/` and the authors'
+  package remains unchanged.
 
 ## Session record: 2026-08-14 evidence integration and research redirection
 

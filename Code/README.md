@@ -278,6 +278,29 @@ NIPA and disposable-income closure, five- and ten-year moving windows,
 base-year construction, debt signs, fine-to-coarse aggregation, full-Leontief
 convergence, and direct/unveiled/primary-asset closure.
 
+Generate the numerical macros for the compact replication brief after the
+three comparison pipelines have run:
+
+```bash
+python Code/scripts/build_replication_summary_assets.py
+```
+
+This script reads the aligned comparison CSVs, validates their annual keys and
+required series, and writes only
+`Report/generated/replication_summary_values.tex`. It does not alter the
+underlying reconstructed or digitized series.
+
+Generate the numerical macros for the compact debt-composition extension:
+
+```bash
+python Code/scripts/build_extension_proposal_assets.py
+```
+
+This script consumes the verified headline-metric and period-summary tables
+from `build_debt_composition_extension.py`, validates their reporting keys,
+and writes `Extension_Proposal/generated/extension_proposal_values.tex`. It does not
+recompute or alter the underlying empirical results.
+
 ## Leontief unveiling
 
 `unveiling.DirectOwnershipNetwork` is the minimal implementation of Sections

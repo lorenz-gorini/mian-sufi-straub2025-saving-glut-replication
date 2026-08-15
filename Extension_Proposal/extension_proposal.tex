@@ -1,0 +1,214 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.62in,top=0.52in,bottom=0.55in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,tabularx}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{MSSNavy}{HTML}{12304A}
+\definecolor{MSSOrange}{HTML}{C65D16}
+\definecolor{MSSGreen}{HTML}{2F855A}
+\definecolor{MSSGray}{HTML}{627D98}
+\definecolor{MSSPale}{HTML}{F4F7FA}
+
+\input{generated/extension_proposal_values.tex}
+
+\newcommand{\compactheading}[1]{%
+  \vspace{0.32em}\noindent{\color{MSSOrange}\bfseries\large #1}\par\vspace{0.16em}}
+\newcommand{\resulttag}[1]{\textcolor{MSSGreen}{\textbf{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.32em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+
+\begin{document}
+
+{\color{MSSOrange}\bfseries\small PROPOSED EXTENSION}\hfill
+{\color{MSSGray}\small 15 August 2026}\par
+{\color{MSSNavy}\bfseries\LARGE What Drives the Saving-Rate Divergence?}\par
+{\color{MSSGray}\small Debt composition and ultimate financing across the wealth distribution}
+\vspace{0.25em}\hrule height 1.1pt\vspace{0.35em}
+
+\compactheading{Starting point: Figure 6 asks ``why?''}
+
+Mian, Straub, and Sufi show that net saving rates rise steeply with wealth and
+that the profile becomes more unequal after 1982. Figure 6 compares the
+1963--1982 and 1983--2019 averages; our exact-method reconstruction and its
+trailing five-year heatmap add the missing within-period timing. They show that
+the divergence is not a uniform secular shift: saving stays persistently high
+at the top, while the largest negative movements below the top are concentrated
+around the mid-2000s and the Great Recession. This motivates a mechanism question that
+the two long-period profiles cannot answer on their own.
+
+The paper already establishes three essential facts. First, Figure 1 documents
+the rise of financial intermediation before 2008. Second, Table A2 shows that
+greater borrowing is the largest accounting component of the decline in saving
+below the top 1 percent. Third, Figure 8 unveils a widening net-lender position
+at the top against borrowing lower in the wealth distribution. These results
+connect rich saving to household debt in the aggregate, but they do not show
+which debt contracts produce the saving-rate change or whether the same
+mechanism operates before and after 2008.
+
+\vspace{0.15em}
+\noindent\fcolorbox{MSSOrange}{MSSPale}{%
+\begin{minipage}{0.955\textwidth}
+\textbf{Research question.} Which debt instruments account for the decline in
+net saving rates below the top 1 percent, who ultimately finances each
+instrument after intermediary claims are unveiled, and how much of the
+pre-2008 divergence can be attributed to exogenous mortgage-credit expansion?
+\end{minipage}}
+
+\compactheading{Measurement bridge}
+
+For wealth group $g$, debt category $k$, and signed liability balance
+$W^{L,k}_{gt}<0$, define the write-down-adjusted active-saving contribution
+
+$$
+  \Theta^{L,k}_{gt}
+  =W^{L,k}_{gt}-(1+\pi^{L,k}_{gt})W^{L,k}_{g,t-1},
+  \qquad
+  s^{L,k}_{gt}=\frac{\Theta^{L,k}_{gt}}{Z^d_{gt}},
+$$
+
+where $\pi^{L,k}_{gt}$ is the debt valuation factor and $Z^d_{gt}$ is personal
+plus attributable corporate disposable income. Negative $\Theta^{L,k}_{gt}$
+means active borrowing reduced measured saving. Summing $s^{L,k}_{gt}$ over
+debt categories, and then adding financial-asset and real-estate saving, must
+reproduce the exact Figure 6 rate. On the lender side, the same category is
+traced through the paper's operator $\Omega^k_t=(I-Q_t)^{-1}B^k_t$ before
+subtracting group liabilities. This creates one auditable bridge from
+\emph{which group borrowed which instrument} to \emph{which group ultimately
+financed it}.
+
+\compactheading{Relation to the paper and its broader mechanism}
+
+The proposal turns the paper's accounting link into a debt-instrument-specific
+empirical design. It complements \emph{Indebted Demand}, which provides a
+general-equilibrium mechanism connecting inequality, household debt, weak
+demand, and low interest rates, and the mortgage-credit literature of Mian and
+Sufi. It does not presume that greater financialization caused the saving-rate
+divergence; instead, it asks which balance-sheet conduit is quantitatively
+relevant before selecting a causal shock.
+
+\vfill
+{\color{MSSGray}\scriptsize
+Source: Mian, Straub, and Sufi, ``The Saving Glut of the Rich,'' July 2025,
+Sections 3.4--4.2, Figures 1, 6, and 8, and Table A2; Mian, Straub, and Sufi,
+``Indebted Demand,'' 2021. The heatmap referenced above uses the paper's exact
+annual rate definition on the February 2021 input vintage through 2016.}
+
+\clearpage
+{\color{MSSOrange}\bfseries\small PRELIMINARY EVIDENCE}\hfill
+{\color{MSSGray}\small Same-vintage descriptive accounting}\par
+{\color{MSSNavy}\bfseries\LARGE Mortgages Select the Pre-2008 Mechanism}\par
+{\color{MSSGray}\small February 2021 inputs, full Leontief unveiling, 1963--2016}
+\vspace{0.25em}\hrule height 1.1pt\vspace{0.35em}
+
+The current implementation separates home mortgages from aggregate consumer
+credit for four wealth groups, applies the paper's group-specific write-down
+factors, and unveils each category from saved direct cells. No old seven-round
+output enters the calculation. The table reports selected groups to expose the
+top-lender/middle-borrower contrast; all entries are percentage points of
+aggregate national income.
+
+\begin{tabularx}{\textwidth}{@{}X L{1.05in}rrr@{}}
+\toprule
+\textbf{Object and period} & \textbf{Debt category} &
+\textbf{Top 1\%} & \textbf{Next 40\%} & \textbf{Bottom 50\%} \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Change in liability stock, 1982--2007}} \\
+& Home mortgages
+& $\ExtensionLiabilityMortgageTopOne$
+& $\ExtensionLiabilityMortgageNextForty$
+& $\ExtensionLiabilityMortgageBottomFifty$ \\
+& Consumer credit
+& $\ExtensionLiabilityConsumerTopOne$
+& $\ExtensionLiabilityConsumerNextForty$
+& $\ExtensionLiabilityConsumerBottomFifty$ \\
+\addlinespace
+\multicolumn{5}{@{}l}{\textit{Average annual contribution to active saving, 1998--2007}} \\
+& Home mortgages
+& $\ExtensionSavingMortgageTopOne$
+& $\ExtensionSavingMortgageNextForty$
+& $\ExtensionSavingMortgageBottomFifty$ \\
+& Consumer credit
+& $\ExtensionSavingConsumerTopOne$
+& $\ExtensionSavingConsumerNextForty$
+& $\ExtensionSavingConsumerBottomFifty$ \\
+\addlinespace
+\multicolumn{5}{@{}l}{\textit{Change in unveiled net position, 1982--2007}} \\
+& Home mortgages
+& $\ExtensionNetMortgageTopOne$
+& $\ExtensionNetMortgageNextForty$
+& $\ExtensionNetMortgageBottomFifty$ \\
+& Consumer credit
+& $\ExtensionNetConsumerTopOne$
+& $\ExtensionNetConsumerNextForty$
+& $\ExtensionNetConsumerBottomFifty$ \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.2em}
+\resulttag{Motivating result.}
+Mortgages dominate the 1982--2007 debt build-up, the 1998--2007 debt-related
+saving drag, and the widening lender--borrower split. The top 1 percent was
+already a net mortgage lender in 1982; its position widened rather than
+switching sign. The regime changes after 2008: for the bottom 99 percent, the
+average mortgage contribution moves from
+$\ExtensionBottomNinetyNineMortgageBoom$ in 1998--2007 to
+$\ExtensionBottomNinetyNineMortgagePost$ in 2008--2016, while consumer credit
+moves only from $\ExtensionBottomNinetyNineConsumerBoom$ to
+$\ExtensionBottomNinetyNineConsumerPost$. Thus mortgages select the primary
+pre-crisis mechanism, whereas post-crisis consumer credit requires a separate
+composition analysis.
+
+\compactheading{Proposed research design}
+
+\textbf{1. Close the measurement identity.} Re-express mortgage and
+consumer-credit contributions with each group's exact Figure 6 disposable-income
+denominator, retain the percentile bins, and verify that debt categories sum
+to total debt saving and that all asset classes recover the complete saving
+rate. This distinguishes a debt contribution from an explanation of the full
+rate.
+
+\textbf{2. Identify borrower incidence and contract type.} Use the Survey of
+Consumer Finances to split mortgages and home-equity loans from revolving,
+vehicle, student, installment, and other debt. Report participation and
+conditional balances by wealth and age, and repeat the analysis using
+gross-asset, focal-debt-excluded, or lagged rank so that debt does not mechanically
+determine the household's wealth group.
+
+\textbf{3. Estimate mechanisms by regime.} For 1982--2007, combine a validated
+policy or lender-exposure shock to mortgage credit with borrower outcomes and
+the category-specific unveiling map. For the post-2008 period, first determine
+whether student, vehicle, or revolving credit accounts for the residual before
+choosing a separate identification strategy. A single aggregate time-series
+regression would confound credit with house prices, interest rates,
+demographics, regulation, and inequality.
+
+\compactheading{Novelty and evidentiary boundary}
+
+Debt composition by wealth and the pre-crisis mortgage boom are not themselves
+new facts. The contribution is the intersection: connecting category-specific
+borrower incidence to the exact Figure 6 saving-rate divergence and to Figure
+8 ultimate ownership. The preliminary results establish accounting incidence,
+not that top saving caused loan origination, mortgage credit caused the full
+saving decline, or borrowing reduced welfare. Those claims remain outcomes for
+the proposed causal stage.
+
+\vfill
+{\color{MSSGray}\scriptsize\raggedright
+Generated from the verified debt-composition headline and period-summary
+tables.\par
+Empirical producer: \texttt{build\_debt\_composition\_extension.py}. Displayed
+values: \texttt{build\_extension\_proposal\_assets.py}. The February 2021
+authors' package is unchanged.}
+
+\end{document}
