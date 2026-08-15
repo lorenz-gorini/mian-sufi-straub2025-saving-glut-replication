@@ -35,6 +35,11 @@ earlier version, so it is a valuable but non-identical implementation reference.
 Figure numbers, dates, methodology, and results must be crosswalked rather than
 assumed to match.
 
+The compact replication submission artifacts are now available as the editable
+17-slide `Presentation/5_replication_submission/presentation.pptx` and the
+separate `Report/replication_summary.pdf`. The latter preserves
+`Report/report.tex` as the detailed technical companion.
+
 `NotebookLM-Present-Unveiling_the_Rich_Saving_Glut.pdf` is a
 15-page, image-only NotebookLM synthesis of the newer paper. Use it for
 orientation only.

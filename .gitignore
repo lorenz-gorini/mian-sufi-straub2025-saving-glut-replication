@@ -58,3 +58,7 @@ venv/
 
 # Presentation inspection output
 *.pptx.inspect.ndjson
+
+# Old presentation source files that have been replaced by the Powerpoint version. Keep the new PowerPoint source files tracked.
+Presentation/2_data-map/presentation.tex
+Presentation/3_theoretical_methodology/presentation.tex

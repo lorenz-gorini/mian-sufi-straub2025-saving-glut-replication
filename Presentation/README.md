@@ -29,6 +29,9 @@ logic rather than decorate the slide.
 
 ## Folder contract
 
+- `0_legacy_combined_deck/` preserves the superseded 24-slide combined Beamer
+  progress deck and its deck-local historical inputs. The zero prefix marks it
+  as archival rather than the next active topic module.
 - `1_replication_package_validation/` contains the old-package-versus-2025
   validation deck.
 - `2_data-map/` contains only the data architecture: source roles, mappings,
@@ -47,9 +50,9 @@ logic rather than decorate the slide.
   deck for the selected mortgage-versus-consumer-credit research extension.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
   the editable PowerPoint decks.
-- The root `presentation.tex` and `presentation.pdf` are a legacy combined
-  progress deck. They are retained for provenance but are no longer the
-  canonical editable entry point for new topic-specific work.
+- `generated/` contains shared generated numerical macros used by more than
+  one document. It stays at the collection root rather than being assigned to
+  the legacy deck.
 
 Never have separate chats edit the same presentation source. New material goes
 into the numbered folder whose topic owns it.
@@ -264,13 +267,30 @@ generated CSVs, every slide contains source notes, and the deck passed full-
 resolution inspection plus the automated overflow test on 2026-08-14. See
 `7_debt_composition_extension/README.md` for the rebuild and evidence boundary.
 
+### Final replication submission
+
+The editable 17-slide synthesis is
+`5_replication_submission/presentation.pptx`. It selects only the material
+needed for the three-part replication submission: theoretical methodology,
+data roles and version boundaries, and the Figure 1/5/8 comparisons. Its
+rebuild script imports native slides from the verified topic modules, preserves
+speaker-note source blocks, and remaps image identifiers where source decks
+collide. It does not overwrite any component deck.
+
+All 17 slides were rendered and inspected on 2026-08-13. The deck passes the
+automated overflow test, contains no unresolved placeholders, preserves a
+`[Sources]` block on every slide, and validates as a PowerPoint archive. The
+NotebookLM synthesis informed visual pacing only; no factual or empirical
+content was taken from it.
+
 ### Legacy combined deck
 
-The root 24-slide `presentation.tex` and `presentation.pdf` combine theoretical
-methodology, data architecture, implementation, and Figure 1 progress. They
-remain useful historical evidence but must not receive new topic-specific
-edits. Generated values under `generated/` and assets under `assets/` belong to
-that legacy deck until a later migration is explicitly scoped.
+`0_legacy_combined_deck/presentation.tex` and `presentation.pdf` combine
+theoretical methodology, data architecture, implementation, and Figure 1
+progress. They remain useful historical evidence but must not receive new
+topic-specific edits. The legacy-only `sections/` and historical conceptual
+`assets/` are stored beside the deck. Shared numerical macros remain under
+`generated/` because the report and historical theory deck also import them.
 
 ## Separate replication-package validation deck
 
