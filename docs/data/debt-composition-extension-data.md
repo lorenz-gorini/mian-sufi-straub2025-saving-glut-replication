@@ -3,7 +3,8 @@
 ## Economic object and status
 
 This contract documents the implemented Stage 1 extension proposed in
-[`research_extension_idea_2.md`](../../research_extension_idea_2.md). It holds
+[`research_extension_idea_2.md`](../../Extension_Proposal/research_extension_idea_2.md).
+It holds
 the validated 2021-direct/full-Leontief Figure 8 network fixed and separates
 its primary household-debt vector into:
 

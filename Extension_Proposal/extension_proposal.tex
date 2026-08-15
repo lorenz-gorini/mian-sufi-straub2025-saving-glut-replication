@@ -5,7 +5,6 @@
 \usepackage[margin=0.62in,top=0.52in,bottom=0.55in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{array,booktabs,tabularx}
-\usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
@@ -19,112 +18,130 @@
 \input{generated/extension_proposal_values.tex}
 
 \newcommand{\compactheading}[1]{%
-  \vspace{0.32em}\noindent{\color{MSSOrange}\bfseries\large #1}\par\vspace{0.16em}}
+  \vspace{0.29em}\noindent{\color{MSSOrange}\bfseries\large #1}\par\vspace{0.13em}}
 \newcommand{\resulttag}[1]{\textcolor{MSSGreen}{\textbf{#1}}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.32em}
+\setlength{\parskip}{0.29em}
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.12}
+\renewcommand{\arraystretch}{1.10}
 
 \begin{document}
 
 {\color{MSSOrange}\bfseries\small PROPOSED EXTENSION}\hfill
 {\color{MSSGray}\small 15 August 2026}\par
-{\color{MSSNavy}\bfseries\LARGE What Drives the Saving-Rate Divergence?}\par
-{\color{MSSGray}\small Debt composition and ultimate financing across the wealth distribution}
-\vspace{0.25em}\hrule height 1.1pt\vspace{0.35em}
+{\color{MSSNavy}\bfseries\LARGE From Unveiled Ownership to Unveiled Risk}\par
+{\color{MSSGray}\small Did financial intermediation transform rich saving into middle-class mortgage debt?}
+\vspace{0.24em}\hrule height 1.1pt\vspace{0.32em}
 
-\compactheading{Starting point: Figure 6 asks ``why?''}
+\compactheading{Motivation and research question}
 
-Mian, Straub, and Sufi show that net saving rates rise steeply with wealth and
-that the profile becomes more unequal after 1982. Figure 6 compares the
-1963--1982 and 1983--2019 averages; our exact-method reconstruction and its
-trailing five-year heatmap add the missing within-period timing. They show that
-the divergence is not a uniform secular shift: saving stays persistently high
-at the top, while the largest negative movements below the top are concentrated
-around the mid-2000s and the Great Recession. This motivates a mechanism question that
-the two long-period profiles cannot answer on their own.
+Mian, Straub, and Sufi (MSS) document three connected changes. Figure 1 shows
+the indirectly held share of household financial assets rising from about 45\%
+in 1960 to 70\% in 2007. Figure 6 shows the top 1\% saving rate rising from 43\%
+to 54\% after 1982 while the rest falls from 14\% to 7\%. Figure 8 unveils a
+widening top-lender/middle-borrower position before 2008. Yet the ownership
+operator is payoff-blind: it traces who owns a dollar claim, not whether
+intermediation reduced its risk, relaxed credit supply, weakened screening, or
+shifted losses through capital and guarantees.
 
-The paper already establishes three essential facts. First, Figure 1 documents
-the rise of financial intermediation before 2008. Second, Table A2 shows that
-greater borrowing is the largest accounting component of the decline in saving
-below the top 1 percent. Third, Figure 8 unveils a widening net-lender position
-at the top against borrowing lower in the wealth distribution. These results
-connect rich saving to household debt in the aggregate, but they do not show
-which debt contracts produce the saving-rate change or whether the same
-mechanism operates before and after 2008.
-
-\vspace{0.15em}
 \noindent\fcolorbox{MSSOrange}{MSSPale}{%
 \begin{minipage}{0.955\textwidth}
-\textbf{Research question.} Which debt instruments account for the decline in
-net saving rates below the top 1 percent, who ultimately finances each
-instrument after intermediary claims are unveiled, and how much of the
-pre-2008 divergence can be attributed to exogenous mortgage-credit expansion?
+\textbf{Question.} Did pooling, securitization, and secondary-market liquidity
+convert the saving glut of the rich into cheaper and more abundant mortgages,
+thereby lowering middle-wealth households' saving rates; and who ultimately
+bore the resulting state-contingent losses?
 \end{minipage}}
 
-\compactheading{Measurement bridge}
+\compactheading{A borrower--saver--intermediary model}
 
-For wealth group $g$, debt category $k$, and signed liability balance
-$W^{L,k}_{gt}<0$, define the write-down-adjusted active-saving contribution
+Let mortgage $i$ pay $R_{it}=\bar R_t-\eta_t-\varepsilon_{it}$, with aggregate
+risk $\sigma^2_{A,t}$ and idiosyncratic risk $\sigma^2_{I,t}$. Financialization
+$\phi_t$ permits a pool of $N(\phi_t)$ loans, so
 
-$$
-  \Theta^{L,k}_{gt}
-  =W^{L,k}_{gt}-(1+\pi^{L,k}_{gt})W^{L,k}_{g,t-1},
-  \qquad
-  s^{L,k}_{gt}=\frac{\Theta^{L,k}_{gt}}{Z^d_{gt}},
-$$
+\begin{equation*}
+ \operatorname{Var}(\bar R_{N,t})
+ =\sigma^2_{A,t}+\frac{\sigma^2_{I,t}}{N(\phi_t)},
+ \qquad
+ r^L_t-r^f_t
+ =c(\phi_t)+\gamma_t\operatorname{Var}(\bar R_{N,t})
+  +\mu(\phi_t,e_t,k_t,g_t).
+\end{equation*}
 
-where $\pi^{L,k}_{gt}$ is the debt valuation factor and $Z^d_{gt}$ is personal
-plus attributable corporate disposable income. Negative $\Theta^{L,k}_{gt}$
-means active borrowing reduced measured saving. Summing $s^{L,k}_{gt}$ over
-debt categories, and then adding financial-asset and real-estate saving, must
-reproduce the exact Figure 6 rate. On the lender side, the same category is
-traced through the paper's operator $\Omega^k_t=(I-Q_t)^{-1}B^k_t$ before
-subtracting group liabilities. This creates one auditable bridge from
-\emph{which group borrowed which instrument} to \emph{which group ultimately
-financed it}.
+Pooling removes idiosyncratic risk, not the aggregate housing shock. The loan
+spread also contains funding cost $c$, screening $e$, loss-absorbing capital
+$k$, guarantees $g$, and an agency/opacity wedge $\mu$. Hence
+$\partial(r^L-r^f)/\partial\phi$ is ambiguous: intermediation can reduce funding
+and diversification costs while weakening screening or reallocating capital.
 
-\compactheading{Relation to the paper and its broader mechanism}
+A middle household chooses consumption, housing, and mortgage debt subject to
+$b\leq\lambda(\phi_t,e_t)q_t h$. Its debt choice maps directly into Figure 6:
 
-The proposal turns the paper's accounting link into a debt-instrument-specific
-empirical design. It complements \emph{Indebted Demand}, which provides a
-general-equilibrium mechanism connecting inequality, household debt, weak
-demand, and low interest rates, and the mortgage-credit literature of Mian and
-Sufi. It does not presume that greater financialization caused the saving-rate
-divergence; instead, it asks which balance-sheet conduit is quantitatively
-relevant before selecting a causal shock.
+\begin{equation*}
+ s^{L,m}_{gt}=-\frac{L^m_{gt}-(1-WD^m_{gt})L^m_{g,t-1}}{Z^d_{gt}},
+\end{equation*}
+
+where $WD^m_{gt}$ is the write-down rate and $Z^d_{gt}$ is group disposable
+income including attributable corporate income. Rich savers choose direct and
+intermediated claims; market clearing links their saving to mortgage funding,
+but ownership alone is not a causal loan-supply equation.
+
+\compactheading{The methodological increment: a separate loss operator}
+
+MSS compute nominal ultimate ownership as
+$\Omega_t=(I-Q_t)^{-1}H_t$. For state $\omega$, instead let $P_t(\omega)$ pass
+marginal losses between intermediaries and $C_t(\omega)$ pass them to terminal
+owners after capital, seniority, and guarantees. For primary losses
+$\ell_t^0(\omega)$,
+
+\begin{equation*}
+ \ell_t^O(\omega)=\ell_t^0(\omega)
+ (I-P_t(\omega))^{-1}C_t(\omega),
+ \qquad
+ P_t\mathbf 1+C_t\mathbf 1+a_t=\mathbf 1,
+\end{equation*}
+
+where $a_t$ is intermediary-buffer absorption. This local, piecewise-linear
+map keeps three objects distinct: face-value ownership, ex ante expected risk,
+and realized loss incidence. Large shocks require an explicit nonlinear
+waterfall as buffers are exhausted.
+
+\compactheading{Relation and novelty}
+
+The generic links from securitization to mortgage supply and from inequality
+to household debt are well studied. The candidate contribution is narrower:
+\emph{jointly discipline distributional saving, ultimate claim ownership, and
+wealth-group loss incidence, then quantify the intermediation counterfactual}.
+It opens the intermediation block in \emph{Indebted Demand} and answers MSS's
+call to study why excess saving financed leverage rather than investment.
 
 \vfill
 {\color{MSSGray}\scriptsize
-Source: Mian, Straub, and Sufi, ``The Saving Glut of the Rich,'' July 2025,
-Sections 3.4--4.2, Figures 1, 6, and 8, and Table A2; Mian, Straub, and Sufi,
-``Indebted Demand,'' 2021. The heatmap referenced above uses the paper's exact
-annual rate definition on the February 2021 input vintage through 2016.}
+Sources: MSS, ``The Saving Glut of the Rich,'' July 2025, Figures 1, 6, and 8,
+Table A2, and conclusion; Mian, Straub, and Sufi, ``Indebted Demand'';
+Loutskina--Strahan; Justiniano--Primiceri--Tambalotti; Mian--Sufi--Matvos;
+Segura--Villacorta.}
 
 \clearpage
-{\color{MSSOrange}\bfseries\small PRELIMINARY EVIDENCE}\hfill
-{\color{MSSGray}\small Same-vintage descriptive accounting}\par
-{\color{MSSNavy}\bfseries\LARGE Mortgages Select the Pre-2008 Mechanism}\par
+{\color{MSSOrange}\bfseries\small MOTIVATION AND DESIGN}\hfill
+{\color{MSSGray}\small Proposed, with verified descriptive evidence}\par
+{\color{MSSNavy}\bfseries\LARGE Mortgages Select the Pre-2008 Laboratory}\par
 {\color{MSSGray}\small February 2021 inputs, full Leontief unveiling, 1963--2016}
-\vspace{0.25em}\hrule height 1.1pt\vspace{0.35em}
+\vspace{0.24em}\hrule height 1.1pt\vspace{0.32em}
 
-The current implementation separates home mortgages from aggregate consumer
-credit for four wealth groups, applies the paper's group-specific write-down
-factors, and unveils each category from saved direct cells. No old seven-round
-output enters the calculation. The table reports selected groups to expose the
-top-lender/middle-borrower contrast; all entries are percentage points of
+The project separates home mortgages from broad consumer credit for four
+wealth groups and applies the paper's write-down factors. Selected estimates
+below are generated, not hand-entered; all values are percentage points of
 aggregate national income.
 
-\begin{tabularx}{\textwidth}{@{}X L{1.05in}rrr@{}}
+\begin{tabularx}{\textwidth}{@{}X L{1.15in}rrr@{}}
 \toprule
-\textbf{Object and period} & \textbf{Debt category} &
+\textbf{Object} & \textbf{Debt category} &
 \textbf{Top 1\%} & \textbf{Next 40\%} & \textbf{Bottom 50\%} \\
 \midrule
-\multicolumn{5}{@{}l}{\textit{Change in liability stock, 1982--2007}} \\
-& Home mortgages
+Liability-stock change, 1982--2007
+& Mortgage
 & $\ExtensionLiabilityMortgageTopOne$
 & $\ExtensionLiabilityMortgageNextForty$
 & $\ExtensionLiabilityMortgageBottomFifty$ \\
@@ -133,82 +150,94 @@ aggregate national income.
 & $\ExtensionLiabilityConsumerNextForty$
 & $\ExtensionLiabilityConsumerBottomFifty$ \\
 \addlinespace
-\multicolumn{5}{@{}l}{\textit{Average annual contribution to active saving, 1998--2007}} \\
-& Home mortgages
+Annual active-saving contribution, 1998--2007
+& Mortgage
 & $\ExtensionSavingMortgageTopOne$
 & $\ExtensionSavingMortgageNextForty$
 & $\ExtensionSavingMortgageBottomFifty$ \\
-& Consumer credit
-& $\ExtensionSavingConsumerTopOne$
-& $\ExtensionSavingConsumerNextForty$
-& $\ExtensionSavingConsumerBottomFifty$ \\
 \addlinespace
-\multicolumn{5}{@{}l}{\textit{Change in unveiled net position, 1982--2007}} \\
-& Home mortgages
+Unveiled net-position change, 1982--2007
+& Mortgage
 & $\ExtensionNetMortgageTopOne$
 & $\ExtensionNetMortgageNextForty$
 & $\ExtensionNetMortgageBottomFifty$ \\
-& Consumer credit
-& $\ExtensionNetConsumerTopOne$
-& $\ExtensionNetConsumerNextForty$
-& $\ExtensionNetConsumerBottomFifty$ \\
 \bottomrule
 \end{tabularx}
 
-\vspace{0.2em}
-\resulttag{Motivating result.}
-Mortgages dominate the 1982--2007 debt build-up, the 1998--2007 debt-related
-saving drag, and the widening lender--borrower split. The top 1 percent was
-already a net mortgage lender in 1982; its position widened rather than
-switching sign. The regime changes after 2008: for the bottom 99 percent, the
-average mortgage contribution moves from
+\resulttag{Interpretation.}
+Mortgages dominate the boom-era debt build-up, the debt-related saving drag,
+and the widening top-lender/middle-borrower split. For the bottom 99\%, the
+mortgage saving contribution then collapses from
 $\ExtensionBottomNinetyNineMortgageBoom$ in 1998--2007 to
-$\ExtensionBottomNinetyNineMortgagePost$ in 2008--2016, while consumer credit
-moves only from $\ExtensionBottomNinetyNineConsumerBoom$ to
-$\ExtensionBottomNinetyNineConsumerPost$. Thus mortgages select the primary
-pre-crisis mechanism, whereas post-crisis consumer credit requires a separate
-composition analysis.
+$\ExtensionBottomNinetyNineMortgagePost$ in 2008--2016, so the model should
+target the pre-crisis regime. This is accounting incidence, not a causal
+financialization estimate.
 
-\compactheading{Proposed research design}
+\compactheading{Empirical and quantitative sequence}
 
-\textbf{1. Close the measurement identity.} Re-express mortgage and
-consumer-credit contributions with each group's exact Figure 6 disposable-income
-denominator, retain the percentile bins, and verify that debt categories sum
-to total debt saving and that all asset classes recover the complete saving
-rate. This distinguishes a debt contribution from an explanation of the full
-rate.
+\textbf{1. Close the MSS measurement identity.}
+Use the exact Figure 6 group-income denominator and percentile bins; require
+mortgage plus consumer credit to recover total debt saving and all asset classes
+to recover the complete saving rate.
 
-\textbf{2. Identify borrower incidence and contract type.} Use the Survey of
-Consumer Finances to split mortgages and home-equity loans from revolving,
-vehicle, student, installment, and other debt. Report participation and
-conditional balances by wealth and age, and repeat the analysis using
-gross-asset, focal-debt-excluded, or lagged rank so that debt does not mechanically
-determine the household's wealth group.
+\textbf{2. Identify the intermediation channel.}
+Measure securitization, loan sales, GSE/private-label shares, originator funding
+and capital, retention, and guarantees separately. Estimate approval, rate,
+amount, and performance responses using conforming-loan eligibility or
+predetermined lender exposure. Test cutoff manipulation, borrower sorting, and
+the lender-exposure exclusion restriction.
 
-\textbf{3. Estimate mechanisms by regime.} For 1982--2007, combine a validated
-policy or lender-exposure shock to mortgage credit with borrower outcomes and
-the category-specific unveiling map. For the post-2008 period, first determine
-whether student, vehicle, or revolving credit accounts for the residual before
-choosing a separate identification strategy. A single aggregate time-series
-regression would confound credit with house prices, interest rates,
-demographics, regulation, and inequality.
+\textbf{3. Estimate the model and unveil losses.}
+Match Figures 1, 6, and 8; mortgage spreads and originations; intermediary
+funding/capital; and default/loss severity. Simulate nominal ownership and
+state-contingent losses, enforcing loss conservation across security holders,
+intermediary capital, government guarantees, and the rest of the world.
 
-\compactheading{Novelty and evidentiary boundary}
+\textbf{4. Run the counterfactual.}
+Holding 2007 incomes, collateral, and borrower fundamentals fixed, replace the
+2007 intermediation/risk-bearing structure with its 1982 counterpart. Measure
+the implied change in middle mortgage debt and Figure 6 saving, then separate
+intermediation from inequality, collateral, and agency/guarantee wedges.
 
-Debt composition by wealth and the pre-crisis mortgage boom are not themselves
-new facts. The contribution is the intersection: connecting category-specific
-borrower incidence to the exact Figure 6 saving-rate divergence and to Figure
-8 ultimate ownership. The preliminary results establish accounting incidence,
-not that top saving caused loan origination, mortgage credit caused the full
-saving decline, or borrowing reduced welfare. Those claims remain outcomes for
-the proposed causal stage.
+\compactheading{Required data}
+
+\begin{tabularx}{\textwidth}{@{}L{1.65in}X L{1.75in}@{}}
+\toprule
+\textbf{Source} & \textbf{Object} & \textbf{Principal limitation} \\
+\midrule
+MSS DINA, Financial Accounts/FWTW, DFA
+& Saving by wealth, ownership network, mortgage stocks and write-downs
+& Nominal claims do not reveal loss waterfalls \\
+HMDA + Call Reports
+& Applications, approvals, lender funding, capital, charge-offs
+& HMDA lacks wealth; nonbank exposure is incomplete \\
+FHFA/GSE limits and loan-performance files
+& Eligibility, securitization, default, recovery, loss severity
+& GSE loans do not cover private-label securitization \\
+SCF/DFA + local house prices
+& Borrower wealth rank, portfolios, collateral and housing risk
+& Triennial survey; house prices are endogenous \\
+\bottomrule
+\end{tabularx}
+
+Private-label pool/tranche and servicing data would sharpen risk incidence but
+may require commercial access. The public minimum combines the existing MSS
+pipeline with HMDA, Call Reports, conforming limits, GSE performance, SCF/DFA,
+and house prices.
+
+\compactheading{Evidentiary boundary}
+
+The proposal does not assume that financialization caused top saving or that
+more credit reduced welfare. Pooling can lower idiosyncratic risk while leaving
+aggregate risk intact; securitization may relax funding constraints while
+weakening screening. The contribution is to estimate these offsetting forces
+and distinguish who owns the claim from who bears the loss.
 
 \vfill
 {\color{MSSGray}\scriptsize\raggedright
-Generated from the verified debt-composition headline and period-summary
-tables.\par
-Empirical producer: \texttt{build\_debt\_composition\_extension.py}. Displayed
-values: \texttt{build\_extension\_proposal\_assets.py}. The February 2021
-authors' package is unchanged.}
+Empirical producer: \texttt{build\_debt\_composition\_extension.py}; displayed
+values: \texttt{build\_extension\_proposal\_assets.py}. The authors' package is
+unchanged. Exact Figure 6 group-income closure and causal identification remain
+proposed work.}
 
 \end{document}

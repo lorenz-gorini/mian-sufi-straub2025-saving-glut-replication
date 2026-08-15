@@ -7,10 +7,11 @@ methodological contribution. The course deliverable needs a defensible idea,
 data plan, and identifying logic; implementation is optional and must not be
 claimed unless it is actually completed and verified.
 
-Status: **In progress.** The user selected debt composition, saving, and
-ultimate financing. Its four-group stock, active-saving, and category-specific
-unveiling evidence is implemented and verified; the exact Figure 6 percentile
-decomposition and causal design remain.
+Status: **In progress.** The selected proposal now asks whether financial
+intermediation transformed rich saving into cheaper mortgage credit and how
+nominal ownership differs from ultimate risk-bearing. The verified four-group
+debt evidence selects the pre-2008 mortgage setting; the exact Figure 6
+percentile decomposition, causal design, and loss-incidence layer remain.
 
 ## Deferred alternative: unveil AI circular financing
 
@@ -87,43 +88,48 @@ data-cost or higher-novelty alternative. Score the alternatives on:
 4. identification and accounting invariants; and
 5. feasibility within the course deadline.
 
-## Working extension: debt composition by wealth group
+## Working extension: from unveiled ownership to unveiled risk
 
-[`research_extension_idea_2.md`](../../../research_extension_idea_2.md) is the
-canonical extension note. It asks which debt categories explain the Figure 6
-saving-rate evolution and Table A2 debt contribution below the top 1%, then who
-ultimately finances each category after intermediaries are unveiled in the
-Figure 8 framework.
+[`research_extension_idea_2.md`](../../../Extension_Proposal/research_extension_idea_2.md)
+is the canonical extension note. It asks whether the expansion of
+intermediation transformed demand for claims by rich savers into cheaper and
+more abundant mortgage credit, thereby lowering measured saving among
+middle-wealth households, and who ultimately bore the associated losses.
 
 The current authors-kit pipeline now implements a mortgage-versus-consumer-
 credit decomposition through 2016 for the four broad wealth groups. It covers
 liability stocks, write-down-adjusted active-saving contributions, and
 category-specific ultimate ownership. Detailed credit-card, vehicle, student,
 and medical-debt splits still require SCF or SIPP microdata and cannot be
-recovered from the current DINA nonmortgage share. A causal claim about
-financial innovation remains outside the current evidence.
+recovered from the current DINA nonmortgage share. This evidence is now a
+target moment and mechanism-selection result, not the novelty claim.
 
 Pure debt composition is not sufficient novelty: CBO tabulations and Bartscher
 et al. (2025) already document debt composition and long-run household debt
-heterogeneity. The distinctive proposed contribution is to connect debt-
-instrument-specific borrower incidence to Figure 6 saving-rate changes,
-category-specific ultimate ownership, and active-saving contributions.
+heterogeneity, while a large mortgage literature studies securitization and
+credit supply. The proposed contribution instead joins Figures 1, 6, and 8 in
+one quantitative mechanism and extends MSS's payoff-blind ownership operator
+with a separate state-contingent loss-pass-through map. It distinguishes
+pooling and funding benefits from weakened screening, capital absorption, and
+government guarantees.
 
 ### Provisional comparison
 
 Scores use 1 (weak) to 5 (strong) and are design judgments, not empirical
 results.
 
-| Dimension | Debt composition and ultimate financing | AI circular financing |
-| --- | ---: | ---: |
-| Economic relevance to the target paper | 5 | 3 |
-| Potential novelty | 3 | 5 |
-| Public/supplied data availability | 5 | 1 |
-| Accounting identification | 5 | 2 |
-| Causal identification with current data | 2 | 1 |
-| Feasibility for the course deadline | 5 | 1 |
+| Dimension | Debt composition alone | Financialization and risk-bearing | AI circular financing |
+| --- | ---: | ---: | ---: |
+| Economic relevance to the target paper | 5 | 5 | 3 |
+| Potential novelty | 3 | 4 | 5 |
+| Public/supplied data availability | 5 | 3 | 1 |
+| Accounting identification | 5 | 4 | 2 |
+| Causal identification with current data | 2 | 3 | 1 |
+| Feasibility for the course deadline | 5 | 4 | 1 |
 
-The debt extension is the stronger course-deliverable candidate. The AI
+The financialization/risk-bearing design is the strongest course proposal: it
+uses the implemented debt evidence but has a clearer conceptual increment over
+MSS. Debt composition remains the feasible empirical foundation. The AI
 network remains the more speculative, high-novelty direction for a future
 project if contract-level data become available.
 
@@ -154,6 +160,29 @@ project if contract-level data become available.
 | 2026-08-14 | Implement the broad-group mortgage-versus-consumer-credit evidence and use it as the selected extension. | The same-vintage direct-cell network and Figure 5 write-down inputs identify group stocks, active-saving contributions, and ultimate ownership without importing another vintage. The observed mortgage magnitudes justify prioritizing the housing-credit branch while retaining a causal boundary. |
 | 2026-08-14 | Separate the extension into pre-2008 mortgage and post-2008 consumer-credit regimes. | Mortgage borrowing dominates the boom-era debt-related saving drag but largely disappears after 2008, while consumer credit remains negative. One common post-1980 credit mechanism would conceal this break. |
 | 2026-08-15 | Use the debt-composition design as the written submission extension. | It is the most direct and best-supported continuation of Figure 6: verified same-vintage evidence selects a mortgage mechanism before 2008, while the report can state the remaining measurement and causal work without overstating it as completed. |
+| 2026-08-15 | Refocus the written extension on financialization and ultimate risk-bearing. | Debt composition and the mortgage boom are heavily studied. The sharper increment is to use the mortgage evidence as motivation, open the MSS intermediation block, and distinguish nominal ownership from state-contingent loss incidence. |
+
+## Session record: 2026-08-15 financialization and risk refocus
+
+- Starting branch/commit: `main` at `f5d3211`; the worktree was clean.
+- Goal: replace debt composition as the final novelty claim with a sharper,
+  model-based extension while preserving the verified evidence.
+- Changed files: the canonical design note, two-page LaTeX brief, extension
+  README, three moved-file links, this task record, and the T-008 dashboard row.
+- Evidence: target-paper Figures 1, 6, and 8, Table A2, and conclusion; the
+  verified mortgage-versus-consumer-credit outputs; and primary literature on
+  securitization, mortgage credit supply, originate-to-distribute incentives,
+  and safe-asset creation.
+- Reasoning: the MSS operator allocates nominal claims but is silent about
+  pooling, screening, spreads, capital, guarantees, and realized losses. A
+  separate state-contingent loss operator makes that boundary explicit and
+  creates a quantitative counterfactual for middle borrowing and saving.
+- Result: the extension now proposes a borrower--saver--intermediary model,
+  testable mechanisms, an empirical sequence using HMDA/Call Reports/GSE and
+  wealth data, and a 1982-intermediation counterfactual. Existing mortgage
+  results remain descriptive motivating evidence.
+- Next action: close the exact Figure 6 group-income contribution, then choose
+  and validate one causal design before estimating the model.
 
 ## Session record: 2026-08-15 compact submission brief
 

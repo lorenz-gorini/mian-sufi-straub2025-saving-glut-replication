@@ -1,14 +1,16 @@
 # Extension Proposal
 
 `extension_proposal.tex` is the standalone two-page course-submission
-component proposing a debt-composition and ultimate-financing extension of
+component proposing a financialization and ultimate-risk-bearing extension of
 Mian, Straub, and Sufi. `extension_proposal.pdf` is its compiled artifact.
 
-The brief begins with Figure 6 and the project's time-resolved saving-rate
-heatmap, reports the verified mortgage-versus-consumer-credit evidence, and
-separates the implemented descriptive accounting from the proposed causal
-research. It is designed to be combined later with the compact replication
-summary and referee report without changing their source files.
+The brief connects Figures 1, 6, and 8, reports the verified mortgage-versus-
+consumer-credit evidence as motivation, and proposes a borrower--saver--
+intermediary model that separates risk pooling from risk shifting. It extends
+nominal ownership unveiling with a state-contingent loss-pass-through layer and
+keeps the implemented descriptive accounting distinct from proposed causal
+and structural work. It is designed to be combined later with the compact
+replication summary and referee report without changing their source files.
 
 Regenerate the displayed numerical values from the project root:
 
