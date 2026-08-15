@@ -171,9 +171,11 @@ not a reason to leave the historical benchmark open.
 
 ## Presentation requirement
 
-The main deck states the evidence hierarchy before displaying Figure 1. The
-two-frame insert `Presentation/sections/replication_strategy.tex` is included
-near the beginning of `Presentation/presentation.tex`.
+The legacy combined deck states the evidence hierarchy before displaying
+Figure 1. The two-frame insert
+`Presentation/0_legacy_combined_deck/sections/replication_strategy.tex` is
+included near the beginning of
+`Presentation/0_legacy_combined_deck/presentation.tex`.
 
 ## Figure 1 authors-data reconstruction
 

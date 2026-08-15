@@ -106,7 +106,8 @@ The Sections 2.1--2.2 operator and old/new code lineage were completed on
   `docs/methods/leontief-unveiling.md`;
 - the exact seven-round trace added to
   `docs/reference/author-kit-map.md`; and
-- the visually verified initial module in `Presentation/presentation.pdf`.
+- the visually verified initial module in
+  `Presentation/0_legacy_combined_deck/presentation.pdf`.
 
 The 2026-08-03 teaching revision adds a complete matrix-to-network mapping and
 a generated direct-plus-indirect reconciliation. `Report/report.tex` now also

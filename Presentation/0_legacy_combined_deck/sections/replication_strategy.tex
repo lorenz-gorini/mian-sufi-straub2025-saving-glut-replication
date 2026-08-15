@@ -1,0 +1,72 @@
+% Include after the scope/version slide in presentation.tex.
+
+\begin{frame}{Replication evidence has three distinct layers}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.31\textwidth}
+    \begin{block}{1. Historical benchmark}
+      \small
+      Same February 2021 final data, same Stata analysis, same older exhibit.
+
+      \vspace{0.15cm}
+      \textbf{Question:} can the supplied package reproduce itself?
+    \end{block}
+
+    \column{0.31\textwidth}
+    \begin{block}{2. Reconstruction}
+      \small
+      Earliest feasible author inputs, independently written transformations,
+      same economic object.
+
+      \vspace{0.15cm}
+      \textbf{Question:} do we understand and rebuild the method?
+    \end{block}
+
+    \column{0.31\textwidth}
+    \begin{block}{3. New-data robustness}
+      \small
+      Newer public vintage, harmonized definition, explicitly revised sector
+      and sample boundary.
+
+      \vspace{0.15cm}
+      \textbf{Question:} does the economic pattern survive updated data?
+    \end{block}
+  \end{columns}
+
+  \vspace{0.25cm}
+  \begin{alertblock}{Evidence rule}
+    Robustness is informative, but it does not replace same-input replication.
+    Every output must carry both a paper-version and an evidence-layer label.
+  \end{alertblock}
+  \source{Project evidence hierarchy. The July 2025 paper is the target; the supplied Stata package and final files correspond to February 2021.}
+\end{frame}
+
+\begin{frame}{Selective reads keep the full source tree manageable}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.54\textwidth}
+    \begin{block}{The original tree is now available}
+      \begin{itemize}
+        \item author data tree: about 45 GB apparent
+        \item Figure 1 reads only selected FOF, CRSP, and NIPA columns
+        \item no duplicate raw tree under \texttt{Data/}
+        \item generated annual outputs are only kilobytes
+      \end{itemize}
+    \end{block}
+
+    \column{0.42\textwidth}
+    \begin{block}{Deadline-first sequence}
+      \begin{enumerate}
+        \item reuse authors' prepared panel
+        \item recompute core aggregation
+        \item validate annual identities
+        \item save compact comparison data
+      \end{enumerate}
+    \end{block}
+  \end{columns}
+
+  \vspace{0.15cm}
+  \begin{alertblock}{Protect the vendor snapshot}
+    The master script uses \texttt{replace}. Our Python pipeline reads the
+    authors' files without mutation and writes only to project-owned outputs.
+  \end{alertblock}
+  \source{Filesystem metadata audit, 2026-08-08; Figure 1 selective read verified 2026-08-09. Detailed folder map and storage policy: docs/data/author-kit-data-map.md.}
+\end{frame}

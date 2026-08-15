@@ -141,8 +141,8 @@ were redesigned and a one-bank row/column interpretation slide was added on
 benchmark and evidence-hierarchy revision on 2026-08-09 brought the deck to 21
 slides:
 
-- entry point: `Presentation/presentation.tex`;
-- rendered deck: `Presentation/presentation.pdf`;
+- entry point: `Presentation/0_legacy_combined_deck/presentation.tex`;
+- rendered deck: `Presentation/0_legacy_combined_deck/presentation.pdf`;
 - generated numerical inputs:
   `Presentation/generated/unveiling_values.tex` and
   `Presentation/generated/figure1_values.tex` and
@@ -221,7 +221,7 @@ checks.
 | 2026-08-09 | Replace cloud-only conceptual raster dependencies with native TikZ schematics. | The exact diagrams are clearer, reproducible, and allow a warning-free build without changing empirical content. |
 | 2026-08-09 | Separate FWTW cell completion, DINA cohort allocation, and NIPA/valuation closure in the visual architecture. | These sources identify different dimensions; treating DINA as the source of bilateral network residuals would misstate the paper's implementation. |
 | 2026-08-09 | Keep package validation in a separate PowerPoint under `Presentation/1_replication_package_validation/`. | The user wants a direct old-package-versus-2025-paper audit, not additional slides inside the pedagogical Beamer deck. |
-| 2026-08-09 | Replace the single combined-deck workflow with numbered topic-specific presentation folders. | Multiple chats edited the same root `presentation.tex`; separate ownership prevents accidental overwrites and keeps data architecture distinct from theoretical methodology. |
+| 2026-08-09 | Replace the single combined-deck workflow with numbered topic-specific presentation folders. | Multiple chats edited the same combined `presentation.tex`; separate ownership prevents accidental overwrites and keeps data architecture distinct from theoretical methodology. |
 | 2026-08-09 | Use a planar square for the exact four-sector network. | It preserves all six directed edges while avoiding owner-link crossings; background-layer links and border-clipped arrowheads keep arrows out of node labels. |
 | 2026-08-10 | Treat the three verified topic decks as source modules for a new final synthesis rather than merging their full contents. | The course presentation needs one short narrative; concatenating 39 slides would duplicate material and obscure the version/result comparison. |
 | 2026-08-10 | Use the NotebookLM deck only as a visual-communication reference. | Its flow is useful, but it is a secondary synthesis and cannot establish the paper's definitions or empirical evidence. |
@@ -235,6 +235,22 @@ checks.
 | 2026-08-10 | Extend the empirical-comparison deck with Figure 5 as a reconstruction and Figure 8 as a bounded proxy. | The old kit identifies the revised saving decomposition through 2016, but its seven-round unveiled debt assets are not the missing 2025 matrix inputs. The slide labels must preserve that difference in evidentiary strength. |
 | 2026-08-12 | Distinguish an exact authors-vintage gap from feasibility of the 2025 operation. | The public FWTW release contains completed bilateral estimates, so it can support a mixed-vintage full-Leontief rerun with 2021 DINA/NIPA even though the paper's exact 34-instrument, 27-sector matrices and equity crosswalk remain unavailable. |
 | 2026-08-14 | Lead the focused Figure 8 module with the 2021-direct/full-inverse route and retain public FWTW as robustness. | Reconstructing upstream saved old-kit cells separates the operator from vintage more cleanly than changing to the current public matrix, while the old final-file route remains the lineage benchmark. |
+| 2026-08-15 | Isolate the superseded combined deck under `Presentation/0_legacy_combined_deck/`. | Keeping its source, compiled artifact, legacy-only section, and historical assets together makes deck ownership explicit; shared generated macros remain at the collection root because other documents import them. |
+
+## Session record: 2026-08-15 legacy-deck isolation
+
+- Goal: separate the superseded combined Beamer deck from the shared
+  presentation collection root without breaking active decks or report inputs.
+- Dependency audit: `sections/` is imported only by the legacy deck; the two
+  files under `assets/` are unreferenced historical deck assets; `generated/`
+  is shared by the report, the historical theory deck, and three producing
+  scripts; `math-assets/` is shared by active PowerPoint modules.
+- Result: the source, compiled artifact, legacy-only section, and historical
+  assets now live under `Presentation/0_legacy_combined_deck/`. The empty,
+  unreferenced `benchmark_comparison/` staging directory was retired.
+- Validation: `latexmk` rebuilt all 24 pages without LaTeX, reference, or box
+  warnings. The complete rendered deck was visually audited; 23 page rasters
+  are byte-identical to the pre-move PDF, and page 22 is visually identical.
 
 ## Session record: 2026-08-14 three-route Figure 8 deck
 
@@ -457,7 +473,9 @@ checks.
   branch or commit identifier was available.
 - Goal: explain which datasets construct the ownership network and which split
   it across household groups, then connect those layers to Figures 1, 5, and 8.
-- Changed files: Presentation/presentation.tex, Presentation/presentation.pdf,
+- Changed files: the files now stored as
+  `Presentation/0_legacy_combined_deck/presentation.tex` and
+  `Presentation/0_legacy_combined_deck/presentation.pdf`,
   Presentation/README.md, and this task record.
 - Reasoning: the Financial Accounts/FWTW identify bilateral sector positions;
   DINA supplies mapped cohort shares; NIPA and valuation inputs identify
@@ -476,7 +494,7 @@ checks.
 - Starting version: the workspace was not recognized as a Git worktree, so no
   branch or commit identifier was available.
 - Goal: recover the overwritten data-architecture presentation as a standalone
-  artifact while leaving the root combined deck and other agents' presentation
+  artifact while leaving the combined deck and other agents' presentation
   folders untouched.
 - Changed files: `Presentation/2_data-map/presentation.tex`,
   `Presentation/2_data-map/presentation.pdf`,
@@ -497,7 +515,8 @@ checks.
 
 ## Session record: 2026-08-09 standalone theory deck
 
-- Starting version: the root `Presentation/presentation.tex` was a 24-slide
+- Starting version: the file now stored as
+  `Presentation/0_legacy_combined_deck/presentation.tex` was a 24-slide
   combined progress deck and had been edited by multiple chats.
 - Goal: recreate only the paper's theoretical methodology in an isolated
   `Presentation/3_theoretical_methodology/` deck.
