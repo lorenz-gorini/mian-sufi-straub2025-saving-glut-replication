@@ -51,3 +51,22 @@ definitions.
   contains no layout or reference warnings; Poppler reports seven letter-sized
   pages; all pages were rendered at 144 dpi and inspected for clipping,
   overlap, table/figure legibility, section transitions, and pagination.
+
+## Session record: 2026-08-16 report audit and code-package handoff
+
+- Starting branch/commit: `main` at `5e42db5`; the worktree was clean.
+- Goal: ensure the submitted report does not disclose AI or agent usage while
+  making the accompanying code package directly reproducible.
+- Audit: case-insensitive whole-word searches covered the combined entry point,
+  every imported LaTeX body, and all extracted PDF text. Standard PDF metadata was
+  also inspected. No reference to AI, agents, Codex, ChatGPT, OpenAI, LLMs, or
+  AI assistance was present; the PDF author field is empty and its creator and
+  producer identify only LaTeX/pdfTeX.
+- Documentation: the root README now records the Python environment, non-Git
+  input boundary, Figure 1 preserved-file setup, ordered build commands for
+  Figures 1, 5, 6, and all three Figure 8 routes, headline outputs, full test
+  command, and combined-submission rebuild.
+- Evidence boundary: the README explicitly distinguishes old-input
+  reconstructions, the Figure 1 and Figure 8 public-data robustness routes,
+  the Figure 8 seven-round lineage benchmark, and the unavailable exact July
+  2025 matrix inputs.
