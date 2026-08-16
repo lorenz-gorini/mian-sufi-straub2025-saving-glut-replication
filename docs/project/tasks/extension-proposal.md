@@ -142,7 +142,7 @@ project if contract-level data become available.
 - [x] The selected proposal is approved by the user for the extension deck.
 - [x] The short extension deck labels it as preliminary, descriptive, and
       partially implemented.
-- [ ] The combined report clearly labels it as proposed, partially illustrated, or
+- [x] The combined report clearly labels it as proposed, partially illustrated, or
       implemented.
 - [x] The separate extension deck uses more than one slide only because
       verified empirical evidence has been produced.

@@ -1,16 +1,16 @@
 # Extension Proposal
 
-`extension_proposal.tex` is the standalone two-page course-submission
-component proposing a financialization and ultimate-risk-bearing extension of
-Mian, Straub, and Sufi. `extension_proposal.pdf` is its compiled artifact.
+`main.tex` is the standalone entry point for the two-page extension proposal.
+It imports the body-only `extension_proposal.tex` and produces
+`extension_proposal.pdf` with the build command below.
 
 The brief connects Figures 1, 6, and 8, reports the verified mortgage-versus-
 consumer-credit evidence as motivation, and proposes a borrower--saver--
 intermediary model that separates risk pooling from risk shifting. It extends
 nominal ownership unveiling with a state-contingent loss-pass-through layer and
 keeps the implemented descriptive accounting distinct from proposed causal
-and structural work. It is designed to be combined later with the compact
-replication summary and referee report without changing their source files.
+and structural work. The same body is imported into the final combined report
+under [`../Submission_Report/`](../Submission_Report/).
 
 Regenerate the displayed numerical values from the project root:
 
@@ -21,7 +21,8 @@ python Code/scripts/build_extension_proposal_assets.py
 Then compile from this folder:
 
 ```bash
-latexmk -pdf -interaction=nonstopmode -halt-on-error extension_proposal.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error \
+  -jobname=extension_proposal main.tex
 ```
 
 The numerical macros under `generated/` consume the verified processed tables

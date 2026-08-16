@@ -37,8 +37,9 @@ assumed to match.
 
 The compact replication submission artifacts are now available as the editable
 17-slide `Presentation/5_replication_submission/presentation.pptx` and the
-separate `Report/replication_summary.pdf`. The latter preserves
-`Report/report.tex` as the detailed technical companion.
+seven-page `Submission_Report/submission_report.pdf`, which combines the
+referee report, compact replication summary, and extension proposal. The
+longer `Report/report.tex` remains the detailed technical companion.
 
 `NotebookLM-Present-Unveiling_the_Rich_Saving_Glut.pdf` is a
 15-page, image-only NotebookLM synthesis of the newer paper. Use it for
@@ -62,6 +63,7 @@ the code is developed.
 | `Presentation/` | A concise, reproducible progress presentation for discussion and feedback. |
 | `Report/` | The living LaTeX course report; include only documented and verified methods or results. |
 | `Referee_Report/` | Editable referee-report source, reproducible build scripts, and local submission files. |
+| `Submission_Report/` | Final combined LaTeX entry point and written-submission artifact. |
 | `docs/` | Canonical project, data, and reference documentation. |
 
 ## Repository boundary

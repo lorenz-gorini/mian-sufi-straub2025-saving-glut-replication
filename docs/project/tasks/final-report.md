@@ -9,8 +9,9 @@ to leave room for the separate referee report and extension proposal in the
 eventual combined submission.
 
 The existing ten-page `Report/report.tex` remains the technical evidence base
-and is not overwritten. The compact entry point is
-`Report/replication_summary.tex` and its submission artifact is
+and is not overwritten. The compact standalone entry point is
+`Report/main.tex`, which imports the body-only
+`Report/replication_summary.tex`; its artifact is
 `Report/replication_summary.pdf`.
 
 ## Evidence standard
@@ -139,8 +140,8 @@ layout warnings. The new and reflowed pages were inspected at full size on
   three-page PDF with no layout warnings; all pages were rendered at 150 dpi
   and visually inspected for clipping, spacing, table legibility, and figure
   readability.
-- Downstream submission action: combine this fixed replication component with
-  the completed referee report and whichever extension T-008 ultimately selects.
+- Downstream submission action: completed in T-012, which imports this body
+  into `Submission_Report/main.tex` without changing its content.
 
 ## Session record: 2026-08-14 Figure 8 integration
 

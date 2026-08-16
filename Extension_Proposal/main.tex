@@ -1,0 +1,35 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.62in,top=0.52in,bottom=0.55in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,tabularx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{MSSNavy}{HTML}{12304A}
+\definecolor{MSSOrange}{HTML}{C65D16}
+\definecolor{MSSGreen}{HTML}{2F855A}
+\definecolor{MSSGray}{HTML}{627D98}
+\definecolor{MSSPale}{HTML}{F4F7FA}
+
+% All displayed values are generated from the verified processed tables.
+\input{generated/extension_proposal_values.tex}
+
+\newcommand{\compactheading}[1]{%
+  \vspace{0.29em}\noindent{\color{MSSOrange}\bfseries\large #1}\par\vspace{0.13em}}
+\newcommand{\resulttag}[1]{\textcolor{MSSGreen}{\textbf{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.29em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.10}
+
+\begin{document}
+
+\input{extension_proposal.tex}
+
+\end{document}

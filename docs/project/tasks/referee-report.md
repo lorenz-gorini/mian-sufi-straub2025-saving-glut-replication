@@ -12,12 +12,13 @@ Status: **Complete**.
 ## Deliverables
 
 - Editable source: `Referee_Report/referee_report.md`.
-- Matching LaTeX source: `Report/referee_report.tex`.
+- Matching LaTeX entry point: `Referee_Report/main.tex`, importing the
+  body-only `Referee_Report/referee_report.tex`.
 - Reproducible build: `Referee_Report/source/rebuild_referee_report.zsh` and
   `Referee_Report/source/style_docx.py`.
 - Local submission artifacts: `Referee_Report/output/referee_report.docx` and
   `Referee_Report/output/referee_report.pdf`, plus the LaTeX-built
-  `Report/referee_report.pdf`.
+  `Referee_Report/referee_report.pdf`.
 - Diagnostics: `Results_Proposal/figures/figure6_percentile_vs_wealth_level.png`
   and `Results_Proposal/figures/figure6_rolling5_heatmap.png`.
 
@@ -75,12 +76,12 @@ Recession estimate. Both limitations are stated in the report and captions.
 
 - Goal: create a LaTeX version that can later be merged with the compact
   replication summary submitted to the professor.
-- Decision: keep `Report/referee_report.tex` as a separate standalone entry
-  point and match `Report/replication_summary.tex` exactly on document class,
+- Decision: keep `Referee_Report/main.tex` as a separate standalone entry
+  point and match `Report/main.tex` exactly on document class,
   margins, Latin Modern typography, colors, title hierarchy, paragraph spacing,
   and figure-note conventions.
 - Verification: `latexmk -pdf -interaction=nonstopmode -halt-on-error
-  referee_report.tex` succeeds without layout warnings. The two-page result has
+  -jobname=referee_report main.tex` succeeds without layout warnings. The two-page result has
   one complete text page and one figure page; both pages were rendered at 150
   dpi and visually inspected for overflow, clipping, and legibility.
 - Existing Markdown, DOCX, PDF, detailed report, and compact replication
