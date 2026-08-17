@@ -1,41 +1,49 @@
 # Debt-Composition Extension Deck
 
-This five-slide PowerPoint presents the implemented Stage 1 evidence for the
-selected research extension. It is intentionally separate from the replication
-submission deck: the evidence uses the validated 2021-direct/full-Leontief
-route, but the economic interpretation is a new, preliminary extension.
+This seven-slide PowerPoint presents the implemented Stage 1 evidence for the
+selected research extension. It remains separate from the replication
+comparison deck: the evidence uses validated 2021-direct/full-Leontief results
+and exact-method Figure 6 diagnostics, but the interpretation is a new,
+preliminary extension.
 
 The deck shows:
 
-1. mortgage and consumer-credit liability changes by wealth group;
-2. category-specific, write-down-adjusted contributions to active saving;
-3. mortgage and consumer-credit net positions after full unveiling; and
-4. the causal question and additional data needed for the next research stage.
+1. the mortgage-channel thesis and evidence boundary;
+2. mortgage and consumer-credit liability changes by wealth group;
+3. category-specific, write-down-adjusted contributions to active saving;
+4. mortgage and consumer-credit net positions after full unveiling;
+5. Figure 6 saving rates indexed by mean real wealth;
+6. trailing-five-year Figure 6 rates across wealth percentiles; and
+7. the causal question and additional data needed for the next stage.
 
-All empirical values are read from generated CSVs. No number is hand-entered
-into the deck builder. Every slide contains a `[Sources]` block in its speaker
-notes. The deck labels the evidence as descriptive rather than causal.
+The two Figure 6 slides were moved here from the direct-comparison deck because
+they interpret the saving mechanism rather than compare a paper exhibit with
+our implementation. The mean-wealth view shows that similarly wealthy bins
+save much less after 1982; the heat map shows a persistent upper-middle decline
+alongside volatile top-1 saving.
+
+All empirical values are read from generated CSVs. Every slide contains a
+`[Sources]` block in speaker notes, and the deck labels the evidence as
+descriptive rather than causal.
 
 ## Build
 
-First build and test the empirical extension from the project root:
+First build and test the empirical extension and Figure 6 outputs from the
+project root. Then load `RUNTIME_NODE`, `RUNTIME_NODE_MODULES`, and
+`RUNTIME_BIN_DIR` from the presentation runtime and run:
 
-```bash
-python Code/scripts/build_debt_composition_extension.py
-python -m pytest -q Code/tests/test_debt_composition_extension.py \
-  Code/tests/test_figure8_2021_direct.py
-```
-
-Then set `RUNTIME_NODE`, `RUNTIME_NODE_MODULES`, and `RUNTIME_BIN_DIR` from the
-presentation runtime dependency loader and run:
-
-```bash
+```zsh
 Presentation/7_debt_composition_extension/source/rebuild_presentation.zsh
 ```
 
-The editable output is `presentation.pptx`. On 2026-08-14, all five exported
-slides were inspected at full resolution; the deck passed the automated
-overflow test and the PowerPoint archive check.
+The durable source follows a frozen seven-slide template starter and validated
+frame map. It reuses the chart-plus-callout structure for the two Figure 6
+diagnostics and writes QA renders and layouts to an isolated `/private/tmp`
+workspace.
+
+All seven slides were rendered and inspected individually on 2026-08-16. The
+deck passes template-plan, template-fidelity, overflow, unresolved-placeholder,
+speaker-note source, and PowerPoint-archive checks.
 
 ## Evidence boundary
 
@@ -44,6 +52,8 @@ overflow test and the PowerPoint archive check.
   direct-cell vintage and DINA wealth shares.
 - The saving-flow chart applies the paper's category-specific debt write-down
   factors to signed Figure 5 liability levels.
+- Figure 6 applies the 2025 net-saving-rate definition to 2021-kit inputs; the
+  wealth view uses cohort means, not fixed-dollar bins.
 - Consumer credit is an aggregate category. Credit cards, vehicles, student
   loans, and medical debt are not separately identified.
 - The network has eight coarsened intermediary rows and an explicit unassigned

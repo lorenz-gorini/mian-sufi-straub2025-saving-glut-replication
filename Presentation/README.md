@@ -39,15 +39,15 @@ logic rather than decorate the slide.
 - `3_theoretical_methodology/` contains the separate theoretical methodology
   deck, including the Leontief derivation, exact worked network, and the
   paper's key conceptual innovation.
-- `4_figure_comparison/` contains the empirical comparison deck. It keeps the
-  2025 target, authors-old Stata precursor, ours-public robustness build, and
-  ours-authors reconstruction visibly separate.
+- `4_figure_comparison/` contains only direct July 2025 paper-versus-our-
+  implementation comparisons for Figures 1, 5, 6, and 8.
 - `6_figure8_method_comparison/` contains the focused Figure 8 comparison of
   the 2021-kit final-file/seven-round benchmark, the primary 2021-direct/full-
   Leontief reconstruction, and the current-public-FWTW/full-Leontief
   robustness route against the same 2025 target.
-- `7_debt_composition_extension/` contains the five-slide preliminary-evidence
-  deck for the selected mortgage-versus-consumer-credit research extension.
+- `7_debt_composition_extension/` contains the seven-slide preliminary-evidence
+  deck for the mortgage-versus-consumer-credit extension, including the Figure
+  6 wealth-level and time-evolution diagnostics.
 - `math-assets/` contains the shared LaTeX source for equations embedded in
   the editable PowerPoint decks.
 - `generated/` contains shared generated numerical macros used by more than
@@ -225,21 +225,18 @@ the template-fidelity check passed without issues. See
 
 ### Empirical figure comparison
 
-The editable 18-slide PowerPoint
-`4_figure_comparison/presentation.pptx` establishes a four-role naming and
-evidence hierarchy and applies it to Figures 1, 5, 6, and 8. Its central tests use
-February 2021 authors-kit inputs with the July 2025 definitions wherever those
-inputs identify the revised object. Figure 1 and Figure 5 are labeled
-reconstructions; the plotted Figure 8 remains the retained bounded proxy
-because it uses the old kit's seven-round positions. The previously proposed
-public-FWTW full-Leontief rerun is now implemented and audited in the separate
-focused deck described below. The regenerated old Figure 6 from
-Stata is a related authors-old precursor, while the later public-data Figure 1
-build is a robustness result. Paper graphs are shown without their printed
-captions, and their descriptions are restated in editable slide text. All 18
-slides were rendered and inspected on 2026-08-12. The deck passes template
-fidelity, overflow, unresolved-placeholder, source-note, and archive-integrity
-checks. See `4_figure_comparison/README.md` for its evidence contract.
+The editable seven-slide PowerPoint
+`4_figure_comparison/presentation.pptx` is a comparison-only sequence. After a
+single reading contract, it places the July 2025 Figures 1, 5, 6, and 8 beside
+our corresponding implementation and reports common-sample fit. Figures 1, 5,
+and 6 use the 2025 definitions with February 2021 authors-kit inputs. Figure 8
+uses the saved 2021 direct cells with the full Leontief inverse; the older
+seven-round proxy no longer appears in this deck. Supporting Stata,
+digitization, wealth-level, heat-map, and public-FWTW diagnostics remain in
+their owning method or extension decks. All seven slides were rendered and
+inspected individually on 2026-08-16 and pass the template-plan,
+template-fidelity, overflow, placeholder, source-note, and archive checks. See
+`4_figure_comparison/README.md` for the evidence contract.
 
 ### Figure 8 method comparison
 
@@ -257,15 +254,19 @@ placeholder, source-note, and archive checks. See
 
 ### Debt-composition research extension
 
-The editable five-slide PowerPoint
+The editable seven-slide PowerPoint
 `7_debt_composition_extension/presentation.pptx` presents the implemented
 Stage 1 extension. It separates mortgage and consumer-credit liabilities,
 their write-down-adjusted active-saving contributions, and their net positions
-after the same-vintage full-Leontief solve. The deck is deliberately short and
-labels the evidence as descriptive rather than causal. All values come from
-generated CSVs, every slide contains source notes, and the deck passed full-
-resolution inspection plus the automated overflow test on 2026-08-14. See
-`7_debt_composition_extension/README.md` for the rebuild and evidence boundary.
+after the same-vintage full-Leontief solve. Two added Figure 6 diagnostics
+index the saving profiles by mean real wealth and expose their trailing-five-
+year evolution. These are mechanism-selection views, not direct paper-figure
+comparisons. The deck labels every result as descriptive rather than causal;
+all values come from generated CSVs and every slide contains source notes. All
+seven slides were inspected individually on 2026-08-16 and pass the template-
+plan, template-fidelity, overflow, placeholder, source-note, and archive
+checks. See `7_debt_composition_extension/README.md` for the rebuild and
+evidence boundary.
 
 ### Final replication submission
 

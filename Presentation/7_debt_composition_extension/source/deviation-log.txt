@@ -1,0 +1,7 @@
+Slides 5--6: reuse the inherited chart-and-callout frame from the mortgage-unveiling slide. Delete the duplicated editable chart only within its bounded evidence zone and replace it with the corresponding generated Figure 6 PNG.
+
+Slide 5: shorten the inherited numeric labels and reduce only those four callout runs to fit the existing boxes without changing their geometry.
+
+Slide 6: shorten the title and numeric labels and reduce only those four callout runs to fit the existing boxes without changing their geometry.
+
+Slide 7: update only the page number after inserting the two Figure 6 diagnostics.

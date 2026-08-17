@@ -9,24 +9,23 @@ methodological decisions and evidence; stable data contracts live in
 
 | ID | Task | Status | Priority | Category | Estimate | Objective | Progress and next action | Task record |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T-005 | Refresh the final pedagogical presentation | In progress | 1 | presentation |  | Replace the outdated Figure 8 proxy sequence while retaining the concise theory, data-lineage, and result-comparison narrative. | The source now defines an 18-slide deck with the focused three-route Figure 8 comparison and a project-built opening network visual; `node --check` passes. The verified 17-slide PowerPoint remains unchanged because the Artifact Tool runtime loader was unavailable. The superseded combined Beamer deck is now isolated under `Presentation/0_legacy_combined_deck/`. Next rebuild, render, and inspect all 18 slides when that dependency is restored. | [Presentation task](tasks/pedagogical-presentation.md); [submission deck](../../Presentation/5_replication_submission/README.md) |
-| T-009 | Review and integrate the Figure 5, Figure 6, and Figure 8 comparisons | In progress | 1 | paper-review |  | Understand what the three figures measure, trace how our outputs were generated, evaluate the paper-versus-ours comparisons, and approve their presentation use. | Figure 8's primary 2021-direct/full-inverse route is now integrated into the compact report and pending presentation source. The old seven-round output remains lineage and current public FWTW remains robustness; next review the complete submission after the PowerPoint rebuild. | [Review task](tasks/figure5-figure8-review.md); [personal considerations](personal-considerations-saving-inequality.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 6 replication](tasks/figure6-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
-| T-008 | Design a feasible extension proposal | In progress | 3 | research-design |  | Determine whether financial intermediation transformed rich saving into cheaper mortgage credit and extend nominal ownership unveiling to ultimate risk-bearing. | The verified debt decomposition now serves as motivating evidence that selects pre-2008 mortgages. The long design and two-page brief specify a pooling/agency model, a state-contingent loss operator, public-data sequence, identification threats, and an honest novelty boundary. Next close the exact Figure 6 group-income contribution and choose between conforming-loan eligibility and predetermined lender exposure for the first causal test. | [Extension proposal](tasks/extension-proposal.md); [submission brief](../../Extension_Proposal/extension_proposal.tex); [canonical financialization/risk design](../../Extension_Proposal/research_extension_idea_2.md); [extension data](../data/debt-composition-extension-data.md) |
+| T-005 | Refresh the final pedagogical presentation | In progress | 1 | presentation |  | Replace the outdated Figure 8 proxy sequence while retaining the concise theory, data-lineage, and result-comparison narrative. | The component comparison deck is now a verified seven-slide sequence for Figures 1, 5, 6, and the primary 2021-direct/full-inverse Figure 8. Supporting Figure 6 diagnostics moved to the extension deck. Next refresh the 17-slide submission synthesis from these verified modules and inspect the complete deliverable. | [Presentation task](tasks/pedagogical-presentation.md); [submission deck](../../Presentation/5_replication_submission/README.md) |
+| T-009 | Review and integrate the Figure 5, Figure 6, and Figure 8 comparisons | In progress | 1 | paper-review |  | Understand what the three figures measure, trace how our outputs were generated, evaluate the paper-versus-ours comparisons, and approve their presentation use. | The verified comparison module now integrates the direct Figure 5 and Figure 6 matches and the primary Figure 8 full-inverse route. The old seven-round output remains lineage and current public FWTW remains robustness in the focused method deck. Next review the seven-slide comparison sequence before final-submission integration. | [Review task](tasks/figure5-figure8-review.md); [personal considerations](personal-considerations-saving-inequality.md); [Figure 5 replication](tasks/figure5-replication.md); [Figure 6 replication](tasks/figure6-replication.md); [Figure 8 replication](tasks/figure8-replication.md) |
+| T-008 | Design a feasible extension proposal | In progress | 3 | research-design |  | Determine whether financial intermediation transformed rich saving into cheaper mortgage credit and extend nominal ownership unveiling to ultimate risk-bearing. | The verified seven-slide extension deck now combines mortgage debt composition, active-saving contributions, unveiled lender positions, and the Figure 6 wealth/time diagnostics. These motivate the mechanism but remain descriptive. Next choose between conforming-loan eligibility and predetermined lender exposure for the first causal test. | [Extension proposal](tasks/extension-proposal.md); [submission brief](../../Extension_Proposal/extension_proposal.tex); [canonical financialization/risk design](../../Extension_Proposal/research_extension_idea_2.md); [extension data](../data/debt-composition-extension-data.md) |
 
-## Immediate sequence: 2026-08-15
+## Immediate sequence: 2026-08-16
 
-1. Use the verified seven-page combined submission report as the fixed written
-   component. Rebuild and visually verify the prepared 18-slide presentation
-   source when the required Artifact Tool runtime loader is available.
-2. Treat the five-slide debt-composition evidence as mechanism-selection
-   evidence: pre-2008 mortgages dominate, but ownership is not risk incidence
-   and the current result is not an identified mortgage-credit effect.
-3. Add the exact Figure 6 percentile/group-income saving-rate decomposition;
-   revise the included financialization/risk-bearing proposal only if that new
-   evidence changes its quantitative motivation.
-4. Review the integrated Figure 8 result. Treat the 2021-direct/full-inverse
-   route as the primary same-vintage test, the old seven-round result as its
-   lineage benchmark, and the public-FWTW rerun as a robustness exercise.
+1. Review the verified seven-slide paper-versus-implementation module for
+   Figures 1, 5, 6, and 8.
+2. Refresh the final submission synthesis from the verified topic modules; do
+   not reintroduce the old Figure 8 proxy or the Figure 6 extension diagnostics
+   into the direct-comparison sequence.
+3. Treat the seven-slide debt-composition evidence as mechanism selection:
+   mortgages dominate before 2008 and the Figure 6 decline persists at similar
+   mean wealth, but ownership is not risk incidence and no causal effect is
+   identified.
+4. Choose and document the first causal mortgage-credit design before adding
+   any new empirical extension claim.
 
 ## Completed tasks
 

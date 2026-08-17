@@ -1,7 +1,9 @@
-Slide 3: clarify that the current public FWTW release contains 31 instruments and 25 substantive sectors, whereas the target paper reports 34 instruments and 23 intermediaries plus four owners.
+Slides 1--2: rewrite the inherited opening and evidence-taxonomy frames as a concise comparison-only contract.
 
-Slide 4: duplicate source slide 2 and use only inherited shapes to state that a full-Leontief mixed-vintage rerun is feasible, while an exact authors-vintage reproduction remains unavailable.
+Slides 3--5: retain the inherited Figure 1, Figure 5, and Figure 6 direct-comparison slides, changing only slide numbers where required.
 
-Slide 16: replace the old “missing upstream matrices” wording with the narrower exact-vintage gap and distinguish the existing proxy from the planned public-FWTW method reconstruction.
+Slide 6: replace the old seven-round Figure 8 proxy image in the inherited right panel with `figure8_2021_direct_full_leontief.png`; update the panel label, fit metrics, 2007 comparison, and evidence verdict.
 
-Slide 18: update the synthesis to preserve the proxy label for the plotted Figure 8 while naming the feasible full-method next step.
+Slide 7: rewrite the inherited synthesis to summarize only the four direct comparisons and their residual vintage/network boundaries.
+
+Omitted source slides: old Stata/public-FWTW role exposition, Figure 1 supporting diagnostics, Figure 6 raster-audit/wealth/heat-map diagnostics, Figure 8 feasibility/proxy exposition, and intermediate method slides. Those materials remain in their owning method or extension decks.

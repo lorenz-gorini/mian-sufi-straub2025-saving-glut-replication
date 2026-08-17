@@ -1,0 +1,121 @@
+{
+  "outputSlides": [
+    {
+      "outputSlide": 1,
+      "sourceSlide": 1,
+      "narrativeRole": "preserve source slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 2,
+      "sourceSlide": 2,
+      "narrativeRole": "preserve source slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 3,
+      "sourceSlide": 3,
+      "narrativeRole": "preserve source slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 4,
+      "sourceSlide": 4,
+      "narrativeRole": "preserve source slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": []
+    },
+    {
+      "outputSlide": 5,
+      "sourceSlide": 5,
+      "narrativeRole": "index the Figure 6 saving-rate profiles by mean real wealth",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/dgbulwnm",
+            "sh/cf2tcr61",
+            "sh/032tgr6d",
+            "sh/n6dcr65o",
+            "sh/m5kbi1oj",
+            "sh/w32dkbuh",
+            "sh/x4vedgvm",
+            "sh/v2twb6dw",
+            "sh/k7mxovud"
+          ]
+        },
+        {
+          "action": "delete",
+          "sourceElementId": "ch/29oji10f"
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 76,
+            "top": 158,
+            "width": 850,
+            "height": 410
+          },
+          "reason": "The inherited chart is deleted and its bounded evidence zone receives the generated Figure 6 mean-wealth diagnostic."
+        }
+      ]
+    },
+    {
+      "outputSlide": 6,
+      "sourceSlide": 6,
+      "narrativeRole": "show trailing-five-year Figure 6 rates across percentile and time",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/yhg7epsj",
+            "sh/zi98nu94",
+            "sh/7m98ru9g",
+            "sh/oryp8fah",
+            "sh/pc76hkr2",
+            "sh/h4bupgn6",
+            "sh/w32twb6l",
+            "sh/u1kbu1ov",
+            "sh/5svutgni"
+          ]
+        },
+        {
+          "action": "delete",
+          "sourceElementId": "ch/jqhk3i94"
+        },
+        {
+          "action": "add",
+          "newPrimitiveAllowed": true,
+          "mustNotOverlapInherited": true,
+          "zone": {
+            "left": 76,
+            "top": 158,
+            "width": 850,
+            "height": 410
+          },
+          "reason": "The inherited chart is deleted and its bounded evidence zone receives the generated Figure 6 heat map."
+        }
+      ]
+    },
+    {
+      "outputSlide": 7,
+      "sourceSlide": 7,
+      "narrativeRole": "retain the causal boundary as the closing slide",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeId": "sh/cb2tkvap"
+        }
+      ]
+    }
+  ],
+  "omittedSourceSlides": []
+}

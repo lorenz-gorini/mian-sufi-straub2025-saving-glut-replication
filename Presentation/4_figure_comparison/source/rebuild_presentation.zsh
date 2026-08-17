@@ -6,25 +6,42 @@ deck_source_dir=${0:A:h}
 deck_dir=${deck_source_dir:h}
 project_root=${deck_dir:h:h}
 deck_output=${1:-"${deck_dir}/presentation.pptx"}
-presentations_skill_dir=${PRESENTATIONS_SKILL_DIR:-"/Users/lorenzogorini/.codex/plugins/cache/openai-primary-runtime/presentations/26.805.11740/skills/presentations"}
+presentations_skill_dir=${PRESENTATIONS_SKILL_DIR:-"/Users/lorenzogorini/.codex/plugins/cache/openai-primary-runtime/presentations/26.813.12317/skills/presentations"}
 
-if [[ ! -f "${presentations_skill_dir}/container_tools/setup_artifact_tool_workspace.mjs" ]]; then
-  print -u2 "Set PRESENTATIONS_SKILL_DIR to the installed presentations skill directory."
-  exit 1
-fi
+: ${RUNTIME_NODE:?Set RUNTIME_NODE from the presentation runtime dependency loader}
+: ${RUNTIME_NODE_MODULES:?Set RUNTIME_NODE_MODULES from the presentation runtime dependency loader}
+: ${RUNTIME_BIN_DIR:?Set RUNTIME_BIN_DIR from the presentation runtime dependency loader}
 
 deck_workspace=$(mktemp -d /private/tmp/mss-figure-comparison.XXXXXX)
+ln -s "${RUNTIME_NODE_MODULES}" "${deck_workspace}/node_modules"
 
-node "${presentations_skill_dir}/container_tools/setup_artifact_tool_workspace.mjs" \
-  --workspace "${deck_workspace}"
+RUNTIME_NODE="${RUNTIME_NODE}" \
+RUNTIME_NODE_MODULES="${RUNTIME_NODE_MODULES}" \
+RUNTIME_BIN_DIR="${RUNTIME_BIN_DIR}" \
+PATH="${RUNTIME_BIN_DIR}:${PATH}" \
+"${RUNTIME_NODE}" "${presentations_skill_dir}/template_following_scripts/inspect_template_deck.mjs" \
+  --workspace "${deck_workspace}" \
+  --pptx "${deck_source_dir}/template-starter.pptx"
+
+RUNTIME_NODE="${RUNTIME_NODE}" \
+RUNTIME_NODE_MODULES="${RUNTIME_NODE_MODULES}" \
+RUNTIME_BIN_DIR="${RUNTIME_BIN_DIR}" \
+PATH="${RUNTIME_BIN_DIR}:${PATH}" \
+"${RUNTIME_NODE}" "${presentations_skill_dir}/template_following_scripts/prepare_template_starter_deck.mjs" \
+  --workspace "${deck_workspace}" \
+  --pptx "${deck_source_dir}/template-starter.pptx" \
+  --map "${deck_source_dir}/template-frame-map.json" \
+  --out "${deck_workspace}/template-starter.pptx" \
+  --preview-dir "${deck_workspace}/template-starter-preview" \
+  --layout-dir "${deck_workspace}/template-starter-layout"
+
 cp "${deck_source_dir}/build_presentation.mjs" "${deck_workspace}/build_presentation.mjs"
 
 MSS_DECK_WORKSPACE="${deck_workspace}" \
 MSS_PROJECT_ROOT="${project_root}" \
-MSS_DECK_SOURCE_DIR="${deck_source_dir}" \
 MSS_DECK_OUTPUT="${deck_output}" \
-PRESENTATIONS_SKILL_DIR="${presentations_skill_dir}" \
-node "${deck_workspace}/build_presentation.mjs"
+PATH="${RUNTIME_BIN_DIR}:${PATH}" \
+"${RUNTIME_NODE}" "${deck_workspace}/build_presentation.mjs"
 
 print "Deck written to ${deck_output}"
 print "QA intermediates retained in ${deck_workspace}"

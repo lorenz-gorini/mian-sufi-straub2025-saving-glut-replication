@@ -1,93 +1,69 @@
 # Figure Comparison Deck
 
-`presentation.pptx` is the maintained comparison deck for the four analyzed
-empirical outputs. It begins by separating four evidence roles that must not be
-called interchangeable replications:
-
-1. the July 2025 paper's Figure 1, which is the authoritative target;
-2. the February 2021 package's old Figure 6, which is an authors-old
-   methodological precursor with a different dependent variable;
-3. our later-vintage public-data robustness build; and
-4. our primary Python reconstruction of the 2025 definition from the authors'
-   February 2021 inputs.
-
-The main comparison is item 4 versus item 1. Items 2 and 3 are supporting
-diagnostics for method lineage and data-vintage robustness. They cannot isolate
-a pure methodology effect because inputs, classifications, denominators, and
-estimands change together. Not every role exists for every figure.
+`presentation.pptx` is the seven-slide, comparison-only module for the four
+implemented paper figures. Each empirical slide puts the July 2025 target on
+the left and our implementation on the right, reports common-sample fit, and
+states the remaining data-vintage or network boundary.
 
 ## Current sequence
 
-The 18 slides establish the taxonomy and then compare the paper with our
-authors-data results for Figures 1, 5, 6, and 8. Figure 1 retains the older
-Stata and public-data outputs as supporting diagnostics. Figures 5 and 6 are
-classified as reconstructions because the supplied wealth, income, fine-share,
-valuation, and NIPA inputs identify the revised saving objects through 2016.
-The Figure 6 section adds a paper-raster digitization audit and two mechanism
-diagnostics: the same saving rates indexed by mean real wealth, and
-trailing-five-year rates across percentiles.
-The plotted Figure 8 remains the retained bounded proxy because its unveiled
-asset stocks come from the older seven-round procedure. The formerly planned
-full-method step is now implemented and compared in the separate focused deck
-[`../6_figure8_method_comparison/presentation.pptx`](../6_figure8_method_comparison/presentation.pptx).
-It combines the current completed public FWTW release with 2021 DINA/NIPA and
-applies the 2025 full-Leontief operator. That mixed-vintage output is a method
-reconstruction, not an exact reproduction of the authors' 34-instrument,
-27-sector, through-2019 vintage.
+1. comparison-only title and common reading rule;
+2. evidence contract for Figures 1, 5, 6, and 8;
+3. Figure 1 indirect household ownership;
+4. Figure 5 saving by wealth group;
+5. Figure 6 saving rates by wealth percentile;
+6. Figure 8 net debt from 2021 direct cells and the full Leontief inverse; and
+7. synthesis of what survives independent implementation.
 
-The paper graphs on the primary comparison slides are cropped to remove their
-printed captions. Their meaning, sample, and units are restated in editable
-slide text. Every slide contains a `[Sources]` block in speaker notes.
+Figures 1, 5, and 6 recompute the 2025 objects with the February 2021
+authors-kit inputs, so the common sample ends in 2016. Figure 8 uses the
+earliest feasible saved direct/pre-round cells and replaces the old seven-round
+operator with the full inverse. Its network remains coarsened to eight
+intermediary blocks and therefore is not the unavailable 2025 34-instrument,
+27-sector matrix.
+
+The Figure 6 paper-raster audit, wealth-level view, and trailing-five-year
+heat map are intentionally excluded. The economically interpretive
+wealth-level and time-evolution views now live in
+[`../7_debt_composition_extension/presentation.pptx`](../7_debt_composition_extension/presentation.pptx).
+The focused three-route Figure 8 lineage and robustness audit remains in
+[`../6_figure8_method_comparison/presentation.pptx`](../6_figure8_method_comparison/presentation.pptx).
 
 The principal comparison statistics are:
 
 - Figure 1 level: correlation 0.995 and mean absolute error 5.3 percentage
-  points over the common 1963--2016 sample;
+  points over 1963--2016;
 - Figure 5 top 1% / bottom 99%: correlations 0.992 / 0.997 and mean absolute
   errors 0.40 / 0.42 percentage points;
 - Figure 6 pre/post curves: correlations 0.991 / 0.969 and mean absolute errors
   1.46 / 1.22 percentage points; and
-- Figure 8 proxy top 1% / bottom 99%: correlations 0.993 / 0.995, with the
-  2007 top-1 lending position understated by about 6 percentage points.
+- Figure 8 top 1% / bottom 99%: correlations 0.994 / 0.995 and mean absolute
+  errors 2.33 / 1.31 percentage points. In 2007 the reconstructed top-1
+  position is +11.47 points of national income versus +18.02 in the paper.
 
 ## Generated inputs
 
 - `Results_Proposal/figures/figure1_authors_data_reconstruction.png`
-- `Results_Proposal/figures/figure1_authors_data_comparison.png`
-- `Results_Proposal/figures/figure1_indirect_household_ownership.png`
 - `Results_Proposal/figures/figure5_authors_data_reconstruction.png`
 - `Results_Proposal/figures/figure6_authors_data_percentiles.png`
-- `Results_Proposal/figures/figure6_authors_data_wealth_levels.png`
-- `Results_Proposal/figures/figure6_digitization_overlay_slide.png`
-- `Results_Proposal/figures/figure6_rolling5_heatmap.png`
-- `Results_Proposal/figures/figure6_rolling5_selected_percentiles.png`
-- `Results_Proposal/figures/figure8_authors_proxy.png`
-- `MSS2021Febreplicationkit/output/fig_owndet.eps`
+- `Results_Proposal/figures/figure8_2021_direct_full_leontief.png`
 - `MSS_SGR_July242025.pdf`, Figures 1, 5, 6, and 8, physical PDF pages 11, 22,
   24, and 29
 
-The Python figures are rebuilt by `Code/scripts/build_figure1_authors_data.py`
-and `Code/scripts/build_figure1.py`,
-`Code/scripts/build_figure5_authors_data.py`,
-`Code/scripts/build_figure6_authors_data.py`, and
-`Code/scripts/build_figure8_authors_data.py`. The source paper and replication
-kit remain read-only.
+The producing scripts and comparison tables are documented in the four figure
+task records under `docs/project/tasks/`. The paper and replication kit remain
+read-only.
 
 ## Validation
 
-All 18 slides were rendered and inspected individually on 2026-08-12. The deck
-passes the template-fidelity, overflow, unresolved-placeholder, source-note,
-and PowerPoint-archive checks. Future extensions must retain the role labels
-and may not silently promote either the current Figure 8 proxy or the
-implemented mixed-vintage rerun to an exact authors-vintage reproduction.
+All seven slides were rendered and inspected individually on 2026-08-16. The
+deck passes template-plan, template-fidelity, overflow, unresolved-placeholder,
+speaker-note source, and PowerPoint-archive checks.
 
 ## Editable source
 
-Durable authoring files are stored in `source/`, alongside the presentation.
-Run `source/rebuild_presentation.zsh` to reconstruct the deck with Artifact
-Tool. The folder retains the editable build module, the template-following
-starter deck and frame map, and the authoring audit. Reusable cropped paper
-material is stored in `assets/`.
-
-Temporary render folders, layout exports, dependency installations, and QA
-caches are deliberately excluded because the rebuild command regenerates them.
+Durable authoring files are stored in `source/`. Run
+`source/rebuild_presentation.zsh` after loading the presentation runtime
+dependencies. The build selects seven inherited slides from the frozen
+18-slide visual source, edits only the declared targets, and regenerates the
+render and layout QA artifacts in an isolated `/private/tmp` workspace.

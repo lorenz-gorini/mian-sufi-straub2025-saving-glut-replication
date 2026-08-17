@@ -1,0 +1,11 @@
+Communication job: by the end, a course audience should see the mortgage channel as the strongest descriptive extension, understand how Figure 6 saving patterns sharpen the mechanism, and distinguish accounting evidence from a causal estimate.
+
+Source structure: seven-slide 16:9 deck, 1280 by 720 pixels, white background, navy titles, orange kickers and rules, pale evidence callouts, and Calibri typography. All visual-system elements are slide-local.
+
+Reusable patterns: slides 2--4 supply the empirical chart-plus-callout structure. Slides 5--6 reuse that inherited frame, replace only the central chart, and preserve its title, callout, implication, and source zones. Slide 7 retains the three-column causal-boundary close.
+
+Insertion contract: preserve slides 1--4; use two inherited slide-4 clones for the Figure 6 mean-wealth and trailing-five-year diagnostics; retain the causal boundary as slide 7.
+
+Placeholders: inspection found no inherited empty placeholders. All source-slide objects not named in the frame map remain unchanged.
+
+Sources: July 2025 target paper; February 2021 replication kit; generated debt-composition tables; generated Figure 6 exact-method and rolling-window artifacts.

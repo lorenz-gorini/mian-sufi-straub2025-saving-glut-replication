@@ -161,6 +161,30 @@ project if contract-level data become available.
 | 2026-08-14 | Separate the extension into pre-2008 mortgage and post-2008 consumer-credit regimes. | Mortgage borrowing dominates the boom-era debt-related saving drag but largely disappears after 2008, while consumer credit remains negative. One common post-1980 credit mechanism would conceal this break. |
 | 2026-08-15 | Use the debt-composition design as the written submission extension. | It is the most direct and best-supported continuation of Figure 6: verified same-vintage evidence selects a mortgage mechanism before 2008, while the report can state the remaining measurement and causal work without overstating it as completed. |
 | 2026-08-15 | Refocus the written extension on financialization and ultimate risk-bearing. | Debt composition and the mortgage boom are heavily studied. The sharper increment is to use the mortgage evidence as motivation, open the MSS intermediation block, and distinguish nominal ownership from state-contingent loss incidence. |
+| 2026-08-16 | Move the Figure 6 wealth-level and time-evolution diagnostics into the extension deck. | These views do not replicate a separate paper exhibit; they show that the later-period saving decline persists at similar mean wealth and varies over time, which is mechanism-selection evidence for the extension. |
+
+## Session record: 2026-08-16 Figure 6 mechanism integration
+
+- Goal: place the completed Figure 6 wealth and time diagnostics with the
+  extension evidence rather than in the direct paper-comparison sequence.
+- Changed: `Presentation/7_debt_composition_extension/presentation.pptx`, its
+  durable template-following source and provenance files, this task record,
+  the presentation collection contract, and the T-008 dashboard row.
+- Evidence: `figure6_authors_data_wealth_levels.png`,
+  `figure6_rolling5_heatmap.png`, the processed profile and rolling-window
+  tables, and the existing mortgage stock, saving-contribution, and unveiled-
+  position outputs.
+- Result: the extension deck now has seven slides. The added views show 31.5%
+  saving at mean wealth about \$303k for the pre-1982 90th-percentile bin,
+  versus 7.4% at about \$286k for the post-1982 80th-percentile bin; the
+  80th-percentile five-year rate falls from 20.1% in 1982 to 6.1% in 2016.
+- Interpretation boundary: the wealth comparison uses cohort means rather
+  than fixed-dollar bins, and neither diagnostic identifies a causal mortgage-
+  credit mechanism.
+- Validation: all seven slides were inspected individually and pass template-
+  plan, template-fidelity, overflow, placeholder, speaker-note source, and
+  archive-integrity checks.
+- Next action: choose the first causal mortgage-credit design.
 
 ## Session record: 2026-08-15 financialization and risk refocus
 

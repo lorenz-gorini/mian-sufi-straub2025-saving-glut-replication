@@ -1,47 +1,123 @@
 {
   "outputSlides": [
-    {"outputSlide": 1, "sourceSlide": 1, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
-    {"outputSlide": 2, "sourceSlide": 2, "narrativeRole": "preserve source slide", "reuseMode": "duplicate-slide", "editTargets": []},
+    {
+      "outputSlide": 1,
+      "sourceSlide": 1,
+      "narrativeRole": "open a comparison-only sequence for the four core paper figures",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/547294r6",
+            "sh/k3yl0zql",
+            "sh/7qp4be9c",
+            "sh/ts7md4r2",
+            "sh/fu94fe98",
+            "sh/utg3698n"
+          ]
+        }
+      ]
+    },
+    {
+      "outputSlide": 2,
+      "sourceSlide": 2,
+      "narrativeRole": "define the direct paper-versus-implementation comparison contract",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/t8byxkn2",
+            "sh/9072xkry",
+            "sh/b29kza94",
+            "sh/a10jqpsj",
+            "sh/x4r21kru",
+            "sh/q5wjelsz",
+            "sh/ove9o7yd",
+            "sh/mtwrmxg7",
+            "sh/nu58f2hs",
+            "sh/xk7qlczu",
+            "sh/ahwrqhgj",
+            "sh/cnupgny5",
+            "sh/do3q9szq"
+          ]
+        }
+      ]
+    },
     {
       "outputSlide": 3,
-      "sourceSlide": 3,
-      "narrativeRole": "clarify the current public FWTW dimensions in the method crosswalk",
+      "sourceSlide": 5,
+      "narrativeRole": "compare the 2025 Figure 1 target with our old-input reconstruction",
       "reuseMode": "duplicate-slide",
-      "editTargets": [{"action": "rewrite", "shapeIds": ["sh/83ulovat", "sh/14ryd8fq"]}]
+      "editTargets": [{"action": "rewrite", "shapeId": "sh/z2tcnm5s"}]
     },
     {
       "outputSlide": 4,
-      "sourceSlide": 2,
-      "narrativeRole": "state the exact-vintage versus full-method Figure 8 reconstruction boundary",
+      "sourceSlide": 10,
+      "narrativeRole": "compare the 2025 Figure 5 target with our old-input reconstruction",
       "reuseMode": "duplicate-slide",
-      "editTargets": [{"action": "rewrite", "shapeIds": ["sh/t8byxkn2", "sh/9072xkry", "sh/b29kza94", "sh/a10jqpsj", "sh/x4r21kru", "sh/q5wjelsz", "sh/ove9o7yd", "sh/mtwrmxg7", "sh/nu58f2hs", "sh/xk7qlczu", "sh/ahwrqhgj", "sh/cnupgny5", "sh/do3q9szq"]}]
+      "editTargets": [{"action": "rewrite", "shapeId": "sh/zelojyl8"}]
     },
-    {"outputSlide": 5, "sourceSlide": 4, "narrativeRole": "shift preserved Figure 1 primary comparison", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/rm1k7yt4"}]},
-    {"outputSlide": 6, "sourceSlide": 5, "narrativeRole": "shift preserved Figure 1 denominator audit", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/z2tcnm5s"}]},
-    {"outputSlide": 7, "sourceSlide": 6, "narrativeRole": "shift preserved Figure 1 public-vintage diagnostic", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/87ipkzal"}]},
-    {"outputSlide": 8, "sourceSlide": 7, "narrativeRole": "shift and clarify the effective-intermediary count in the public Figure 1 diagnostic", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeIds": ["sh/ydkbm5sv", "sh/1k7edwv2"]}]},
-    {"outputSlide": 9, "sourceSlide": 8, "narrativeRole": "shift preserved Figure 5 method audit", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/ri9g7uhw"}]},
-    {"outputSlide": 10, "sourceSlide": 9, "narrativeRole": "shift preserved Figure 5 primary comparison", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/nex4jq5k"}]},
-    {"outputSlide": 11, "sourceSlide": 10, "narrativeRole": "shift preserved Figure 6 identification slide", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/zelojyl8"}]},
-    {"outputSlide": 12, "sourceSlide": 11, "narrativeRole": "shift preserved Figure 6 primary comparison", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/n69grmpw"}]},
-    {"outputSlide": 13, "sourceSlide": 12, "narrativeRole": "shift preserved Figure 6 digitization audit", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/ra943il8"}]},
-    {"outputSlide": 14, "sourceSlide": 13, "narrativeRole": "shift preserved Figure 6 mechanism view", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/o3i5w3ad"}]},
-    {"outputSlide": 15, "sourceSlide": 14, "narrativeRole": "shift preserved Figure 6 time-evolution view", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeId": "sh/jepwf2pc"}]},
     {
-      "outputSlide": 16,
-      "sourceSlide": 15,
-      "narrativeRole": "correct Figure 8 feasibility: exact authors vintage unavailable, public full-method rerun feasible",
+      "outputSlide": 5,
+      "sourceSlide": 12,
+      "narrativeRole": "compare the 2025 Figure 6 target with our exact-method old-input reconstruction",
       "reuseMode": "duplicate-slide",
-      "editTargets": [{"action": "rewrite", "shapeIds": ["sh/547mhg3m", "sh/76p4jqls", "sh/m9c3e1kn", "sh/wrm9kvep", "sh/upkrilwj", "sh/vqdsrqx4", "sh/5wvax0f6", "sh/it4rm5wv", "sh/l0bqlgf2"]}]
+      "editTargets": [{"action": "rewrite", "shapeId": "sh/ra943il8"}]
     },
-    {"outputSlide": 17, "sourceSlide": 16, "narrativeRole": "shift and relabel the current Figure 8 proxy comparison", "reuseMode": "duplicate-slide", "editTargets": [{"action": "rewrite", "shapeIds": ["sh/ytkf2h8j", "sh/2pcfa5oz"]}]},
     {
-      "outputSlide": 18,
+      "outputSlide": 6,
       "sourceSlide": 17,
-      "narrativeRole": "update synthesis with the public-FWTW full-method path",
+      "narrativeRole": "replace the old Figure 8 proxy with the primary 2021-direct full-inverse reconstruction",
       "reuseMode": "duplicate-slide",
-      "editTargets": [{"action": "rewrite", "shapeIds": ["sh/1c7e50ni", "sh/rm5czq50", "sh/ulw7ihoj", "sh/14rqpgne"]}]
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/1c7e50ni",
+            "sh/rm5czq50",
+            "sh/t8ne10n6",
+            "sh/3ap8fm50",
+            "sh/gnepkr69",
+            "sh/honqdwnu"
+          ]
+        },
+        {"action": "replace", "sourceElementId": "im/r69gv610"}
+      ]
+    },
+    {
+      "outputSlide": 7,
+      "sourceSlide": 18,
+      "narrativeRole": "synthesize the four direct comparisons and their remaining boundaries",
+      "reuseMode": "duplicate-slide",
+      "editTargets": [
+        {
+          "action": "rewrite",
+          "shapeIds": [
+            "sh/wrelszu9",
+            "sh/itw3upcf",
+            "sh/4felwzu5",
+            "sh/fapkr6pw",
+            "sh/gbylkbqh",
+            "sh/to72pw76",
+            "sh/qh03ql8j"
+          ]
+        }
+      ]
     }
   ],
-  "omittedSourceSlides": []
+  "omittedSourceSlides": [
+    {"sourceSlide": 3, "reason": "method crosswalk is outside the comparison-only brief"},
+    {"sourceSlide": 4, "reason": "superseded Figure 8 feasibility boundary"},
+    {"sourceSlide": 6, "reason": "Figure 1 denominator diagnostic belongs in technical documentation"},
+    {"sourceSlide": 7, "reason": "authors-old Figure 1 precursor is not a direct target comparison"},
+    {"sourceSlide": 8, "reason": "public-vintage Figure 1 robustness is not a direct target comparison"},
+    {"sourceSlide": 9, "reason": "Figure 5 identification details belong in the method deck"},
+    {"sourceSlide": 11, "reason": "Figure 6 identification details belong in the method record"},
+    {"sourceSlide": 13, "reason": "digitization audit is supporting QA rather than a result comparison"},
+    {"sourceSlide": 14, "reason": "wealth-level diagnostic moves to the extension deck"},
+    {"sourceSlide": 15, "reason": "time-evolution heat map moves to the extension deck"},
+    {"sourceSlide": 16, "reason": "superseded Figure 8 proxy boundary"}
+  ]
 }
